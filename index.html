@@ -1711,12 +1711,6 @@ function detail(k){
       </div>`;
     })()}
 
-    <div class="panel">
-      <div class="section-t"><span>📡</span> Live weather — ${c.geo.place}</div>
-      <div id="wxLive" class="wx-live"><div style="color:var(--muted)"><span class="spinner"></span> &nbsp;Fetching current conditions in the key growing region…</div></div>
-      <div class="chart-cap">Live data via Open-Meteo (free API). Shows whether the key region is currently wet, dry or hot — the same signals El Niño amplifies.</div>
-    </div>
-
     <div class="predict">
       <div class="pl">🎯 2026 El Niño production outlook — ${c.name}</div>
       <div class="pc">${c.predict}</div>
@@ -1739,7 +1733,7 @@ function detail(k){
   `;
   el.querySelector('.prov-hint').textContent='Using '+(getProv()==='claude'?'Claude':'Gemini')+' — change in ⚙️ AI Setup';
 
-  setTimeout(()=>{ chartEvents(c,k); chartTrend(c); fetchWeather(c); },40);
+  setTimeout(()=>{ chartEvents(c,k); chartTrend(c); },40);
 }
 
 // ════════════ CHARTS ════════════
@@ -1866,30 +1860,6 @@ function chartTrend(c){
 }
 
 // ════════════ LIVE WEATHER (Open-Meteo) ════════════
-async function fetchWeather(c){
-  const box=document.getElementById('wxLive'); if(!box)return;
-  try{
-    const u=`https://api.open-meteo.com/v1/forecast?latitude=${c.geo.lat}&longitude=${c.geo.lon}`+
-      `&current=temperature_2m,relative_humidity_2m,precipitation&daily=precipitation_sum&past_days=7&forecast_days=1&timezone=auto`;
-    const r=await fetch(u); if(!r.ok)throw new Error('weather '+r.status);
-    const d=await r.json();
-    const t=d.current.temperature_2m, h=d.current.relative_humidity_2m, p=d.current.precipitation;
-    const wk=(d.daily.precipitation_sum||[]).slice(0,7).reduce((a,b)=>a+(b||0),0);
-    let read,color;
-    if(wk<5){read='🌵 Dry week — little rain in the key region. Watch for drought stress.';color='rgba(249,115,22,.12);color:#fdba74';}
-    else if(wk>60){read='🌧️ Very wet — heavy recent rain. Flood / disease-pressure risk.';color='rgba(59,130,246,.12);color:#93c5fd';}
-    else {read='🌤️ Near-normal recent rainfall in the key growing region.';color='rgba(34,197,94,.1);color:#86efac';}
-    if(t>33){read='🔥 Hot — elevated heat stress. '+read;color='rgba(239,68,68,.12);color:#fca5a5';}
-    box.innerHTML=`
-      <div class="wx-metric"><div class="m-ic">🌡️</div><div class="m-v">${t}°C</div><div class="m-l">Temperature</div></div>
-      <div class="wx-metric"><div class="m-ic">💧</div><div class="m-v">${h}%</div><div class="m-l">Humidity</div></div>
-      <div class="wx-metric"><div class="m-ic">🌧️</div><div class="m-v">${p} mm</div><div class="m-l">Now</div></div>
-      <div class="wx-metric"><div class="m-ic">📅</div><div class="m-v">${wk.toFixed(0)} mm</div><div class="m-l">Past 7 days</div></div>
-      <div style="flex-basis:100%"><div class="wx-read" style="background:${color}">${read}</div></div>`;
-  }catch(e){
-    box.innerHTML=`<div class="alert alert-warn">Couldn't load live weather (${e.message}). The dashboard works fully without it.</div>`;
-  }
-}
 
 // ════════════ INIT ════════════
 (function init(){
