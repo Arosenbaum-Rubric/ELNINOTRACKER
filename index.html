@@ -440,7 +440,7 @@ const C = {
     wx:[ {l:'Excess rain · Jul–Aug',t:'rain'}, {l:'Black-pod & swollen-shoot disease',t:'disease'}, {l:'Harmattan drought · Dec–Feb',t:'drought'} ],
     mech:"West Africa grows 60–75% of the world's cocoa. El Niño shifts the regional rain band (ITCZ) and hits the crop in two windows: <strong>too much rain in Jul–Aug</strong> during the main-crop harvest spreads swollen-shoot virus and black-pod disease, then the dry, dusty <strong>Harmattan winds in Dec–Feb</strong> drive humidity below 20% and damage the mid-crop. Ageing trees, thin replanting and land constraints amplify every shock.",
     why:[ "Supply is concentrated: a single weather zone drives the majority of global output.",
-          "ICCO (crop-year Oct–Sep) finds 20 of the last 21 El Niño years negative; FAO calendar-year data shows a more mixed picture — 2006–07 and 2023–24 were the clear production shocks.",
+          "Peer-reviewed research (Scientific Reports 2022) finds every strong El Niño in the past 55 years has reduced global cocoa production; ICCO crop-year (Oct–Sep) data shows more consistent negatives than FAO calendar-year — 2006–07 and 2023–24 were the clearest FAO-measured production shocks.",
           "Trees are perennial — drought and disease stress carries into following seasons." ],
     events:{
       '2002-03':{prod:3705144,base:3298178,src:'rep'},  // +12.3% FAO/OWID World 2003 vs 2002 (area expansion dominated)
@@ -452,7 +452,7 @@ const C = {
       '2023-24':{prod:5123486,base:5622906,src:'rep'}   // -8.9% FAO/OWID World 2023 vs 2022 (calendar yr of impact)
     },
     supply:{ stocks:null, use:null, src:'todo' }, // TODO ICCO: world cocoa stocks-to-grindings ratio
-    superNote:"All 7 events now sourced from FAO via OWID World aggregate (1961–2024). Only 2006–07 (−9.3%) and 2023–24 (−8.9%) were meaningful declines; 2002–03 was +12.3% as area expansion dominated. ICCO crop-year (Oct–Sep) methodology shows more consistent negatives because it aligns harvest timing to the affected season — FAO calendar year frequently splits the impact across two reporting years. The 2023–24 production loss came largely from reduced harvested area (tree death, disease) not yield per surviving hectare — structural recovery takes years, not seasons.",
+    superNote:"All 7 events sourced from FAO via OWID World aggregate (1961–2024). Only 2006–07 (−9.3%) and 2023–24 (−8.9% FAO cal-year; ICCO crop-year −11% to −13%) were meaningful declines; 2002–03 was +12.3% as area expansion dominated. ICCO crop-year methodology shows more consistent negatives because it aligns harvest timing to the affected season. The 2023–24 crisis was driven by both weather (black-pod disease from excess December rainfall, February drought cutting pod development) and structural area loss — Ghana's COCOBOD confirmed 500,000+ ha infected by Swollen Shoot Virus. Full structural recovery requires 3–5+ years as new trees mature.",
     trendIdx:{labels:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],vals:[115,112,105,90,88,85,78,76,80,95,108,112],src:'2026 est.'},
     verdict:'TROUGH',
     verdictNote:"Coming off the 2023–24 collapse (−11% YoY). 2025 delivered only a partial rebuild; global stocks remain unusually thin.",
@@ -484,7 +484,7 @@ const C = {
       '2023-24':{prod:73031,base:72511,src:'rep'}    // +0.7% FAO/OWID 2023 vs 2022
     },
     supply:{ stocks:null, use:null, src:'todo' }, // TODO USDA PSD: palm oil ending stocks & consumption
-    superNote:"FAO production data (OWID) shows 2014–16 as the only event with a clear global CPO production decline (−5.0%); all other events show flat or positive volumes driven by Indonesia's area expansion. The real El Niño signal is FFB yield per hectare: Indonesia −9.3%, Malaysia −14.7% in 2015–16 (FAO/OWID pipeline). Indonesia's B50 biodiesel mandate from July 2026 adds a structural demand pull on top of any weather-driven yield shortfall.",
+    superNote:"FAO production data (OWID) shows 2014–16 as the only event with a clear global CPO production decline (−5.0%; USDA FAS shows −5.4%); all other events flat or positive as Indonesia's area expansion dominates volume. The real El Niño signal is FFB yield per hectare: Malaysia fell ~−14% in 2015–16 (CPO output −13.2%, USDA IPAD Aug 2016); Indonesia's yield impact was smaller (~−5%, USDA) but its scale makes even a small % shock material. Indonesia's B50 biodiesel mandate from July 1, 2026 adds structural demand pull on top of any weather-driven yield shortfall.",
     trendIdx:{labels:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],vals:[88,90,97,103,110,115,110,105,112,115,110,100],src:'2026 est.'},
     verdict:'MIXED',
     verdictNote:"Long-run expansion kept output rising, but the 2023 El Niño lag plus B50 biodiesel diversion are tightening exportable supply into 2026.",
@@ -932,6 +932,15 @@ const estMark=cond=>cond?'<span class="est-star" title="Includes directional est
 
 let current=null, charts={};
 const currentOutcome={};
+// 30-yr monthly precipitation normals (mm) for each commodity's key growing region
+// Derived from WorldClim / CRU TS climatological data for the geo coordinates in C[k].geo
+const PRECIP_NORMALS={
+  cocoa:   [25,55,105,135,160,185,105,65,130,160,95,30],   // Yamoussoukro, CIV
+  palmoil: [200,175,195,215,190,165,155,165,190,225,230,225], // Pekanbaru, Sumatra
+  sugar:   [5,5,8,15,30,165,365,310,210,65,20,10],          // Kolhapur, Maharashtra
+  coffee:  [10,15,35,110,220,260,285,275,270,175,60,20],    // Buôn Ma Thuột, Vietnam
+  bananas: [195,250,290,200,45,15,10,10,10,15,25,65]        // Guayaquil, Ecuador
+};
 function getOutcome(k){ return currentOutcome[k]||Object.keys(C[k].outcomes)[0]; }
 function setOutcome(k,ok){ currentOutcome[k]=ok; const sy=window.scrollY; render(); requestAnimationFrame(()=>window.scrollTo(0,sy)); }
 
@@ -1106,6 +1115,43 @@ async function fetchONI(){
   return r.json();
 }
 
+async function fetchMonthly2026(){
+  const today=new Date();
+  const endDate=today.toISOString().slice(0,10);
+  const curMonth=today.getMonth(); // 0-indexed; months beyond this are future (null)
+  const MNAMES=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const DAYS_IN=[31,28,31,30,31,30,31,31,30,31,30,31]; // 2026 is not a leap year
+  await Promise.allSettled(Object.keys(C).map(async k=>{
+    const c=C[k];
+    if(!c.geo||!PRECIP_NORMALS[k]) return;
+    try{
+      const url=`https://archive-api.open-meteo.com/v1/archive?latitude=${c.geo.lat}&longitude=${c.geo.lon}`+
+        `&start_date=2026-01-01&end_date=${endDate}&daily=precipitation_sum&timezone=auto`;
+      const r=await fetch(url); if(!r.ok) return;
+      const d=await r.json();
+      const monthly={};
+      (d.daily.time||[]).forEach((dt,i)=>{
+        const mi=parseInt(dt.slice(5,7))-1;
+        const p=+(d.daily.precipitation_sum[i])||0;
+        if(!monthly[mi]) monthly[mi]={total:0,days:0};
+        monthly[mi].total+=p; monthly[mi].days++;
+      });
+      const normals=PRECIP_NORMALS[k];
+      const vals=MNAMES.map((_,mi)=>{
+        if(mi>curMonth) return null;
+        const m=monthly[mi]; if(!m||!normals[mi]) return null;
+        // Annualise partial months so the index is comparable to the full-month normal
+        const ann=mi===curMonth?(m.total/m.days*DAYS_IN[mi]):m.total;
+        return Math.round(ann/normals[mi]*100);
+      });
+      const trendData={labels:MNAMES,vals,src:'Open-Meteo archive',isRainfall:true};
+      c.trendIdx=trendData;
+      LIVE.data[k]={...(LIVE.data[k]||{}),monthly2026:trendData};
+      LIVE.status[k]='ok';
+    }catch(e){}
+  }));
+}
+
 function applySupplyData(supplyJson){
   Object.keys(C).forEach(k=>{
     const d=supplyJson[k]; if(!d||d.stu==null) return;
@@ -1153,6 +1199,7 @@ async function fetchAllLiveData(force){
           Object.assign(LIVE.data,data); LIVE.oni=oni; LIVE.supply=supply;
           if(supply) applySupplyData(supply);
           WB_CEREAL_CROPS.forEach(k=>{ if(data[k]&&C[k]) { C[k].trendIdx={labels:data[k].years,vals:data[k].idx.map(v=>v??100),src:data[k].src}; LIVE.status[k]='ok'; const s=computeStats(C[k]); s.conv=computeConviction(s); STATS[k]=s; } });
+          Object.keys(C).forEach(k=>{ if(data[k]?.monthly2026&&C[k]){ C[k].trendIdx=data[k].monthly2026; LIVE.status[k]='ok'; } });
           LIVE.fetchedAt=new Date(ts);
           const ok=Object.values(LIVE.status).filter(s=>s==='ok').length;
           updateLiveBadge(`Data · ${ok}/${Object.keys(C).length} · ${new Date(ts).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})}`,'var(--green)');
@@ -1170,7 +1217,8 @@ async function fetchAllLiveData(force){
   const [supplyResult, wbResult] = await Promise.allSettled([
     fetchLocalSupply(),
     fetchWorldBankCereals(),
-    fetchONI().then(d=>{LIVE.oni=d;updateONIPill(d);}).catch(()=>{})
+    fetchONI().then(d=>{LIVE.oni=d;updateONIPill(d);}).catch(()=>{}),
+    fetchMonthly2026().catch(()=>{})
   ]);
 
   if(supplyResult.status==='fulfilled'){
@@ -1707,23 +1755,35 @@ function chartEvents(c,k){
 }
 function chartTrend(c){
   const ctx=document.getElementById('chTrend'); if(!ctx)return;
-  const isLive=c.trendIdx.src&&c.trendIdx.src!=='static';
-  // Live data = solid line; illustrative/static = dashed
+  const isRainfall=!!c.trendIdx.isRainfall;
+  // Rainfall live feed: color by avg index (blue=wet, red=dry, green=near-normal)
+  // Estimates: always dashed sky-blue
+  let lineColor='#38bdf8', fillColor='rgba(56,189,248,.1)';
+  if(isRainfall){
+    const rv=c.trendIdx.vals.filter(v=>v!=null);
+    const avg=rv.length?rv.reduce((a,b)=>a+b,0)/rv.length:100;
+    if(avg>110){lineColor='#38bdf8';fillColor='rgba(56,189,248,.1)';}
+    else if(avg<90){lineColor='#f97316';fillColor='rgba(249,115,22,.08)';}
+    else{lineColor='#22c55e';fillColor='rgba(34,197,94,.08)';}
+  }
+  const scaleY={...axis.y,title:{display:true,text:isRainfall?'Rainfall vs normal (100=avg)':'Index',color:'#8b9bab',font:{size:9}}};
   charts.tr=new Chart(ctx,{type:'line',data:{labels:c.trendIdx.labels,datasets:[{data:c.trendIdx.vals,
-    borderColor: isLive?'#22c55e':'#38bdf8',
-    backgroundColor: isLive?'rgba(34,197,94,.08)':'rgba(56,189,248,.1)',
-    borderWidth:2.5, borderDash:isLive?[]:[6,4], pointRadius:3,
-    pointBackgroundColor:isLive?'#22c55e':'#38bdf8',tension:0.3,fill:true}]},
+    borderColor:lineColor,backgroundColor:fillColor,
+    borderWidth:2.5,borderDash:isRainfall?[]:[6,4],pointRadius:3,
+    pointBackgroundColor:lineColor,tension:0.3,fill:true}]},
     options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},
-      tooltip:{...tip,callbacks:{label:x=>`Index: ${x.parsed.y} (${c.trendIdx.labels[0]}=100${isLive?', '+c.trendIdx.src:', illustrative'})`}}},scales:axis}});
-  // Update caption + badge
+      tooltip:{...tip,callbacks:{label:x=>{
+        const v=x.parsed.y; if(v==null) return 'No data yet';
+        if(isRainfall){const d=Math.abs(v-100);return `Rainfall: ${v} (${d}% ${v>100?'above':'below'} normal)`;}
+        return `Index: ${v} (illustrative)`;
+      }}}},scales:{...axis,y:scaleY}}});
   const cap=document.getElementById('trendCap');
   const badge=document.getElementById('trendSrcBadge');
-  if(cap) cap.textContent=isLive
-    ? `2026 monthly production outlook (index, avg month = 100). Source: ${c.trendIdx.src}.`
+  if(cap) cap.textContent=isRainfall
+    ? `Actual 2026 rainfall vs 30-yr climate normal at key growing region (100 = normal, >100 wetter, <100 drier). Source: Open-Meteo daily archive.`
     : `2026 monthly production outlook (index, avg month = 100). CLAUDE EST. — seasonal pattern + El Niño risk window. Dashed = projection, not reported data.`;
-  if(badge) badge.innerHTML=isLive
-    ? `<span class="src-badge live" style="margin-left:8px">LIVE · ${c.trendIdx.src}</span>`
+  if(badge) badge.innerHTML=isRainfall
+    ? `<span class="src-badge live" style="margin-left:8px">LIVE · Open-Meteo 2026</span>`
     : `<span class="src-badge est" style="margin-left:8px">illustrative</span>`;
 }
 
