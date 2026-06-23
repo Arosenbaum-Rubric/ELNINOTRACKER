@@ -239,6 +239,15 @@
   .wx-metric .m-ic{ font-size:20px; } .wx-metric .m-v{ font-size:20px; font-weight:800; margin-top:4px; }
   .wx-metric .m-l{ font-size:10px; color:var(--muted); text-transform:uppercase; letter-spacing:.6px; margin-top:2px; }
   .wx-read{ font-size:12px; padding:9px 13px; border-radius:9px; margin-top:12px; font-weight:600; }
+  .cal-row{ display:flex; align-items:flex-start; gap:12px; padding:10px 0; border-bottom:1px solid var(--border); }
+  .cal-row:last-child{ border-bottom:none; }
+  .cal-chip{ min-width:88px; padding:4px 10px; border-radius:6px; font-size:11px; font-weight:700; text-align:center; white-space:nowrap; }
+  .cs-alert{ background:rgba(239,68,68,.15); color:#fca5a5; border:1px solid rgba(239,68,68,.4); }
+  .cs-watch{ background:rgba(251,191,36,.12); color:#fde68a; border:1px solid rgba(251,191,36,.35); }
+  .cs-ok{ background:rgba(34,197,94,.1); color:#86efac; border:1px solid rgba(34,197,94,.35); }
+  .cs-ahead{ background:rgba(100,116,139,.1); color:var(--muted); border:1px solid var(--border); }
+  .cal-detail{ flex:1; font-size:12.5px; color:#cdd8e3; line-height:1.5; }
+  .cal-months{ font-size:11px; color:var(--muted); margin-top:2px; }
 
   /* AI PANEL */
   .ai-panel{ border:1px solid rgba(168,85,247,.3); }
@@ -857,6 +866,27 @@ const CHIP_CLS = { neg:'b-neg', pos:'b-pos', mix:'b-mix' };
 const CHIP_BG  = { neg:'background:rgba(239,68,68,.15);color:#fca5a5', pos:'background:rgba(34,197,94,.15);color:#86efac', mix:'background:rgba(234,179,8,.15);color:#fde047' };
 const WXCLS = { drought:'wx-drought', rain:'wx-rain', heat:'wx-heat', disease:'wx-disease', good:'wx-good' };
 const WXIC  = { drought:'☀️', rain:'🌧️', heat:'🔥', disease:'🦠', good:'🌱' };
+// Critical crop-calendar windows per commodity (months are 0-indexed)
+// risk:'dry' → alert when index < threshold; risk:'wet' → alert when index > threshold
+const CROP_WINDOWS={
+  cocoa:[
+    {months:[6,7],    period:'Jul–Aug', risk:'wet', threshold:115, label:'Disease window — excess rain spreads Black-pod & swollen-shoot virus'},
+    {months:[11,0,1], period:'Dec–Feb', risk:'dry', threshold:85,  label:'Harmattan drought window — dry, dusty wind damages pod development & mid-crop'}
+  ],
+  palmoil:[
+    {months:[6,7,8],  period:'Jul–Sep', risk:'dry', threshold:85, label:'FFB yield-stress onset — drought suppresses fruit-bunch output (9–18 mo lag into 2027)'}
+  ],
+  sugar:[
+    {months:[5,6,7,8],period:'Jun–Sep', risk:'dry', threshold:85, label:'South Asian monsoon — 75% of India\'s annual rainfall; drought = cane failure'}
+  ],
+  coffee:[
+    {months:[5,6,7],  period:'Jun–Aug', risk:'dry', threshold:85, label:'Robusta main wet season — sustained rain needed for canopy & cherry development'},
+    {months:[8,9,10], period:'Sep–Nov', risk:'dry', threshold:85, label:'Robusta flowering window — dry spell here cuts the following harvest'}
+  ],
+  bananas:[
+    {months:[0,1,2,3],period:'Jan–Apr', risk:'wet', threshold:115, label:'Ecuador flood season — excess rain disrupts harvest & spreads Black Sigatoka'}
+  ]
+};
 
 // ════════════════════════════════════════════════════════════════════
 //  COMPUTE LAYER — all quantitative work happens here, in deterministic JS.
@@ -1649,6 +1679,37 @@ function detail(k){
         </div>
       </div>
     </div>
+
+    ${(()=>{
+      const wins=CROP_WINDOWS[k]; if(!wins) return '';
+      const vals=c.trendIdx?.isRainfall?c.trendIdx.vals:null;
+      const MN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      const rows=wins.map(w=>{
+        const avail=vals?w.months.filter(m=>vals[m]!=null):[];
+        let status='ahead', detail='';
+        if(avail.length){
+          const avg=Math.round(avail.reduce((a,m)=>a+vals[m],0)/avail.length);
+          const monthStr=avail.map(m=>`${MN[m]}:${vals[m]}`).join(', ');
+          const dir=avg>110?'above normal':avg<90?'below normal':'near normal';
+          detail=`Avg index: ${avg} (${dir}) — ${monthStr}`;
+          if(w.risk==='dry') status=avg<w.threshold-15?'alert':avg<w.threshold?'watch':'ok';
+          else status=avg>w.threshold+15?'alert':avg>w.threshold?'watch':'ok';
+        } else {
+          detail=vals?`${w.period} — no data yet`:'Live rainfall not loaded';
+        }
+        const lbl=status==='alert'?'🔴 ALERT':status==='watch'?'🟡 WATCH':status==='ok'?'🟢 OK':'⏳ AHEAD';
+        return `<div class="cal-row">
+          <span class="cal-chip cs-${status}">${lbl}</span>
+          <div class="cal-detail"><div style="font-weight:600">${w.label}</div>
+            <div class="cal-months">${detail}</div></div></div>`;
+      }).join('');
+      const hasLive=vals&&vals.some(v=>v!=null);
+      return `<div class="panel">
+        <div class="section-t"><span>🌱</span> 2026 crop calendar risk${hasLive?'<span class="src-badge live" style="margin-left:8px;vertical-align:middle">LIVE</span>':''}
+        </div>${rows}
+        <div class="chart-cap" style="margin-top:10px">Status vs actual 2026 Open-Meteo rainfall. Alert = risk threshold already crossed this season. Ahead = window not yet reached. Index 100 = 30-yr monthly normal.</div>
+      </div>`;
+    })()}
 
     <div class="panel">
       <div class="section-t"><span>📡</span> Live weather — ${c.geo.place}</div>
