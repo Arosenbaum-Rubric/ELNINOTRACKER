@@ -1312,6 +1312,23 @@ Data provenance: figures marked [estimate] are directional, pending hard ICCO/US
 Super El Niño note: ${c.superNote}
 Recent harvest verdict: ${c.verdict}. ${c.verdictNote}
 House 2026 view: ${c.predict.replace(/<[^>]+>/g,'')} (direction ${c.dir}).
+${(()=>{
+  const td=c.trendIdx;
+  if(!td?.isRainfall) return '';
+  const MN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const actual=td.vals.map((v,i)=>v!=null?`${MN[i]}:${v}`:null).filter(Boolean);
+  const dry=td.vals.map((v,i)=>v!=null&&v<85?`${MN[i]}(${v})`:null).filter(Boolean);
+  const wet=td.vals.map((v,i)=>v!=null&&v>115?`${MN[i]}(${v})`:null).filter(Boolean);
+  const filled=td.vals.filter(v=>v!=null);
+  const avg=filled.length?Math.round(filled.reduce((a,b)=>a+b,0)/filled.length):null;
+  const bias=avg==null?'no data yet':avg>110?'WET bias (above-normal rainfall YTD)':avg<90?'DRY bias (below-normal rainfall YTD)':'near-normal YTD';
+  return `LIVE 2026 RAINFALL — ${c.geo.place} (index: 100 = 30-yr monthly normal, source: Open-Meteo daily archive):
+Monthly index: ${actual.join(', ')} | Jul–Dec: no data yet
+${dry.length?'Significantly dry months (<85): '+dry.join(', '):'No significantly dry months yet (Jan–present)'}
+${wet.length?'Significantly wet months (>115): '+wet.join(', '):'No significantly wet months yet (Jan–present)'}
+YTD average index: ${avg??'n/a'} — ${bias}.
+INSTRUCTION: incorporate these current-season rainfall figures into your 2026 scenario. Cite the specific anomalous months and explain what they mean for crop development given the mechanism described above.`;
+})()}
 Primary sources: ICCO annual reports, USDA WASDE, FAO FAOSTAT, India IMD, NOAA CPC, IRI Columbia — see dashboard footer for full list.`;
 }
 
