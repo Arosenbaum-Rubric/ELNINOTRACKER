@@ -177,6 +177,10 @@
   .traj-abs{ color:#cdd8e3; font-size:12px; white-space:nowrap; }
   .traj-src{ font-size:11px; }
   .traj-note{ color:var(--muted); font-size:11px; display:block; margin-top:3px; line-height:1.45; }
+  details.traj-details>summary{ list-style:none; cursor:pointer; user-select:none; }
+  details.traj-details>summary::-webkit-details-marker{ display:none; }
+  details.traj-details>summary::after{ content:' ▶'; font-size:10px; color:var(--muted); font-weight:400; }
+  details.traj-details[open]>summary::after{ content:' ▼'; }
   .cmp-table{ width:100%; border-collapse:collapse; font-size:12.5px; margin-top:6px; }
   .cmp-table th{ padding:6px 10px; text-align:left; font-size:10px; text-transform:uppercase; letter-spacing:.06em; color:var(--faint); border-bottom:1px solid rgba(40,50,62,.55); }
   .cmp-table .cmp-thr{ text-align:right; }
@@ -649,7 +653,7 @@ C.cocoa.outcomes.volume.trajectory=[
   {yr:'2022',yoy:-7.9, src:'rep',note:'ICCO / Wells Fargo Securities Exhibit 9 — col 2021 (crop yr 2021/22)'},
   {yr:'2023',yoy:+3.9, src:'rep',note:'ICCO / Wells Fargo Securities Exhibit 9 — col 2022 (crop yr 2022/23)'},
   {yr:'2024',yoy:-12.9,src:'rep',note:'ICCO / Wells Fargo Securities Exhibit 9 — col 2023 (crop yr 2023/24); El Niño 2023–24 worst drop on record'},
-  {yr:'2025',yoy:+18.5,src:'rep',note:'ICCO / Wells Fargo Securities Exhibit 9 — col 2024 (crop yr 2024/25); post-El Niño rebound est.'},
+  {yr:'2025',yoy:+10.8,src:'rep',note:'ICCO / Wells Fargo Securities Exhibit 9 — col 2024 (crop yr 2024/25); post-El Niño partial rebound'},
 ];
 C.cocoa.outcomes.yield.trajectory=[
   {yr:'2020/21',yoy:+6.5,abs:'~348 kg/ha',src:'est',note:'ESTIMATED BY CLAUDE — derived from ICCO production ÷ FAO harvested-area estimates'},
@@ -1652,14 +1656,16 @@ function detail(k){
         </tr>`;
       }).join('');
       return `<div class="panel">
-        <div class="section-t"><span>📅</span> Recent annual trajectory — ${outObj.label}
-          <span style="font-size:11px;color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0;margin-left:8px">${traj.length} years</span>
-        </div>
-        <table class="traj-table">
-          <thead><tr><th>Year</th><th class="thr">YoY %</th><th>Level</th><th>Source / note</th></tr></thead>
-          <tbody>${rows}</tbody>
-        </table>
-        <div class="chart-cap" style="margin-top:10px"><span class="src-badge rep" style="vertical-align:middle">SOURCED</span> = named published report. &nbsp;<span class="src-badge est" style="vertical-align:middle">CLAUDE EST.</span> = directional model estimate — treat as indicative only. YoY % relative to prior year in same series.</div>
+        <details class="traj-details">
+          <summary class="section-t"><span>📅</span> Annual trajectory — ${outObj.label}
+            <span style="font-size:11px;color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0;margin-left:8px">${traj.length} years</span>
+          </summary>
+          <table class="traj-table" style="margin-top:10px">
+            <thead><tr><th>Year</th><th class="thr">YoY %</th><th>Level</th><th>Source / note</th></tr></thead>
+            <tbody>${rows}</tbody>
+          </table>
+          <div class="chart-cap" style="margin-top:10px"><span class="src-badge rep" style="vertical-align:middle">SOURCED</span> = named published report. &nbsp;<span class="src-badge est" style="vertical-align:middle">CLAUDE EST.</span> = directional model estimate — treat as indicative only. YoY % relative to prior year in same series.</div>
+        </details>
       </div>`;
     })()}
 
