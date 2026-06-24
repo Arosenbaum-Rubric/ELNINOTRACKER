@@ -618,6 +618,83 @@ C.bananas.outcomes={
   bunch:  {label:'Bunch Weight',    unit:'kg/bunch YoY %',                events:{'2002-03':{dev:-4,src:'est'},'2004-05':{dev:-2,src:'est'},'2006-07':{dev:-4,src:'est'},'2009-10':{dev:-6,src:'est'},'2014-16':{dev:-8,src:'est'},'2018-19':{dev:-2,src:'est'},'2023-24':{dev:-6,src:'est'}}}
 };
 
+// ── PER-OUTCOME SENSITIVITY DRIVERS ─────────────────────────────────────────────────────
+C.cocoa.outcomes.volume.why=[
+  "Excess Jul–Aug rain spreads Black-pod disease and swollen-shoot virus — fewer harvestable pods means lower total output.",
+  "Harmattan drought (Dec–Feb) desiccates developing pods and cuts mid-crop weight — direct volume loss.",
+  "Production is geographically concentrated: a single West African climate zone drives 60–75% of supply with no diversification hedge."
+];
+C.cocoa.outcomes.yield.why=[
+  "Disease pressure (Black-pod, swollen-shoot) reduces pods per tree, not just harvestable area — yield per hectare falls independent of planted area.",
+  "Harmattan drought reduces photosynthesis and bean fill: fewer beans set per pod, and existing beans are smaller and lighter.",
+  "Perennial crop: stress damage in one season weakens tree health and carries into the following season's yield."
+];
+C.cocoa.outcomes.quality.why=[
+  "Excess rain during harvest causes beans to absorb moisture, lowering dry weight and raising defect rates — down-grading at export.",
+  "Harmattan desiccation of developing beans produces smaller, off-grade beans with lower fat content.",
+  "Disease-damaged pods consistently yield off-grade, poorly-formed beans that fail premium-grade thresholds."
+];
+C.palmoil.outcomes.volume.why=[
+  "Drought reduces fresh-fruit-bunch (FFB) formation on palms; fewer bunches harvested means lower CPO output even at normal extraction rates.",
+  "9–18 month lag: drought stress starting in Jul 2026 suppresses FFB yields through 2027, making volume the slowest-moving and longest-lasting signal.",
+  "Indonesia's B50 biodiesel mandate (Jul 2026) adds structural demand on top of any weather hit — tightening exportable supply further."
+];
+C.palmoil.outcomes.yield.why=[
+  "Drought causes water stress and premature fruit abscission — bunches drop before harvest, directly cutting tonnes per hectare.",
+  "Heat stress during fruit development reduces bunch weight; fires and haze thin the canopy and reduce photosynthate supply to fruit.",
+  "El Niño dryness in the Maritime Continent is the primary yield signal — Malaysia fell ~−14% in 2015–16 (USDA IPAD)."
+];
+C.palmoil.outcomes.extraction.why=[
+  "Drought causes premature ripening of fruit: dehydrated bunches yield less oil per tonne processed even if harvested on schedule.",
+  "Heat stress increases free fatty acid (FFA) content in ripe fruit — lower-quality oil with a smaller refinable fraction reduces effective OER.",
+  "Haze and smoke exposure during harvest accelerates oxidation of fruit bunches before milling, further reducing extractable oil."
+];
+C.sugar.outcomes.volume.why=[
+  "The South Asian monsoon (Jun–Sep) provides 75% of India's annual rainfall — a below-normal monsoon cuts cane biomass by 20–40% in the worst events.",
+  "India restricts sugar exports when its crop disappoints, amplifying the global supply shock beyond the raw production miss.",
+  "Brazil's Center-South can partially offset India and Thailand losses, but its cane calendar is fixed and cannot fill a sudden gap."
+];
+C.sugar.outcomes.cane.why=[
+  "Monsoon deficit reduces stalk elongation — shorter, lighter cane at harvest — with Jul–Aug drought stress at critical growth stages being largely irreversible.",
+  "Heat above 38°C accelerates sucrose inversion inside the stalk, reducing recoverable sugar content per tonne of cane.",
+  "Thailand's cane belt is similarly monsoon-dependent: a weakened monsoon hits both major Asian producers simultaneously."
+];
+C.sugar.outcomes.recovery.why=[
+  "El Niño brings warmer, drier conditions to Brazil's Center-South — elevated heat lowers total recoverable sugars (TRS) even when cane tonnage holds.",
+  "In drought-stressed Indian cane, sucrose concentration at harvest is lower and the juice-to-fibre ratio less favourable for milling.",
+  "Excess rain in Brazil dilutes sucrose concentration in stalks — recovery rate (% sucrose) falls even as raw cane volume holds."
+];
+C.coffee.outcomes.volume.why=[
+  "Vietnam's robusta belt (dominant supply) sits squarely in El Niño's dry signal — drought cuts both canopy water supply and flowering.",
+  "Central American Arabica faces a below-normal wet season (Jun–Oct), reducing growing water at the same time as Sep–Nov flowering.",
+  "2026 is Brazil's biennial Arabica off-year — structural output dip coincides with El Niño risk, leaving less cushion."
+];
+C.coffee.outcomes.robusta.why=[
+  "Drought during Jun–Aug wet season reduces water uptake in Vietnam's lowland robusta belt — the world's largest single robusta source.",
+  "Sep–Nov flowering deficit: if the wet season fails, fewer cherries set and the following harvest is cut regardless of later rainfall.",
+  "Indonesia's robusta faces the same Maritime Continent dry signal; combined, Vietnam and Indonesia account for most global robusta supply."
+];
+C.coffee.outcomes.arabica.why=[
+  "Central American Arabica wet season (Jun–Oct) is shortened under El Niño — Honduras, Guatemala, and Nicaragua all document yield losses.",
+  "Brazil's Center-South Arabica is more mixed: El Niño often brings drier winters preferred for flowering, partially offsetting Central America losses.",
+  "2026 is an off-year in Brazil's biennial Arabica cycle — any weather hit amplifies the natural production dip."
+];
+C.bananas.outcomes.volume.why=[
+  "Coastal Ecuador flooding (Jan–Apr) directly disrupts harvest logistics, cold-chain access, and export loading — Ecuador supplies ~30% of global banana trade.",
+  "Black Sigatoka fungal disease spreads rapidly in warm, humid flood conditions — infected plantations lose productive capacity for the full season.",
+  "Philippines faces the opposite signal (drought), tightening supply from both sides of the trade simultaneously."
+];
+C.bananas.outcomes.yield.why=[
+  "Flooded, waterlogged soils damage root systems — reduced nutrient uptake suppresses bunch set per plant for the remainder of the season.",
+  "Disease defoliation (Sigatoka strips leaves) reduces photosynthesis — assimilate supply to developing bunches falls, cutting yield per hectare.",
+  "Sustained wet conditions prevent field machinery from operating — delayed harvests cause yield losses as bunches over-ripen on the plant."
+];
+C.bananas.outcomes.bunch.why=[
+  "Excess water causes a dilution effect inside developing fruit — bunches are physically larger but lighter per unit with lower starch density.",
+  "Sigatoka leaf damage reduces the assimilate flow to individual bunches — fewer fingers per hand and lower weight per bunch at harvest.",
+  "Harvest disruption forces growers to pick underweight or over-mature bunches to clear fields before flooding worsens — average bunch weight falls."
+];
+
 // ── RECENT TRAJECTORIES (per outcome, last 5–6 years) ───────────────────────────────────
 // src:'rep' = named published source  |  src:'est' = ESTIMATED BY CLAUDE
 // abs = approximate level with unit   |  note = citation or one-line reasoning
@@ -1609,8 +1686,8 @@ function detail(k){
     </div>
 
     <div class="panel">
-      <div class="section-t"><span>⚡</span> Sensitivity drivers — what amplifies or offsets this commodity's El Niño response</div>
-      <ul class="why-list">${c.why.map(w=>`<li>${w}</li>`).join('')}</ul>
+      <div class="section-t"><span>⚡</span> Sensitivity drivers — ${outObj.label} in El Niño years</div>
+      <ul class="why-list">${(outObj.why||c.why).map(w=>`<li>${w}</li>`).join('')}</ul>
     </div>
 
     <div class="panel">
