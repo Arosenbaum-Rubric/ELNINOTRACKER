@@ -252,6 +252,15 @@
   .cs-ahead{ background:rgba(100,116,139,.1); color:var(--muted); border:1px solid var(--border); }
   .cal-detail{ flex:1; font-size:12.5px; color:#cdd8e3; line-height:1.5; }
   .cal-months{ font-size:11px; color:var(--muted); margin-top:2px; }
+  .ev-hover-box{ width:130px; flex-shrink:0; background:rgba(0,0,0,.3); border:1px solid var(--border); border-radius:10px; padding:14px 12px; display:flex; flex-direction:column; gap:5px; }
+  .ehb-label{ font-size:10px; color:var(--muted); text-transform:uppercase; letter-spacing:.6px; margin-top:4px; }
+  .ehb-label:first-child{ margin-top:0; }
+  .ehb-yr{ font-size:22px; font-weight:800; color:var(--text); }
+  .ehb-pct{ font-size:17px; font-weight:700; }
+  .ehb-sev{ font-size:11px; font-weight:600; padding:3px 8px; border-radius:5px; align-self:flex-start; margin-top:2px; }
+  .sev-mild{ background:rgba(251,191,36,.12); color:#fde68a; border:1px solid rgba(251,191,36,.3); }
+  .sev-elnino{ background:rgba(249,115,22,.12); color:#fdba74; border:1px solid rgba(249,115,22,.3); }
+  .sev-super{ background:rgba(239,68,68,.15); color:#fca5a5; border:1px solid rgba(239,68,68,.3); }
 
   /* AI PANEL */
   .ai-panel{ border:1px solid rgba(168,85,247,.3); }
@@ -431,7 +440,7 @@
 //    Left null with a TODO until you paste USDA PSD ending-stocks + consumption.
 // ════════════════════════════════════════════════════════════════════
 const EVENTS = ['2002-03','2004-05','2006-07','2009-10','2014-16','2018-19','2023-24']; // El Niño events, last ~20y
-const ENSO_TYPE={'2002-03':'Moderate','2004-05':'Weak','2006-07':'Weak','2009-10':'Moderate','2014-16':'Super (peak 2015–16)','2018-19':'Weak','2023-24':'Strong (+2.1°C)'};
+const ENSO_SEV={'2002-03':'El Niño','2004-05':'Mild El Niño','2006-07':'Mild El Niño','2009-10':'El Niño','2014-16':'Super El Niño','2018-19':'Mild El Niño','2023-24':'El Niño'};
 // Onset = first month ONI crossed +0.5°C threshold (NOAA CPC). Peak = highest ONI month.
 const EL_NINO_META = {
   '2002-03': {onset:'Jun 2002', peak:'Nov 2002', wane:'Mar 2003'},
@@ -1063,7 +1072,6 @@ function setOutcome(k,ok){ currentOutcome[k]=ok; const sy=window.scrollY; render
 //  Cached in sessionStorage 1 hr. Click 📡 to force-refresh.
 // ════════════════════════════════════════════════════════════════════
 const LIVE = { data:{}, oni:null, supply:null, status:{}, fetchedAt:null };
-const WB_CEREAL_CROPS = ['wheat','corn','rice'];
 
 // ── PIPELINE CSV LOADER ──────────────────────────────────────────────────────
 // Tries to load real CSV output from /pipelines/data/ (produced by cocoa_pipeline.py
@@ -1201,24 +1209,6 @@ async function fetchLocalSupply(){
   return r.json();
 }
 
-async function fetchWorldBankCereals(){
-  // World Bank has no CORS restriction — fetch directly from browser
-  const url='https://api.worldbank.org/v2/country/WLD/indicator/AG.PRD.CREL.MT?format=json&mrv=9&per_page=9';
-  const r=await fetch(url);
-  if(!r.ok) throw new Error('WB '+r.status);
-  const arr=await r.json();
-  if(!Array.isArray(arr)||arr.length<2) throw new Error('WB parse');
-  const rows=arr[1].filter(d=>d.value!=null).sort((a,b)=>+a.date-(+b.date));
-  if(!rows.length) throw new Error('WB empty');
-  const base=rows[0].value;
-  return {
-    years:rows.map(d=>d.date),
-    prodVals:rows.map(d=>d.value),
-    idx:rows.map(d=>Math.round(d.value/base*100)),
-    stu:null, src:'World Bank'
-  };
-}
-
 async function fetchONI(){
   // Routes via serve.ps1 proxy — returns pre-parsed JSON
   const r=await fetch('/proxy/oni');
@@ -1276,15 +1266,6 @@ function applySupplyData(supplyJson){
   });
 }
 
-function applyCerealTrend(wbData){
-  WB_CEREAL_CROPS.forEach(k=>{
-    if(!C[k]) return;
-    C[k].trendIdx={labels:wbData.years,vals:wbData.idx.map(v=>v??100),src:wbData.src};
-    LIVE.data[k]={...wbData};
-    LIVE.status[k]='ok';
-    const s=computeStats(C[k]); s.conv=computeConviction(s); STATS[k]=s;
-  });
-}
 
 function updateLiveBadge(txt,col){
   const el=document.getElementById('liveDataStatus');
@@ -1309,7 +1290,6 @@ async function fetchAllLiveData(force){
         if(Date.now()-ts<3600000){
           Object.assign(LIVE.data,data); LIVE.oni=oni; LIVE.supply=supply;
           if(supply) applySupplyData(supply);
-          WB_CEREAL_CROPS.forEach(k=>{ if(data[k]&&C[k]) { C[k].trendIdx={labels:data[k].years,vals:data[k].idx.map(v=>v??100),src:data[k].src}; LIVE.status[k]='ok'; const s=computeStats(C[k]); s.conv=computeConviction(s); STATS[k]=s; } });
           Object.keys(C).forEach(k=>{ if(data[k]?.monthly2026&&C[k]){ C[k].trendIdx=data[k].monthly2026; LIVE.status[k]='ok'; } });
           LIVE.fetchedAt=new Date(ts);
           const ok=Object.values(LIVE.status).filter(s=>s==='ok').length;
@@ -1325,9 +1305,8 @@ async function fetchAllLiveData(force){
   updateLiveBadge('Fetching…','var(--yellow)');
 
   // Run all sources concurrently; each fails silently
-  const [supplyResult, wbResult] = await Promise.allSettled([
+  const [supplyResult] = await Promise.allSettled([
     fetchLocalSupply(),
-    fetchWorldBankCereals(),
     fetchONI().then(d=>{LIVE.oni=d;updateONIPill(d);}).catch(()=>{}),
     fetchMonthly2026().catch(()=>{})
   ]);
@@ -1335,9 +1314,6 @@ async function fetchAllLiveData(force){
   if(supplyResult.status==='fulfilled'){
     LIVE.supply=supplyResult.value;
     applySupplyData(supplyResult.value);
-  }
-  if(wbResult.status==='fulfilled'){
-    applyCerealTrend(wbResult.value);
   }
 
   LIVE.fetchedAt=new Date();
@@ -1693,7 +1669,10 @@ function detail(k){
     <div class="panel">
       <div class="section-t"><span>📊</span> Annual production outcomes — all years</div>
       <div class="otabs">${outcomeTabs}</div>
-      <div class="chart-wrap" style="height:320px"><canvas id="chEvents"></canvas></div>
+      <div style="display:flex;gap:12px">
+        <div class="chart-wrap" style="height:320px;flex:1"><canvas id="chEvents"></canvas></div>
+        <div id="evHoverBox" class="ev-hover-box" style="justify-content:center;align-items:center"><span style="color:var(--muted);font-size:11px;text-align:center">Hover<br>a bar</span></div>
+      </div>
       <div class="chart-cap">${outObj.label} — 2000 to 2025. <span style="color:#f59e0b;font-weight:700">Amber border = El Niño year</span> (all years in event span). <b>Solid bar = reported/sourced</b>; faded bar = Claude estimate. Cocoa: ICCO / Wells Fargo Securities Exhibit 9 (world total). Other commodities: trajectory data from named sources.</div>
     </div>
 
@@ -1709,7 +1688,7 @@ function detail(k){
           const cf=c.confounders?.[e];
           return `<tr>
             <td><span class="ev-yr">${e}</span></td>
-            <td><span class="ev-type">${ENSO_TYPE[e]||'El Niño'}</span></td>
+            <td><span class="ev-type">${ENSO_SEV[e]||'El Niño'}</span></td>
             <td><span class="ev-dev ${devcls}">${pct(row.dev)}</span></td>
             <td>${cf?`<span class="cf-text">${cf}</span>`:`<span class="cf-none">No major non-ENSO factors identified for this year</span>`}</td>
           </tr>`;
@@ -1850,7 +1829,7 @@ function buildAnnualSeries(k, ok) {
   evRows.forEach(r=>{
     const sy=sortYr(r.e);
     dataMap[sy]={label:String(sy),yoy:r.dev,absVal:null,abs:null,src:r.src,isElNino:true,
-      note:ENSO_TYPE[r.e]?'El Niño '+ENSO_TYPE[r.e]:'El Niño event'};
+      note:ENSO_SEV[r.e]?'El Niño '+ENSO_SEV[r.e]:'El Niño event'};
   });
   traj.forEach(t=>{
     const sy=sortYr(t.yr);
@@ -1887,26 +1866,47 @@ function chartEvents(c,k){
   });
   const borderColor=series.map(r=>r.isElNino?'#f59e0b':(r.yoy==null||r.yoy>=0?'rgba(34,197,94,.4)':'rgba(239,68,68,.4)'));
   const borderWidth=series.map(r=>r.isElNino?2.5:1);
+  function updateHoverBox(r){
+    const box=document.getElementById('evHoverBox'); if(!box) return;
+    const yr=parseInt(r.label);
+    const evKey=EVENTS.find(e=>{
+      const parts=e.split('-'),start=parseInt(parts[0]);
+      let end=parts[1].length<=2?Math.floor(start/100)*100+parseInt(parts[1]):parseInt(parts[1]);
+      if(end<=start)end+=100; return yr>=start&&yr<=end;
+    });
+    const sev=evKey?ENSO_SEV[evKey]:null;
+    const sevCls=sev==='Super El Niño'?'sev-super':sev==='El Niño'?'sev-elnino':sev?'sev-mild':'';
+    const yoyStr=r.yoy==null?'—':(r.yoy>0?'+':'')+r.yoy.toFixed(1)+'%';
+    const yoyColor=r.yoy==null?'var(--muted)':r.yoy>=0?'#22c55e':'#f87171';
+    box.style.justifyContent='flex-start'; box.style.alignItems='stretch';
+    box.innerHTML=`<div class="ehb-label">Year</div><div class="ehb-yr">${r.label}</div>`+
+      `<div class="ehb-label">YoY %</div><div class="ehb-pct" style="color:${yoyColor}">${yoyStr}</div>`+
+      `<div class="ehb-label">Source</div><div style="font-size:11px;color:#cdd8e3">${r.src==='rep'?'Sourced':r.src==='none'?'No data':'Estimate'}</div>`+
+      (sev?`<div class="ehb-label">Severity</div><div class="ehb-sev ${sevCls}">${sev}</div>`:'');
+  }
   if(charts.ev){charts.ev.destroy();charts.ev=null;}
   charts.ev=new Chart(ctx,{type:'bar',data:{labels,datasets:[{data:vals,
     backgroundColor:bg,borderColor,borderWidth,borderRadius:3}]},
-    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},
-      tooltip:{...tip,callbacks:{
-        label:x=>{
-          const r=series[x.dataIndex];
-          if(r.absVal==null&&r.yoy==null) return 'No data';
-          const src=r.src==='rep'?'SOURCED':r.src==='none'?'—':'CLAUDE EST.';
-          const parts=[];
-          if(hasAbs&&r.absVal!=null) parts.push(r.absVal.toLocaleString()+(volUnit?' '+volUnit:''));
-          if(r.yoy!=null) parts.push((r.yoy>0?'+':'')+r.yoy.toFixed(1)+'% YoY');
-          parts.push('['+src+(r.isElNino?' · 🌊 El Niño':'')+']');
-          return parts.join(' ');
-        },
-        afterLabel:x=>{const n=series[x.dataIndex].note;return n?n.substring(0,100)+(n.length>100?'…':''):'';} }}},
+    options:{responsive:true,maintainAspectRatio:false,
+      onHover:(_,active)=>{
+        if(!active.length){charts.ev._hx=null;return;}
+        charts.ev._hx=active[0].index; updateHoverBox(series[active[0].index]);
+      },
+      plugins:{legend:{display:false},
+        tooltip:{...tip,callbacks:{
+          label:x=>{const r=series[x.dataIndex];if(r.yoy==null)return'No data';return(r.yoy>0?'+':'')+r.yoy.toFixed(1)+'% YoY';},
+          afterLabel:x=>{const n=series[x.dataIndex].note;return n?n.substring(0,80)+(n.length>80?'…':''):'';} }}},
       scales:{x:{...axis.x,ticks:{...axis.x.ticks,maxRotation:60,minRotation:45,font:{size:9}}},
         y:{...axis.y,
-          title:{display:true,text:hasAbs?(outLabel+(volUnit?' ('+volUnit+')'  :'')):'YoY %',color:'#8b9bab',font:{size:10}},
-          ticks:{...axis.y.ticks,callback:v=>v==null?'':hasAbs?v.toLocaleString():(v>0?'+':'')+v+'%'}}}}});
+          title:{display:true,text:'YoY %',color:'#8b9bab',font:{size:10}},
+          ticks:{...axis.y.ticks,callback:v=>v==null?'':(v>0?'+':'')+v+'%'}}}},
+    plugins:[{id:'xhair',afterDraw(chart){
+      if(chart._hx==null)return;
+      const el=chart.getDatasetMeta(0).data[chart._hx]; if(!el)return;
+      const c2=chart.ctx,{top,bottom}=chart.chartArea;
+      c2.save();c2.beginPath();c2.moveTo(el.x,top);c2.lineTo(el.x,bottom);
+      c2.strokeStyle='rgba(255,255,255,0.25)';c2.lineWidth=1.5;c2.setLineDash([4,3]);c2.stroke();c2.restore();
+    }}]});
 }
 function chartTrend(c){
   const ctx=document.getElementById('chTrend'); if(!ctx)return;
