@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
@@ -605,33 +605,34 @@ const C = {
   },
   avocado:{
     name:'Avocado', icon:'🥑', cls:'neg', score:0.65,
-    unit:'production YoY %',
-    regions:'Mexico (~30% of global supply, Michoacán), Peru, Dominican Republic, Colombia, Kenya',
-    driver:'Drought shrinks Mexico fruit set; coastal flooding disrupts Peru',
-    wx:[ {l:'Drought · Michoacán Jun–Sep',t:'drought'}, {l:'Coastal flood & heat · Peru',t:'rain'}, {l:'Root rot · California',t:'disease'} ],
-    mech:"Mexico produces ~30% of global supply, almost entirely from Michoacán, where trees rely on summer rainfall (Jun–Sep) for fruit set and sizing. El Niño brings <strong>below-normal summer rain</strong> to western Mexico, reducing fruit set and final fruit weight. Peru, now the EU's top supplier, faces the opposite shock: <strong>coastal flooding and heat anomalies</strong> in its Ica and La Libertad valleys disrupt harvest and spread Phytophthora root rot. Both shocks can overlap in the same event, squeezing the two largest export origins at once.",
+    unit:'production YoY % — Mexico (primary signal)',
+    regions:'Mexico (~28% global, Michoacán 75% + Jalisco 10%), Colombia (~11%), Peru (~8%), Kenya (~7%)',
+    driver:'El Niño drives heat-stress fruit-size compression in Mexico — export VALUE falls even when volume holds. No futures market.',
+    wx:[ {l:'Drought + heat · Michoacán Jun–Sep',t:'drought'}, {l:'La Niña flood risk · Peru coast',t:'rain'}, {l:'AWC wilt (Phytophthora) · Colombia drought',t:'disease'} ],
+    mech:"Mexico produces ~28% of global supply from Michoacán and Jalisco. <strong>65% of orchards are rain-fed</strong> — El Niño drought during the La Normal blooming window (Dec–Apr) causes heat spikes that reduce fruit caliber. Crucially, raw volume often holds while export <strong>value falls</strong> (2023 precedent: volume +17%, value −12%). Colombia faces the same drought direction as Mexico — in 2026, both are stressed simultaneously with no offset country. Peru is a partial offset but its threat is La Niña coastal flooding, not El Niño. <strong>No futures market exists</strong> — this is a physical supply signal only.",
     why:[
-      "Mexico's Michoacán belt is rain-dependent during Jun–Sep fruit development — El Niño drought shrinks both fruit count and size before harvest even begins.",
-      "Peru's coastal Ica Valley sits directly in the El Niño flooding corridor; logistics disruption is acute and root rot lingers into the following season.",
-      "Avocados are a perennial tree crop — drought or flood stress in one season suppresses flowering 12–18 months later, extending the production tail."
+      "Mexico export value, not volume, is the primary signal — heat-stress shrinks fruit caliber; smaller sizes fetch lower $/MT even at full throughput.",
+      "El Niño onset H2 2026 → La Normal flowering window Dec 2026–Apr 2027 → harvest and export value impact visible 2027. 4–8 month lag from onset to impact. SOURCE: USDA GAIN MX2026-0019",
+      "Colombia (Andean Hass belt) faces drought in same direction as Mexico — both stressed simultaneously in 2026 El Niño means no counter-seasonal offset.",
+      "Peru's primary climate threat is La Niña coastal flooding, not El Niño — it is a partial offset for Mexico tightening, but monitor quarterly."
     ],
     events:{
-      '2002-03':{dev:-3,src:'est'}, '2004-05':{dev:-2,src:'est'}, '2006-07':{dev:-2,src:'est'}, '2009-10':{dev:-5,src:'est'},
-      '2014-16':{dev:-7,src:'est'}, '2018-19':{dev:-3,src:'est'}, '2023-24':{dev:-6,src:'est'}
+      '2002-03':{dev:-4,src:'rep'}, '2004-05':{dev:+9,src:'rep'}, '2006-07':{dev:+11,src:'rep'}, '2009-10':{dev:+6,src:'rep'},
+      '2014-16':{dev:+15,src:'rep'}, '2018-19':{dev:+8,src:'rep'}, '2023-24':{dev:+2,src:'rep'}
     },
-    supply:{stocks:null, use:null, src:'todo'},
-    superNote:"The 2015–16 super El Niño hit Michoacán with prolonged dry conditions while flooding Peru's Ica Valley simultaneously — the first documented case of both major export origins being stressed in the same event. The 2023–24 El Niño repeated the pattern; SENASA (Peru) reported above-normal Phytophthora incidence in coastal valleys.",
+    supply:{stocks:null, use:null, src:'n/a — avocado is perishable, no standardized stocks-to-use ratio'},
+    superNote:"2023–24 El Niño confirmed the value-compression mechanism: Mexico production +1.9% (SIAP), but Michoacán/Jalisco heat stress drove smaller fruit caliber → export value −12% to $3.03B despite volume at 1.4 MMT. 2024 exports then fell −15% to 1.19 MMT (WITS HS 080440). The 2026 El Niño risk is a repeat of this mechanism — USDA GAIN MX2026-0019 (Mar 2026) explicitly flags H2 2026 El Niño as a threat to fruit size. SOURCE: SIAP via GAIN MX2026-0019/MX2024-0018; WITS HS 080440.",
     trendIdx:{labels:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],vals:[105,108,110,112,110,105,95,88,85,88,95,102],src:'2026 est.'},
     verdict:'MIXED',
-    verdictNote:"Global supply has grown rapidly on new Peruvian and Colombian plantings, but Mexico's mature Michoacán belt is structurally water-stressed and Peru's coastal exposure is recurring.",
+    verdictNote:"Volume growth continues (+3% forecast 2026, GAIN MX2026-0019) but El Niño H2 2026 creates flowering risk for the 2027 crop. The primary 2026 signal is export value compression, not tonnage.",
     tiles:{
-      'Mexico output':{v:'Drought risk',d:'down',n:'Michoacán Jun–Sep rainfall critical'},
-      'Peru output':{v:'Flood risk',d:'down',n:'Ica/La Libertad coastal exposure'},
-      'Planted area':{v:'Expanding',d:'up',n:'Peru, Colombia, Kenya adding area'},
-      'Demand':{v:'Strong',d:'up',n:'EU & US structural demand continues growing'}
+      'Mexico 2026 prod.':{v:'2.80 MMT',d:'up',n:'+3% YoY forecast — SOURCE: USDA GAIN MX2026-0019'},
+      'Mexico 2026 exports':{v:'1.31 MMT',d:'up',n:'+7% YoY forecast — SOURCE: USDA GAIN MX2026-0019'},
+      'Peru 2025 exports':{v:'630 kMT',d:'up',n:'+6% YoY est. — SOURCE: USDA GAIN PE2025-0005'},
+      'Colombia 2024 exports':{v:'138 kMT',d:'up',n:'+221% YoY value — SOURCE: WITS HS 080440 + GAIN CO2025-0004'}
     },
-    predict:"The <strong>Jun–Sep dry season in Michoacán</strong> is the key watch window — below-normal summer rain cuts fruit set for the 2026–27 crop. Peru's Q1–Q2 coastal rain risk is the secondary signal. With global demand still outpacing supply, any simultaneous shock to Mexico and Peru has outsized impact on shelf availability.",
-    dir:'Mexico & Peru supply at risk ↓', dirColor:'var(--accent)',
+    predict:"<strong>No futures market — physical supply signal only.</strong> The key 2026 watch: El Niño H2 2026 onset → La Normal flowering window Dec 2026–Apr 2027 → fruit-size compression → export <em>value</em> falls in 2027 even if volume holds. Colombia faces the same drought direction as Mexico with no offset. Peru is a partial offset if La Niña develops — monitor quarterly. Any position must be sized against export value, not tonnage. SOURCE: USDA GAIN MX2026-0019.",
+    dir:'Export value at risk 2027 ↓ (no futures market)', dirColor:'var(--accent)',
     geo:{lat:19.42,lon:-102.07,place:'Uruapan (avocado belt), Michoacán, Mexico'}
   }
 };
@@ -643,7 +644,6 @@ C.cocoa.outcomes={
   yield:    {label:'Yield per Hectare',     unit:'kg/ha YoY %',              events:{'2002-03':{dev:-8,src:'est'},'2004-05':{dev:-3,src:'est'},'2006-07':{dev:-10,src:'rep'},'2009-10':{dev:1,src:'rep'},'2014-16':{dev:0,src:'rep'},'2018-19':{dev:0,src:'rep'},'2023-24':{dev:0,src:'rep'}}},  // rep = FAO/OWID pipeline
   grindings:{label:'Grindings',             unit:'grindings YoY %',          events:{'2002-03':{dev:-4,src:'est'},'2004-05':{dev:-2,src:'est'},'2006-07':{dev:-6,src:'est'},'2009-10':{dev:+2,src:'est'},'2014-16':{dev:-3,src:'est'},'2018-19':{dev:0,src:'est'},'2023-24':{dev:-5,src:'est'}}},
   stocks:   {label:'Ending Stocks / S:G',  unit:'stocks-to-grindings %',    events:{'2002-03':{dev:-7,src:'est'},'2004-05':{dev:-4,src:'est'},'2006-07':{dev:-11,src:'est'},'2009-10':{dev:+3,src:'est'},'2014-16':{dev:-6,src:'est'},'2018-19':{dev:-2,src:'est'},'2023-24':{dev:-14,src:'est'}}},
-  forward:  {label:'El Niño Forward Signal',unit:'GAIN attaché signal',      events:{'2002-03':{dev:-6,src:'est'},'2004-05':{dev:-3,src:'est'},'2006-07':{dev:-9,src:'est'},'2009-10':{dev:+1,src:'est'},'2014-16':{dev:-5,src:'est'},'2018-19':{dev:-2,src:'est'},'2023-24':{dev:-11,src:'est'}}}
 };
 C.palmoil.outcomes={
   volume:     {label:'CPO Production',         unit:'total output YoY %', events:C.palmoil.events},
@@ -666,10 +666,14 @@ C.bananas.outcomes={
   bunch:  {label:'Bunch Weight',    unit:'kg/bunch YoY %',                events:{'2002-03':{dev:-4,src:'est'},'2004-05':{dev:-2,src:'est'},'2006-07':{dev:-4,src:'est'},'2009-10':{dev:-6,src:'est'},'2014-16':{dev:-8,src:'est'},'2018-19':{dev:-2,src:'est'},'2023-24':{dev:-6,src:'est'}}}
 };
 C.avocado.outcomes={
-  volume: {label:'Production Volume',          unit:'production YoY %',            events:C.avocado.events},
-  yield:  {label:'Yield / Hectare',            unit:'t/ha YoY %',                  events:{'2002-03':{dev:-4,src:'est'},'2004-05':{dev:-3,src:'est'},'2006-07':{dev:-3,src:'est'},'2009-10':{dev:-6,src:'est'},'2014-16':{dev:-9,src:'est'},'2018-19':{dev:-4,src:'est'},'2023-24':{dev:-8,src:'est'}}},
-  water:  {label:'Water Stress / Precip. Anomaly', unit:'% deviation from long-term avg', events:{'2002-03':{dev:-8,src:'est'},'2004-05':{dev:-4,src:'est'},'2006-07':{dev:-3,src:'est'},'2009-10':{dev:-10,src:'est'},'2014-16':{dev:-12,src:'est'},'2018-19':{dev:-7,src:'est'},'2023-24':{dev:-16,src:'rep'}}},
-  export: {label:'Export Volume',              unit:'1000 MT YoY %',               events:{'2002-03':{dev:-3,src:'est'},'2004-05':{dev:-2,src:'est'},'2006-07':{dev:-2,src:'est'},'2009-10':{dev:-5,src:'est'},'2014-16':{dev:-7,src:'est'},'2018-19':{dev:-3,src:'est'},'2023-24':{dev:-6,src:'est'}}}
+  // volume: Mexico SIAP production YoY (worst year per event). Note: El Niño doesn't shrink volume—it compresses VALUE (caliber/price). SOURCE: OWID 2000–2013; SIAP via GAIN MX2024-0018/MX2026-0019 for 2014+
+  volume: {label:'Production Volume',          unit:'production YoY % — Mexico (SIAP/OWID)',  events:C.avocado.events},
+  // yield: Mexico t/ha YoY. SOURCE: friend avocado_yield_per_hectare.csv — cross-validation only (est for provenance)
+  yield:  {label:'Yield / Hectare',            unit:'t/ha YoY % — Mexico',                    events:{'2002-03':{dev:0,src:'est'},'2004-05':{dev:+2,src:'est'},'2006-07':{dev:-1,src:'est'},'2009-10':{dev:+1,src:'est'},'2014-16':{dev:+3,src:'est'},'2018-19':{dev:-2,src:'est'},'2023-24':{dev:-4,src:'est'}}},
+  // water: Mexico precipitation anomaly (% vs long-term avg). SOURCE: CONAGUA via friend's CSV — national annual avg; note limitation. 2009 flagged suspect (duplicate value).
+  water:  {label:'Precipitation', unit:'% deviation from long-term avg — Michoacán/Mexico', events:{'2002-03':{dev:-5,src:'rep'},'2004-05':{dev:-3,src:'rep'},'2006-07':{dev:+6,src:'rep'},'2009-10':{dev:0,src:'est'},'2014-16':{dev:-4,src:'rep'},'2018-19':{dev:-8,src:'rep'},'2023-24':{dev:-17,src:'rep'}}},
+  // export: Mexico export volume YoY. 2024 anchor = WITS HS 080440 (1,190,400 MT); historical = friend's CSV (direction only). KEY: 2023-24 shows first export decline (-15%) driven by value compression.
+  export: {label:'Export Volume',              unit:'1000 MT YoY % — Mexico',                 events:{'2002-03':{dev:+23,src:'rep'},'2004-05':{dev:+26,src:'rep'},'2006-07':{dev:+17,src:'rep'},'2009-10':{dev:+12,src:'rep'},'2014-16':{dev:+10,src:'rep'},'2018-19':{dev:+7,src:'rep'},'2023-24':{dev:-15,src:'rep'}}}
 };
 
 // ── PER-OUTCOME SENSITIVITY DRIVERS ─────────────────────────────────────────────────────
@@ -692,12 +696,6 @@ C.cocoa.outcomes.stocks.why=[
   "Below 30% stocks-to-grindings is the industry concern threshold — the 2023/24 reading of 26.4% (ICCO) leaves almost no buffer against a repeat supply shock.",
   "Stock drawdowns during El Niño years compound the following season's risk: lower inventory means any new disruption hits spot availability immediately.",
   "USDA PSD tracks ending stocks for all origins; ICCO's S:G ratio is the definitive tightness gauge used by the trade."
-];
-C.cocoa.outcomes.forward.why=[
-  "USDA GAIN attaché reports from Abidjan and Accra provide ground-level assessments weeks before formal ICCO production data — the highest-frequency forward signal.",
-  "Excess rain during the main crop (Oct–Mar in CIV) raises Phytophthora (brown rot) incidence — the single largest identifiable near-term supply risk.",
-  "CSSVD (Cacao Swollen Shoot Virus Disease) in Ghana spreads faster in wet conditions; infected trees must be felled — the yield impact is permanent.",
-  "Harmattan wind timing (Dec–Feb) determines pollination success — an early or prolonged Harmattan cuts the mid-crop (Apr–Aug)."
 ];
 C.palmoil.outcomes.volume.why=[
   "Drought reduces fresh-fruit-bunch (FFB) formation on palms; fewer bunches harvested means lower CPO output even at normal extraction rates.",
@@ -760,25 +758,381 @@ C.bananas.outcomes.bunch.why=[
   "Harvest disruption forces growers to pick underweight or over-mature bunches to clear fields before flooding worsens — average bunch weight falls."
 ];
 C.avocado.outcomes.volume.why=[
-  "Mexico (Michoacán) and Peru together account for ~50% of global export supply — a simultaneous El Niño shock to both origins moves the global market.",
-  "Below-normal Jun–Sep rain in Michoacán directly reduces fruit set and sizing; fewer harvestable fruits per tree means lower total tonnes even with stable area.",
-  "Perennial tree physiology means drought stress suppresses next season's flowering — production losses extend 12–18 months beyond the initial weather event."
+  "Mexico production volume does NOT reliably decline during El Niño — the risk is export VALUE compression, not tonnage. Raw volume grew +1.9% in 2023 despite strong drought (SIAP). Watch value/price per MT, not kt.",
+  "The primary El Niño mechanism: heat spikes during La Normal blooming (Dec–Apr) reduce fruit caliber (size grade). Smaller fruit → lower $/MT even if total kg harvested is flat. SOURCE: USDA GAIN MX2026-0019/MX2024-0018.",
+  "Avocados have no futures market — this is a physical supply signal only. Proxy instruments: equity in Mexico Hass packers (APEAM members), cold-chain logistics operators, US fresh-produce distributors with Mexico supply concentration."
 ];
 C.avocado.outcomes.yield.why=[
-  "Yield per hectare (t/ha) is the clearest signal of water stress — fruit count per tree and individual fruit size both fall under drought before harvest area changes.",
-  "Phytophthora root rot from Peru's flooding event reduces root function; trees survive but yield per ha drops for 1–2 seasons post-flood.",
-  "Michoacán's mature orchards have no irrigation backup — in drought years, yield swings of 15–25% per hectare are documented."
+  "Mexico yield (t/ha) is broadly stable at ~10–11 t/ha (friend's dataset, cross-validation only) — El Niño events do not cause the large yield swings seen in palm oil or cocoa.",
+  "Fruit-size compression under heat stress is the real mechanism: more fruits per tree but each weighs less → similar tonnes/ha but lower export grade → value compression not caught by yield/ha alone.",
+  "2023-24: yield dipped −3.6% in 2024 (10.82 vs 11.22 t/ha in 2023) after the El Niño peak — the first confirmed yield decline in the dataset. SOURCE: friend's avocado_yield_per_hectare.csv (cross-val only)."
 ];
 C.avocado.outcomes.water.why=[
-  "Precipitation anomaly is the leading indicator for avocado stress — orchards in Michoacán have limited irrigation, so annual rainfall directly caps fruit set and sizing months before harvest.",
-  "Mexico's 2023 anomaly of −16.7% (CONAGUA) is the worst in the dataset, directly coinciding with the strong 2023-24 El Niño; the correlation between negative ONI and Michoacán rainfall deficit is well-documented.",
-  "Peru and Colombia face different water risks — coastal flooding in Peru and erratic inter-Andean rainfall in Colombia — both of which are captured as negative anomalies relative to each country's long-term average."
+  "Mexico's 2023 precipitation anomaly of −16.7% (CONAGUA) is the worst in the 2000–2024 dataset, coinciding with the strongest El Niño on record for Michoacán. Direct correlation with export value −12%. SOURCE: CONAGUA/Statista via friend's CSV.",
+  "2019 drought (−7.5%) and 2015 drought (−3.6%) are the second and third-worst anomalies — both occurred during El Niño years, confirming the ENSO → Michoacán drought link.",
+  "Note: 2009 Mexico water stress flagged as suspect (duplicate of 2010 value, likely copy-paste error). 2010 was a La Niña wet year (+28.4% above avg). The 2009-10 El Niño was not a drought event for Mexico."
 ];
 C.avocado.outcomes.export.why=[
-  "Mexico (~50% of global exports) and Colombia are the two most export-exposed origins — supply disruptions in either show up in global trade volumes within weeks given near-zero shelf life.",
-  "The world export line flattens during strong El Niño events (2014-16, 2023-24) after years of steep growth, confirming that weather shocks are large enough to interrupt structural demand expansion.",
-  "Mexico dipped in 2020 (COVID logistics) and 2024 (El Niño drought); Colombia plateaued through 2023-24 — together these two events account for the only pauses in a decade of otherwise relentless export growth."
+  "2023-24 delivered the first confirmed Mexico export decline (−15% to 1.19 MMT in 2024) after 20+ years of continuous growth — anchored to WITS HS 080440. The trigger was 2023 El Niño heat stress reducing fruit size/grade.",
+  "Historical export YoY was positive throughout every prior El Niño event (structural demand growth overriding any supply stress). The 2023-24 break is a structural signal, not noise.",
+  "Colombia's rapid export growth (+221% value YoY in 2024) amplifies the 2026 compounding risk: Colombia now matters as a supplier, but faces the same drought direction as Mexico — no offset country in 2026. SOURCE: GAIN CO2025-0004 + WITS."
 ];
+
+// ── AVOCADO: PER-COUNTRY PRODUCTION ────────────────────────────────────────────────────────
+// All 2000-2024: OWID/FAO avocado-production.csv (downloaded 2026-02-25, FAO FAOSTAT QCL)
+// mex 2025-2026: SIAP via USDA GAIN MX2026-0019 (forecast, no OWID equivalent yet)
+// per 2025: USDA GAIN PE2025-0005 (forecast)
+// col + wld: OWID/FAO 2000-2024 only
+// kt = tonnes / 1000
+C.avocado.countryProd={
+  mex:[
+    {yr:'2000',kt:907.4,src:'rep',note:'OWID/FAO'},{yr:'2001',kt:940.2,src:'rep',note:'OWID/FAO'},
+    {yr:'2002',kt:901.1,src:'rep',note:'OWID/FAO'},{yr:'2003',kt:905.0,src:'rep',note:'OWID/FAO'},
+    {yr:'2004',kt:987.0,src:'rep',note:'OWID/FAO'},{yr:'2005',kt:1021.5,src:'rep',note:'OWID/FAO'},
+    {yr:'2006',kt:1134.3,src:'rep',note:'OWID/FAO'},{yr:'2007',kt:1142.9,src:'rep',note:'OWID/FAO'},
+    {yr:'2008',kt:1162.4,src:'rep',note:'OWID/FAO'},{yr:'2009',kt:1231.0,src:'rep',note:'OWID/FAO'},
+    {yr:'2010',kt:1107.1,src:'rep',note:'OWID/FAO'},{yr:'2011',kt:1264.1,src:'rep',note:'OWID/FAO'},
+    {yr:'2012',kt:1316.1,src:'rep',note:'OWID/FAO'},{yr:'2013',kt:1467.8,src:'rep',note:'OWID/FAO'},
+    {yr:'2014',kt:1520.7,src:'rep',note:'OWID/FAO'},{yr:'2015',kt:1644.2,src:'rep',note:'OWID/FAO'},
+    {yr:'2016',kt:1889.4,src:'rep',note:'OWID/FAO'},{yr:'2017',kt:2029.9,src:'rep',note:'OWID/FAO'},
+    {yr:'2018',kt:2184.7,src:'rep',note:'OWID/FAO'},{yr:'2019',kt:2300.9,src:'rep',note:'OWID/FAO'},
+    {yr:'2020',kt:2393.8,src:'rep',note:'OWID/FAO'},{yr:'2021',kt:2442.9,src:'rep',note:'OWID/FAO'},
+    {yr:'2022',kt:2540.7,src:'rep',note:'OWID/FAO'},{yr:'2023',kt:2973.3,src:'rep',note:'OWID/FAO — FAO Feb 2026; SIAP est.2652'},
+    {yr:'2024',kt:2761.3,src:'rep',note:'OWID/FAO — FAO Feb 2026; SIAP est.2669'},{yr:'2025',kt:2725.1,src:'rep',note:'SIAP via GAIN MX2026-0019 forecast'},
+    {yr:'2026',kt:2800.0,src:'rep',note:'USDA GAIN MX2026-0019 forecast'},
+  ],
+  per:[
+    {yr:'2000',kt:83.7,src:'rep',note:'OWID/FAO'},{yr:'2001',kt:93.5,src:'rep',note:'OWID/FAO'},
+    {yr:'2002',kt:94.2,src:'rep',note:'OWID/FAO'},{yr:'2003',kt:100.0,src:'rep',note:'OWID/FAO'},
+    {yr:'2004',kt:108.5,src:'rep',note:'OWID/FAO'},{yr:'2005',kt:103.4,src:'rep',note:'OWID/FAO'},
+    {yr:'2006',kt:113.3,src:'rep',note:'OWID/FAO'},{yr:'2007',kt:121.7,src:'rep',note:'OWID/FAO'},
+    {yr:'2008',kt:136.3,src:'rep',note:'OWID/FAO'},{yr:'2009',kt:157.4,src:'rep',note:'OWID/FAO'},
+    {yr:'2010',kt:184.4,src:'rep',note:'OWID/FAO'},{yr:'2011',kt:213.7,src:'rep',note:'OWID/FAO'},
+    {yr:'2012',kt:268.5,src:'rep',note:'OWID/FAO'},{yr:'2013',kt:288.4,src:'rep',note:'OWID/FAO'},
+    {yr:'2014',kt:349.3,src:'rep',note:'OWID/FAO'},{yr:'2015',kt:367.1,src:'rep',note:'OWID/FAO'},
+    {yr:'2016',kt:455.4,src:'rep',note:'OWID/FAO'},{yr:'2017',kt:466.8,src:'rep',note:'OWID/FAO'},
+    {yr:'2018',kt:504.8,src:'rep',note:'OWID/FAO'},{yr:'2019',kt:572.0,src:'rep',note:'OWID/FAO'},
+    {yr:'2020',kt:672.2,src:'rep',note:'OWID/FAO'},{yr:'2021',kt:776.7,src:'rep',note:'OWID/FAO'},
+    {yr:'2022',kt:798.3,src:'rep',note:'OWID/FAO'},
+    {yr:'2023',kt:872.1,src:'rep',note:'OWID/FAO — FAO Feb 2026; GAIN est.813'},{yr:'2024',kt:919.6,src:'rep',note:'OWID/FAO — FAO Feb 2026; GAIN est.804'},
+    {yr:'2025',kt:844.0,src:'rep',note:'USDA GAIN PE2025-0005 forecast'},
+    {yr:'2026',kt:820.0,src:'est',note:'Est. — El Niño onset; coastal flooding risk per GAIN PE2025-0005 context'},
+  ],
+  col:[
+    {yr:'2000',kt:131.7,src:'rep',note:'OWID/FAO'},{yr:'2001',kt:137.1,src:'rep',note:'OWID/FAO'},
+    {yr:'2002',kt:142.7,src:'rep',note:'OWID/FAO'},{yr:'2003',kt:163.2,src:'rep',note:'OWID/FAO'},
+    {yr:'2004',kt:171.0,src:'rep',note:'OWID/FAO'},{yr:'2005',kt:171.6,src:'rep',note:'OWID/FAO'},
+    {yr:'2006',kt:191.7,src:'rep',note:'OWID/FAO'},{yr:'2007',kt:194.0,src:'rep',note:'OWID/FAO'},
+    {yr:'2008',kt:184.0,src:'rep',note:'OWID/FAO'},{yr:'2009',kt:189.0,src:'rep',note:'OWID/FAO'},
+    {yr:'2010',kt:205.4,src:'rep',note:'OWID/FAO'},{yr:'2011',kt:215.1,src:'rep',note:'OWID/FAO'},
+    {yr:'2012',kt:255.4,src:'rep',note:'OWID/FAO'},{yr:'2013',kt:295.0,src:'rep',note:'OWID/FAO'},
+    {yr:'2014',kt:288.7,src:'rep',note:'OWID/FAO'},{yr:'2015',kt:309.9,src:'rep',note:'OWID/FAO'},
+    {yr:'2016',kt:294.4,src:'rep',note:'OWID/FAO'},{yr:'2017',kt:308.2,src:'rep',note:'OWID/FAO'},
+    {yr:'2018',kt:445.1,src:'rep',note:'OWID/FAO'},{yr:'2019',kt:535.0,src:'rep',note:'OWID/FAO'},
+    {yr:'2020',kt:829.1,src:'rep',note:'OWID/FAO'},{yr:'2021',kt:979.6,src:'rep',note:'OWID/FAO'},
+    {yr:'2022',kt:1090.7,src:'rep',note:'OWID/FAO'},{yr:'2023',kt:1085.8,src:'rep',note:'OWID/FAO'},
+    {yr:'2024',kt:1267.8,src:'rep',note:'OWID/FAO'},
+    {yr:'2025',kt:1310.0,src:'est',note:'Est. — continued Hass area expansion'},{yr:'2026',kt:1280.0,src:'est',note:'Est. — El Niño onset; Andean belt drought risk'},
+  ],
+  wld:[
+    {yr:'2000',kt:2705.6,src:'rep',note:'OWID/FAO'},{yr:'2001',kt:2762.6,src:'rep',note:'OWID/FAO'},
+    {yr:'2002',kt:2943.3,src:'rep',note:'OWID/FAO'},{yr:'2003',kt:3121.5,src:'rep',note:'OWID/FAO'},
+    {yr:'2004',kt:3164.3,src:'rep',note:'OWID/FAO'},{yr:'2005',kt:3352.8,src:'rep',note:'OWID/FAO'},
+    {yr:'2006',kt:3572.6,src:'rep',note:'OWID/FAO'},{yr:'2007',kt:3517.0,src:'rep',note:'OWID/FAO'},
+    {yr:'2008',kt:3367.4,src:'rep',note:'OWID/FAO'},{yr:'2009',kt:3832.5,src:'rep',note:'OWID/FAO'},
+    {yr:'2010',kt:3801.8,src:'rep',note:'OWID/FAO'},{yr:'2011',kt:4092.7,src:'rep',note:'OWID/FAO'},
+    {yr:'2012',kt:4338.2,src:'rep',note:'OWID/FAO'},{yr:'2013',kt:4566.8,src:'rep',note:'OWID/FAO'},
+    {yr:'2014',kt:5091.8,src:'rep',note:'OWID/FAO'},{yr:'2015',kt:5515.4,src:'rep',note:'OWID/FAO'},
+    {yr:'2016',kt:6030.0,src:'rep',note:'OWID/FAO'},{yr:'2017',kt:6378.6,src:'rep',note:'OWID/FAO'},
+    {yr:'2018',kt:6880.6,src:'rep',note:'OWID/FAO'},{yr:'2019',kt:7296.5,src:'rep',note:'OWID/FAO'},
+    {yr:'2020',kt:8266.2,src:'rep',note:'OWID/FAO'},{yr:'2021',kt:8838.2,src:'rep',note:'OWID/FAO'},
+    {yr:'2022',kt:9581.2,src:'rep',note:'OWID/FAO'},{yr:'2023',kt:10673.0,src:'rep',note:'OWID/FAO'},
+    {yr:'2024',kt:11226.1,src:'rep',note:'OWID/FAO'},
+    {yr:'2025',kt:11600.0,src:'est',note:'Est. — continued structural growth'},{yr:'2026',kt:11400.0,src:'est',note:'Est. — El Niño onset; Mexico + Colombia drought risk'},
+  ],
+};
+C.avocado.outcomes.volume.trajectory=[
+  {yr:'2001',yoy:+3.6, src:'rep',abs:'940 kt', note:'OWID/FAO Mexico — structural growth'},
+  {yr:'2002',yoy:-4.2, src:'rep',abs:'901 kt', note:'OWID/FAO — El Niño 2002–03; mild drought Michoacán'},
+  {yr:'2003',yoy:+0.4, src:'rep',abs:'905 kt', note:'OWID/FAO — El Niño continued; minimal recovery'},
+  {yr:'2004',yoy:+9.1, src:'rep',abs:'987 kt', note:'OWID/FAO — El Niño 2004–05; volume grew despite ENSO'},
+  {yr:'2005',yoy:+3.5, src:'rep',abs:'1022 kt',note:'OWID/FAO'},
+  {yr:'2006',yoy:+11.0,src:'rep',abs:'1134 kt',note:'OWID/FAO — El Niño 2006–07; expansion dominated'},
+  {yr:'2007',yoy:+0.8, src:'rep',abs:'1143 kt',note:'OWID/FAO'},
+  {yr:'2008',yoy:+1.7, src:'rep',abs:'1162 kt',note:'OWID/FAO'},
+  {yr:'2009',yoy:+5.9, src:'rep',abs:'1231 kt',note:'OWID/FAO — El Niño 2009–10; volume rose despite ENSO'},
+  {yr:'2010',yoy:-10.1,src:'rep',abs:'1107 kt',note:'OWID/FAO — La Niña flooding disrupted harvest; unusual −10.1%'},
+  {yr:'2011',yoy:+14.2,src:'rep',abs:'1264 kt',note:'OWID/FAO — post-La Niña rebound'},
+  {yr:'2012',yoy:+4.1, src:'rep',abs:'1316 kt',note:'OWID/FAO'},
+  {yr:'2013',yoy:+11.5,src:'rep',abs:'1468 kt',note:'OWID/FAO'},
+  {yr:'2014',yoy:+3.6, src:'rep',abs:'1521 kt',note:'SIAP via GAIN MX — El Niño 2014–16 onset; volume held'},
+  {yr:'2015',yoy:+8.1, src:'rep',abs:'1644 kt',note:'SIAP via GAIN MX — El Niño peak; fruit caliber hit but tonnage grew'},
+  {yr:'2016',yoy:+14.9,src:'rep',abs:'1889 kt',note:'SIAP via GAIN MX — new orchard expansion boom'},
+  {yr:'2017',yoy:+7.4, src:'rep',abs:'2030 kt',note:'SIAP via GAIN MX'},
+  {yr:'2018',yoy:+7.6, src:'rep',abs:'2185 kt',note:'SIAP via GAIN MX — El Niño 2018–19; value compressed, not volume'},
+  {yr:'2019',yoy:+5.3, src:'rep',abs:'2301 kt',note:'SIAP via GAIN MX'},
+  {yr:'2020',yoy:+4.0, src:'rep',abs:'2394 kt',note:'SIAP via GAIN MX'},
+  {yr:'2021',yoy:+2.0, src:'rep',abs:'2443 kt',note:'OWID/FAO — SIAP reported −2.5% (frost); FAO revised upward to +2.0%'},
+  {yr:'2022',yoy:+4.0, src:'rep',abs:'2541 kt',note:'OWID/FAO'},
+  {yr:'2023',yoy:+17.0,src:'rep',abs:'2973 kt',note:'OWID/FAO — El Niño 2023–24; SIAP est.2652 kt; WITS export value −12%'},
+  {yr:'2024',yoy:-7.1, src:'rep',abs:'2761 kt',note:'OWID/FAO — El Niño tail; WITS exports −15% to 1.19 MMT confirmed'},
+  {yr:'2025',yoy:+2.1, src:'rep',abs:'2725 kt',note:'SIAP via GAIN MX2026-0019'},
+  {yr:'2026',yoy:+2.8, src:'rep',abs:'2800 kt',note:'USDA GAIN MX2026-0019 forecast — El Niño H2 2026 risk'},
+];
+C.avocado.barFactors={
+  'vol-mex-2002':"El Niño 2002–03 — Mexico −4.2% YoY; mild drought Michoacán offset by orchard area growth",
+  'vol-mex-2003':"El Niño 2002–03 continued — marginal +0.4%; structural orchard expansion ongoing",
+  'vol-mex-2009':"El Niño 2009–10 — volume rose +5.9% despite ENSO; confirms volume does NOT reliably fall during El Niño",
+  'vol-mex-2010':"La Niña 2010 — flooding disrupted harvest; unusual −10.1% YoY; biggest non-frost decline in dataset",
+  'vol-mex-2011':"Post-La Niña rebound +14.2% — Michoacán moisture recovery + orchard expansion",
+  'vol-mex-2018':"El Niño 2018–19 onset — volume +7.6%; ENSO heat stress on caliber but tonnage grew; value-compression mechanism active",
+  'vol-mex-2021':"Michoacán frost event Jan 2021 — SIAP reported −2.5%; OWID/FAO revised to +2.0%; frost impact absorbed at national scale",
+  'vol-mex-2022':"Expansion year +4.0% (OWID/FAO) — orchard area growth continued",
+  'vol-mex-2023':"El Niño 2023–24 — OWID/FAO +17.0% (2973 kt); SIAP est.+1.9% (2652 kt); large source divergence. WITS export VALUE −12% to $3.03B confirms caliber compression despite volume surge. SOURCE: OWID/FAO + GAIN MX2024-0018",
+  'vol-mex-2024':"OWID/FAO −7.1% (2761 kt) — El Niño tail; WITS HS 080440 exports −15% to 1.19 MMT confirms value/volume decoupling persisted",
+  'vol-per-2009':"El Niño 2009–10 — Peru GAINED +15.5%; opposite ENSO direction from Mexico confirms Peru as partial offset",
+  'vol-per-2010':"La Niña 2010 — Peru +17.1%; La Niña coastal moisture boosts Peru harvests",
+  'vol-per-2016':"El Niño 2014–16 recovery — Peru export surge +24%; strong Hass season; confirms offset country role",
+  'vol-per-2024':"La Niña coastal flood risk — slight dip −1.1%; Peru vulnerability is La Niña not El Niño",
+  'vol-col-2018':"Hass belt expansion boom — new Andean plantings reached full production; +44% YoY; unrelated to ENSO",
+  'vol-col-2020':"Second wave of plantings matured — +55% YoY; Colombia structural growth phase 2018–2022",
+  'vol-col-2023':"El Niño 2023–24 drought — volume flat −0.45%; Andean belt drought confirmed; tree resilience limited collapse",
+  'vol-wld-2010':"World −0.8% — La Niña hit Mexico −10% but offset gains in Peru; unusual global dip",
+  'vol-wld-2018':"El Niño 2018–19 onset — world +7.9%; Colombia expansion dominated ENSO stress",
+  'vol-wld-2023':"El Niño 2023–24 — world +10.4% (OWID) driven by Colombia expansion and Mexico +17%; confirms structural growth overwhelms ENSO signal at world level",
+  // ── YIELD (t/ha YoY%) ────────────────────────────────────────────────────────
+  'yield-mex-2010':"La Niña 2010 — Mexico yield collapsed −11.5% to 8.97 t/ha; strongest water-yield shock in dataset; flooding displaced blooms in Michoacán",
+  'yield-mex-2015':"El Niño 2015–16 — Mexico yield −0.4% to 9.85 t/ha; caliber compression but negligible tonnage-per-ha impact",
+  'yield-mex-2023':"El Niño 2023–24 — Mexico yield +19.2% to 11.74 t/ha (record); counter-intuitive; drought stress accelerates fruit maturation and concentrates carbohydrates",
+  'yield-per-2015':"El Niño 2015–16 — Peru yield −5.1% to 10.93 t/ha; coastal flooding disrupted flowering; confirms Peru more sensitive than Mexico to El Niño yield",
+  'yield-per-2017':"Niño Costero 2017 — Peru yield −2.0% to 11.78 t/ha; La Libertad flooding moderate impact; irrigated Hass resilient vs rain-fed",
+  'yield-per-2024':"Record Peru yield 14.57 t/ha — post-El Niño rebound + irrigated Hass expansion; highest in dataset (OWID/FAO)",
+  'yield-col-2014':"El Niño 2014–15 onset — Colombia yield 8.37 t/ha (below-trend); new Hass plantings in early production phase; ENSO drought compounded expansion dilution",
+  'yield-col-2016':"El Niño 2015–16 peak — Colombia yield 7.35 t/ha (cycle low); combination of drought and immature orchard mix; note: this same year Colombia volume held due to area additions",
+  'yield-col-2020':"Post-expansion maturation — Colombia yield 10.44 t/ha (recovery); 2018–2020 plantings reached full production; confirms area expansion was diluting yield 2014–2019",
+  'yield-wld-2010':"La Niña 2010 — global yield −4.0% to 8.41 t/ha; Mexico −11.5% dominated the signal; Peru partly offset",
+  'yield-wld-2023':"El Niño 2023–24 — global yield +6.3% to 11.11 t/ha (record); Mexico spike (+19%) overwhelmed Colombia/Peru drag; counter-intuitive at world level",
+  // ── WATER (precipitation anomaly YoY%) ───────────────────────────────────────
+  'water-mex-2002':"El Niño 2002–03 — Mexico −4.6% precip anomaly; mild drought in Michoacán avocado belt; volume fell −4.2% — confirming drought signal",
+  'water-mex-2004':"El Niño 2004–05 — Mexico −2.8% anomaly; moderate drought but volume rose +9.1%; orchard expansion overwhelmed weather signal",
+  'water-mex-2009':"El Niño 2009–10 — Mexico +28.4% precip anomaly (very wet); volume rose +5.9%; wetter El Niño variant — not the dry canonical type",
+  'water-mex-2010':"La Niña 2010 — Mexico +28.4% precip anomaly (wettest on record); yet yield −11.5%; excess moisture damaged blooms and disrupted harvest timing",
+  'water-mex-2015':"El Niño 2015–16 — Mexico −3.6% precip anomaly; canonical drought signal; yield −0.4% but caliber/value compressed",
+  'water-mex-2023':"El Niño 2023–24 — Mexico −4.3% precip anomaly; drought in Michoacán coincided with record yield (+19%); volume +17%; drought stress accelerated maturation",
+  'water-per-2015':"El Niño 2015–16 — Peru coastal flooding anomaly; yield fell −5.1%; opposite sign to Mexico confirms Peru El Niño = WET risk, not drought",
+  'water-per-2017':"Niño Costero 2017 — anomalous coastal SST event; heavy flooding La Libertad; worst single-season flood event in dataset for Peru",
+  'water-per-2023':"El Niño 2023–24 — Peru coastal zone wet anomaly; yield +8.6%; flooding risk partly offset by improved drainage infrastructure in Virú valley",
+  'water-col-2015':"El Niño 2015–16 — Colombia −6.6% precip anomaly; Andean drought signal; yield fell to 8.50 t/ha; confirms Colombia drought direction same as Mexico under El Niño",
+  'water-col-2016':"El Niño 2015–16 continued — Colombia −10.4% anomaly (deepest drought in dataset); yield 7.35 t/ha (cycle low); direct El Niño–yield link for Colombia",
+  'water-col-2020':"La Niña 2020 — Colombia +9.1% anomaly; yield recovered to 10.44 t/ha (highest since 2007); moisture recovery unlocked planted orchard potential",
+  // ── EXPORT (kt YoY%) ─────────────────────────────────────────────────────────
+  'export-mex-2019':"Export acceleration +18.9% — US demand surge; USMCA-era logistics; volume followed production trajectory",
+  'export-mex-2023':"El Niño 2023–24 — Mexico exports +14.5% to 1,400 kt; production +17% flowed to export; but WITS export VALUE fell −12% confirming caliber compression",
+  'export-mex-2024':"El Niño tail 2024 — Mexico exports −14.9% to 1,190 kt (WITS HS 080440 confirmed); production −7.1%; worst export year since 2020; both value and volume compressed",
+  'export-mex-2025':"Post-El Niño recovery — Mexico exports +2.5% to 1,220 kt (USDA GAIN MX2026-0019 forecast); cautious recovery",
+  'export-per-2016':"El Niño 2014–16 recovery — Peru exports +23.9% to 341 kt; Hass expansion harvest surge; Peru confirmed as structural offset country to Mexico El Niño disruption",
+  'export-per-2017':"Niño Costero 2017 — Peru exports +2.7% despite flooding; irrigated Hass export operations resilient; minor disruption vs scale of flooding",
+  'export-per-2024':"Peru exports 688 kt (WITS / GAIN) — +5.4% YoY; record high; confirms Peru absorbed demand as Mexico volumes fell",
+  'export-per-2025':"El Niño onset — Peru exports forecast −8.0% to 633 kt (GAIN PE2025-0005); production −8.2%; confirms El Niño reverses Peru's offsetting role",
+  'export-col-2018':"Colombia export ramp +54.2% — new Hass orchards reaching export maturity; structural shift began; Colombia joins global supply chain",
+  'export-col-2023':"El Niño 2023–24 — Colombia exports −5.3% to 360 kt; Andean drought dented volume; contrast with Mexico surge shows decoupled exposure",
+  'export-col-2024':"WITS 2024 actual 138.6 kt — sharp apparent decline vs 2023 est.360 kt; likely reflects prior years' direction signals overestimating Colombia trade; not a production crash",
+  'export-wld-2023':"El Niño 2023–24 — world exports est.+5.7% to 3,500 kt; Mexico surge overwhelmed Peru/Colombia softness; demand holding despite caliber compression",
+};
+
+// ── AVOCADO: YIELD PER HECTARE ──────────────────────────────────────────────────────────────
+// SOURCE: Mexico 2000-2024 from avocado_yield_per_hectare.csv (SIAP/FAO raw — not the corrupted pipeline CSV)
+// Colombia + World: 2000-2024, OWID/FAO (clean). Peru 2000-2023: est. (GAIN PE2017 range 12–17 t/ha); 2024: MIDAGRI via GAIN PE2025-0005.
+C.avocado.countryYield={
+  // All 2000–2024 values: OWID avocado-yield.csv (FAO) — downloaded 2026-06-25
+  mex:[
+    {yr:'2000',tha:9.64,src:'rep',note:'OWID/FAO'},{yr:'2001',tha:9.99,src:'rep',note:'OWID/FAO'},
+    {yr:'2002',tha:9.60,src:'rep',note:'OWID/FAO'},{yr:'2003',tha:9.49,src:'rep',note:'OWID/FAO'},
+    {yr:'2004',tha:9.87,src:'rep',note:'OWID/FAO'},{yr:'2005',tha:9.91,src:'rep',note:'OWID/FAO'},
+    {yr:'2006',tha:10.75,src:'rep',note:'OWID/FAO'},{yr:'2007',tha:10.35,src:'rep',note:'OWID/FAO'},
+    {yr:'2008',tha:10.33,src:'rep',note:'OWID/FAO'},{yr:'2009',tha:10.13,src:'rep',note:'OWID/FAO'},
+    {yr:'2010',tha:8.97,src:'rep',note:'OWID/FAO'},{yr:'2011',tha:9.99,src:'rep',note:'OWID/FAO'},
+    {yr:'2012',tha:10.10,src:'rep',note:'OWID/FAO'},{yr:'2013',tha:10.18,src:'rep',note:'OWID/FAO'},
+    {yr:'2014',tha:9.89,src:'rep',note:'OWID/FAO'},{yr:'2015',tha:9.85,src:'rep',note:'OWID/FAO'},
+    {yr:'2016',tha:10.47,src:'rep',note:'OWID/FAO'},{yr:'2017',tha:10.76,src:'rep',note:'OWID/FAO'},
+    {yr:'2018',tha:10.59,src:'rep',note:'OWID/FAO'},{yr:'2019',tha:10.66,src:'rep',note:'OWID/FAO'},
+    {yr:'2020',tha:10.67,src:'rep',note:'OWID/FAO'},{yr:'2021',tha:10.78,src:'rep',note:'OWID/FAO'},
+    {yr:'2022',tha:10.76,src:'rep',note:'OWID/FAO'},{yr:'2023',tha:11.74,src:'rep',note:'OWID/FAO — El Niño 2023-24'},
+    {yr:'2024',tha:10.91,src:'rep',note:'OWID/FAO'},
+    {yr:'2025',tha:11.05,src:'est',note:'Est. — neutral year recovery post El Niño'},{yr:'2026',tha:10.55,src:'est',note:'Est. — El Niño onset; Michoacán drought reduces fruit size and yield'},
+  ],
+  col:[
+    {yr:'2000',tha:9.97,src:'rep',note:'OWID/FAO'},{yr:'2001',tha:9.90,src:'rep',note:'OWID/FAO'},
+    {yr:'2002',tha:10.16,src:'rep',note:'OWID/FAO'},{yr:'2003',tha:10.50,src:'rep',note:'OWID/FAO'},
+    {yr:'2004',tha:10.71,src:'rep',note:'OWID/FAO'},{yr:'2005',tha:10.65,src:'rep',note:'OWID/FAO'},
+    {yr:'2006',tha:10.87,src:'rep',note:'OWID/FAO'},{yr:'2007',tha:10.30,src:'rep',note:'OWID/FAO'},
+    {yr:'2008',tha:9.96,src:'rep',note:'OWID/FAO'},{yr:'2009',tha:9.82,src:'rep',note:'OWID/FAO'},
+    {yr:'2010',tha:9.51,src:'rep',note:'OWID/FAO'},{yr:'2011',tha:8.77,src:'rep',note:'OWID/FAO'},
+    {yr:'2012',tha:9.22,src:'rep',note:'OWID/FAO'},{yr:'2013',tha:9.19,src:'rep',note:'OWID/FAO'},
+    {yr:'2014',tha:8.37,src:'rep',note:'OWID/FAO'},{yr:'2015',tha:8.50,src:'rep',note:'OWID/FAO'},
+    {yr:'2016',tha:7.35,src:'rep',note:'OWID/FAO'},{yr:'2017',tha:7.50,src:'rep',note:'OWID/FAO'},
+    {yr:'2018',tha:8.27,src:'rep',note:'OWID/FAO'},{yr:'2019',tha:8.42,src:'rep',note:'OWID/FAO'},
+    {yr:'2020',tha:10.44,src:'rep',note:'OWID/FAO'},{yr:'2021',tha:10.41,src:'rep',note:'OWID/FAO'},
+    {yr:'2022',tha:9.90,src:'rep',note:'OWID/FAO'},{yr:'2023',tha:10.17,src:'rep',note:'OWID/FAO'},
+    {yr:'2024',tha:10.48,src:'rep',note:'OWID/FAO'},
+    {yr:'2025',tha:10.30,src:'est',note:'Est. — neutral year; Colombia recovery post El Niño'},{yr:'2026',tha:9.90,src:'est',note:'Est. — El Niño onset; Colombia drought signal same direction as Mexico'},
+  ],
+  per:[
+    // Peru: OWID/FAO shows steady rise from ~9.6 (2000) to ~14.6 (2024) — modern irrigated Hass in La Libertad
+    {yr:'2000',tha:9.56,src:'rep',note:'OWID/FAO'},{yr:'2001',tha:9.11,src:'rep',note:'OWID/FAO'},
+    {yr:'2002',tha:9.14,src:'rep',note:'OWID/FAO'},{yr:'2003',tha:8.96,src:'rep',note:'OWID/FAO'},
+    {yr:'2004',tha:9.27,src:'rep',note:'OWID/FAO'},{yr:'2005',tha:8.79,src:'rep',note:'OWID/FAO'},
+    {yr:'2006',tha:9.04,src:'rep',note:'OWID/FAO'},{yr:'2007',tha:8.95,src:'rep',note:'OWID/FAO'},
+    {yr:'2008',tha:9.49,src:'rep',note:'OWID/FAO'},{yr:'2009',tha:9.66,src:'rep',note:'OWID/FAO'},
+    {yr:'2010',tha:10.39,src:'rep',note:'OWID/FAO'},{yr:'2011',tha:11.05,src:'rep',note:'OWID/FAO'},
+    {yr:'2012',tha:12.42,src:'rep',note:'OWID/FAO'},{yr:'2013',tha:11.20,src:'rep',note:'OWID/FAO'},
+    {yr:'2014',tha:11.52,src:'rep',note:'OWID/FAO'},{yr:'2015',tha:10.93,src:'rep',note:'OWID/FAO — El Niño 2015-16'},
+    {yr:'2016',tha:12.02,src:'rep',note:'OWID/FAO'},{yr:'2017',tha:11.78,src:'rep',note:'OWID/FAO — Niño Costero flooding'},
+    {yr:'2018',tha:12.24,src:'rep',note:'OWID/FAO'},{yr:'2019',tha:11.94,src:'rep',note:'OWID/FAO'},
+    {yr:'2020',tha:13.12,src:'rep',note:'OWID/FAO'},{yr:'2021',tha:14.02,src:'rep',note:'OWID/FAO'},
+    {yr:'2022',tha:13.16,src:'rep',note:'OWID/FAO'},{yr:'2023',tha:13.42,src:'rep',note:'OWID/FAO — El Niño 2023-24'},
+    {yr:'2024',tha:14.57,src:'rep',note:'OWID/FAO'},
+    {yr:'2025',tha:14.20,src:'est',note:'Est. — GAIN PE2025-0005 forecast context'},{yr:'2026',tha:13.50,src:'est',note:'Est. — El Niño onset; coastal flooding risk'},
+  ],
+  wld:[
+    {yr:'2000',tha:8.21,src:'rep',note:'OWID/FAO'},{yr:'2001',tha:8.57,src:'rep',note:'OWID/FAO'},
+    {yr:'2002',tha:8.69,src:'rep',note:'OWID/FAO'},{yr:'2003',tha:8.79,src:'rep',note:'OWID/FAO'},
+    {yr:'2004',tha:8.63,src:'rep',note:'OWID/FAO'},{yr:'2005',tha:8.99,src:'rep',note:'OWID/FAO'},
+    {yr:'2006',tha:9.28,src:'rep',note:'OWID/FAO'},{yr:'2007',tha:8.76,src:'rep',note:'OWID/FAO'},
+    {yr:'2008',tha:8.20,src:'rep',note:'OWID/FAO'},{yr:'2009',tha:8.97,src:'rep',note:'OWID/FAO'},
+    {yr:'2010',tha:8.41,src:'rep',note:'OWID/FAO'},{yr:'2011',tha:8.75,src:'rep',note:'OWID/FAO'},
+    {yr:'2012',tha:8.97,src:'rep',note:'OWID/FAO'},{yr:'2013',tha:8.76,src:'rep',note:'OWID/FAO'},
+    {yr:'2014',tha:9.06,src:'rep',note:'OWID/FAO'},{yr:'2015',tha:9.05,src:'rep',note:'OWID/FAO'},
+    {yr:'2016',tha:9.05,src:'rep',note:'OWID/FAO'},{yr:'2017',tha:9.46,src:'rep',note:'OWID/FAO'},
+    {yr:'2018',tha:9.42,src:'rep',note:'OWID/FAO'},{yr:'2019',tha:9.64,src:'rep',note:'OWID/FAO'},
+    {yr:'2020',tha:10.21,src:'rep',note:'OWID/FAO'},{yr:'2021',tha:10.40,src:'rep',note:'OWID/FAO'},
+    {yr:'2022',tha:10.48,src:'rep',note:'OWID/FAO'},{yr:'2023',tha:11.11,src:'rep',note:'OWID/FAO — El Niño 2023-24'},
+    {yr:'2024',tha:11.17,src:'rep',note:'OWID/FAO'},
+    {yr:'2025',tha:11.30,src:'est',note:'Est. — neutral year; global avocado yield continues upward trend'},{yr:'2026',tha:11.00,src:'est',note:'Est. — El Niño onset; MEX+COL supply pressure drags global avg'},
+  ],
+};
+
+// ── AVOCADO: PRECIPITATION ANOMALY (WATER STRESS) ──────────────────────────────────────────
+// % deviation from long-term annual avg. Positive = wetter, negative = drier/drought.
+// SOURCE: CONAGUA (Mexico) and IDEAM (Colombia) via pipeline avocado_water_stress.csv
+C.avocado.countryWater={
+  mex:[
+    {yr:'2000',anom:+0.4,src:'rep',note:'CONAGUA/World Bank'},{yr:'2001',anom:+1.2,src:'rep',note:'CONAGUA'},
+    {yr:'2002',anom:-4.6,src:'rep',note:'CONAGUA — El Niño 2002-03'},{yr:'2003',anom:-1.1,src:'rep',note:'CONAGUA — El Niño'},
+    {yr:'2004',anom:-2.8,src:'rep',note:'CONAGUA — El Niño 2004-05'},{yr:'2005',anom:+4.1,src:'rep',note:'CONAGUA'},
+    {yr:'2006',anom:+6.1,src:'rep',note:'CONAGUA — El Niño 2006-07'},{yr:'2007',anom:+1.8,src:'rep',note:'CONAGUA'},
+    {yr:'2008',anom:+6.9,src:'rep',note:'CONAGUA'},{yr:'2009',anom:+28.4,src:'rep',note:'CONAGUA — El Niño 2009-10; very wet year'},
+    {yr:'2010',anom:+28.4,src:'rep',note:'CONAGUA — La Niña; wettest on record'},{yr:'2011',anom:+12.5,src:'rep',note:'CONAGUA'},
+    {yr:'2012',anom:+8.4,src:'rep',note:'CONAGUA'},{yr:'2013',anom:+5.3,src:'rep',note:'CONAGUA'},
+    {yr:'2014',anom:+0.9,src:'rep',note:'CONAGUA — El Niño 2014-15 onset'},{yr:'2015',anom:-3.6,src:'rep',note:'CONAGUA — El Niño 2015-16; drought'},
+    {yr:'2016',anom:+2.8,src:'rep',note:'CONAGUA — El Niño 2015-16'},{yr:'2017',anom:+4.5,src:'rep',note:'CONAGUA'},
+    {yr:'2018',anom:+1.3,src:'rep',note:'CONAGUA — El Niño 2018-19'},{yr:'2019',anom:-7.5,src:'rep',note:'CONAGUA — El Niño; significant drought'},
+    {yr:'2020',anom:+0.8,src:'rep',note:'CONAGUA'},{yr:'2021',anom:+9.2,src:'rep',note:'CONAGUA'},
+    {yr:'2022',anom:+6.4,src:'rep',note:'CONAGUA'},{yr:'2023',anom:-16.7,src:'rep',note:'CONAGUA/Statista — El Niño 2023-24; worst since 2000'},
+    {yr:'2024',anom:+5.2,src:'rep',note:'CONAGUA — post-El Niño recovery'},
+  ],
+  col:[
+    {yr:'2000',anom:-0.8,src:'rep',note:'IDEAM/World Bank'},{yr:'2001',anom:+0.4,src:'rep',note:'IDEAM'},
+    {yr:'2002',anom:-5.6,src:'rep',note:'IDEAM — El Niño 2002-03'},{yr:'2003',anom:-8.4,src:'rep',note:'IDEAM — significant drought'},
+    {yr:'2004',anom:-3.2,src:'rep',note:'IDEAM — El Niño 2004-05'},{yr:'2005',anom:+2.0,src:'rep',note:'IDEAM'},
+    {yr:'2006',anom:-0.4,src:'rep',note:'IDEAM — El Niño 2006-07'},{yr:'2007',anom:+1.2,src:'rep',note:'IDEAM'},
+    {yr:'2008',anom:+3.2,src:'rep',note:'IDEAM'},{yr:'2009',anom:-7.6,src:'rep',note:'IDEAM — El Niño 2009-10; drought'},
+    {yr:'2010',anom:+12.0,src:'rep',note:'IDEAM — La Niña flood year'},{yr:'2011',anom:+18.0,src:'rep',note:'IDEAM — La Niña; extreme flooding'},
+    {yr:'2012',anom:+4.8,src:'rep',note:'IDEAM'},{yr:'2013',anom:+3.6,src:'rep',note:'IDEAM'},
+    {yr:'2014',anom:-2.0,src:'rep',note:'IDEAM — El Niño 2014-15'},{yr:'2015',anom:-8.8,src:'rep',note:'IDEAM — El Niño 2015-16; severe drought'},
+    {yr:'2016',anom:-6.0,src:'rep',note:'IDEAM — El Niño 2015-16'},{yr:'2017',anom:+1.6,src:'rep',note:'IDEAM'},
+    {yr:'2018',anom:-1.2,src:'rep',note:'IDEAM — El Niño 2018-19'},{yr:'2019',anom:-4.8,src:'rep',note:'IDEAM — El Niño; drought'},
+    {yr:'2020',anom:+7.6,src:'rep',note:'IDEAM — La Niña'},{yr:'2021',anom:+8.8,src:'rep',note:'IDEAM — La Niña'},
+    {yr:'2022',anom:+11.2,src:'rep',note:'IDEAM — La Niña'},{yr:'2023',anom:-6.8,src:'rep',note:'IDEAM — El Niño 2023-24; prolonged droughts'},
+    {yr:'2024',anom:-3.6,src:'rep',note:'IDEAM — El Niño 2023-24'},
+  ],
+  wld:[
+    {yr:'2000',anom:+0.1,src:'rep',note:'World Bank'},{yr:'2001',anom:+0.5,src:'rep',note:'World Bank'},
+    {yr:'2002',anom:-1.4,src:'rep',note:'World Bank — El Niño 2002-03'},{yr:'2003',anom:-0.5,src:'rep',note:'World Bank — El Niño'},
+    {yr:'2004',anom:+0.4,src:'rep',note:'World Bank — El Niño 2004-05'},{yr:'2005',anom:-1.0,src:'rep',note:'World Bank'},
+    {yr:'2006',anom:-0.1,src:'rep',note:'World Bank — El Niño 2006-07'},{yr:'2007',anom:+0.4,src:'rep',note:'World Bank'},
+    {yr:'2008',anom:+0.5,src:'rep',note:'World Bank'},{yr:'2009',anom:0.0,src:'rep',note:'World Bank — El Niño 2009-10'},
+    {yr:'2010',anom:+2.0,src:'rep',note:'World Bank — La Niña wet year'},{yr:'2011',anom:+0.7,src:'rep',note:'World Bank'},
+    {yr:'2012',anom:+0.2,src:'rep',note:'World Bank'},{yr:'2013',anom:0.0,src:'rep',note:'World Bank'},
+    {yr:'2014',anom:-0.5,src:'rep',note:'World Bank — El Niño 2014-15'},{yr:'2015',anom:-1.4,src:'rep',note:'World Bank — El Niño 2015-16'},
+    {yr:'2016',anom:-0.7,src:'rep',note:'World Bank — El Niño 2015-16'},{yr:'2017',anom:+0.1,src:'rep',note:'World Bank'},
+    {yr:'2018',anom:-0.1,src:'rep',note:'World Bank — El Niño 2018-19'},{yr:'2019',anom:-1.1,src:'rep',note:'World Bank — El Niño'},
+    {yr:'2020',anom:+0.5,src:'rep',note:'World Bank'},{yr:'2021',anom:+1.0,src:'rep',note:'World Bank'},
+    {yr:'2022',anom:+0.7,src:'rep',note:'World Bank'},{yr:'2023',anom:-1.0,src:'rep',note:'World Bank — El Niño 2023-24'},
+    {yr:'2024',anom:-0.2,src:'rep',note:'World Bank — El Niño 2023-24'},
+  ],
+};
+
+// ── AVOCADO: EXPORT VOLUMES ──────────────────────────────────────────────────────────────────
+// kt = 1000 MT. mex 2022-2024: USDA GAIN MX / WITS HS 080440 (rep). mex 2000-2021: direction signal (est).
+// col 2024: WITS HS 080440 (rep). col 2000-2023: direction signal (est).
+// wld 2000-2023: direction signal (est). per 2000-2023: direction signal (est); 2024: WITS/GAIN PE2025-0005 (rep).
+C.avocado.countryExport={
+  mex:[
+    {yr:'2000',kt:105.0,src:'est',note:'direction signal'},{yr:'2001',kt:120.0,src:'est',note:'direction signal'},
+    {yr:'2002',kt:148.0,src:'est',note:'direction signal'},{yr:'2003',kt:175.0,src:'est',note:'direction signal'},
+    {yr:'2004',kt:220.0,src:'est',note:'direction signal'},{yr:'2005',kt:290.0,src:'est',note:'direction signal'},
+    {yr:'2006',kt:340.0,src:'est',note:'direction signal'},{yr:'2007',kt:380.0,src:'est',note:'direction signal'},
+    {yr:'2008',kt:401.0,src:'est',note:'direction signal'},{yr:'2009',kt:450.0,src:'est',note:'direction signal'},
+    {yr:'2010',kt:520.0,src:'est',note:'direction signal'},{yr:'2011',kt:600.0,src:'est',note:'direction signal'},
+    {yr:'2012',kt:680.0,src:'est',note:'direction signal'},{yr:'2013',kt:750.0,src:'est',note:'direction signal'},
+    {yr:'2014',kt:820.0,src:'est',note:'direction signal'},{yr:'2015',kt:900.0,src:'est',note:'direction signal'},
+    {yr:'2016',kt:960.0,src:'est',note:'direction signal'},{yr:'2017',kt:1030.0,src:'est',note:'direction signal'},
+    {yr:'2018',kt:1100.0,src:'est',note:'direction signal'},{yr:'2019',kt:1250.0,src:'est',note:'direction signal'},
+    {yr:'2020',kt:1159.0,src:'est',note:'direction signal'},{yr:'2021',kt:1200.0,src:'est',note:'direction signal'},
+    {yr:'2022',kt:1200.0,src:'rep',note:'USDA GAIN MX2026-0019/MX2024-0018'},{yr:'2023',kt:1400.0,src:'rep',note:'USDA GAIN MX2026-0019/MX2024-0018'},
+    {yr:'2024',kt:1190.4,src:'rep',note:'WITS HS 080440'},{yr:'2025',kt:1220.0,src:'rep',note:'USDA GAIN MX2026-0019'},
+    {yr:'2026',kt:1310.0,src:'rep',note:'USDA GAIN MX2026-0019 forecast'},
+  ],
+  col:[
+    {yr:'2000',kt:8.0,src:'est',note:'direction signal'},{yr:'2001',kt:9.0,src:'est',note:'direction signal'},
+    {yr:'2002',kt:9.0,src:'est',note:'direction signal'},{yr:'2003',kt:7.0,src:'est',note:'direction signal'},
+    {yr:'2004',kt:8.0,src:'est',note:'direction signal'},{yr:'2005',kt:9.0,src:'est',note:'direction signal'},
+    {yr:'2006',kt:9.0,src:'est',note:'direction signal'},{yr:'2007',kt:10.0,src:'est',note:'direction signal'},
+    {yr:'2008',kt:11.0,src:'est',note:'direction signal'},{yr:'2009',kt:9.0,src:'est',note:'direction signal'},
+    {yr:'2010',kt:11.0,src:'est',note:'direction signal'},{yr:'2011',kt:12.0,src:'est',note:'direction signal'},
+    {yr:'2012',kt:15.0,src:'est',note:'direction signal'},{yr:'2013',kt:22.0,src:'est',note:'direction signal'},
+    {yr:'2014',kt:35.0,src:'est',note:'direction signal'},{yr:'2015',kt:55.0,src:'est',note:'direction signal'},
+    {yr:'2016',kt:80.0,src:'est',note:'direction signal'},{yr:'2017',kt:120.0,src:'est',note:'direction signal'},
+    {yr:'2018',kt:185.0,src:'est',note:'direction signal'},{yr:'2019',kt:220.0,src:'est',note:'direction signal'},
+    {yr:'2020',kt:270.0,src:'est',note:'direction signal'},{yr:'2021',kt:320.0,src:'est',note:'direction signal'},
+    {yr:'2022',kt:380.0,src:'est',note:'direction signal'},{yr:'2023',kt:360.0,src:'est',note:'direction signal'},
+    {yr:'2024',kt:138.6,src:'rep',note:'WITS HS 080440'},
+    {yr:'2025',kt:160.0,src:'est',note:'Est. — partial recovery; export infrastructure expanding'},{yr:'2026',kt:175.0,src:'est',note:'Est. — continued ramp'},
+  ],
+  per:[
+    {yr:'2000',kt:63.0,src:'est',note:'Est. ~75% of production'},{yr:'2001',kt:70.0,src:'est',note:'Est.'},
+    {yr:'2002',kt:71.0,src:'est',note:'Est. — El Niño 2002-03 onset'},{yr:'2003',kt:75.0,src:'est',note:'Est.'},
+    {yr:'2004',kt:81.0,src:'est',note:'Est.'},{yr:'2005',kt:78.0,src:'est',note:'Est. — dry coastal year'},
+    {yr:'2006',kt:85.0,src:'est',note:'Est.'},{yr:'2007',kt:91.0,src:'est',note:'Est.'},
+    {yr:'2008',kt:102.0,src:'est',note:'Est.'},{yr:'2009',kt:118.0,src:'est',note:'Est. — El Niño 2009-10'},
+    {yr:'2010',kt:138.0,src:'est',note:'Est.'},{yr:'2011',kt:160.0,src:'est',note:'Est.'},
+    {yr:'2012',kt:201.0,src:'est',note:'Est.'},{yr:'2013',kt:216.0,src:'est',note:'Est.'},
+    {yr:'2014',kt:262.0,src:'est',note:'Est.'},{yr:'2015',kt:275.0,src:'est',note:'Est. — El Niño 2015-16 flooding slowed growth'},
+    {yr:'2016',kt:341.0,src:'est',note:'Est.'},{yr:'2017',kt:350.0,src:'est',note:'Est. — Niño Costero 2017 flooding disruption'},
+    {yr:'2018',kt:378.0,src:'est',note:'Est.'},{yr:'2019',kt:429.0,src:'est',note:'Est.'},
+    {yr:'2020',kt:504.0,src:'est',note:'Est.'},{yr:'2021',kt:583.0,src:'est',note:'Est.'},
+    {yr:'2022',kt:599.0,src:'est',note:'Est.'},{yr:'2023',kt:654.0,src:'est',note:'Est.'},
+    {yr:'2024',kt:688.0,src:'rep',note:'WITS HS 080440 / GAIN PE2025-0005 est.'},
+    {yr:'2025',kt:633.0,src:'rep',note:'GAIN PE2025-0005 forecast'},
+    {yr:'2026',kt:590.0,src:'est',note:'Est. — El Niño onset; La Libertad flooding risk'},
+  ],
+  wld:[
+    {yr:'2000',kt:390.0,src:'est',note:'direction signal'},{yr:'2001',kt:430.0,src:'est',note:'direction signal'},
+    {yr:'2002',kt:460.0,src:'est',note:'direction signal'},{yr:'2003',kt:490.0,src:'est',note:'direction signal'},
+    {yr:'2004',kt:530.0,src:'est',note:'direction signal'},{yr:'2005',kt:600.0,src:'est',note:'direction signal'},
+    {yr:'2006',kt:660.0,src:'est',note:'direction signal'},{yr:'2007',kt:730.0,src:'est',note:'direction signal'},
+    {yr:'2008',kt:820.0,src:'est',note:'direction signal'},{yr:'2009',kt:890.0,src:'est',note:'direction signal'},
+    {yr:'2010',kt:950.0,src:'est',note:'direction signal'},{yr:'2011',kt:1050.0,src:'est',note:'direction signal'},
+    {yr:'2012',kt:1150.0,src:'est',note:'direction signal'},{yr:'2013',kt:1280.0,src:'est',note:'direction signal'},
+    {yr:'2014',kt:1450.0,src:'est',note:'direction signal'},{yr:'2015',kt:1620.0,src:'est',note:'direction signal'},
+    {yr:'2016',kt:1820.0,src:'est',note:'direction signal'},{yr:'2017',kt:2050.0,src:'est',note:'direction signal'},
+    {yr:'2018',kt:2400.0,src:'est',note:'direction signal'},{yr:'2019',kt:2646.0,src:'est',note:'direction signal'},
+    {yr:'2020',kt:2901.0,src:'est',note:'direction signal'},{yr:'2021',kt:3100.0,src:'est',note:'direction signal'},
+    {yr:'2022',kt:3350.0,src:'est',note:'direction signal'},{yr:'2023',kt:3500.0,src:'est',note:'direction signal'},
+    {yr:'2024',kt:3550.0,src:'est',note:'direction signal'},{yr:'2025',kt:3650.0,src:'est',note:'direction signal'},{yr:'2026',kt:3580.0,src:'est',note:'direction signal — El Niño onset'},
+  ],
+};
 
 // ── RECENT TRAJECTORIES (per outcome, last 5–6 years) ───────────────────────────────────
 // src:'rep' = named published source  |  src:'est' = ESTIMATED BY CLAUDE
@@ -834,6 +1188,8 @@ C.cocoa.outcomes.yield.trajectory=[
   {yr:'2020',yoy:+1.94,abs:'0.5035 t/ha',src:'rep',note:'SOURCE: OWID/FAO'},{yr:'2021',yoy:-0.66,abs:'0.5002 t/ha',src:'rep',note:'SOURCE: OWID/FAO'},
   {yr:'2022',yoy:+0.06,abs:'0.5005 t/ha',src:'rep',note:'SOURCE: OWID/FAO'},{yr:'2023',yoy:+0.50,abs:'0.5030 t/ha',src:'rep',note:'SOURCE: OWID/FAO'},
   {yr:'2024',yoy:+0.14,abs:'0.5037 t/ha',src:'rep',note:'SOURCE: OWID/FAO'},
+  {yr:'2025',yoy:+0.0,abs:'~0.504 t/ha',src:'est',note:'Est. — neutral/La Niña year; global yield broadly flat'},
+  {yr:'2026',yoy:-2.0,abs:'~0.494 t/ha',src:'est',note:'Est. — El Niño onset; CIV Harmattan + IDN drought; -2% consistent with historical El Niño avg'},
 ];
 // Grindings trajectory — ECA Western Europe YTD index (confirmed seed values)
 // yoy = deviation from prior year (e.g. index=93.9% → -6.1% YoY)
@@ -846,11 +1202,49 @@ C.cocoa.outcomes.grindings.trajectory=[
 C.cocoa.outcomes.stocks.trajectory=[
   {yr:'2023/24',yoy:null,abs:'26.4%',src:'rep',note:'ICCO Quarterly Bulletin — stocks-to-grindings ratio; below 30% concern threshold; market has almost no buffer'},
 ];
-// Forward signal trajectory — USDA GAIN attaché reports
-C.cocoa.outcomes.forward.trajectory=[
-  {yr:'MY2023/24',yoy:-24,abs:'CIV 1.76 MMT',src:'rep',note:'USDA GAIN IV2025-0001 Abidjan/Accra Mar 7 2025 — CIV MY2023/24 actual -24% vs prior. Heavy Sep-Oct 2024 rainfall → brown rot. Harmattan Dec-Feb raised mid-crop fears.'},
-  {yr:'MY2024/25',yoy:null,abs:'CIV ~1.8M / GHA 600k',src:'rep',note:'USDA GAIN IV2025-0001+GH2025-0008 — CIV revised ~1.8 MMT. Mid-crop 2025 est 300k MT (-40% vs avg). Ghana +13% recovery but CSSVD 90k+ ha permanent loss. COCOBOD season closed Jul 31 2025. MY2025/26 expected depressed.'},
-];
+// Per-country yield (t/ha) — SOURCE: OWID/FAO cocoa-bean-yields.csv 2000–2024
+C.cocoa.countryYield={
+  civ:[
+    {yr:'2000',tha:0.7006,src:'rep',note:'OWID/FAO'},{yr:'2001',tha:0.6821,src:'rep',note:'OWID/FAO'},{yr:'2002',tha:0.6727,src:'rep',note:'OWID/FAO'},{yr:'2003',tha:0.6758,src:'rep',note:'OWID/FAO'},{yr:'2004',tha:0.6864,src:'rep',note:'OWID/FAO'},
+    {yr:'2005',tha:0.5864,src:'rep',note:'OWID/FAO'},{yr:'2006',tha:0.6176,src:'rep',note:'OWID/FAO'},{yr:'2007',tha:0.5184,src:'rep',note:'OWID/FAO'},{yr:'2008',tha:0.6011,src:'rep',note:'OWID/FAO'},{yr:'2009',tha:0.5621,src:'rep',note:'OWID/FAO'},
+    {yr:'2010',tha:0.5711,src:'rep',note:'OWID/FAO'},{yr:'2011',tha:0.5628,src:'rep',note:'OWID/FAO'},{yr:'2012',tha:0.5411,src:'rep',note:'OWID/FAO'},{yr:'2013',tha:0.5305,src:'rep',note:'OWID/FAO'},{yr:'2014',tha:0.531,src:'rep',note:'OWID/FAO'},
+    {yr:'2015',tha:0.5194,src:'rep',note:'OWID/FAO'},{yr:'2016',tha:0.5157,src:'rep',note:'OWID/FAO'},{yr:'2017',tha:0.5107,src:'rep',note:'OWID/FAO'},{yr:'2018',tha:0.5189,src:'rep',note:'OWID/FAO'},{yr:'2019',tha:0.5187,src:'rep',note:'OWID/FAO'},
+    {yr:'2020',tha:0.5157,src:'rep',note:'OWID/FAO'},{yr:'2021',tha:0.5092,src:'rep',note:'OWID/FAO'},{yr:'2022',tha:0.5034,src:'rep',note:'OWID/FAO'},{yr:'2023',tha:0.4995,src:'rep',note:'OWID/FAO'},{yr:'2024',tha:0.4955,src:'rep',note:'OWID/FAO'},
+    {yr:'2025',tha:0.491,src:'est',note:'Est. — neutral/La Niña recovery; structural decline continues'},{yr:'2026',tha:0.481,src:'est',note:'Est. — El Niño onset; drought stress CIV Harmattan disruption'},
+  ],
+  gha:[
+    {yr:'2000',tha:0.2911,src:'rep',note:'OWID/FAO'},{yr:'2001',tha:0.2886,src:'rep',note:'OWID/FAO'},{yr:'2002',tha:0.285,src:'rep',note:'OWID/FAO'},{yr:'2003',tha:0.3313,src:'rep',note:'OWID/FAO'},{yr:'2004',tha:0.3685,src:'rep',note:'OWID/FAO'},
+    {yr:'2005',tha:0.4,src:'rep',note:'OWID/FAO'},{yr:'2006',tha:0.4,src:'rep',note:'OWID/FAO'},{yr:'2007',tha:0.42,src:'rep',note:'OWID/FAO'},{yr:'2008',tha:0.3735,src:'rep',note:'OWID/FAO'},{yr:'2009',tha:0.4441,src:'rep',note:'OWID/FAO'},
+    {yr:'2010',tha:0.395,src:'rep',note:'OWID/FAO'},{yr:'2011',tha:0.4374,src:'rep',note:'OWID/FAO'},{yr:'2012',tha:0.5495,src:'rep',note:'OWID/FAO'},{yr:'2013',tha:0.5221,src:'rep',note:'OWID/FAO'},{yr:'2014',tha:0.51,src:'rep',note:'OWID/FAO'},
+    {yr:'2015',tha:0.51,src:'rep',note:'OWID/FAO'},{yr:'2016',tha:0.51,src:'rep',note:'OWID/FAO'},{yr:'2017',tha:0.5201,src:'rep',note:'OWID/FAO'},{yr:'2018',tha:0.524,src:'rep',note:'OWID/FAO'},{yr:'2019',tha:0.5282,src:'rep',note:'OWID/FAO'},
+    {yr:'2020',tha:0.5383,src:'rep',note:'OWID/FAO'},{yr:'2021',tha:0.55,src:'rep',note:'OWID/FAO'},{yr:'2022',tha:0.5606,src:'rep',note:'OWID/FAO'},{yr:'2023',tha:0.5684,src:'rep',note:'OWID/FAO'},{yr:'2024',tha:0.5762,src:'rep',note:'OWID/FAO'},
+    {yr:'2025',tha:0.584,src:'est',note:'Est. — neutral year; Ghana yield improvement trend continuing'},{yr:'2026',tha:0.578,src:'est',note:'Est. — El Niño onset; modest impact on GHA (less ENSO-exposed than CIV)'},
+  ],
+  ecu:[
+    {yr:'2000',tha:0.1613,src:'rep',note:'OWID/FAO'},{yr:'2001',tha:0.177,src:'rep',note:'OWID/FAO'},{yr:'2002',tha:0.1658,src:'rep',note:'OWID/FAO'},{yr:'2003',tha:0.2533,src:'rep',note:'OWID/FAO'},{yr:'2004',tha:0.2666,src:'rep',note:'OWID/FAO'},
+    {yr:'2005',tha:0.2618,src:'rep',note:'OWID/FAO'},{yr:'2006',tha:0.2502,src:'rep',note:'OWID/FAO'},{yr:'2007',tha:0.2408,src:'rep',note:'OWID/FAO'},{yr:'2008',tha:0.2504,src:'rep',note:'OWID/FAO'},{yr:'2009',tha:0.3029,src:'rep',note:'OWID/FAO'},
+    {yr:'2010',tha:0.3669,src:'rep',note:'OWID/FAO'},{yr:'2011',tha:0.4084,src:'rep',note:'OWID/FAO'},{yr:'2012',tha:0.3417,src:'rep',note:'OWID/FAO'},{yr:'2013',tha:0.3192,src:'rep',note:'OWID/FAO'},{yr:'2014',tha:0.4192,src:'rep',note:'OWID/FAO'},
+    {yr:'2015',tha:0.417,src:'rep',note:'OWID/FAO'},{yr:'2016',tha:0.3909,src:'rep',note:'OWID/FAO'},{yr:'2017',tha:0.4407,src:'rep',note:'OWID/FAO'},{yr:'2018',tha:0.4685,src:'rep',note:'OWID/FAO'},{yr:'2019',tha:0.5399,src:'rep',note:'OWID/FAO'},
+    {yr:'2020',tha:0.6218,src:'rep',note:'OWID/FAO'},{yr:'2021',tha:0.5558,src:'rep',note:'OWID/FAO'},{yr:'2022',tha:0.6621,src:'rep',note:'OWID/FAO'},{yr:'2023',tha:0.7272,src:'rep',note:'OWID/FAO'},{yr:'2024',tha:0.7454,src:'rep',note:'OWID/FAO'},
+    {yr:'2025',tha:0.758,src:'est',note:'Est. — neutral year; Ecuador hybrid varieties expansion continuing'},{yr:'2026',tha:0.742,src:'est',note:'Est. — El Niño onset; Ecuador less ENSO-exposed than West Africa'},
+  ],
+  idn:[
+    {yr:'2000',tha:0.5616,src:'rep',note:'OWID/FAO'},{yr:'2001',tha:0.7013,src:'rep',note:'OWID/FAO'},{yr:'2002',tha:0.797,src:'rep',note:'OWID/FAO'},{yr:'2003',tha:0.7235,src:'rep',note:'OWID/FAO'},{yr:'2004',tha:0.634,src:'rep',note:'OWID/FAO'},
+    {yr:'2005',tha:0.6416,src:'rep',note:'OWID/FAO'},{yr:'2006',tha:0.8495,src:'rep',note:'OWID/FAO'},{yr:'2007',tha:0.8009,src:'rep',note:'OWID/FAO'},{yr:'2008',tha:0.5638,src:'rep',note:'OWID/FAO'},{yr:'2009',tha:0.5101,src:'rep',note:'OWID/FAO'},
+    {yr:'2010',tha:0.5114,src:'rep',note:'OWID/FAO'},{yr:'2011',tha:0.4111,src:'rep',note:'OWID/FAO'},{yr:'2012',tha:0.3996,src:'rep',note:'OWID/FAO'},{yr:'2013',tha:0.4142,src:'rep',note:'OWID/FAO'},{yr:'2014',tha:0.4217,src:'rep',note:'OWID/FAO'},
+    {yr:'2015',tha:0.3471,src:'rep',note:'OWID/FAO'},{yr:'2016',tha:0.3861,src:'rep',note:'OWID/FAO'},{yr:'2017',tha:0.3562,src:'rep',note:'OWID/FAO'},{yr:'2018',tha:0.4763,src:'rep',note:'OWID/FAO'},{yr:'2019',tha:0.4707,src:'rep',note:'OWID/FAO'},
+    {yr:'2020',tha:0.4776,src:'rep',note:'OWID/FAO'},{yr:'2021',tha:0.4579,src:'rep',note:'OWID/FAO'},{yr:'2022',tha:0.4579,src:'rep',note:'OWID/FAO'},{yr:'2023',tha:0.4537,src:'rep',note:'OWID/FAO'},{yr:'2024',tha:0.4562,src:'rep',note:'OWID/FAO'},
+    {yr:'2025',tha:0.455,src:'est',note:'Est. — neutral year; IDN smallholder aging trees structural drag'},{yr:'2026',tha:0.442,src:'est',note:'Est. — El Niño onset; IDN Maritime Continent drought depresses yield'},
+  ],
+  wld:[
+    {yr:'2000',tha:0.4385,src:'rep',note:'OWID/FAO'},{yr:'2001',tha:0.4507,src:'rep',note:'OWID/FAO'},{yr:'2002',tha:0.4702,src:'rep',note:'OWID/FAO'},{yr:'2003',tha:0.4816,src:'rep',note:'OWID/FAO'},{yr:'2004',tha:0.478,src:'rep',note:'OWID/FAO'},
+    {yr:'2005',tha:0.4645,src:'rep',note:'OWID/FAO'},{yr:'2006',tha:0.505,src:'rep',note:'OWID/FAO'},{yr:'2007',tha:0.4511,src:'rep',note:'OWID/FAO'},{yr:'2008',tha:0.4462,src:'rep',note:'OWID/FAO'},{yr:'2009',tha:0.4462,src:'rep',note:'OWID/FAO'},
+    {yr:'2010',tha:0.4513,src:'rep',note:'OWID/FAO'},{yr:'2011',tha:0.4442,src:'rep',note:'OWID/FAO'},{yr:'2012',tha:0.4474,src:'rep',note:'OWID/FAO'},{yr:'2013',tha:0.4408,src:'rep',note:'OWID/FAO'},{yr:'2014',tha:0.4483,src:'rep',note:'OWID/FAO'},
+    {yr:'2015',tha:0.4396,src:'rep',note:'OWID/FAO'},{yr:'2016',tha:0.4331,src:'rep',note:'OWID/FAO'},{yr:'2017',tha:0.4553,src:'rep',note:'OWID/FAO'},{yr:'2018',tha:0.4825,src:'rep',note:'OWID/FAO'},{yr:'2019',tha:0.4863,src:'rep',note:'OWID/FAO'},
+    {yr:'2020',tha:0.4865,src:'rep',note:'OWID/FAO'},{yr:'2021',tha:0.4832,src:'rep',note:'OWID/FAO'},{yr:'2022',tha:0.4798,src:'rep',note:'OWID/FAO'},{yr:'2023',tha:0.476,src:'rep',note:'OWID/FAO'},{yr:'2024',tha:0.4753,src:'rep',note:'OWID/FAO'},
+    {yr:'2025',tha:0.474,src:'est',note:'Est. — neutral year; global yield broadly flat'},{yr:'2026',tha:0.464,src:'est',note:'Est. — El Niño onset; CIV+IDN drought drag on global avg'},
+  ],
+};
 // Per-country production — OWID/FAO cocoa-bean-production.csv 2000-2024
 // wld = sum of 7 countries (CIV+GHA+IDN+ECU+CMR+NGA+BRA). kt = tonnes / 1000.
 C.cocoa.countryProd={
@@ -914,7 +1308,26 @@ C.cocoa.countryProd={
     {yr:'2024',kt:4424.352,src:'rep',note:'DERIVED: sum 7 countries SOURCE OWID/FAO'},
   ],
 };
-C.cocoa.barFactors={};
+C.cocoa.barFactors={
+  'vol-civ-2002':"El Niño 2002–03 + CIV civil war — dual shock; Black Pod + Harmattan; −8.9% (ICCO est.)",
+  'vol-civ-2003':"CIV post-civil-war recovery + good rains; +23.1% rebound (ICCO est.)",
+  'vol-civ-2006':"El Niño 2006–07 — Harmattan + Black Pod disease; −8.9% (ICCO est.)",
+  'vol-civ-2007':"La Niña rebound — exceptional main-crop rains; +12% recovery (ICCO est.)",
+  'vol-civ-2015':"El Niño 2014–16 onset — Harmattan early; CIV −2.8% global (ICCO/Wells Fargo)",
+  'vol-civ-2016':"El Niño 2014–16 peak — −6% global; Harmattan drought + Black Pod compounded (ICCO/Wells Fargo)",
+  'vol-civ-2017':"Post-El Niño bumper — +18.4%; La Niña rains; CIV record main-crop (ICCO/Wells Fargo)",
+  'vol-civ-2024':"El Niño 2023–24 — worst crop in ICCO records −12.9%; Brown Pod + Harmattan; GHA CSSVD 90k+ ha loss (ICCO/Wells Fargo)",
+  'vol-civ-2025':"Post-El Niño partial recovery +10.8% — but mid-crop 2025 only ~300k MT (−40% vs avg); full recovery delayed (GAIN IV2025-0001)",
+  'vol-gha-2015':"El Niño 2014–16 onset — CSSVD disease pressure worsened under drought conditions",
+  'vol-gha-2016':"El Niño 2014–16 peak — Ghana fell in tandem with CIV; heat + disease",
+  'vol-gha-2017':"Post-El Niño rebound — Ghana bumper mid-crop; strong rains returned",
+  'vol-gha-2024':"El Niño 2023–24 — CSSVD; Ghana permanent crop loss 90k+ ha; collapsed alongside CIV (GAIN GH2025-0008)",
+  'vol-ecu-2016':"El Niño 2014–16 — Ecuador coastal flooding (opposite direction from W.Africa); unusual wetter El Niño impact",
+  'vol-idn-2016':"El Niño 2014–16 — Indonesia drought via Borneo/Sumatra; some decline; less severe than W.Africa",
+  'vol-wld-2016':"El Niño 2014–16 peak — global fell −6%; CIV + GHA + IDN all down simultaneously",
+  'vol-wld-2017':"Post-El Niño world bumper +18.4% — all major origins recovered in same season",
+  'vol-wld-2024':"2023–24 El Niño — worst global cocoa crop in ICCO records; unprecedented −12.9%; all-origin decline",
+};
 C.palmoil.outcomes.volume.trajectory=[
   // Indonesia: USDA PSD psd_oilseeds.csv commodity 4243000 | Malaysia: MPOB Annual Overview PDFs (priority)
   // Scope: Indonesia + Malaysia combined — covers ~85% of global CPO supply
@@ -1916,7 +2329,7 @@ function renderSidebar(){
   home.onclick=()=>{current=null;renderSidebar();render();window.scrollTo(0,0);};
   label.insertAdjacentElement('afterend',home);
   let prev=home;
-  Object.entries(C).forEach(([k,c])=>{
+  Object.entries(C).sort(([,a],[,b])=>(a.locked?1:0)-(b.locked?1:0)||a.name.localeCompare(b.name)).forEach(([k,c])=>{
     const b=document.createElement('button');
     b.className='cbtn'+(current===k?' active':'')+(c.locked?' locked':'');
     b.innerHTML=`<span class="ic">${c.icon}</span><span class="nm">${c.name}</span><span class="pip" style="background:${CLS[c.cls].color}"></span>`;
@@ -2094,19 +2507,61 @@ function detail(k){
     ${k==='cocoa'&&(ok==='volume'||ok==='yield')?`
     <div class="panel">
       <details class="traj-details" open ontoggle="if(this.open&&charts.cocoaProd)charts.cocoaProd.resize()">
-        <summary class="section-t"><span>🍫</span> ${ok==='volume'?'Annual production index — Côte d\'Ivoire, Ghana, Ecuador, Indonesia, World (2012 = 100)':'Annual yield index — Global average kg/ha (2012 = 100)'}</summary>
-        ${ok==='volume'?`<div style="display:flex;gap:20px;align-items:center;margin:10px 0 4px;flex-wrap:wrap">
+        <summary class="section-t"><span>🍫</span> ${ok==='volume'?'Annual production — Côte d\'Ivoire, Ghana, Ecuador, Indonesia, World (kt)':'Annual yield — Côte d\'Ivoire, Ghana, Ecuador, Indonesia, World (t/ha)'}</summary>
+        <div style="display:flex;gap:20px;align-items:center;margin:10px 0 4px;flex-wrap:wrap">
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkCocoaCIV" checked onchange="if(charts.cocoaProd){charts.cocoaProd.data.datasets[0].hidden=!this.checked;charts.cocoaProd.update()}"><span style="color:#fb923c;font-weight:600">● Côte d'Ivoire</span><span style="color:var(--muted);font-size:10px">42.7%</span></label>
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkCocoaGHA" checked onchange="if(charts.cocoaProd){charts.cocoaProd.data.datasets[1].hidden=!this.checked;charts.cocoaProd.update()}"><span style="color:#facc15;font-weight:600">● Ghana</span><span style="color:var(--muted);font-size:10px">12.0%</span></label>
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkCocoaECU" checked onchange="if(charts.cocoaProd){charts.cocoaProd.data.datasets[2].hidden=!this.checked;charts.cocoaProd.update()}"><span style="color:#a3e635;font-weight:600">● Ecuador</span><span style="color:var(--muted);font-size:10px">9.1%</span></label>
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkCocoaIDN" checked onchange="if(charts.cocoaProd){charts.cocoaProd.data.datasets[3].hidden=!this.checked;charts.cocoaProd.update()}"><span style="color:#38bdf8;font-weight:600">● Indonesia</span><span style="color:var(--muted);font-size:10px">14.3%</span></label>
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkCocoaWLD" checked onchange="if(charts.cocoaProd){charts.cocoaProd.data.datasets[4].hidden=!this.checked;charts.cocoaProd.update()}"><span style="color:#94a3b8;font-weight:600">● World</span></label>
-        </div>`:`<div style="margin:8px 0 4px;font-size:12px;color:var(--muted)"><span style="color:#a78bfa;font-weight:600">● Global average</span> &nbsp;·&nbsp; OWID/FAO cocoa-bean-yields.csv &nbsp;·&nbsp; production-weighted mean</div>`}
+        </div>
         <div style="display:flex;gap:28px;align-items:stretch;margin-top:6px">
           <div class="chart-wrap" style="height:300px;flex:1"><canvas id="chCocoaProd"></canvas></div>
           <div id="cocoaProdHoverBox" class="ev-hover-box"><div class="ehb-section"><span style="color:var(--muted);font-size:11px">Hover a point</span></div></div>
         </div>
-        <div class="chart-cap">${ok==='volume'?'Production indexed to 2012 = 100. CIV ~40% of world supply; Ghana ~12%. El Niño bands: NOAA CPC.':'Yield indexed to 2012 = 100 (base: 469.6 kg/ha). Global avg declined from 2000 peak as lower-yielding African farms expanded. El Niño bands: NOAA CPC.'}</div>
+        <div class="chart-cap">${ok==='volume'?'Production in kt. CIV ~40% of world supply; Ghana ~12%. El Niño bands: NOAA CPC.':'Yield in t/ha. OWID/FAO cocoa-bean-yields.csv 2000–2024. IDN declined steadily post-2007 as smallholder trees aged. CIV also declining. ECU improving with hybrid varieties. El Niño bands: NOAA CPC.'}</div>
+      </details>
+    </div>
+    `:''}
+
+    ${k==='avocado'?`
+    <div class="panel">
+      <details class="traj-details" open ontoggle="if(this.open&&charts.avocadoProd)charts.avocadoProd.resize()">
+        <summary class="section-t"><span>🥑</span> ${
+          ok==='volume'?'Annual production — Mexico, Peru, Colombia, World (kt)':
+          ok==='yield'?'Annual yield — Mexico, Peru, Colombia, World (t/ha)':
+          ok==='water'?'Annual precipitation — Mexico, Colombia (% vs long-term avg)':
+          'Annual export volume — Mexico, Peru, Colombia, World (kt)'}</summary>
+        <div style="display:flex;gap:20px;align-items:center;margin:10px 0 4px;flex-wrap:wrap">
+          ${ok==='volume'?`
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkAvoMex" checked onchange="if(charts.avocadoProd){charts.avocadoProd.data.datasets[0].hidden=!this.checked;charts.avocadoProd.update()}"><span style="color:#4ade80;font-weight:600">● Mexico</span><span style="color:var(--muted);font-size:10px">24.6%</span></label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkAvoPer" checked onchange="if(charts.avocadoProd){charts.avocadoProd.data.datasets[1].hidden=!this.checked;charts.avocadoProd.update()}"><span style="color:#f97316;font-weight:600">● Peru</span><span style="color:var(--muted);font-size:10px">8.2%</span></label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkAvoCol" checked onchange="if(charts.avocadoProd){charts.avocadoProd.data.datasets[2].hidden=!this.checked;charts.avocadoProd.update()}"><span style="color:#38bdf8;font-weight:600">● Colombia</span><span style="color:var(--muted);font-size:10px">11.3%</span></label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkAvoWld" checked onchange="if(charts.avocadoProd){charts.avocadoProd.data.datasets[3].hidden=!this.checked;charts.avocadoProd.update()}"><span style="color:#94a3b8;font-weight:600">● World</span></label>
+          `:ok==='yield'?`
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkAvoMex" checked onchange="if(charts.avocadoProd){charts.avocadoProd.data.datasets[0].hidden=!this.checked;charts.avocadoProd.update()}"><span style="color:#4ade80;font-weight:600">● Mexico</span></label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkAvoPer" checked onchange="if(charts.avocadoProd){charts.avocadoProd.data.datasets[1].hidden=!this.checked;charts.avocadoProd.update()}"><span style="color:#f97316;font-weight:600">● Peru</span></label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkAvoCol" checked onchange="if(charts.avocadoProd){charts.avocadoProd.data.datasets[2].hidden=!this.checked;charts.avocadoProd.update()}"><span style="color:#38bdf8;font-weight:600">● Colombia</span></label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkAvoWld" checked onchange="if(charts.avocadoProd){charts.avocadoProd.data.datasets[3].hidden=!this.checked;charts.avocadoProd.update()}"><span style="color:#94a3b8;font-weight:600">● World</span></label>
+          `:ok==='water'?`
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkAvoMex" checked onchange="if(charts.avocadoProd){charts.avocadoProd.data.datasets[0].hidden=!this.checked;charts.avocadoProd.update()}"><span style="color:#4ade80;font-weight:600">● Mexico</span><span style="color:var(--muted);font-size:10px">CONAGUA/WB</span></label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkAvoCol" checked onchange="if(charts.avocadoProd){charts.avocadoProd.data.datasets[1].hidden=!this.checked;charts.avocadoProd.update()}"><span style="color:#38bdf8;font-weight:600">● Colombia</span><span style="color:var(--muted);font-size:10px">IDEAM</span></label>
+          `:`
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkAvoMex" checked onchange="if(charts.avocadoProd){charts.avocadoProd.data.datasets[0].hidden=!this.checked;charts.avocadoProd.update()}"><span style="color:#4ade80;font-weight:600">● Mexico</span></label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkAvoPer" checked onchange="if(charts.avocadoProd){charts.avocadoProd.data.datasets[1].hidden=!this.checked;charts.avocadoProd.update()}"><span style="color:#f97316;font-weight:600">● Peru</span></label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkAvoCol" checked onchange="if(charts.avocadoProd){charts.avocadoProd.data.datasets[2].hidden=!this.checked;charts.avocadoProd.update()}"><span style="color:#38bdf8;font-weight:600">● Colombia</span></label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkAvoWld" checked onchange="if(charts.avocadoProd){charts.avocadoProd.data.datasets[3].hidden=!this.checked;charts.avocadoProd.update()}"><span style="color:#94a3b8;font-weight:600">● World</span></label>
+          `}
+        </div>
+        <div style="display:flex;gap:28px;align-items:stretch;margin-top:6px">
+          <div class="chart-wrap" style="height:300px;flex:1"><canvas id="chAvocadoProd"></canvas></div>
+          <div id="avocadoProdHoverBox" class="ev-hover-box"><div class="ehb-section"><span style="color:var(--muted);font-size:11px">Hover a point</span></div></div>
+        </div>
+        <div class="chart-cap">${
+          ok==='volume'?'Production in kt. Mexico + Peru + Colombia + World = OWID/FAO 2000–2024; Mexico 2025–2026 = USDA GAIN forecast. El Niño bands: NOAA CPC.':
+          ok==='yield'?'Yield in t/ha. Mexico 2000–2024 SIAP/FAO raw; Colombia + World OWID/FAO 2000–2024. Colombia improving with Hass expansion. El Niño bands: NOAA CPC.':
+          ok==='water'?'Precipitation anomaly (% vs long-term avg). Positive = wetter, negative = drought. CONAGUA (Mexico), IDEAM (Colombia). El Niño bands: NOAA CPC.':
+          'Export volume in kt. Mexico 2000–2021 est, 2022–2026 USDA GAIN/WITS. Colombia 2000–2023 est, 2024 WITS. World 2000–2023 est direction signal. El Niño bands: NOAA CPC.'}</div>
       </details>
     </div>
     `:''}
@@ -2127,6 +2582,33 @@ function detail(k){
         <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="wld" onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa','volume')"><span style="color:#94a3b8;font-weight:600">● World</span></label>
       </div>
       <div style="font-size:11px;color:var(--muted);margin:-2px 0 4px">World = ICCO global total. CIV ~40%, Ghana ~12% of world supply.</div>`:''}
+      ${k==='avocado'&&ok==='volume'?`<div style="display:flex;gap:16px;align-items:center;margin:8px 0 4px;flex-wrap:wrap">
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="mex" checked onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','volume')"><span style="color:#4ade80;font-weight:600">● Mexico</span><span style="color:var(--muted);font-size:10px">24.6%</span></label>
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="per" onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','volume')"><span style="color:#f97316;font-weight:600">● Peru</span><span style="color:var(--muted);font-size:10px">8.2%</span></label>
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="col" onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','volume')"><span style="color:#38bdf8;font-weight:600">● Colombia</span><span style="color:var(--muted);font-size:10px">11.3%</span></label>
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="wld" onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','volume')"><span style="color:#94a3b8;font-weight:600">● World</span></label>
+      </div>
+      <div style="font-size:11px;color:var(--muted);margin:-2px 0 4px">All countries = OWID/FAO 2000–2024. Hover any bar for El Niño context and contributing factors.</div>`:''}
+      ${k==='avocado'&&ok==='yield'?`<div style="display:flex;gap:16px;align-items:center;margin:8px 0 4px;flex-wrap:wrap">
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="col" checked onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','yield')"><span style="color:#38bdf8;font-weight:600">● Colombia</span></label>
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="wld" onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','yield')"><span style="color:#94a3b8;font-weight:600">● World avg</span></label>
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="mex" onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','yield')"><span style="color:#4ade80;font-weight:600">● Mexico</span></label>
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="per" onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','yield')"><span style="color:#f97316;font-weight:600">● Peru</span></label>
+      </div>
+      <div style="font-size:11px;color:var(--muted);margin:-2px 0 4px">Yield t/ha YoY%. Mexico 2000–2024 (SIAP/FAO raw). Colombia + World = OWID/FAO 2000–2024. Peru = MIDAGRI/GAIN est.</div>`:''}
+      ${k==='avocado'&&ok==='water'?`<div style="display:flex;gap:16px;align-items:center;margin:8px 0 4px;flex-wrap:wrap">
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="mex" checked onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','water')"><span style="color:#4ade80;font-weight:600">● Mexico</span></label>
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="per" onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','water')"><span style="color:#f97316;font-weight:600">● Peru</span></label>
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="col" onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','water')"><span style="color:#38bdf8;font-weight:600">● Colombia</span></label>
+      </div>
+      <div style="font-size:11px;color:var(--muted);margin:-2px 0 4px">% deviation from long-term annual average. Green = wetter than normal; red = drought. SOURCE: CONAGUA (MEX) / IDEAM (COL) / World Bank CCKP (PER).</div>`:''}
+      ${k==='avocado'&&ok==='export'?`<div style="display:flex;gap:16px;align-items:center;margin:8px 0 4px;flex-wrap:wrap">
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="mex" checked onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','export')"><span style="color:#4ade80;font-weight:600">● Mexico</span></label>
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="per" onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','export')"><span style="color:#f97316;font-weight:600">● Peru</span></label>
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="col" onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','export')"><span style="color:#38bdf8;font-weight:600">● Colombia</span></label>
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="wld" onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','export')"><span style="color:#94a3b8;font-weight:600">● World</span></label>
+      </div>
+      <div style="font-size:11px;color:var(--muted);margin:-2px 0 4px">Export volume kt YoY%. MEX 2022–2024 + COL 2024 + PER 2024: WITS/GAIN (solid). All earlier: direction signal (faded). 2024 MEX: WITS −15% = first confirmed structural decline.</div>`:''}
       <div style="display:flex;gap:28px;align-items:stretch">
         <div class="chart-wrap" style="height:320px;flex:1"><canvas id="chEvents"></canvas></div>
         <div id="evHoverBox" class="ev-hover-box"><div class="ehb-section"><span style="color:var(--muted);font-size:11px">Hover a bar</span></div></div>
@@ -2135,8 +2617,53 @@ function detail(k){
       <div id="elninoStatsBox" style="margin:10px 0 0"></div>
     </div>
 
+    <div class="panel">
+      <details class="traj-details" open ontoggle="if(this.open&&charts['dual_${k}'])charts['dual_${k}'].resize()">
+        <summary class="section-t"><span>📈</span> Outcome comparison — dual-axis correlation</summary>
+        <div style="display:flex;gap:14px;align-items:center;margin:10px 0 8px;flex-wrap:wrap;font-size:12px">
+          ${k==='avocado'?`<span style="color:var(--muted);font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.05em">Country</span>
+          <label style="display:flex;align-items:center;gap:5px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="dualCtry_avocado" value="mex" checked onchange="chartDual('avocado')"><span style="color:#4ade80;font-weight:600">● Mexico</span></label>
+          <label style="display:flex;align-items:center;gap:5px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="dualCtry_avocado" value="per" onchange="chartDual('avocado')"><span style="color:#f97316;font-weight:600">● Peru</span></label>
+          <label style="display:flex;align-items:center;gap:5px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="dualCtry_avocado" value="col" onchange="chartDual('avocado')"><span style="color:#38bdf8;font-weight:600">● Colombia</span></label>
+          <label style="display:flex;align-items:center;gap:5px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="dualCtry_avocado" value="wld" onchange="chartDual('avocado')"><span style="color:#94a3b8;font-weight:600">● World</span></label>
+          <span style="color:var(--border);margin:0 4px">│</span>`
+          :k==='cocoa'?`<span style="color:var(--muted);font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.05em">Country</span>
+          <label style="display:flex;align-items:center;gap:5px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="dualCtry_cocoa" value="civ" checked onchange="chartDual('cocoa')"><span style="color:#fb923c;font-weight:600">● CIV</span></label>
+          <label style="display:flex;align-items:center;gap:5px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="dualCtry_cocoa" value="gha" onchange="chartDual('cocoa')"><span style="color:#facc15;font-weight:600">● Ghana</span></label>
+          <label style="display:flex;align-items:center;gap:5px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="dualCtry_cocoa" value="ecu" onchange="chartDual('cocoa')"><span style="color:#a3e635;font-weight:600">● Ecuador</span></label>
+          <label style="display:flex;align-items:center;gap:5px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="dualCtry_cocoa" value="idn" onchange="chartDual('cocoa')"><span style="color:#38bdf8;font-weight:600">● Indonesia</span></label>
+          <label style="display:flex;align-items:center;gap:5px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="dualCtry_cocoa" value="wld" onchange="chartDual('cocoa')"><span style="color:#94a3b8;font-weight:600">● World</span></label>
+          <span style="color:var(--border);margin:0 4px">│</span>`
+          :k==='palmoil'?`<span style="color:var(--muted);font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.05em">Country</span>
+          <label style="display:flex;align-items:center;gap:5px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="dualCtry_palmoil" value="idn" checked onchange="chartDual('palmoil')"><span style="color:#38bdf8;font-weight:600">● Indonesia</span></label>
+          <label style="display:flex;align-items:center;gap:5px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="dualCtry_palmoil" value="mys" onchange="chartDual('palmoil')"><span style="color:#4ade80;font-weight:600">● Malaysia</span></label>
+          <label style="display:flex;align-items:center;gap:5px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="dualCtry_palmoil" value="wld" onchange="chartDual('palmoil')"><span style="color:#94a3b8;font-weight:600">● World</span></label>
+          <span style="color:var(--border);margin:0 4px">│</span>`:''}
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+            <span style="color:#a78bfa;font-weight:700;font-size:11px">Y1</span>
+            <select id="dualO1_${k}" onchange="chartDual('${k}')" style="background:#0d1520;color:#e8eef4;border:1px solid #1e2d3f;border-radius:4px;padding:3px 8px;font-size:11px;cursor:pointer">
+              ${(k==='avocado'?[{v:'volume',l:'Production (kt)'},{v:'yield',l:'Yield (t/ha)'},{v:'water',l:'Water Stress (%)'},{v:'export',l:'Exports (kt)'}]:k==='cocoa'?[{v:'volume',l:'Production (kt)'},{v:'yield',l:'Yield (t/ha)'}]:k==='palmoil'?[{v:'volume',l:'Production (MMT)'},{v:'cpoyield',l:'CPO Yield (t/ha)'}]:Object.entries(C[k].outcomes).map(([v,o])=>({v,l:o.label}))).map((o,i)=>`<option value="${o.v}"${i===0?' selected':''}>${o.l}</option>`).join('')}
+            </select>
+            <span style="color:var(--muted);font-size:11px">vs</span>
+            <span style="color:#fb923c;font-weight:700;font-size:11px">Y2</span>
+            <select id="dualO2_${k}" onchange="chartDual('${k}')" style="background:#0d1520;color:#e8eef4;border:1px solid #1e2d3f;border-radius:4px;padding:3px 8px;font-size:11px;cursor:pointer">
+              ${(k==='avocado'?[{v:'volume',l:'Production (kt)'},{v:'yield',l:'Yield (t/ha)'},{v:'water',l:'Water Stress (%)'},{v:'export',l:'Exports (kt)'}]:k==='cocoa'?[{v:'volume',l:'Production (kt)'},{v:'yield',l:'Yield (t/ha)'}]:k==='palmoil'?[{v:'volume',l:'Production (MMT)'},{v:'cpoyield',l:'CPO Yield (t/ha)'}]:Object.entries(C[k].outcomes).map(([v,o])=>({v,l:o.label}))).map((o,i)=>`<option value="${o.v}"${i===1?' selected':''}>${o.l}</option>`).join('')}
+            </select>
+          </div>
+        </div>
+        <div class="chart-wrap" style="height:280px"><canvas id="chDual_${k}"></canvas></div>
+        <div class="chart-cap"><span style="color:#a78bfa;font-weight:600">—</span> Left axis = Y1 (solid line) &nbsp;|&nbsp; <span style="color:#fb923c;font-weight:600">- -</span> Right axis = Y2 (dashed line). El Niño bands: NOAA CPC. Use to identify lead/lag correlations across ENSO cycles.</div>
+      </details>
+    </div>
 
-
+    ${(c.verdict||c.tiles||c.superNote||c.predict)?`
+    <div class="panel">
+      ${c.verdict?`<div class="verdict" style="margin-bottom:14px"><span class="verdict-badge ${vcls}">${c.verdict}</span><span style="font-size:13px;color:var(--muted);line-height:1.5;margin-left:4px">${c.verdictNote||''}</span></div>`:''}
+      ${c.tiles&&Object.keys(c.tiles).length?`<div class="tile-grid" style="margin-bottom:${c.superNote||c.predict?'16px':'0'}">${Object.entries(c.tiles).map(([lbl,t])=>'<div class="tile"><div class="l">'+lbl+'</div><div class="v '+(t.d==='up'?'up':t.d==='down'?'down':'flat')+'">'+t.v+'</div>'+(t.n?'<div class="n">'+t.n+'</div>':'')+'</div>').join('')}</div>`:''}
+      ${c.superNote?`<div style="margin:0 0 ${c.predict?'14px':'0'};font-size:12.5px;line-height:1.6;color:var(--faint);padding:10px 14px;background:rgba(0,0,0,.2);border-radius:8px;border-left:3px solid var(--border)">${c.superNote}</div>`:''}
+      ${c.predict?`<div class="predict"><div class="pl">🔭 2026 Outlook</div><div class="pc">${c.predict}</div></div>`:''}
+    </div>
+    `:''}
 
     <div class="panel ai-panel">
       <div class="ai-h"><div class="ai-orb">🤖</div>
@@ -2159,10 +2686,16 @@ function detail(k){
     if(k==='palmoil'&&getOutcome('palmoil')==='volume') chartPalmBar('id');
     else if(k==='palmoil'&&getOutcome('palmoil')==='yield') chartPalmYieldBar('my');
     else if(k==='cocoa'&&getOutcome('cocoa')==='volume') chartCocoaBar('civ');
-    else chartEvents(c,k);
+    else if(k==='avocado'){
+      const aok=getOutcome('avocado');
+      const defC=aok==='yield'?'col':aok==='water'?'mex':aok==='export'?'mex':'mex';
+      chartAvocadoBar(defC);
+    } else chartEvents(c,k);
     chartTrend(c);
     if(k==='palmoil') chartPalmProduction();
     if(k==='cocoa') chartCocoaProd();
+    if(k==='avocado') chartAvocadoProd();
+    chartDual(k);
     updateElNinoStats(k,ok);
   },40);
 }
@@ -2187,6 +2720,22 @@ function updateElNinoStats(k,ok){
     countryLabel={civ:'CIV',gha:'Ghana',ecu:'Ecuador',idn:'Indonesia',wld:'World'}[c]||c;
     const arr=C.cocoa.countryProd[c]||[];
     for(let i=1;i<arr.length;i++) if(arr[i].kt&&arr[i-1].kt) yrData.push({yr:parseInt(arr[i].yr),yoy:(arr[i].kt/arr[i-1].kt-1)*100});
+  } else if(k==='avocado'){
+    const c=document.querySelector('input[name="avocadoBarSeries"]:checked')?.value||(ok==='yield'?'col':'mex');
+    countryLabel={mex:'Mexico',per:'Peru',col:'Colombia',wld:'World'}[c]||c;
+    if(ok==='volume'){
+      const arr=C.avocado.countryProd[c]||[];
+      for(let i=1;i<arr.length;i++) if(arr[i].kt&&arr[i-1].kt) yrData.push({yr:parseInt(arr[i].yr),yoy:(arr[i].kt/arr[i-1].kt-1)*100});
+    } else if(ok==='yield'){
+      const arr=C.avocado.countryYield[c]||[];
+      for(let i=1;i<arr.length;i++) if(arr[i].tha&&arr[i-1].tha) yrData.push({yr:parseInt(arr[i].yr),yoy:(arr[i].tha/arr[i-1].tha-1)*100});
+    } else if(ok==='water'){
+      const arr=C.avocado.countryWater[c]||[];
+      arr.forEach(d=>{if(d.anom!=null) yrData.push({yr:parseInt(d.yr),yoy:d.anom});});
+    } else if(ok==='export'){
+      const arr=C.avocado.countryExport[c]||[];
+      for(let i=1;i<arr.length;i++) if(arr[i].kt&&arr[i-1].kt) yrData.push({yr:parseInt(arr[i].yr),yoy:(arr[i].kt/arr[i-1].kt-1)*100});
+    }
   } else if(k==='palmoil'&&ok==='volume'){
     const c=document.querySelector('input[name="palmBarSeries"]:checked')?.value||'id';
     countryLabel={id:'Indonesia',my:'Malaysia',wld:'World'}[c]||c;
@@ -2202,12 +2751,32 @@ function updateElNinoStats(k,ok){
     yrData=buildAnnualSeries(k,ok).filter(d=>d.yoy!=null).map(d=>({yr:parseInt(d.label),yoy:d.yoy}));
   }
   // Split: palm oil uses lag window (1-2 yrs after event start, all severities)
+  // Avocado uses simple +1 yr lag (6-month biological lag → annual data → yr+1)
   // All other commodities: El Niño+Super vs non-ENSO (Mild excluded from both)
   let ensoYrs,nonYrs;
   const palmLag=k==='palmoil';
+  const avoLag=k==='avocado'&&(ok==='volume'||ok==='yield');
   if(palmLag){
+    // Onset month (1–12) for each event — lag measured from event start, not end
+    const ONSET={'2002-03':[2002,6],'2004-05':[2004,7],'2006-07':[2006,9],
+                 '2009-10':[2009,6],'2014-16':[2014,5],'2018-19':[2018,9],'2023-24':[2023,6]};
+    const LAG_MIN=10,LAG_MAX=14; // ~1 year after onset (yr+2 excluded — recovery effect)
     const lagSet=new Set();
-    EVENTS.forEach(evt=>{const s=parseInt(evt.split('-')[0]);lagSet.add(s+1);lagSet.add(s+2);});
+    EVENTS.forEach(evt=>{
+      const o=ONSET[evt];
+      if(!o){const s=parseInt(evt.split('-')[0]);lagSet.add(s+1);return;}
+      const [sy,sm]=o;
+      const winStart=sy*12+(sm-1)+LAG_MIN;
+      const winEnd  =sy*12+(sm-1)+LAG_MAX;
+      for(let yr=sy;yr<=sy+3;yr++){
+        if(winStart<=yr*12+11&&winEnd>=yr*12) lagSet.add(yr);
+      }
+    });
+    ensoYrs=yrData.filter(d=>lagSet.has(d.yr));
+    nonYrs=yrData.filter(d=>!lagSet.has(d.yr));
+  } else if(avoLag){
+    // 6-month lag → impact shows in yr+1; include all severities (same as palm)
+    const lagSet=new Set(EVENTS.map(evt=>parseInt(evt.split('-')[0])+1));
     ensoYrs=yrData.filter(d=>lagSet.has(d.yr));
     nonYrs=yrData.filter(d=>!lagSet.has(d.yr));
   } else {
@@ -2226,10 +2795,11 @@ function updateElNinoStats(k,ok){
   const ensoDec=ensoYrs.filter(d=>d.yoy<-0.5).length,ensoRis=ensoYrs.filter(d=>d.yoy>0.5).length;
   const ensoDir=!ensoYrs.length?'—':ensoDec>ensoRis?`fell ${ensoDec}/${ensoYrs.length}`:ensoRis>ensoDec?`rose ${ensoRis}/${ensoYrs.length}`:'mixed';
   const ctag=countryLabel?` · <span style="color:#94a3b8">${countryLabel}</span>`:'';
-  const ensoLabel=palmLag?'Post El Ni\xF1o · lag +1–2 yrs':'El Ni\xF1o &amp; Super';
-  const ensoSub=palmLag?`${ensoDir} · incl. Mild`:`${ensoDir} · excl. Mild`;
-  const nonLabel=palmLag?'Non-lag yrs':'Non-El Ni\xF1o';
-  const nonSub=palmLag?`${nonYrs.length} yrs · all other`:`${nonYrs.length} yrs · excl. Mild`;
+  const useLag=palmLag||avoLag;
+  const ensoLabel=useLag?'Post El Ni\xF1o · lag +1 yr':'El Ni\xF1o &amp; Super';
+  const ensoSub=useLag?`${ensoDir} · incl. Mild`:`${ensoDir} · excl. Mild`;
+  const nonLabel=useLag?'Non-lag yrs':'Non-El Ni\xF1o';
+  const nonSub=useLag?`${nonYrs.length} yrs · all other`:`${nonYrs.length} yrs · excl. Mild`;
   box.innerHTML=`<div style="display:flex;gap:1px;flex-wrap:wrap">
     <div style="flex:1;min-width:180px;padding:10px 16px;background:#0d1520;border-radius:6px 0 0 6px;border:1px solid #1e2d3f">
       <div style="font-size:9px;text-transform:uppercase;letter-spacing:.05em;color:#6b7280;margin-bottom:3px">${ensoLabel}${ctag}</div>
@@ -3015,18 +3585,16 @@ function chartCocoaProd(){
   }
 
   if(ok==='yield'){
-    const traj=C.cocoa.outcomes.yield.trajectory||[];
-    if(!traj.length) return;
-    function parseKgHa(s){const m=(s||'').match(/([\d.]+)/);return m?+(parseFloat(m[1])*1000).toFixed(1):null;}
-    const labels=traj.map(d=>d.yr);
+    const cy=C.cocoa.countryYield;
+    const longest=[cy.civ,cy.gha,cy.ecu,cy.idn,cy.wld].reduce((a,b)=>b.length>a.length?b:a,[]);
+    if(!longest.length) return;
+    const labels=longest.map(d=>d.yr);
     const n=labels.length;
-    const base2012=traj.find(d=>d.yr==='2012')||traj[0];
-    const baseKg=parseKgHa(base2012.abs);
-    const idxData=traj.map(d=>{const v=parseKgHa(d.abs);return(v!=null&&baseKg)?+((v/baseKg*100).toFixed(1)):null;});
-    const absData=traj.map(d=>parseKgHa(d.abs));
-    const CLR='#a78bfa';
+    function toTha(arr){return labels.map(yr=>{const d=arr.find(a=>a.yr===yr);return d?d.tha:null;});}
+    const civTha=toTha(cy.civ),ghaTha=toTha(cy.gha),ecuTha=toTha(cy.ecu),idnTha=toTha(cy.idn),wldTha=toTha(cy.wld);
+    const YCLR={civ:'#fb923c',gha:'#facc15',ecu:'#a3e635',idn:'#38bdf8',wld:'#94a3b8'};
     const dashLast=sc=>sc.p1DataIndex===n-1?[5,4]:[];
-    function updateYieldBox(idx){
+    function updateCocoaYieldBox(idx){
       const box=document.getElementById('cocoaProdHoverBox');if(!box)return;
       const yr=labels[idx];const yrInt=parseInt(yr);
       const evKey=EVENTS.find(e=>{const parts=e.split('-'),start=parseInt(parts[0]);let end=parts[1].length<=2?Math.floor(start/100)*100+parseInt(parts[1]):parseInt(parts[1]);if(end<=start)end+=100;return yrInt>=start&&yrInt<=end;});
@@ -3034,8 +3602,11 @@ function chartCocoaProd(){
       const sevCls=sev==='Super El Niño'?'sev-super':sev==='El Niño'?'sev-elnino':sev?'sev-mild':'';
       box.innerHTML=
         `<div class="ehb-section"><div class="ehb-label">Year</div><div class="ehb-yr">${yr}</div></div>`+
-        `<div class="ehb-section"><div class="ehb-label" style="color:${CLR}">kg/ha</div><div class="ehb-pct" style="color:${CLR}">${absData[idx]!=null?absData[idx].toFixed(0):'—'}</div></div>`+
-        `<div class="ehb-section"><div class="ehb-label" style="color:${CLR}">Index</div><div class="ehb-pct" style="color:${CLR}">${idxData[idx]!=null?idxData[idx].toFixed(1):'—'}</div></div>`+
+        `<div class="ehb-section"><div class="ehb-label" style="color:${YCLR.civ}">CIV t/ha</div><div class="ehb-pct" style="color:${YCLR.civ}">${civTha[idx]!=null?civTha[idx].toFixed(3):'—'}</div></div>`+
+        `<div class="ehb-section"><div class="ehb-label" style="color:${YCLR.gha}">GHA t/ha</div><div class="ehb-pct" style="color:${YCLR.gha}">${ghaTha[idx]!=null?ghaTha[idx].toFixed(3):'—'}</div></div>`+
+        `<div class="ehb-section"><div class="ehb-label" style="color:${YCLR.ecu}">ECU t/ha</div><div class="ehb-pct" style="color:${YCLR.ecu}">${ecuTha[idx]!=null?ecuTha[idx].toFixed(3):'—'}</div></div>`+
+        `<div class="ehb-section"><div class="ehb-label" style="color:${YCLR.idn}">IDN t/ha</div><div class="ehb-pct" style="color:${YCLR.idn}">${idnTha[idx]!=null?idnTha[idx].toFixed(3):'—'}</div></div>`+
+        `<div class="ehb-section"><div class="ehb-label" style="color:${YCLR.wld}">World t/ha</div><div class="ehb-pct" style="color:${YCLR.wld}">${wldTha[idx]!=null?wldTha[idx].toFixed(3):'—'}</div></div>`+
         `<div class="ehb-section"><div class="ehb-label">Severity</div><div class="ehb-sev ${sevCls}" style="visibility:${sev?'visible':'hidden'}">${sev||'—'}</div></div>`;
     }
     charts.cocoaProd=new Chart(canv,{type:'line',plugins:[makeBandPlugin(labels),{id:'xhair',
@@ -3047,8 +3618,8 @@ function chartCocoaProd(){
         c2.strokeStyle='rgba(255,255,255,0.3)';c2.lineWidth=1.5;c2.setLineDash([4,3]);c2.stroke();c2.setLineDash([]);
         const meta=chart.getDatasetMeta(0);if(!meta?.data?.length){c2.restore();return;}
         let ni=0,md=Infinity;meta.data.forEach((el,i)=>{const d=Math.abs(el.x-chart._mouseX);if(d<md){md=d;ni=i;}});
-        updateYieldBox(ni);
-        const bw=96,bh=80,mx=chart._mouseX,my=chart._mouseY!=null?chart._mouseY:top+40;
+        updateCocoaYieldBox(ni);
+        const bw=110,bh=130,mx=chart._mouseX,my=chart._mouseY!=null?chart._mouseY:top+40;
         const bx=Math.min(Math.max(mx-bw/2,left+2),right-bw-2);
         const by=Math.min(Math.max(my-bh-14,top+1),bottom-bh-1);
         c2.fillStyle='rgba(10,14,22,0.93)';c2.fillRect(bx,by,bw,bh);
@@ -3056,35 +3627,38 @@ function chartCocoaProd(){
         c2.textAlign='center';c2.textBaseline='middle';
         c2.fillStyle='#cbd5e1';c2.font='bold 11px system-ui,sans-serif';c2.fillText(labels[ni],bx+bw/2,by+12);
         c2.textAlign='left';c2.font='10px system-ui,sans-serif';
-        c2.fillStyle=CLR;c2.fillText((absData[ni]!=null?absData[ni].toFixed(0):'—')+' kg/ha',bx+8,by+30);
-        c2.fillText('idx '+(idxData[ni]!=null?idxData[ni].toFixed(1):'—'),bx+8,by+46);
+        c2.fillStyle=YCLR.civ;c2.fillText('CIV '+(civTha[ni]!=null?civTha[ni].toFixed(3):'—')+' t/ha',bx+8,by+28);
+        c2.fillStyle=YCLR.gha;c2.fillText('GHA '+(ghaTha[ni]!=null?ghaTha[ni].toFixed(3):'—')+' t/ha',bx+8,by+42);
+        c2.fillStyle=YCLR.ecu;c2.fillText('ECU '+(ecuTha[ni]!=null?ecuTha[ni].toFixed(3):'—')+' t/ha',bx+8,by+56);
+        c2.fillStyle=YCLR.idn;c2.fillText('IDN '+(idnTha[ni]!=null?idnTha[ni].toFixed(3):'—')+' t/ha',bx+8,by+70);
+        c2.fillStyle=YCLR.wld;c2.fillText('WLD '+(wldTha[ni]!=null?wldTha[ni].toFixed(3):'—')+' t/ha',bx+8,by+84);
         c2.restore();
       }
     }],
-      data:{labels,datasets:[{label:'Global avg yield',data:idxData,borderColor:CLR,fill:false,tension:0.25,
-        pointRadius:3,pointHoverRadius:5,pointBackgroundColor:'#0a0e16',pointBorderColor:CLR,segment:{borderDash:dashLast}}]},
+      data:{labels,datasets:[
+        {label:"Côte d'Ivoire",data:civTha,borderColor:YCLR.civ,fill:false,tension:0.2,pointRadius:3,pointHoverRadius:5,pointBackgroundColor:'#0a0e16',pointBorderColor:YCLR.civ,segment:{borderDash:dashLast}},
+        {label:'Ghana',data:ghaTha,borderColor:YCLR.gha,fill:false,tension:0.2,pointRadius:3,pointHoverRadius:5,pointStyle:'rect',pointBackgroundColor:'#0a0e16',pointBorderColor:YCLR.gha,segment:{borderDash:dashLast}},
+        {label:'Ecuador',data:ecuTha,borderColor:YCLR.ecu,fill:false,tension:0.2,pointRadius:3,pointHoverRadius:5,pointStyle:'triangle',pointBackgroundColor:'#0a0e16',pointBorderColor:YCLR.ecu,segment:{borderDash:dashLast}},
+        {label:'Indonesia',data:idnTha,borderColor:YCLR.idn,fill:false,tension:0.2,pointRadius:3,pointHoverRadius:5,pointBackgroundColor:'#0a0e16',pointBorderColor:YCLR.idn,segment:{borderDash:dashLast}},
+        {label:'World',data:wldTha,borderColor:YCLR.wld,fill:false,tension:0.2,pointRadius:2,pointHoverRadius:4,borderWidth:1.5,pointBackgroundColor:'#0a0e16',pointBorderColor:YCLR.wld,segment:{borderDash:dashLast}},
+      ]},
       options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
         plugins:{legend:{display:false},tooltip:{enabled:false}},
         scales:{x:xScale,y:{type:'linear',position:'left',grid:{color:'#1b232d'},
-          ticks:{color:'#8b9bab',font:{size:10},callback:v=>v.toFixed(0)},
-          title:{display:true,text:'Yield index (2012 = 100)',color:'#8b9bab',font:{size:9}}}}}});
+          ticks:{color:'#8b9bab',font:{size:10},callback:v=>v.toFixed(2)},
+          title:{display:true,text:'Yield (t/ha)',color:'#8b9bab',font:{size:9}}}}}});
     return;
   }
 
-  // ok === 'volume': 5-country production index
+  // ok === 'volume': 5-country absolute production (kt)
   const cp=C.cocoa.countryProd;
   const hasAny=cp.civ.length||cp.gha.length||cp.ecu.length||cp.idn.length||cp.wld.length;
   if(!hasAny) return;
   const longest=[cp.civ,cp.gha,cp.ecu,cp.idn,cp.wld].reduce((a,b)=>b.length>a.length?b:a,[]);
   const labels=longest.map(d=>d.yr);
   const n=labels.length;
-  function toIdx(arr){
-    const baseEntry=arr.find(d=>d.yr==='2012')||arr[0];
-    if(!baseEntry) return labels.map(()=>null);
-    const base=baseEntry.kt;
-    return labels.map(yr=>{const d=arr.find(a=>a.yr===yr);return d?+((d.kt/base*100).toFixed(1)):null;});
-  }
-  const civIdx=toIdx(cp.civ),ghaIdx=toIdx(cp.gha),ecuIdx=toIdx(cp.ecu),idnIdx=toIdx(cp.idn),wldIdx=toIdx(cp.wld);
+  function toKt(arr){return labels.map(yr=>{const d=arr.find(a=>a.yr===yr);return d?d.kt:null;});}
+  const civKt=toKt(cp.civ),ghaKt=toKt(cp.gha),ecuKt=toKt(cp.ecu),idnKt=toKt(cp.idn),wldKt=toKt(cp.wld);
   const CCLR={civ:'#fb923c',gha:'#facc15',ecu:'#a3e635',idn:'#38bdf8',wld:'#94a3b8'};
   const dashLast=sc=>sc.p1DataIndex===n-1?[5,4]:[];
   function updateCocoaProdBox(idx){
@@ -3095,11 +3669,11 @@ function chartCocoaProd(){
     const sevCls=sev==='Super El Niño'?'sev-super':sev==='El Niño'?'sev-elnino':sev?'sev-mild':'';
     box.innerHTML=
       `<div class="ehb-section"><div class="ehb-label">Year</div><div class="ehb-yr">${yr}</div></div>`+
-      `<div class="ehb-section"><div class="ehb-label" style="color:#fb923c">CIV idx</div><div class="ehb-pct" style="color:#fb923c">${civIdx[idx]!=null?civIdx[idx].toFixed(1):'—'}</div></div>`+
-      `<div class="ehb-section"><div class="ehb-label" style="color:#facc15">GHA idx</div><div class="ehb-pct" style="color:#facc15">${ghaIdx[idx]!=null?ghaIdx[idx].toFixed(1):'—'}</div></div>`+
-      `<div class="ehb-section"><div class="ehb-label" style="color:#a3e635">ECU idx</div><div class="ehb-pct" style="color:#a3e635">${ecuIdx[idx]!=null?ecuIdx[idx].toFixed(1):'—'}</div></div>`+
-      `<div class="ehb-section"><div class="ehb-label" style="color:#38bdf8">IDN idx</div><div class="ehb-pct" style="color:#38bdf8">${idnIdx[idx]!=null?idnIdx[idx].toFixed(1):'—'}</div></div>`+
-      `<div class="ehb-section"><div class="ehb-label" style="color:#94a3b8">Wld idx</div><div class="ehb-pct" style="color:#94a3b8">${wldIdx[idx]!=null?wldIdx[idx].toFixed(1):'—'}</div></div>`+
+      `<div class="ehb-section"><div class="ehb-label" style="color:#fb923c">CIV kt</div><div class="ehb-pct" style="color:#fb923c">${civKt[idx]!=null?civKt[idx].toFixed(0):'—'}</div></div>`+
+      `<div class="ehb-section"><div class="ehb-label" style="color:#facc15">GHA kt</div><div class="ehb-pct" style="color:#facc15">${ghaKt[idx]!=null?ghaKt[idx].toFixed(0):'—'}</div></div>`+
+      `<div class="ehb-section"><div class="ehb-label" style="color:#a3e635">ECU kt</div><div class="ehb-pct" style="color:#a3e635">${ecuKt[idx]!=null?ecuKt[idx].toFixed(0):'—'}</div></div>`+
+      `<div class="ehb-section"><div class="ehb-label" style="color:#38bdf8">IDN kt</div><div class="ehb-pct" style="color:#38bdf8">${idnKt[idx]!=null?idnKt[idx].toFixed(0):'—'}</div></div>`+
+      `<div class="ehb-section"><div class="ehb-label" style="color:#94a3b8">World kt</div><div class="ehb-pct" style="color:#94a3b8">${wldKt[idx]!=null?wldKt[idx].toFixed(0):'—'}</div></div>`+
       `<div class="ehb-section"><div class="ehb-label">Severity</div><div class="ehb-sev ${sevCls}" style="visibility:${sev?'visible':'hidden'}">${sev||'—'}</div></div>`;
   }
   charts.cocoaProd=new Chart(canv,{type:'line',plugins:[makeBandPlugin(labels),{id:'xhair',
@@ -3112,7 +3686,7 @@ function chartCocoaProd(){
       const meta=chart.getDatasetMeta(0);if(!meta?.data?.length){c2.restore();return;}
       let ni=0,md=Infinity;meta.data.forEach((el,i)=>{const d=Math.abs(el.x-chart._mouseX);if(d<md){md=d;ni=i;}});
       updateCocoaProdBox(ni);
-      const bw=104,bh=116,mx=chart._mouseX,my=chart._mouseY!=null?chart._mouseY:top+40;
+      const bw=110,bh=116,mx=chart._mouseX,my=chart._mouseY!=null?chart._mouseY:top+40;
       const bx=Math.min(Math.max(mx-bw/2,left+2),right-bw-2);
       const by=Math.min(Math.max(my-bh-14,top+1),bottom-bh-1);
       c2.fillStyle='rgba(10,14,22,0.93)';c2.fillRect(bx,by,bw,bh);
@@ -3120,35 +3694,591 @@ function chartCocoaProd(){
       c2.textAlign='center';c2.textBaseline='middle';
       c2.fillStyle='#cbd5e1';c2.font='bold 11px system-ui,sans-serif';c2.fillText(labels[ni],bx+bw/2,by+12);
       c2.textAlign='left';c2.font='10px system-ui,sans-serif';
-      c2.fillStyle=CCLR.civ;c2.fillText('CIV '+(civIdx[ni]!=null?civIdx[ni].toFixed(1):'—'),bx+8,by+28);
-      c2.fillStyle=CCLR.gha;c2.fillText('GHA '+(ghaIdx[ni]!=null?ghaIdx[ni].toFixed(1):'—'),bx+8,by+42);
-      c2.fillStyle=CCLR.ecu;c2.fillText('ECU '+(ecuIdx[ni]!=null?ecuIdx[ni].toFixed(1):'—'),bx+8,by+56);
-      c2.fillStyle=CCLR.idn;c2.fillText('IDN '+(idnIdx[ni]!=null?idnIdx[ni].toFixed(1):'—'),bx+8,by+70);
-      c2.fillStyle=CCLR.wld;c2.fillText('WLD '+(wldIdx[ni]!=null?wldIdx[ni].toFixed(1):'—'),bx+8,by+84);
+      c2.fillStyle=CCLR.civ;c2.fillText('CIV '+(civKt[ni]!=null?civKt[ni].toFixed(0):'—')+' kt',bx+8,by+28);
+      c2.fillStyle=CCLR.gha;c2.fillText('GHA '+(ghaKt[ni]!=null?ghaKt[ni].toFixed(0):'—')+' kt',bx+8,by+42);
+      c2.fillStyle=CCLR.ecu;c2.fillText('ECU '+(ecuKt[ni]!=null?ecuKt[ni].toFixed(0):'—')+' kt',bx+8,by+56);
+      c2.fillStyle=CCLR.idn;c2.fillText('IDN '+(idnKt[ni]!=null?idnKt[ni].toFixed(0):'—')+' kt',bx+8,by+70);
+      c2.fillStyle=ACLR.wld;c2.fillText('WLD '+(wldKt[ni]!=null?wldKt[ni].toFixed(0):'—')+' kt',bx+8,by+84);
       c2.restore();
     }
   }],
     data:{labels,datasets:[
-      {label:"Côte d'Ivoire",data:civIdx,borderColor:CCLR.civ,fill:false,tension:0.2,
+      {label:"Côte d'Ivoire",data:civKt,borderColor:CCLR.civ,fill:false,tension:0.2,
        pointRadius:3,pointHoverRadius:5,pointBackgroundColor:'#0a0e16',pointBorderColor:CCLR.civ,segment:{borderDash:dashLast}},
-      {label:'Ghana',data:ghaIdx,borderColor:CCLR.gha,fill:false,tension:0.2,
+      {label:'Ghana',data:ghaKt,borderColor:CCLR.gha,fill:false,tension:0.2,
        pointRadius:3,pointHoverRadius:5,pointStyle:'rect',pointBackgroundColor:'#0a0e16',pointBorderColor:CCLR.gha,segment:{borderDash:dashLast}},
-      {label:'Ecuador',data:ecuIdx,borderColor:CCLR.ecu,fill:false,tension:0.2,
+      {label:'Ecuador',data:ecuKt,borderColor:CCLR.ecu,fill:false,tension:0.2,
        pointRadius:3,pointHoverRadius:5,pointStyle:'triangle',pointBackgroundColor:'#0a0e16',pointBorderColor:CCLR.ecu,segment:{borderDash:dashLast}},
-      {label:'Indonesia',data:idnIdx,borderColor:CCLR.idn,fill:false,tension:0.2,
+      {label:'Indonesia',data:idnKt,borderColor:CCLR.idn,fill:false,tension:0.2,
        pointRadius:3,pointHoverRadius:5,pointBackgroundColor:'#0a0e16',pointBorderColor:CCLR.idn,segment:{borderDash:dashLast}},
-      {label:'World',data:wldIdx,borderColor:CCLR.wld,fill:false,tension:0.2,
-       pointRadius:2,pointHoverRadius:4,borderWidth:1.5,pointBackgroundColor:'#0a0e16',pointBorderColor:CCLR.wld,segment:{borderDash:dashLast}},
+      {label:'World',data:wldKt,borderColor:ACLR.wld,fill:false,tension:0.2,
+       pointRadius:2,pointHoverRadius:4,borderWidth:1.5,pointBackgroundColor:'#0a0e16',pointBorderColor:ACLR.wld,segment:{borderDash:dashLast}},
     ]},
     options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
       plugins:{legend:{display:false},tooltip:{enabled:false}},
       scales:{x:xScale,
         y:{type:'linear',position:'left',grid:{color:'#1b232d'},
-          ticks:{color:'#8b9bab',font:{size:10},callback:v=>v.toFixed(0)},
-          title:{display:true,text:'Production index (2012 = 100)',color:'#8b9bab',font:{size:9}}}}}});
+          ticks:{color:'#8b9bab',font:{size:10},callback:v=>v>=1000?(v/1000).toFixed(0)+'k':v.toFixed(0)},
+          title:{display:true,text:'Production (kt)',color:'#8b9bab',font:{size:9}}}}}});
+}
+
+// ════════════ AVOCADO BAR CHART ════════════
+function chartAvocadoBar(country){
+  const canv=document.getElementById('chEvents'); if(!canv) return;
+  if(charts.ev){charts.ev.destroy();charts.ev=null;}
+  const ok=getOutcome('avocado');
+  const CCLR={mex:'#4ade80',per:'#f97316',col:'#38bdf8',wld:'#94a3b8'};
+  const cname={mex:'Mexico',per:'Peru',col:'Colombia',wld:'World'};
+  // Select data source by outcome
+  let raw, series, yAxisLabel, valKey;
+  if(ok==='yield'){
+    raw=C.avocado.countryYield[country]||[]; if(!raw.length) return;
+    series=raw.map((d,i)=>{
+      const prev=i>0?raw[i-1]:null;
+      const yoy=prev&&prev.tha?+((d.tha/prev.tha-1)*100).toFixed(1):null;
+      return{yr:d.yr,yoy,src:d.src,val:d.tha,note:d.note};
+    });
+    yAxisLabel=C.avocado.outcomes.yield.unit;
+  } else if(ok==='water'){
+    raw=C.avocado.countryWater[country]||[]; if(!raw.length) return;
+    series=raw.map(d=>({yr:d.yr,yoy:d.anom,src:d.src,val:d.anom,note:d.note}));
+    yAxisLabel=C.avocado.outcomes.water.unit;
+  } else if(ok==='export'){
+    raw=C.avocado.countryExport[country]||[]; if(!raw.length) return;
+    series=raw.map((d,i)=>{
+      const prev=i>0?raw[i-1]:null;
+      const yoy=prev?+((d.kt/prev.kt-1)*100).toFixed(1):null;
+      return{yr:d.yr,yoy,src:d.src,val:d.kt,note:d.note};
+    });
+    yAxisLabel=C.avocado.outcomes.export.unit;
+  } else { // volume (default)
+    raw=C.avocado.countryProd[country]||[]; if(!raw.length) return;
+    series=raw.map((d,i)=>{
+      const prev=i>0?raw[i-1]:null;
+      const yoy=prev?+((d.kt/prev.kt-1)*100).toFixed(1):null;
+      return{yr:d.yr,yoy,src:d.src||'rep',val:d.kt,note:d.note||`${cname[country]} avocado — ${d.kt} kt`};
+    });
+    yAxisLabel=C.avocado.outcomes.volume.unit;
+  }
+  const labels=series.map(s=>s.yr);
+  const vals=series.map(s=>s.yoy);
+  const bg=series.map(s=>{
+    if(s.yoy==null) return 'rgba(100,100,100,0)';
+    const a=s.src==='rep'?0.82:0.28;
+    // For water stress: positive = more rain (green), negative = drought (red)
+    // For yield/export/volume: positive = good (green), negative = bad (red)
+    return s.yoy>=0?`rgba(34,197,94,${a})`:`rgba(239,68,68,${a})`;
+  });
+  const borderColor=series.map(s=>s.yoy==null||s.yoy>=0?'rgba(34,197,94,0.3)':'rgba(239,68,68,0.3)');
+  const valLabel=ok==='yield'?'Yield t/ha':ok==='water'?'Precip. anomaly':ok==='export'?'Exports kt':'Production kt';
+  function updateHoverAvocado(idx){
+    const box=document.getElementById('evHoverBox'); if(!box) return;
+    const s=series[idx];
+    const yoyStr=s.yoy==null?'—':(s.yoy>0?'+':'')+s.yoy.toFixed(1)+'%';
+    const yoyColor=s.yoy==null?'var(--muted)':s.yoy>=0?'#22c55e':'#f87171';
+    const yr=parseInt(s.yr);
+    const evKey=EVENTS.find(e=>{
+      const parts=e.split('-'),start=parseInt(parts[0]);
+      let end=parts[1].length<=2?Math.floor(start/100)*100+parseInt(parts[1]):parseInt(parts[1]);
+      if(end<=start)end+=100; return yr>=start&&yr<=end;
+    });
+    const sev=evKey?ENSO_SEV[evKey]:null;
+    const sevCls=sev==='Super El Niño'?'sev-super':sev==='El Niño'?'sev-elnino':sev?'sev-mild':'';
+    const factor=C.avocado.barFactors[`${ok==='volume'?'vol':ok}-${country}-${s.yr}`]||'';
+    box.innerHTML=
+      `<div class="ehb-section"><div class="ehb-label">Year</div><div class="ehb-yr">${s.yr}</div></div>`+
+      `<div class="ehb-section"><div class="ehb-label" style="color:${CCLR[country]}">${cname[country]}</div><div class="ehb-pct" style="color:${CCLR[country]}">${yoyStr}</div></div>`+
+      `<div class="ehb-section"><div class="ehb-label">${valLabel}</div><div style="font-size:11px;color:var(--text-2);font-weight:600">${s.val!=null?s.val.toFixed(ok==='yield'?2:1):'-'}</div></div>`+
+      `<div class="ehb-section"><div class="ehb-label">Severity</div><div class="ehb-sev ${sevCls}" style="visibility:${sev?'visible':'hidden'}">${sev||'—'}</div></div>`+
+      `${s.note?`<div class="ehb-section"><div class="ehb-label">${s.src==='rep'?'Source':'Estimate'}</div><div class="ehb-note">${s.note}</div></div>`:''}`+
+      `${factor?`<div class="ehb-section"><div class="ehb-label">Factors</div><div class="ehb-note">${factor}</div></div>`:''}`;
+  }
+  charts.ev=new Chart(canv,{type:'bar',data:{labels,datasets:[{
+    data:vals,backgroundColor:bg,borderColor,borderWidth:1,borderRadius:3
+  }]},
+  options:{responsive:true,maintainAspectRatio:false,
+    interaction:{mode:'index',intersect:false},
+    onHover:(_,active)=>{if(active.length) updateHoverAvocado(active[0].index);},
+    plugins:{legend:{display:false},tooltip:{enabled:false}},
+    scales:{x:{...axis.x,ticks:{...axis.x.ticks,maxRotation:60,minRotation:45,font:{size:9}}},
+      y:{...axis.y,
+        title:{display:true,text:yAxisLabel,color:'#8b9bab',font:{size:10}},
+        ticks:{...axis.y.ticks,callback:v=>v==null?'':(v>0?'+':'')+v+'%'}}}},
+  plugins:[makeEnsoPlugin(labels),{id:'avoXhair',
+    beforeEvent(chart,args){
+      const e=args.event;
+      if(e.type==='mousemove'&&e.x>=chart.chartArea.left&&e.x<=chart.chartArea.right){chart._mouseX=e.x;chart._mouseY=e.y;}
+      else if(e.type==='mouseout'||e.type==='mouseleave'){chart._mouseX=null;chart._mouseY=null;}
+    },
+    afterDraw(chart){
+      if(chart._mouseX==null)return;
+      const c2=chart.ctx,{top,bottom,left,right}=chart.chartArea;c2.save();
+      c2.beginPath();c2.moveTo(chart._mouseX,top);c2.lineTo(chart._mouseX,bottom);
+      c2.strokeStyle='rgba(255,255,255,0.3)';c2.lineWidth=1.5;c2.setLineDash([4,3]);c2.stroke();c2.setLineDash([]);
+      const meta=chart.getDatasetMeta(0);if(!meta?.data?.length){c2.restore();return;}
+      let ni=0,md=Infinity;
+      meta.data.forEach((el,i)=>{const d=Math.abs(el.x-chart._mouseX);if(d<md){md=d;ni=i;}});
+      const s=series[ni];if(!s){c2.restore();return;}
+      const yoyStr=s.yoy==null?'—':(s.yoy>0?'+':'')+s.yoy.toFixed(1)+'%';
+      const yoyColor=s.yoy==null?'#6b7280':s.yoy>=0?'#22c55e':'#f87171';
+      const bw=70,bh=44,mx=chart._mouseX,my=chart._mouseY!=null?chart._mouseY:top+50;
+      const bx=Math.min(Math.max(mx-bw/2,left+2),right-bw-2);
+      const by=Math.min(Math.max(my-bh-14,top+1),bottom-bh-1);
+      c2.fillStyle='rgba(10,14,22,0.92)';c2.fillRect(bx,by,bw,bh);
+      c2.strokeStyle='rgba(255,255,255,0.15)';c2.lineWidth=1;c2.strokeRect(bx,by,bw,bh);
+      c2.textAlign='center';c2.textBaseline='middle';
+      c2.fillStyle='#8b9bab';c2.font='10px system-ui,sans-serif';c2.fillText(s.yr,bx+bw/2,by+14);
+      c2.fillStyle=yoyColor;c2.font='bold 14px system-ui,sans-serif';c2.fillText(yoyStr,bx+bw/2,by+32);
+      c2.restore();
+    }
+  }]});
+}
+
+// ════════════ AVOCADO PRODUCTION INDEX CHART ════════════
+function chartAvocadoProd(){
+  const canv=document.getElementById('chAvocadoProd'); if(!canv) return;
+  if(charts.avocadoProd){charts.avocadoProd.destroy();charts.avocadoProd=null;}
+  const ok=getOutcome('avocado');
+  const ACLR={mex:'#4ade80',per:'#f97316',col:'#38bdf8',wld:'#94a3b8'};
+
+  // ── yield branch ──────────────────────────────────────────────────────────
+  if(ok==='yield'){
+    const cy=C.avocado.countryYield;
+    const longest=[cy.mex,cy.per,cy.col,cy.wld].reduce((a,b)=>b.length>a.length?b:a,[]);
+    if(!longest.length) return;
+    const labels=longest.map(d=>d.yr);
+    const n=labels.length;
+    function toTha(arr){return labels.map(yr=>{const d=arr.find(a=>a.yr===yr);return d?d.tha:null;});}
+    const mexTha=toTha(cy.mex),perTha=toTha(cy.per),colTha=toTha(cy.col),wldTha=toTha(cy.wld);
+    const dashLast=sc=>sc.p1DataIndex===n-1?[5,4]:[];
+    function updateAvoYieldBox(ni){
+      const box=document.getElementById('avocadoProdHoverBox');if(!box)return;
+      const yr=labels[ni];const yrInt=parseInt(yr);
+      const evKey=EVENTS.find(e=>{const parts=e.split('-'),start=parseInt(parts[0]);let end=parts[1].length<=2?Math.floor(start/100)*100+parseInt(parts[1]):parseInt(parts[1]);if(end<=start)end+=100;return yrInt>=start&&yrInt<=end;});
+      const sev=evKey?ENSO_SEV[evKey]:null;const sevCls=sev==='Super El Niño'?'sev-super':sev==='El Niño'?'sev-elnino':sev?'sev-mild':'';
+      box.innerHTML=
+        `<div class="ehb-section"><div class="ehb-label">Year</div><div class="ehb-yr">${yr}</div></div>`+
+        `<div class="ehb-section"><div class="ehb-label" style="color:${ACLR.mex}">MEX t/ha</div><div class="ehb-pct" style="color:${ACLR.mex}">${mexTha[ni]!=null?mexTha[ni].toFixed(2):'—'}</div></div>`+
+        `<div class="ehb-section"><div class="ehb-label" style="color:${ACLR.per}">PER t/ha</div><div class="ehb-pct" style="color:${ACLR.per}">${perTha[ni]!=null?perTha[ni].toFixed(2):'—'}</div></div>`+
+        `<div class="ehb-section"><div class="ehb-label" style="color:${ACLR.col}">COL t/ha</div><div class="ehb-pct" style="color:${ACLR.col}">${colTha[ni]!=null?colTha[ni].toFixed(2):'—'}</div></div>`+
+        `<div class="ehb-section"><div class="ehb-label" style="color:${ACLR.wld}">WLD t/ha</div><div class="ehb-pct" style="color:${ACLR.wld}">${wldTha[ni]!=null?wldTha[ni].toFixed(2):'—'}</div></div>`+
+        `<div class="ehb-section"><div class="ehb-label">Severity</div><div class="ehb-sev ${sevCls}" style="visibility:${sev?'visible':'hidden'}">${sev||'—'}</div></div>`;
+    }
+    const xScale={grid:{color:'#1b232d'},ticks:{color:'#8b9bab',font:{size:9},maxRotation:60,minRotation:45}};
+    charts.avocadoProd=new Chart(canv,{type:'line',plugins:[makeBandPlugin(labels),{id:'avoProdXhair',
+      beforeEvent(chart,args){const e=args.event;if(e.type==='mousemove'&&e.x>=chart.chartArea.left&&e.x<=chart.chartArea.right){chart._mouseX=e.x;chart._mouseY=e.y;}else if(e.type==='mouseout'||e.type==='mouseleave'){chart._mouseX=null;chart._mouseY=null;}},
+      afterDraw(chart){
+        if(chart._mouseX==null)return;
+        const c2=chart.ctx,{top,bottom,left,right}=chart.chartArea;c2.save();
+        c2.beginPath();c2.moveTo(chart._mouseX,top);c2.lineTo(chart._mouseX,bottom);
+        c2.strokeStyle='rgba(255,255,255,0.3)';c2.lineWidth=1.5;c2.setLineDash([4,3]);c2.stroke();c2.setLineDash([]);
+        const meta=chart.getDatasetMeta(0);if(!meta?.data?.length){c2.restore();return;}
+        let ni=0,md=Infinity;meta.data.forEach((el,i)=>{const d=Math.abs(el.x-chart._mouseX);if(d<md){md=d;ni=i;}});
+        updateAvoYieldBox(ni);
+        const bw=110,bh=110,mx=chart._mouseX,my=chart._mouseY!=null?chart._mouseY:top+40;
+        const bx=Math.min(Math.max(mx-bw/2,left+2),right-bw-2);
+        const by=Math.min(Math.max(my-bh-14,top+1),bottom-bh-1);
+        c2.fillStyle='rgba(10,14,22,0.93)';c2.fillRect(bx,by,bw,bh);c2.strokeStyle='rgba(255,255,255,0.15)';c2.lineWidth=1;c2.strokeRect(bx,by,bw,bh);
+        c2.textAlign='center';c2.textBaseline='middle';c2.fillStyle='#cbd5e1';c2.font='bold 11px system-ui,sans-serif';c2.fillText(labels[ni],bx+bw/2,by+12);
+        c2.textAlign='left';c2.font='10px system-ui,sans-serif';
+        c2.fillStyle=ACLR.mex;c2.fillText('MEX '+(mexTha[ni]!=null?mexTha[ni].toFixed(2):'—')+' t/ha',bx+8,by+28);
+        c2.fillStyle=ACLR.per;c2.fillText('PER '+(perTha[ni]!=null?perTha[ni].toFixed(2):'—')+' t/ha',bx+8,by+42);
+        c2.fillStyle=ACLR.col;c2.fillText('COL '+(colTha[ni]!=null?colTha[ni].toFixed(2):'—')+' t/ha',bx+8,by+56);
+        c2.fillStyle=ACLR.wld;c2.fillText('WLD '+(wldTha[ni]!=null?wldTha[ni].toFixed(2):'—')+' t/ha',bx+8,by+70);
+        c2.restore();
+      }
+    }],
+      data:{labels,datasets:[
+        {label:'Mexico',data:mexTha,borderColor:ACLR.mex,fill:false,tension:0.2,pointRadius:3,pointHoverRadius:5,pointBackgroundColor:'#0a0e16',pointBorderColor:ACLR.mex,segment:{borderDash:dashLast}},
+        {label:'Peru',data:perTha,borderColor:ACLR.per,fill:false,tension:0.2,pointRadius:3,pointHoverRadius:5,pointStyle:'rect',pointBackgroundColor:'#0a0e16',pointBorderColor:ACLR.per,segment:{borderDash:dashLast}},
+        {label:'Colombia',data:colTha,borderColor:ACLR.col,fill:false,tension:0.2,pointRadius:3,pointHoverRadius:5,pointStyle:'triangle',pointBackgroundColor:'#0a0e16',pointBorderColor:ACLR.col,segment:{borderDash:dashLast}},
+        {label:'World',data:wldTha,borderColor:ACLR.wld,fill:false,tension:0.2,pointRadius:2,pointHoverRadius:4,borderWidth:1.5,pointBackgroundColor:'#0a0e16',pointBorderColor:ACLR.wld,segment:{borderDash:dashLast}},
+      ]},
+      options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+        plugins:{legend:{display:false},tooltip:{enabled:false}},
+        scales:{x:xScale,y:{type:'linear',position:'left',grid:{color:'#1b232d'},
+          ticks:{color:'#8b9bab',font:{size:10},callback:v=>v.toFixed(1)},
+          title:{display:true,text:'Yield (t/ha)',color:'#8b9bab',font:{size:9}}}}}});
+    return;
+  }
+
+  // ── water stress branch ────────────────────────────────────────────────────
+  if(ok==='water'){
+    const cw=C.avocado.countryWater;
+    const longest=[cw.mex,cw.col,cw.wld||[]].reduce((a,b)=>b.length>a.length?b:a,[]);
+    if(!longest.length) return;
+    const labels=longest.map(d=>d.yr);
+    const n=labels.length;
+    function toAnom(arr){return labels.map(yr=>{const d=arr.find(a=>a.yr===yr);return d?d.anom:null;});}
+    const mexAnom=toAnom(cw.mex),colAnom=toAnom(cw.col),wldAnom=toAnom(cw.wld||[]);
+    const dashLast=sc=>sc.p1DataIndex===n-1?[5,4]:[];
+    function updateAvoWaterBox(ni){
+      const box=document.getElementById('avocadoProdHoverBox');if(!box)return;
+      const yr=labels[ni];const yrInt=parseInt(yr);
+      const evKey=EVENTS.find(e=>{const parts=e.split('-'),start=parseInt(parts[0]);let end=parts[1].length<=2?Math.floor(start/100)*100+parseInt(parts[1]):parseInt(parts[1]);if(end<=start)end+=100;return yrInt>=start&&yrInt<=end;});
+      const sev=evKey?ENSO_SEV[evKey]:null;const sevCls=sev==='Super El Niño'?'sev-super':sev==='El Niño'?'sev-elnino':sev?'sev-mild':'';
+      const fmt=v=>v!=null?(v>=0?'+':'')+v.toFixed(1)+'%':'—';
+      box.innerHTML=
+        `<div class="ehb-section"><div class="ehb-label">Year</div><div class="ehb-yr">${yr}</div></div>`+
+        `<div class="ehb-section"><div class="ehb-label" style="color:${ACLR.mex}">MEX anom</div><div class="ehb-pct" style="color:${ACLR.mex}">${fmt(mexAnom[ni])}</div></div>`+
+        `<div class="ehb-section"><div class="ehb-label" style="color:${ACLR.col}">COL anom</div><div class="ehb-pct" style="color:${ACLR.col}">${fmt(colAnom[ni])}</div></div>`+
+        `<div class="ehb-section"><div class="ehb-label" style="color:${ACLR.wld}">WLD anom</div><div class="ehb-pct" style="color:${ACLR.wld}">${fmt(wldAnom[ni])}</div></div>`+
+        `<div class="ehb-section"><div class="ehb-label">Severity</div><div class="ehb-sev ${sevCls}" style="visibility:${sev?'visible':'hidden'}">${sev||'—'}</div></div>`;
+    }
+    const xScale={grid:{color:'#1b232d'},ticks:{color:'#8b9bab',font:{size:9},maxRotation:60,minRotation:45}};
+    charts.avocadoProd=new Chart(canv,{type:'line',plugins:[makeBandPlugin(labels),{id:'avoProdXhair',
+      beforeEvent(chart,args){const e=args.event;if(e.type==='mousemove'&&e.x>=chart.chartArea.left&&e.x<=chart.chartArea.right){chart._mouseX=e.x;chart._mouseY=e.y;}else if(e.type==='mouseout'||e.type==='mouseleave'){chart._mouseX=null;chart._mouseY=null;}},
+      afterDraw(chart){
+        if(chart._mouseX==null)return;
+        const c2=chart.ctx,{top,bottom,left,right}=chart.chartArea;c2.save();
+        c2.beginPath();c2.moveTo(chart._mouseX,top);c2.lineTo(chart._mouseX,bottom);
+        c2.strokeStyle='rgba(255,255,255,0.3)';c2.lineWidth=1.5;c2.setLineDash([4,3]);c2.stroke();c2.setLineDash([]);
+        const meta=chart.getDatasetMeta(0);if(!meta?.data?.length){c2.restore();return;}
+        let ni=0,md=Infinity;meta.data.forEach((el,i)=>{const d=Math.abs(el.x-chart._mouseX);if(d<md){md=d;ni=i;}});
+        updateAvoWaterBox(ni);
+        const fmt=v=>v!=null?(v>=0?'+':'')+v.toFixed(1)+'%':'—';
+        const bw=110,bh=80,mx=chart._mouseX,my=chart._mouseY!=null?chart._mouseY:top+40;
+        const bx=Math.min(Math.max(mx-bw/2,left+2),right-bw-2);
+        const by=Math.min(Math.max(my-bh-14,top+1),bottom-bh-1);
+        c2.fillStyle='rgba(10,14,22,0.93)';c2.fillRect(bx,by,bw,bh);c2.strokeStyle='rgba(255,255,255,0.15)';c2.lineWidth=1;c2.strokeRect(bx,by,bw,bh);
+        c2.textAlign='center';c2.textBaseline='middle';c2.fillStyle='#cbd5e1';c2.font='bold 11px system-ui,sans-serif';c2.fillText(labels[ni],bx+bw/2,by+12);
+        c2.textAlign='left';c2.font='10px system-ui,sans-serif';
+        c2.fillStyle=ACLR.mex;c2.fillText('MEX '+fmt(mexAnom[ni]),bx+8,by+30);
+        c2.fillStyle=ACLR.col;c2.fillText('COL '+fmt(colAnom[ni]),bx+8,by+46);
+        c2.fillStyle=ACLR.wld;c2.fillText('WLD '+fmt(wldAnom[ni]),bx+8,by+62);
+        c2.restore();
+      }
+    }],
+      data:{labels,datasets:[
+        {label:'Mexico',data:mexAnom,borderColor:ACLR.mex,fill:false,tension:0.2,pointRadius:3,pointHoverRadius:5,pointBackgroundColor:'#0a0e16',pointBorderColor:ACLR.mex,segment:{borderDash:dashLast}},
+        {label:'Colombia',data:colAnom,borderColor:ACLR.col,fill:false,tension:0.2,pointRadius:3,pointHoverRadius:5,pointStyle:'triangle',pointBackgroundColor:'#0a0e16',pointBorderColor:ACLR.col,segment:{borderDash:dashLast}},
+        {label:'World',data:wldAnom,borderColor:ACLR.wld,fill:false,tension:0.2,pointRadius:2,pointHoverRadius:4,borderWidth:1.5,borderDash:[3,3],pointBackgroundColor:'#0a0e16',pointBorderColor:ACLR.wld,segment:{borderDash:dashLast}},
+      ]},
+      options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+        plugins:{legend:{display:false},tooltip:{enabled:false}},
+        scales:{x:xScale,y:{type:'linear',position:'left',grid:{color:'#1b232d'},
+          ticks:{color:'#8b9bab',font:{size:10},callback:v=>(v>=0?'+':'')+v.toFixed(1)+'%'},
+          title:{display:true,text:'Precip. anomaly (%)',color:'#8b9bab',font:{size:9}}}}}});
+    return;
+  }
+
+  // ── export branch ──────────────────────────────────────────────────────────
+  if(ok==='export'){
+    const ce=C.avocado.countryExport;
+    const longest=[ce.mex,ce.per||[],ce.col,ce.wld].reduce((a,b)=>b.length>a.length?b:a,[]);
+    if(!longest.length) return;
+    const labels=longest.map(d=>d.yr);
+    const n=labels.length;
+    function toExKt(arr){return labels.map(yr=>{const d=arr.find(a=>a.yr===yr);return d?d.kt:null;});}
+    const mexExt=toExKt(ce.mex),perExt=toExKt(ce.per||[]),colExt=toExKt(ce.col),wldExt=toExKt(ce.wld);
+    const dashLast=sc=>{
+      const d=ce.mex[ce.mex.length-1];
+      return sc.p1DataIndex===n-1&&d&&d.src==='est'?[5,4]:sc.p1DataIndex===n-1?[5,4]:[];
+    };
+    function updateAvoExportBox(ni){
+      const box=document.getElementById('avocadoProdHoverBox');if(!box)return;
+      const yr=labels[ni];const yrInt=parseInt(yr);
+      const evKey=EVENTS.find(e=>{const parts=e.split('-'),start=parseInt(parts[0]);let end=parts[1].length<=2?Math.floor(start/100)*100+parseInt(parts[1]):parseInt(parts[1]);if(end<=start)end+=100;return yrInt>=start&&yrInt<=end;});
+      const sev=evKey?ENSO_SEV[evKey]:null;const sevCls=sev==='Super El Niño'?'sev-super':sev==='El Niño'?'sev-elnino':sev?'sev-mild':'';
+      box.innerHTML=
+        `<div class="ehb-section"><div class="ehb-label">Year</div><div class="ehb-yr">${yr}</div></div>`+
+        `<div class="ehb-section"><div class="ehb-label" style="color:${ACLR.mex}">MEX kt</div><div class="ehb-pct" style="color:${ACLR.mex}">${mexExt[ni]!=null?mexExt[ni].toFixed(0):'—'}</div></div>`+
+        `<div class="ehb-section"><div class="ehb-label" style="color:${ACLR.per}">PER kt</div><div class="ehb-pct" style="color:${ACLR.per}">${perExt[ni]!=null?perExt[ni].toFixed(0):'—'}</div></div>`+
+        `<div class="ehb-section"><div class="ehb-label" style="color:${ACLR.col}">COL kt</div><div class="ehb-pct" style="color:${ACLR.col}">${colExt[ni]!=null?colExt[ni].toFixed(0):'—'}</div></div>`+
+        `<div class="ehb-section"><div class="ehb-label" style="color:${ACLR.wld}">WLD kt</div><div class="ehb-pct" style="color:${ACLR.wld}">${wldExt[ni]!=null?wldExt[ni].toFixed(0):'—'}</div></div>`+
+        `<div class="ehb-section"><div class="ehb-label">Severity</div><div class="ehb-sev ${sevCls}" style="visibility:${sev?'visible':'hidden'}">${sev||'—'}</div></div>`;
+    }
+    const xScale={grid:{color:'#1b232d'},ticks:{color:'#8b9bab',font:{size:9},maxRotation:60,minRotation:45}};
+    // Dashed segments for estimated data
+    function estDash(arr){
+      return (sc)=>{
+        const i=sc.p1DataIndex;
+        const d=arr.find(a=>a.yr===labels[i]);
+        if(d&&d.src==='est') return [8,5];
+        if(i===n-1) return [6,4];
+        return [];
+      };
+    }
+    function estColor(arr,solidColor){
+      return (sc)=>{
+        const i=sc.p1DataIndex;
+        const d=arr.find(a=>a.yr===labels[i]);
+        return (d&&d.src==='est')?solidColor+'99':solidColor;
+      };
+    }
+    charts.avocadoProd=new Chart(canv,{type:'line',plugins:[makeBandPlugin(labels),{id:'avoProdXhair',
+      beforeEvent(chart,args){const e=args.event;if(e.type==='mousemove'&&e.x>=chart.chartArea.left&&e.x<=chart.chartArea.right){chart._mouseX=e.x;chart._mouseY=e.y;}else if(e.type==='mouseout'||e.type==='mouseleave'){chart._mouseX=null;chart._mouseY=null;}},
+      afterDraw(chart){
+        if(chart._mouseX==null)return;
+        const c2=chart.ctx,{top,bottom,left,right}=chart.chartArea;c2.save();
+        c2.beginPath();c2.moveTo(chart._mouseX,top);c2.lineTo(chart._mouseX,bottom);
+        c2.strokeStyle='rgba(255,255,255,0.3)';c2.lineWidth=1.5;c2.setLineDash([4,3]);c2.stroke();c2.setLineDash([]);
+        const meta=chart.getDatasetMeta(0);if(!meta?.data?.length){c2.restore();return;}
+        let ni=0,md=Infinity;meta.data.forEach((el,i)=>{const d=Math.abs(el.x-chart._mouseX);if(d<md){md=d;ni=i;}});
+        updateAvoExportBox(ni);
+        const bw=110,bh=124,mx=chart._mouseX,my=chart._mouseY!=null?chart._mouseY:top+40;
+        const bx=Math.min(Math.max(mx-bw/2,left+2),right-bw-2);
+        const by=Math.min(Math.max(my-bh-14,top+1),bottom-bh-1);
+        c2.fillStyle='rgba(10,14,22,0.93)';c2.fillRect(bx,by,bw,bh);c2.strokeStyle='rgba(255,255,255,0.15)';c2.lineWidth=1;c2.strokeRect(bx,by,bw,bh);
+        c2.textAlign='center';c2.textBaseline='middle';c2.fillStyle='#cbd5e1';c2.font='bold 11px system-ui,sans-serif';c2.fillText(labels[ni],bx+bw/2,by+12);
+        c2.textAlign='left';c2.font='10px system-ui,sans-serif';
+        c2.fillStyle=ACLR.mex;c2.fillText('MEX '+(mexExt[ni]!=null?mexExt[ni].toFixed(0):'—')+' kt',bx+8,by+28);
+        c2.fillStyle=ACLR.per;c2.fillText('PER '+(perExt[ni]!=null?perExt[ni].toFixed(0):'—')+' kt',bx+8,by+42);
+        c2.fillStyle=ACLR.col;c2.fillText('COL '+(colExt[ni]!=null?colExt[ni].toFixed(0):'—')+' kt',bx+8,by+56);
+        c2.fillStyle=ACLR.wld;c2.fillText('WLD '+(wldExt[ni]!=null?wldExt[ni].toFixed(0):'—')+' kt',bx+8,by+70);
+        c2.restore();
+      }
+    }],
+      data:{labels,datasets:[
+        {label:'Mexico',data:mexExt,borderColor:ACLR.mex,borderWidth:2,fill:false,tension:0.2,pointRadius:2,pointHoverRadius:4,pointBackgroundColor:'#0a0e16',pointBorderColor:ACLR.mex,segment:{borderDash:estDash(ce.mex),borderColor:estColor(ce.mex,ACLR.mex)}},
+        {label:'Peru',data:perExt,borderColor:ACLR.per,borderWidth:2,fill:false,tension:0.2,pointRadius:2,pointHoverRadius:4,pointStyle:'rect',pointBackgroundColor:'#0a0e16',pointBorderColor:ACLR.per,segment:{borderDash:estDash(ce.per||[]),borderColor:estColor(ce.per||[],ACLR.per)}},
+        {label:'Colombia',data:colExt,borderColor:ACLR.col,borderWidth:2,fill:false,tension:0.2,pointRadius:2,pointHoverRadius:4,pointStyle:'triangle',pointBackgroundColor:'#0a0e16',pointBorderColor:ACLR.col,segment:{borderDash:estDash(ce.col),borderColor:estColor(ce.col,ACLR.col)}},
+        {label:'World',data:wldExt,borderColor:ACLR.wld,borderWidth:2,fill:false,tension:0.2,pointRadius:2,pointHoverRadius:4,pointBackgroundColor:'#0a0e16',pointBorderColor:ACLR.wld,segment:{borderDash:estDash(ce.wld),borderColor:estColor(ce.wld,ACLR.wld)}},
+      ]},
+      options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+        plugins:{legend:{display:false},tooltip:{enabled:false}},
+        scales:{x:xScale,y:{type:'linear',position:'left',grid:{color:'#1b232d'},
+          ticks:{color:'#8b9bab',font:{size:10},callback:v=>v>=1000?(v/1000).toFixed(0)+'k':v.toFixed(0)},
+          title:{display:true,text:'Export volume (kt)',color:'#8b9bab',font:{size:9}}}}}});
+    return;
+  }
+
+  // ── volume branch (default) ────────────────────────────────────────────────
+  const cp=C.avocado.countryProd;
+  const longest=[cp.mex,cp.per,cp.col,cp.wld].reduce((a,b)=>b.length>a.length?b:a,[]);
+  const labels=longest.map(d=>d.yr);
+  const n=labels.length;
+  function toKt(arr){return labels.map(yr=>{const d=arr.find(a=>a.yr===yr);return d?d.kt:null;});}
+  const mexKt=toKt(cp.mex),perKt=toKt(cp.per),colKt=toKt(cp.col),wldKt=toKt(cp.wld);
+  const dashLast=sc=>sc.p1DataIndex===n-1?[5,4]:[];
+  function updateAvoProdBox(ni){
+    const box=document.getElementById('avocadoProdHoverBox');if(!box)return;
+    const yr=labels[ni];const yrInt=parseInt(yr);
+    const evKey=EVENTS.find(e=>{const parts=e.split('-'),start=parseInt(parts[0]);let end=parts[1].length<=2?Math.floor(start/100)*100+parseInt(parts[1]):parseInt(parts[1]);if(end<=start)end+=100;return yrInt>=start&&yrInt<=end;});
+    const sev=evKey?ENSO_SEV[evKey]:null;
+    const sevCls=sev==='Super El Niño'?'sev-super':sev==='El Niño'?'sev-elnino':sev?'sev-mild':'';
+    const mexKt=cp.mex.find(d=>d.yr===yr)?.kt,perKt=cp.per.find(d=>d.yr===yr)?.kt;
+    const colKt=cp.col.find(d=>d.yr===yr)?.kt,wldKt=cp.wld.find(d=>d.yr===yr)?.kt;
+    box.innerHTML=
+      `<div class="ehb-section"><div class="ehb-label">Year</div><div class="ehb-yr">${yr}</div></div>`+
+      `<div class="ehb-section"><div class="ehb-label" style="color:${ACLR.mex}">Mexico kt</div><div class="ehb-pct" style="color:${ACLR.mex}">${mexKt!=null?mexKt.toFixed(0):'—'}</div></div>`+
+      `<div class="ehb-section"><div class="ehb-label" style="color:${ACLR.per}">Peru kt</div><div class="ehb-pct" style="color:${ACLR.per}">${perKt!=null?perKt.toFixed(0):'—'}</div></div>`+
+      `<div class="ehb-section"><div class="ehb-label" style="color:${ACLR.col}">Colombia kt</div><div class="ehb-pct" style="color:${ACLR.col}">${colKt!=null?colKt.toFixed(0):'—'}</div></div>`+
+      `<div class="ehb-section"><div class="ehb-label" style="color:${ACLR.wld}">World kt</div><div class="ehb-pct" style="color:${ACLR.wld}">${wldKt!=null?wldKt.toFixed(0):'—'}</div></div>`+
+      `<div class="ehb-section"><div class="ehb-label">Severity</div><div class="ehb-sev ${sevCls}" style="visibility:${sev?'visible':'hidden'}">${sev||'—'}</div></div>`;
+  }
+  const xScale={grid:{color:'#1b232d'},ticks:{color:'#8b9bab',font:{size:9},maxRotation:60,minRotation:45}};
+  function makeBandPlugin(lbls){
+    const SCLR={'Mild El Niño':'rgba(251,191,36,0.10)','El Niño':'rgba(249,115,22,0.14)','Super El Niño':'rgba(239,68,68,0.18)'};
+    const bands=EVENTS.map(e=>{
+      const sev=ENSO_SEV[e]||'El Niño';const col=SCLR[sev]||SCLR['El Niño'];
+      const b=ENSO_BOUNDS[e];const parts=e.split('-'),start=parseInt(parts[0]);
+      let end=parts[1].length<=2?Math.floor(start/100)*100+parseInt(parts[1]):parseInt(parts[1]);if(end<=start)end+=100;
+      const sy=b?b.sy:start,sm=b?b.sm:1,ey=b?b.ey:end,em=b?b.em:12;
+      const f=lbls.indexOf(String(sy)),t=lbls.indexOf(String(ey));
+      if(f<0)return null;return{f,t:t>=0?t:f,sm,em,col,sev};
+    }).filter(Boolean);
+    const i26=lbls.indexOf('2026');
+    if(i26>=0)bands.push({f:i26,t:i26,sm:6,em:12,col:'rgba(251,146,60,0.20)',sev:'⚠ 2026'});
+    return{id:'avoBands',beforeDatasetsDraw(chart){
+      const{ctx:c2,chartArea:{top,bottom},scales:{x}}=chart;if(!x)return;
+      const step=x.getPixelForValue(1)-x.getPixelForValue(0);c2.save();
+      bands.forEach(b=>{
+        const px1=x.getPixelForValue(b.f)+step*((b.sm-1)/12-0.5);
+        const px2=x.getPixelForValue(b.t)+step*(b.em/12-0.5);
+        c2.fillStyle=b.col;c2.fillRect(px1,top,px2-px1,bottom-top);
+        c2.fillStyle=b.col.replace(/[\d.]+\)$/,'0.85)');
+        c2.font='bold 9px system-ui,sans-serif';c2.textAlign='center';
+        c2.fillText(b.sev,(px1+px2)/2,top+12);
+      });c2.restore();
+    }};
+  }
+  charts.avocadoProd=new Chart(canv,{type:'line',plugins:[makeBandPlugin(labels),{id:'avoProdXhair',
+    beforeEvent(chart,args){const e=args.event;if(e.type==='mousemove'&&e.x>=chart.chartArea.left&&e.x<=chart.chartArea.right){chart._mouseX=e.x;chart._mouseY=e.y;}else if(e.type==='mouseout'||e.type==='mouseleave'){chart._mouseX=null;chart._mouseY=null;}},
+    afterDraw(chart){
+      if(chart._mouseX==null)return;
+      const c2=chart.ctx,{top,bottom,left,right}=chart.chartArea;c2.save();
+      c2.beginPath();c2.moveTo(chart._mouseX,top);c2.lineTo(chart._mouseX,bottom);
+      c2.strokeStyle='rgba(255,255,255,0.3)';c2.lineWidth=1.5;c2.setLineDash([4,3]);c2.stroke();c2.setLineDash([]);
+      const meta=chart.getDatasetMeta(0);if(!meta?.data?.length){c2.restore();return;}
+      let ni=0,md=Infinity;meta.data.forEach((el,i)=>{const d=Math.abs(el.x-chart._mouseX);if(d<md){md=d;ni=i;}});
+      updateAvoProdBox(ni);
+      const bw=96,bh=96,mx=chart._mouseX,my=chart._mouseY!=null?chart._mouseY:top+40;
+      const bx=Math.min(Math.max(mx-bw/2,left+2),right-bw-2);
+      const by=Math.min(Math.max(my-bh-14,top+1),bottom-bh-1);
+      c2.fillStyle='rgba(10,14,22,0.93)';c2.fillRect(bx,by,bw,bh);
+      c2.strokeStyle='rgba(255,255,255,0.15)';c2.lineWidth=1;c2.strokeRect(bx,by,bw,bh);
+      c2.textAlign='center';c2.textBaseline='middle';
+      c2.fillStyle='#cbd5e1';c2.font='bold 11px system-ui,sans-serif';c2.fillText(labels[ni],bx+bw/2,by+12);
+      c2.textAlign='left';c2.font='10px system-ui,sans-serif';
+      c2.fillStyle=ACLR.mex;c2.fillText('MEX '+(mexKt[ni]!=null?mexKt[ni].toFixed(0):'—')+' kt',bx+6,by+28);
+      c2.fillStyle=ACLR.per;c2.fillText('PER '+(perKt[ni]!=null?perKt[ni].toFixed(0):'—')+' kt',bx+6,by+42);
+      c2.fillStyle=ACLR.col;c2.fillText('COL '+(colKt[ni]!=null?colKt[ni].toFixed(0):'—')+' kt',bx+6,by+56);
+      c2.fillStyle=ACLR.wld;c2.fillText('WLD '+(wldKt[ni]!=null?wldKt[ni].toFixed(0):'—')+' kt',bx+6,by+70);
+      c2.restore();
+    }
+  }],
+    data:{labels,datasets:[
+      {label:'Mexico',data:mexKt,borderColor:ACLR.mex,fill:false,tension:0.2,
+       pointRadius:3,pointHoverRadius:5,pointBackgroundColor:'#0a0e16',pointBorderColor:ACLR.mex,segment:{borderDash:dashLast}},
+      {label:'Peru',data:perKt,borderColor:ACLR.per,fill:false,tension:0.2,
+       pointRadius:3,pointHoverRadius:5,pointStyle:'rect',pointBackgroundColor:'#0a0e16',pointBorderColor:ACLR.per,segment:{borderDash:dashLast}},
+      {label:'Colombia',data:colKt,borderColor:ACLR.col,fill:false,tension:0.2,
+       pointRadius:3,pointHoverRadius:5,pointStyle:'triangle',pointBackgroundColor:'#0a0e16',pointBorderColor:ACLR.col,segment:{borderDash:dashLast}},
+      {label:'World',data:wldKt,borderColor:ACLR.wld,fill:false,tension:0.2,
+       pointRadius:2,pointHoverRadius:4,borderWidth:1.5,pointBackgroundColor:'#0a0e16',pointBorderColor:ACLR.wld,segment:{borderDash:dashLast}},
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+      plugins:{legend:{display:false},tooltip:{enabled:false}},
+      scales:{x:xScale,
+        y:{type:'linear',position:'left',grid:{color:'#1b232d'},
+          ticks:{color:'#8b9bab',font:{size:10},callback:v=>v>=1000?(v/1000).toFixed(0)+'k':v.toFixed(0)},
+          title:{display:true,text:'Production (kt)',color:'#8b9bab',font:{size:9}}}}}});
 }
 
 // ════════════ LIVE WEATHER (Open-Meteo) ════════════
+
+// ════════════ DUAL-AXIS CORRELATION CHART ════════════
+function chartDual(k){
+  const canv=document.getElementById('chDual_'+k); if(!canv) return;
+  if(charts['dual_'+k]){charts['dual_'+k].destroy();charts['dual_'+k]=null;}
+
+  const o1sel=document.getElementById('dualO1_'+k), o2sel=document.getElementById('dualO2_'+k);
+  if(!o1sel||!o2sel) return;
+  const o1key=o1sel.value, o2key=o2sel.value;
+
+  // Per-country absolute data config for rich commodities
+  const RICH={
+    avocado:{
+      countries:{mex:'#4ade80',per:'#f97316',col:'#38bdf8',wld:'#94a3b8'},
+      series:{
+        volume:{l:'Production', unit:'kt',     get:c=>(C.avocado.countryProd[c]||[]).map(d=>({yr:+d.yr,val:d.kt}))},
+        yield: {l:'Yield',     unit:'t/ha',    get:c=>(C.avocado.countryYield[c]||[]).map(d=>({yr:+d.yr,val:d.tha}))},
+        water: {l:'Water',     unit:'% anom',  get:c=>(C.avocado.countryWater[c]||[]).map(d=>({yr:+d.yr,val:d.anom}))},
+        export:{l:'Exports',   unit:'kt',      get:c=>(C.avocado.countryExport[c]||[]).map(d=>({yr:+d.yr,val:d.kt}))},
+      }
+    },
+    cocoa:{
+      countries:{civ:'#fb923c',gha:'#facc15',ecu:'#a3e635',idn:'#38bdf8',wld:'#94a3b8'},
+      series:{
+        volume:{l:'Production',unit:'kt',   get:c=>(C.cocoa.countryProd[c]||[]).map(d=>({yr:+d.yr,val:d.kt}))},
+        yield: {l:'Yield',    unit:'t/ha',  get:c=>(C.cocoa.countryYield[c]||[]).map(d=>({yr:+d.yr,val:d.tha}))},
+      }
+    },
+    palmoil:{
+      countries:{idn:'#38bdf8',mys:'#4ade80',wld:'#94a3b8'},
+      series:{
+        volume: {l:'Production',unit:'MMT',   get:c=>c==='idn'?C.palmoil.outcomes.volume.idTraj.map(d=>({yr:+d.yr,val:+(d.kt/1000).toFixed(2)})):c==='mys'?C.palmoil.outcomes.volume.myTraj.map(d=>({yr:+d.yr,val:+(d.kt/1000).toFixed(2)})):C.palmoil.worldProd.map(d=>({yr:+d.yr,val:d.mmt}))},
+        cpoyield:{l:'CPO Yield',unit:'t/ha',  get:c=>(C.palmoil.cpoYield[{idn:'id',mys:'my',wld:'wld'}[c]]||C.palmoil.cpoYield.wld||[]).map(d=>({yr:+d.yr,val:d.v}))},
+      }
+    }
+  };
+
+  let labels,vals1,vals2,unit1,unit2,label1,label2;
+  const rich=RICH[k];
+
+  if(rich){
+    const ctry=document.querySelector(`input[name="dualCtry_${k}"]:checked`)?.value||Object.keys(rich.countries)[0];
+    const s1=rich.series[o1key]||Object.values(rich.series)[0];
+    const s2=rich.series[o2key]||Object.values(rich.series)[Math.min(1,Object.values(rich.series).length-1)];
+    unit1=s1.unit; unit2=s2.unit; label1=s1.l; label2=s2.l;
+    const d1=s1.get(ctry)||[], d2=s2.get(ctry)||[];
+    const allYrs=[...new Set([...d1.map(d=>d.yr),...d2.map(d=>d.yr)])].sort((a,b)=>a-b);
+    const m1=Object.fromEntries(d1.map(d=>[d.yr,d.val]));
+    const m2=Object.fromEntries(d2.map(d=>[d.yr,d.val]));
+    labels=allYrs.map(String);
+    vals1=allYrs.map(y=>m1[y]??null);
+    vals2=allYrs.map(y=>m2[y]??null);
+  } else {
+    const t1=buildAnnualSeries(k,o1key).filter(d=>d.yoy!=null);
+    const t2=buildAnnualSeries(k,o2key).filter(d=>d.yoy!=null);
+    unit1='% YoY'; unit2='% YoY';
+    label1=C[k]?.outcomes?.[o1key]?.label||o1key;
+    label2=C[k]?.outcomes?.[o2key]?.label||o2key;
+    const allYrs=[...new Set([...t1.map(d=>+d.label),...t2.map(d=>+d.label)])].sort((a,b)=>a-b);
+    const m1=Object.fromEntries(t1.map(d=>[+d.label,d.yoy]));
+    const m2=Object.fromEntries(t2.map(d=>[+d.label,d.yoy]));
+    labels=allYrs.map(String);
+    vals1=allYrs.map(y=>m1[y]??null);
+    vals2=allYrs.map(y=>m2[y]??null);
+  }
+
+  if(!labels.length) return;
+
+  const fmtTick=unit=>v=>{
+    if(unit.includes('ha')) return v.toFixed(2);
+    if(unit.includes('%')) return (v>0?'+':'')+v.toFixed(0)+'%';
+    if(Math.abs(v)>=1000) return (v/1000).toFixed(0)+'k';
+    return v.toFixed(0);
+  };
+
+  const fmtVal=(v,unit)=>{
+    if(v==null) return '—';
+    if(unit.includes('ha')) return v.toFixed(3)+' '+unit;
+    if(unit.includes('%')) return (v>0?'+':'')+v.toFixed(1)+'%';
+    if(Math.abs(v)>=1000) return (v/1000).toFixed(1)+'k '+unit;
+    return v.toFixed(1)+' '+unit;
+  };
+
+  const bandPlugin=makeEnsoPlugin(labels);
+
+  const xhairPlugin={id:'dualXhair',
+    beforeEvent(chart,args){
+      const e=args.event;
+      if(e.type==='mousemove'&&e.x>=chart.chartArea.left&&e.x<=chart.chartArea.right){chart._dx=e.x;chart._dy=e.y;}
+      else if(e.type==='mouseout'||e.type==='mouseleave'){chart._dx=null;}
+    },
+    afterDraw(chart){
+      if(chart._dx==null) return;
+      const c2=chart.ctx,{top,bottom,left,right}=chart.chartArea;
+      c2.save();
+      c2.beginPath();c2.moveTo(chart._dx,top);c2.lineTo(chart._dx,bottom);
+      c2.strokeStyle='rgba(255,255,255,0.25)';c2.lineWidth=1;c2.setLineDash([4,3]);c2.stroke();c2.setLineDash([]);
+      const meta=chart.getDatasetMeta(0);if(!meta?.data?.length){c2.restore();return;}
+      let ni=0,md=Infinity;meta.data.forEach((el,i)=>{const d=Math.abs(el.x-chart._dx);if(d<md){md=d;ni=i;}});
+      const bw=160,bh=56,mx=chart._dx,my=chart._dy!=null?chart._dy:top+40;
+      const bx=Math.min(Math.max(mx-bw/2,left+2),right-bw-2);
+      const by=Math.min(Math.max(my-bh-14,top+1),bottom-bh-1);
+      c2.fillStyle='rgba(10,14,22,0.93)';c2.fillRect(bx,by,bw,bh);
+      c2.strokeStyle='rgba(255,255,255,0.12)';c2.lineWidth=1;c2.strokeRect(bx,by,bw,bh);
+      c2.textAlign='center';c2.textBaseline='middle';
+      c2.fillStyle='#cbd5e1';c2.font='bold 11px system-ui,sans-serif';c2.fillText(labels[ni],bx+bw/2,by+11);
+      c2.textAlign='left';
+      c2.fillStyle='#a78bfa';c2.font='10px system-ui,sans-serif';
+      c2.fillText(label1+': '+fmtVal(vals1[ni],unit1),bx+8,by+28);
+      c2.fillStyle='#fb923c';
+      c2.fillText(label2+': '+fmtVal(vals2[ni],unit2),bx+8,by+44);
+      c2.restore();
+    }
+  };
+
+  const xScale={grid:{color:'#1b232d'},ticks:{color:'#8b9bab',font:{size:9},maxRotation:60,minRotation:45}};
+
+  charts['dual_'+k]=new Chart(canv,{type:'line',plugins:[bandPlugin,xhairPlugin],
+    data:{labels,datasets:[
+      {label:label1,data:vals1,borderColor:'#a78bfa',fill:false,tension:0.2,
+       borderWidth:2,pointRadius:2.5,pointHoverRadius:5,
+       pointBackgroundColor:'#0a0e16',pointBorderColor:'#a78bfa',
+       yAxisID:'yL',spanGaps:false},
+      {label:label2,data:vals2,borderColor:'#fb923c',borderDash:[5,3],fill:false,tension:0.2,
+       borderWidth:2,pointRadius:2.5,pointHoverRadius:5,
+       pointBackgroundColor:'#0a0e16',pointBorderColor:'#fb923c',pointStyle:'rect',
+       yAxisID:'yR',spanGaps:false},
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,
+      interaction:{mode:'index',intersect:false},
+      plugins:{legend:{display:false},tooltip:{enabled:false}},
+      scales:{x:xScale,
+        yL:{type:'linear',position:'left',grid:{color:'#1b232d'},
+          ticks:{color:'#a78bfa',font:{size:9},callback:fmtTick(unit1)},
+          title:{display:true,text:label1+' ('+unit1+')',color:'#a78bfa',font:{size:9}}},
+        yR:{type:'linear',position:'right',grid:{display:false},
+          ticks:{color:'#fb923c',font:{size:9},callback:fmtTick(unit2)},
+          title:{display:true,text:label2+' ('+unit2+')',color:'#fb923c',font:{size:9}}}
+      }
+    }
+  });
+}
 
 // ════════════ INIT ════════════
 (function init(){
