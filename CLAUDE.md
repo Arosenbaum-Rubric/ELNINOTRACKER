@@ -106,6 +106,58 @@ The primary gap is that most event-year deviations are `src:'est'` (directional 
 
 The most data-sparse commodities are bananas, coffee, and palm oil. Cocoa 2023-24 (`dev:-11, src:'rep'`) is the highest-confidence data point; wheat and soybean recent years are well-sourced from WASDE.
 
+---
+
+## Data source hierarchies
+
+**Rule:** Always use the highest-priority source available for each outcome. Only fall back to lower tiers when the primary source has no data for that year. Never mix units across tiers without a clear note (e.g. USDA PSD CPO/ha is not comparable to MPOB FFB/ha). Mark every entry `src:'rep'` when it comes from a named primary/secondary source, `src:'est'` only for interpolations or Claude estimates.
+
+### Palm oil
+
+| Outcome | 1st (primary) | 2nd | 3rd (proxy/last resort) |
+|---|---|---|---|
+| FFB yield — Malaysia | MPOB Annual Overview PDFs (bepi.mpob.gov.my, 2010+) | OWiD/FAO `palm_yield_2005_2026.csv` | USDA PSD CPO÷area (direction only, units NOT comparable) |
+| OER — Malaysia | MPOB Annual Overview PDFs | Academic citing MPOB (e.g. Muda et al. 2019, Sriwijaya J. Env.) | Claude estimate (`src:'est'`) |
+| CPO yield — Indonesia / World | USDA PSD (t CPO/ha) | — | — |
+| Production volume — Indonesia | USDA PSD | MPOB / FAO | — |
+| Production volume — Malaysia | MPOB Annual Overview PDFs | USDA PSD | — |
+| Production volume — World | USDA PSD (all countries) | FAO/OWiD | — |
+
+### Cocoa
+
+| Outcome | 1st | 2nd | 3rd |
+|---|---|---|---|
+| Production volume | ICCO annual crop-year reports / Wells Fargo Securities Exhibit 9 | ICCO historical estimates | FAO/OWiD calendar-year |
+| Yield (kg/ha) | FAO FAOSTAT | OWiD | Claude estimate from ICCO÷FAO area |
+
+### Sugar
+
+| Outcome | 1st | 2nd | 3rd |
+|---|---|---|---|
+| Production volume | USDA WASDE (global centrifugal) | FAO | Claude estimate |
+| Cane yield (t/ha) | FAO / national ag ministries (India, Thailand) | USDA FAS country reports | Claude estimate |
+| Recovery rate (% TRS) | Brazil UNICA / USDA FAS | ICUMSA regional | Claude estimate |
+
+### Coffee
+
+| Outcome | 1st | 2nd | 3rd |
+|---|---|---|---|
+| Total production | ICO Coffee Report (ico.org) | USDA FAS Coffee Annual | Claude estimate |
+| Robusta / Arabica split | USDA FAS country-level | ICO origin data | Claude estimate |
+
+### Bananas
+
+| Outcome | 1st | 2nd | 3rd |
+|---|---|---|---|
+| Export volume / yield | FAO FAOSTAT | ITC Trade Map | Claude estimate |
+
+### Wheat / Corn / Rice / Soybean
+
+| Outcome | 1st | 2nd |
+|---|---|---|
+| Production volume | USDA WASDE (monthly, most recent) | FAO FAOSTAT |
+| Yield (t/ha) | USDA WASDE / PSD | FAO |
+
 ### AI agent
 
 The AI receives a `buildContext(k)` string containing all pre-computed stats and is governed by `STRICT RULES` that prohibit arithmetic, price references, and invented figures. When adding new statistics to the compute layer, add them to `buildContext` so the AI can cite them. Do not loosen the AI's rules — the value of this tool depends on the AI citing verifiable computed numbers, not generating its own estimates.
