@@ -65,7 +65,8 @@
   .cbtn{ display:flex; align-items:center; gap:10px; padding:9px 11px; border-radius:10px; cursor:pointer; border:1px solid transparent; background:transparent; color:var(--text); text-align:left; width:100%; transition:all .15s; }
   .cbtn:hover{ background:var(--surface2); }
   .cbtn.active{ background:rgba(249,115,22,.1); border-color:rgba(249,115,22,.5); }
-  .cbtn.locked{ opacity:.50; }
+  .cbtn.locked{ opacity:.50; cursor:not-allowed; }
+  .rank-row.locked-row{ opacity:.45; cursor:not-allowed; }
   .cbtn.locked .nm::after{ content:' 🔒'; font-size:10px; opacity:.8; }
   .ov-card.locked-card{ opacity:.45; pointer-events:none; position:relative; }
   .ov-card.locked-card .ov-foot::after{ content:'🔒 data pending verification'; display:block; font-size:10px; color:#818cf8; font-weight:700; margin-top:6px; }
@@ -440,12 +441,22 @@ const ENSO_SEV={'2002-03':'El Niño','2004-05':'Mild El Niño','2006-07':'Mild E
 // Onset = first month ONI crossed +0.5°C threshold (NOAA CPC). Peak = highest ONI month.
 const EL_NINO_META = {
   '2002-03': {onset:'Jun 2002', peak:'Nov 2002', wane:'Mar 2003'},
-  '2004-05': {onset:'Jul 2004', peak:'Nov 2004', wane:'Feb 2005'},
-  '2006-07': {onset:'Sep 2006', peak:'Nov 2006', wane:'Feb 2007'},
+  '2004-05': {onset:'Jul 2004', peak:'Nov 2004', wane:'Jan 2005'},
+  '2006-07': {onset:'Sep 2006', peak:'Nov 2006', wane:'Jan 2007'},
   '2009-10': {onset:'Jul 2009', peak:'Dec 2009', wane:'Apr 2010'},
-  '2014-16': {onset:'Oct 2014', peak:'Nov 2015', wane:'May 2016'},
-  '2018-19': {onset:'Oct 2018', peak:'Dec 2018', wane:'Mar 2019'},
-  '2023-24': {onset:'Jun 2023', peak:'Dec 2023', wane:'Apr 2024'},
+  '2014-16': {onset:'Oct 2014', peak:'Nov 2015', wane:'Jun 2016'},
+  '2018-19': {onset:'Oct 2018', peak:'Dec 2018', wane:'Jun 2019'},
+  '2023-24': {onset:'May 2023', peak:'Dec 2023', wane:'May 2024'},
+};
+// Precise month bounds for chart shading — sy/ey=start/end year, sm/em=start/end month (1-indexed)
+const ENSO_BOUNDS = {
+  '2002-03': {sy:2002,sm:6,  ey:2003,em:3},
+  '2004-05': {sy:2004,sm:7,  ey:2005,em:1},
+  '2006-07': {sy:2006,sm:9,  ey:2007,em:1},
+  '2009-10': {sy:2009,sm:7,  ey:2010,em:4},
+  '2014-16': {sy:2014,sm:10, ey:2016,em:6},
+  '2018-19': {sy:2018,sm:10, ey:2019,em:6},
+  '2023-24': {sy:2023,sm:5,  ey:2024,em:5},
 };
 const SUPER_EVENTS = ['2014-16']; // super event within the window (1997-98 pre-dates 20y prod series)
 
@@ -591,6 +602,37 @@ const C = {
     dir:'Episodic disruption ↓', dirColor:'var(--accent)',
     geo:{lat:-2.19,lon:-79.88,place:'Guayaquil (banana export coast), Ecuador'},
     locked: true
+  },
+  avocado:{
+    name:'Avocado', icon:'🥑', cls:'neg', score:0.65,
+    unit:'production YoY %',
+    regions:'Mexico (~30% of global supply, Michoacán), Peru, Dominican Republic, Colombia, Kenya',
+    driver:'Drought shrinks Mexico fruit set; coastal flooding disrupts Peru',
+    wx:[ {l:'Drought · Michoacán Jun–Sep',t:'drought'}, {l:'Coastal flood & heat · Peru',t:'rain'}, {l:'Root rot · California',t:'disease'} ],
+    mech:"Mexico produces ~30% of global supply, almost entirely from Michoacán, where trees rely on summer rainfall (Jun–Sep) for fruit set and sizing. El Niño brings <strong>below-normal summer rain</strong> to western Mexico, reducing fruit set and final fruit weight. Peru, now the EU's top supplier, faces the opposite shock: <strong>coastal flooding and heat anomalies</strong> in its Ica and La Libertad valleys disrupt harvest and spread Phytophthora root rot. Both shocks can overlap in the same event, squeezing the two largest export origins at once.",
+    why:[
+      "Mexico's Michoacán belt is rain-dependent during Jun–Sep fruit development — El Niño drought shrinks both fruit count and size before harvest even begins.",
+      "Peru's coastal Ica Valley sits directly in the El Niño flooding corridor; logistics disruption is acute and root rot lingers into the following season.",
+      "Avocados are a perennial tree crop — drought or flood stress in one season suppresses flowering 12–18 months later, extending the production tail."
+    ],
+    events:{
+      '2002-03':{dev:-3,src:'est'}, '2004-05':{dev:-2,src:'est'}, '2006-07':{dev:-2,src:'est'}, '2009-10':{dev:-5,src:'est'},
+      '2014-16':{dev:-7,src:'est'}, '2018-19':{dev:-3,src:'est'}, '2023-24':{dev:-6,src:'est'}
+    },
+    supply:{stocks:null, use:null, src:'todo'},
+    superNote:"The 2015–16 super El Niño hit Michoacán with prolonged dry conditions while flooding Peru's Ica Valley simultaneously — the first documented case of both major export origins being stressed in the same event. The 2023–24 El Niño repeated the pattern; SENASA (Peru) reported above-normal Phytophthora incidence in coastal valleys.",
+    trendIdx:{labels:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],vals:[105,108,110,112,110,105,95,88,85,88,95,102],src:'2026 est.'},
+    verdict:'MIXED',
+    verdictNote:"Global supply has grown rapidly on new Peruvian and Colombian plantings, but Mexico's mature Michoacán belt is structurally water-stressed and Peru's coastal exposure is recurring.",
+    tiles:{
+      'Mexico output':{v:'Drought risk',d:'down',n:'Michoacán Jun–Sep rainfall critical'},
+      'Peru output':{v:'Flood risk',d:'down',n:'Ica/La Libertad coastal exposure'},
+      'Planted area':{v:'Expanding',d:'up',n:'Peru, Colombia, Kenya adding area'},
+      'Demand':{v:'Strong',d:'up',n:'EU & US structural demand continues growing'}
+    },
+    predict:"The <strong>Jun–Sep dry season in Michoacán</strong> is the key watch window — below-normal summer rain cuts fruit set for the 2026–27 crop. Peru's Q1–Q2 coastal rain risk is the secondary signal. With global demand still outpacing supply, any simultaneous shock to Mexico and Peru has outsized impact on shelf availability.",
+    dir:'Mexico & Peru supply at risk ↓', dirColor:'var(--accent)',
+    geo:{lat:19.42,lon:-102.07,place:'Uruapan (avocado belt), Michoacán, Mexico'}
   }
 };
 
@@ -622,6 +664,12 @@ C.bananas.outcomes={
   volume: {label:'Export Volume',   unit:'total export YoY %',            events:C.bananas.events},
   yield:  {label:'Yield / Hectare', unit:'t/ha YoY %',                    events:{'2002-03':{dev:-3,src:'est'},'2004-05':{dev:-2,src:'est'},'2006-07':{dev:-3,src:'est'},'2009-10':{dev:-4,src:'est'},'2014-16':{dev:-6,src:'est'},'2018-19':{dev:-2,src:'est'},'2023-24':{dev:-4,src:'est'}}},
   bunch:  {label:'Bunch Weight',    unit:'kg/bunch YoY %',                events:{'2002-03':{dev:-4,src:'est'},'2004-05':{dev:-2,src:'est'},'2006-07':{dev:-4,src:'est'},'2009-10':{dev:-6,src:'est'},'2014-16':{dev:-8,src:'est'},'2018-19':{dev:-2,src:'est'},'2023-24':{dev:-6,src:'est'}}}
+};
+C.avocado.outcomes={
+  volume: {label:'Production Volume',          unit:'production YoY %',            events:C.avocado.events},
+  yield:  {label:'Yield / Hectare',            unit:'t/ha YoY %',                  events:{'2002-03':{dev:-4,src:'est'},'2004-05':{dev:-3,src:'est'},'2006-07':{dev:-3,src:'est'},'2009-10':{dev:-6,src:'est'},'2014-16':{dev:-9,src:'est'},'2018-19':{dev:-4,src:'est'},'2023-24':{dev:-8,src:'est'}}},
+  water:  {label:'Water Stress / Precip. Anomaly', unit:'% deviation from long-term avg', events:{'2002-03':{dev:-8,src:'est'},'2004-05':{dev:-4,src:'est'},'2006-07':{dev:-3,src:'est'},'2009-10':{dev:-10,src:'est'},'2014-16':{dev:-12,src:'est'},'2018-19':{dev:-7,src:'est'},'2023-24':{dev:-16,src:'rep'}}},
+  export: {label:'Export Volume',              unit:'1000 MT YoY %',               events:{'2002-03':{dev:-3,src:'est'},'2004-05':{dev:-2,src:'est'},'2006-07':{dev:-2,src:'est'},'2009-10':{dev:-5,src:'est'},'2014-16':{dev:-7,src:'est'},'2018-19':{dev:-3,src:'est'},'2023-24':{dev:-6,src:'est'}}}
 };
 
 // ── PER-OUTCOME SENSITIVITY DRIVERS ─────────────────────────────────────────────────────
@@ -710,6 +758,26 @@ C.bananas.outcomes.bunch.why=[
   "Excess water causes a dilution effect inside developing fruit — bunches are physically larger but lighter per unit with lower starch density.",
   "Sigatoka leaf damage reduces the assimilate flow to individual bunches — fewer fingers per hand and lower weight per bunch at harvest.",
   "Harvest disruption forces growers to pick underweight or over-mature bunches to clear fields before flooding worsens — average bunch weight falls."
+];
+C.avocado.outcomes.volume.why=[
+  "Mexico (Michoacán) and Peru together account for ~50% of global export supply — a simultaneous El Niño shock to both origins moves the global market.",
+  "Below-normal Jun–Sep rain in Michoacán directly reduces fruit set and sizing; fewer harvestable fruits per tree means lower total tonnes even with stable area.",
+  "Perennial tree physiology means drought stress suppresses next season's flowering — production losses extend 12–18 months beyond the initial weather event."
+];
+C.avocado.outcomes.yield.why=[
+  "Yield per hectare (t/ha) is the clearest signal of water stress — fruit count per tree and individual fruit size both fall under drought before harvest area changes.",
+  "Phytophthora root rot from Peru's flooding event reduces root function; trees survive but yield per ha drops for 1–2 seasons post-flood.",
+  "Michoacán's mature orchards have no irrigation backup — in drought years, yield swings of 15–25% per hectare are documented."
+];
+C.avocado.outcomes.water.why=[
+  "Precipitation anomaly is the leading indicator for avocado stress — orchards in Michoacán have limited irrigation, so annual rainfall directly caps fruit set and sizing months before harvest.",
+  "Mexico's 2023 anomaly of −16.7% (CONAGUA) is the worst in the dataset, directly coinciding with the strong 2023-24 El Niño; the correlation between negative ONI and Michoacán rainfall deficit is well-documented.",
+  "Peru and Colombia face different water risks — coastal flooding in Peru and erratic inter-Andean rainfall in Colombia — both of which are captured as negative anomalies relative to each country's long-term average."
+];
+C.avocado.outcomes.export.why=[
+  "Mexico (~50% of global exports) and Colombia are the two most export-exposed origins — supply disruptions in either show up in global trade volumes within weeks given near-zero shelf life.",
+  "The world export line flattens during strong El Niño events (2014-16, 2023-24) after years of steep growth, confirming that weather shocks are large enough to interrupt structural demand expansion.",
+  "Mexico dipped in 2020 (COVID logistics) and 2024 (El Niño drought); Colombia plateaued through 2023-24 — together these two events account for the only pauses in a decade of otherwise relentless export growth."
 ];
 
 // ── RECENT TRAJECTORIES (per outcome, last 5–6 years) ───────────────────────────────────
@@ -1852,7 +1920,7 @@ function renderSidebar(){
     const b=document.createElement('button');
     b.className='cbtn'+(current===k?' active':'')+(c.locked?' locked':'');
     b.innerHTML=`<span class="ic">${c.icon}</span><span class="nm">${c.name}</span><span class="pip" style="background:${CLS[c.cls].color}"></span>`;
-    b.onclick=()=>{current=k;renderSidebar();render();window.scrollTo(0,0);};
+    if(!c.locked) b.onclick=()=>{current=k;renderSidebar();render();window.scrollTo(0,0);};
     prev.insertAdjacentElement('afterend',b); prev=b;
   });
 }
@@ -1920,7 +1988,7 @@ function overview(){
   // ranking
   const rl=document.getElementById('rankList');
   Object.entries(C).sort((a,b)=>b[1].score-a[1].score).forEach(([k,c])=>{
-    const row=document.createElement('div'); row.className='rank-row'; row.onclick=()=>{current=k;renderSidebar();render();window.scrollTo(0,0);};
+    const row=document.createElement('div'); row.className='rank-row'+(c.locked?' locked-row':''); if(!c.locked) row.onclick=()=>{current=k;renderSidebar();render();window.scrollTo(0,0);};
     row.innerHTML=`<div class="rank-name"><span>${c.icon}</span> ${c.name}</div>
       <div class="rank-bar"><div class="rank-fill" style="width:${c.score*100}%;background:${CLS[c.cls].color}"></div></div>
       <div class="rank-dir" style="color:${c.dirColor}">${c.dir.replace(/ ↓+| ↑/,'')}</div>`;
@@ -1949,7 +2017,7 @@ function overview(){
     // pad to 3 if a commodity somehow has fewer
     while(cells.length<3) cells.push('<td></td>');
     const tr=document.createElement('tr');
-    tr.onclick=()=>{current=k;renderSidebar();render();window.scrollTo(0,0);};
+    if(!c.locked) tr.onclick=()=>{current=k;renderSidebar();render();window.scrollTo(0,0);}; else tr.style.cssText='opacity:.45;cursor:not-allowed';
     tr.innerHTML=`<td style="font-weight:600;font-size:13px">${c.icon} ${c.name}</td>${cells.join('')}`;
     tbody.appendChild(tr);
   });
@@ -1971,6 +2039,7 @@ function overview(){
 }
 
 function detail(k){
+  if(C[k]?.locked){current=null;render();return;}
   const c=C[k]; const el=document.getElementById('content');
   const ok=getOutcome(k);
   const s=OSTATS[k]?.[ok]||STATS[k];
@@ -2132,9 +2201,19 @@ function updateElNinoStats(k,ok){
   } else {
     yrData=buildAnnualSeries(k,ok).filter(d=>d.yoy!=null).map(d=>({yr:parseInt(d.label),yoy:d.yoy}));
   }
-  // Split: El Niño+Super vs Non-ENSO (Mild excluded from both)
-  const ensoYrs=yrData.filter(d=>{const t=getEnsoType(d.yr);return t==='El Niño'||t==='Super El Niño';});
-  const nonYrs=yrData.filter(d=>getEnsoType(d.yr)==='none');
+  // Split: palm oil uses lag window (1-2 yrs after event start, all severities)
+  // All other commodities: El Niño+Super vs non-ENSO (Mild excluded from both)
+  let ensoYrs,nonYrs;
+  const palmLag=k==='palmoil';
+  if(palmLag){
+    const lagSet=new Set();
+    EVENTS.forEach(evt=>{const s=parseInt(evt.split('-')[0]);lagSet.add(s+1);lagSet.add(s+2);});
+    ensoYrs=yrData.filter(d=>lagSet.has(d.yr));
+    nonYrs=yrData.filter(d=>!lagSet.has(d.yr));
+  } else {
+    ensoYrs=yrData.filter(d=>{const t=getEnsoType(d.yr);return t==='El Niño'||t==='Super El Niño';});
+    nonYrs=yrData.filter(d=>getEnsoType(d.yr)==='none');
+  }
   // Stats
   const mean=arr=>arr.length?arr.reduce((s,d)=>s+d.yoy,0)/arr.length:null;
   const sdv=(arr,m)=>arr.length<2?null:Math.sqrt(arr.reduce((s,d)=>s+(d.yoy-m)**2,0)/(arr.length-1));
@@ -2147,11 +2226,15 @@ function updateElNinoStats(k,ok){
   const ensoDec=ensoYrs.filter(d=>d.yoy<-0.5).length,ensoRis=ensoYrs.filter(d=>d.yoy>0.5).length;
   const ensoDir=!ensoYrs.length?'—':ensoDec>ensoRis?`fell ${ensoDec}/${ensoYrs.length}`:ensoRis>ensoDec?`rose ${ensoRis}/${ensoYrs.length}`:'mixed';
   const ctag=countryLabel?` · <span style="color:#94a3b8">${countryLabel}</span>`:'';
+  const ensoLabel=palmLag?'Post El Ni\xF1o · lag +1–2 yrs':'El Ni\xF1o &amp; Super';
+  const ensoSub=palmLag?`${ensoDir} · incl. Mild`:`${ensoDir} · excl. Mild`;
+  const nonLabel=palmLag?'Non-lag yrs':'Non-El Ni\xF1o';
+  const nonSub=palmLag?`${nonYrs.length} yrs · all other`:`${nonYrs.length} yrs · excl. Mild`;
   box.innerHTML=`<div style="display:flex;gap:1px;flex-wrap:wrap">
     <div style="flex:1;min-width:180px;padding:10px 16px;background:#0d1520;border-radius:6px 0 0 6px;border:1px solid #1e2d3f">
-      <div style="font-size:9px;text-transform:uppercase;letter-spacing:.05em;color:#6b7280;margin-bottom:3px">El Niño &amp; Super${ctag}</div>
+      <div style="font-size:9px;text-transform:uppercase;letter-spacing:.05em;color:#6b7280;margin-bottom:3px">${ensoLabel}${ctag}</div>
       <div style="font-size:22px;font-weight:700;color:${col(ensoMean)};line-height:1">${fmt(ensoMean)}</div>
-      <div style="font-size:10px;color:#6b7280;margin-top:4px">${ensoDir} · excl. Mild</div>
+      <div style="font-size:10px;color:#6b7280;margin-top:4px">${ensoSub}</div>
       <div style="display:flex;gap:14px;margin-top:8px;flex-wrap:wrap">
         <div><div style="font-size:9px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em">Yrs</div><div style="font-weight:600;font-size:12px;color:#e8eef4">${ensoYrs.length}</div></div>
         <div><div style="font-size:9px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em">Worst</div><div style="font-weight:600;font-size:12px;color:#f87171">${ensoMin!=null?fmt(ensoMin):'—'}</div></div>
@@ -2160,9 +2243,9 @@ function updateElNinoStats(k,ok){
       </div>
     </div>
     <div style="flex:0.6;min-width:130px;padding:10px 16px;background:#0d1520;border-radius:0 6px 6px 0;border:1px solid #1e2d3f;border-left:none">
-      <div style="font-size:9px;text-transform:uppercase;letter-spacing:.05em;color:#6b7280;margin-bottom:3px">Non-El Niño${ctag}</div>
+      <div style="font-size:9px;text-transform:uppercase;letter-spacing:.05em;color:#6b7280;margin-bottom:3px">${nonLabel}${ctag}</div>
       <div style="font-size:22px;font-weight:700;color:${col(nonMean)};line-height:1">${fmt(nonMean)}</div>
-      <div style="font-size:10px;color:#6b7280;margin-top:4px">${nonYrs.length} yrs · excl. Mild</div>
+      <div style="font-size:10px;color:#6b7280;margin-top:4px">${nonSub}</div>
     </div>
   </div>`;
 }
@@ -2223,18 +2306,21 @@ function makeEnsoPlugin(labels){
   const bands=EVENTS.map(e=>{
     const sev=ENSO_SEV[e]||'El Niño';
     const col=SCLR[sev]||SCLR['El Niño'];
+    const b=ENSO_BOUNDS[e];
     const parts=e.split('-'),start=parseInt(parts[0]);
     let end=parts[1].length<=2?Math.floor(start/100)*100+parseInt(parts[1]):parseInt(parts[1]);
     if(end<=start)end+=100;
-    const f=labels.indexOf(String(start)),t=labels.indexOf(String(end));
+    const sy=b?b.sy:start, sm=b?b.sm:1, ey=b?b.ey:end, em=b?b.em:12;
+    const f=labels.indexOf(String(sy)),t=labels.indexOf(String(ey));
     if(f<0)return null;
-    return{f,t:t>=0?t:f,col,sev};
+    return{f,t:t>=0?t:f,sm,em,col,sev};
   }).filter(Boolean);
   return{id:'ensoBands',beforeDatasetsDraw(chart){
     const{ctx:c2,chartArea:{top,bottom},scales:{x}}=chart;if(!x)return;
     const step=x.getPixelForValue(1)-x.getPixelForValue(0);c2.save();
     bands.forEach(b=>{
-      const px1=x.getPixelForValue(b.f)-step*0.5,px2=x.getPixelForValue(b.t)+step*0.5;
+      const px1=x.getPixelForValue(b.f)+step*((b.sm-1)/12-0.5);
+      const px2=x.getPixelForValue(b.t)+step*(b.em/12-0.5);
       c2.fillStyle=b.col;c2.fillRect(px1,top,px2-px1,bottom-top);
       c2.fillStyle=b.col.replace(/[\d.]+\)$/,'0.85)');
       c2.font='bold 8px system-ui,sans-serif';c2.textAlign='center';
@@ -2382,20 +2468,23 @@ function chartPalmProduction(){
     const bands=EVENTS.map(e=>{
       const sev=ENSO_SEV[e]||'El Niño';
       const col=SCLR[sev]||SCLR['El Niño'];
+      const b=ENSO_BOUNDS[e];
       const parts=e.split('-'),start=parseInt(parts[0]);
       let end=parts[1].length<=2?Math.floor(start/100)*100+parseInt(parts[1]):parseInt(parts[1]);
       if(end<=start)end+=100;
-      const f=lbls.indexOf(String(start)),t=lbls.indexOf(String(end));
+      const sy=b?b.sy:start, sm=b?b.sm:1, ey=b?b.ey:end, em=b?b.em:12;
+      const f=lbls.indexOf(String(sy)),t=lbls.indexOf(String(ey));
       if(f<0)return null;
-      return{f,t:t>=0?t:f,col,sev};
+      return{f,t:t>=0?t:f,sm,em,col,sev};
     }).filter(Boolean);
     const i26=lbls.indexOf('2026');
-    if(i26>=0)bands.push({f:i26,t:i26,col:'rgba(251,146,60,0.20)',sev:'⚠ 2026'});
+    if(i26>=0)bands.push({f:i26,t:i26,sm:6,em:12,col:'rgba(251,146,60,0.20)',sev:'⚠ 2026'});
     return{id:'palmBands',beforeDatasetsDraw(chart){
       const{ctx:c2,chartArea:{top,bottom},scales:{x}}=chart;if(!x)return;
       const step=x.getPixelForValue(1)-x.getPixelForValue(0);c2.save();
       bands.forEach(b=>{
-        const px1=x.getPixelForValue(b.f)-step*0.5,px2=x.getPixelForValue(b.t)+step*0.5;
+        const px1=x.getPixelForValue(b.f)+step*((b.sm-1)/12-0.5);
+        const px2=x.getPixelForValue(b.t)+step*(b.em/12-0.5);
         c2.fillStyle=b.col;c2.fillRect(px1,top,px2-px1,bottom-top);
         c2.fillStyle=b.col.replace(/[\d.]+\)$/,'0.85)');
         c2.font='bold 9px system-ui,sans-serif';c2.textAlign='center';
@@ -2901,19 +2990,22 @@ function chartCocoaProd(){
     const SCLR={'Mild El Niño':'rgba(251,191,36,0.10)','El Niño':'rgba(249,115,22,0.14)','Super El Niño':'rgba(239,68,68,0.18)'};
     const bands=EVENTS.map(e=>{
       const sev=ENSO_SEV[e]||'El Niño';const col=SCLR[sev]||SCLR['El Niño'];
+      const b=ENSO_BOUNDS[e];
       const parts=e.split('-'),start=parseInt(parts[0]);
       let end=parts[1].length<=2?Math.floor(start/100)*100+parseInt(parts[1]):parseInt(parts[1]);
       if(end<=start)end+=100;
-      const f=lbls.indexOf(String(start)),t=lbls.indexOf(String(end));
-      if(f<0)return null;return{f,t:t>=0?t:f,col,sev};
+      const sy=b?b.sy:start, sm=b?b.sm:1, ey=b?b.ey:end, em=b?b.em:12;
+      const f=lbls.indexOf(String(sy)),t=lbls.indexOf(String(ey));
+      if(f<0)return null;return{f,t:t>=0?t:f,sm,em,col,sev};
     }).filter(Boolean);
     const i26=lbls.indexOf('2026');
-    if(i26>=0)bands.push({f:i26,t:i26,col:'rgba(251,146,60,0.20)',sev:'⚠ 2026'});
+    if(i26>=0)bands.push({f:i26,t:i26,sm:6,em:12,col:'rgba(251,146,60,0.20)',sev:'⚠ 2026'});
     return{id:'cocoaBands',beforeDatasetsDraw(chart){
       const{ctx:c2,chartArea:{top,bottom},scales:{x}}=chart;if(!x)return;
       const step=x.getPixelForValue(1)-x.getPixelForValue(0);c2.save();
       bands.forEach(b=>{
-        const px1=x.getPixelForValue(b.f)-step*0.5,px2=x.getPixelForValue(b.t)+step*0.5;
+        const px1=x.getPixelForValue(b.f)+step*((b.sm-1)/12-0.5);
+        const px2=x.getPixelForValue(b.t)+step*(b.em/12-0.5);
         c2.fillStyle=b.col;c2.fillRect(px1,top,px2-px1,bottom-top);
         c2.fillStyle=b.col.replace(/[\d.]+\)$/,'0.85)');
         c2.font='bold 9px system-ui,sans-serif';c2.textAlign='center';
