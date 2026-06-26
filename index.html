@@ -465,12 +465,12 @@ const C = {
     name:'Cocoa', icon:'🍫', cls:'neg', score:0.95,
     unit:'production (YoY %)',
     regions:"Côte d'Ivoire, Ghana, Nigeria, Cameroon — West Africa (~60–75% of supply)",
-    driver:'Excess rain → disease, then Harmattan drought',
+    driver:'El Niño → West Africa drought → cocoa supply shock (same season). 2024/25 surplus returned (+48–75kt) but stocks remain historically thin — 2026/27 El Niño now the primary risk',
     wx:[ {l:'Excess rain · Jul–Aug',t:'rain'}, {l:'Black-pod & swollen-shoot disease',t:'disease'}, {l:'Harmattan drought · Dec–Feb',t:'drought'} ],
-    mech:"West Africa grows 60–75% of the world's cocoa. El Niño shifts the regional rain band (ITCZ) and hits the crop in two windows: <strong>too much rain in Jul–Aug</strong> during the main-crop harvest spreads swollen-shoot virus and black-pod disease, then the dry, dusty <strong>Harmattan winds in Dec–Feb</strong> drive humidity below 20% and damage the mid-crop. Ageing trees, thin replanting and land constraints amplify every shock.",
+    mech:"El Niño causes <strong>below-normal rainfall and elevated temperatures in West Africa</strong> (Ghana and Côte d'Ivoire = ~60% of global supply) during the critical growing season. Dryness in Jul–Sep reduces cherelle set; Harmattan winds in Dec–Mar desiccate pods. <strong>No meaningful lag</strong> — El Niño onset in mid-year hits the main crop harvested Oct–Dec that same year. <strong>2023–24: the worst deficit in 60 years</strong> — CIV + Ghana produced ~800kt less than consumed; stocks-to-grindings fell to a 46-year low of 26.4%. <strong>2024/25 recovery: global production rebounded +8.4% to ~4.72 Mt</strong>, delivering a modest surplus of 48–75kt (ICCO). Stocks-to-grindings recovered to 28.5–29.2% — still well below the 35–40% historical norm. El Niño is now <strong>officially confirmed (June 2026)</strong> with >90% probability through H2 2026; StoneX has already cut the 2026/27 surplus forecast to just 149kt citing El Niño risk.",
     why:[ "Supply is concentrated: a single weather zone drives the majority of global output.",
           "Peer-reviewed research (Scientific Reports 2022) finds every strong El Niño in the past 55 years has reduced global cocoa production; ICCO crop-year (Oct–Sep) data shows more consistent negatives than FAO calendar-year — 2006–07 and 2023–24 were the clearest FAO-measured production shocks.",
-          "Trees are perennial — drought and disease stress carries into following seasons." ],
+          "2024/25 delivered a modest surplus (+48–75kt, ICCO) and stocks partially recovered to 28.5–29.2%. But El Niño is now confirmed for 2026 — StoneX cut 2026/27 surplus to 149kt; the buffer remains dangerously thin against a strong event." ],
     events:{
       '2002-03':{prod:3705144,base:3298178,src:'rep'},  // +12.3% FAO/OWID World 2003 vs 2002 (area expansion dominated)
       '2004-05':{prod:4043867,base:4069753,src:'rep'},  // -0.6% FAO/OWID World 2005 vs 2004
@@ -481,15 +481,15 @@ const C = {
       '2023-24':{dev:-12.9,src:'rep'}  // -12.9% ICCO/Wells Fargo Exhibit 9 — crop yr 2023/24
     },
     supply:{ stocks:null, use:null, src:'todo' }, // TODO ICCO: world cocoa stocks-to-grindings ratio
-    superNote:"All 7 events sourced from FAO via OWID World aggregate (1961–2024). Only 2006–07 (−9.3%) and 2023–24 (−8.9% FAO cal-year; ICCO crop-year −11% to −13%) were meaningful declines; 2002–03 was +12.3% as area expansion dominated. ICCO crop-year methodology shows more consistent negatives because it aligns harvest timing to the affected season. The 2023–24 crisis was driven by both weather (black-pod disease from excess December rainfall, February drought cutting pod development) and structural area loss — Ghana's COCOBOD confirmed 500,000+ ha infected by Swollen Shoot Virus. Full structural recovery requires 3–5+ years as new trees mature.",
+    superNote:"2024/25 outcome: global cocoa production rebounded +8.4% to ~4.72 Mt (ICCO), delivering a first surplus in 3 years of 48–75kt. Stocks-to-grindings recovered from the 46-year low of 26.4% (2023/24) to 28.5–29.2% — still well below the 35–40% historical norm. CIV came in at ~1.75 MMT vs. a 2.1–2.2 MMT target (Harmattan + rainfall failure). Ghana 2025/26 is forecast at 750kt (+25%, USDA) on tree recovery. El Niño is now officially confirmed — StoneX cut 2026/27 surplus to 149kt from 267kt; ICCO warned of 'particularly devastating' crop impacts if the event is strong. London futures at ~$3,850–4,010/t, recovering from the $12,000 crisis peak, already pricing El Niño risk.",
     trendIdx:{labels:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],vals:[115,112,105,90,88,85,78,76,80,95,108,112],src:'2026 est.'},
     verdict:'TROUGH',
-    verdictNote:"Coming off the 2023–24 collapse (−11% YoY). 2025 delivered only a partial rebuild; global stocks remain unusually thin.",
+    verdictNote:"2024/25 delivered a technical surplus (+48–75kt, ICCO) but stocks-to-grindings remain historically thin at 28.5–29.2% vs. 35–40% normal. El Niño is now confirmed — 2026/27 main crop is the primary risk window.",
     tiles:{ Production:{v:'−11% YoY',d:'down',n:'2023–24, worst in ICCO record'},
             'Planted area':{v:'≈ Flat',d:'flat',n:'Ageing trees, little replanting'},
             Yield:{v:'Down',d:'down',n:'Disease + Harmattan damage'},
             'Stocks':{v:'Very tight',d:'down',n:'Buffer depleted by 2023–24'} },
-    predict:"A strong/super 2026 event raises the odds of <strong>both</strong> damaging windows — Jul–Aug over-rain and a harsh Dec–Feb Harmattan. With stocks still depleted from 2023–24, there is little cushion: a disappointing 2026 main crop would bite hardest through <strong>2027</strong>, when the supply impact typically lands. Cocoa remains the single most El Niño-sensitive soft.",
+    predict:"El Niño is <strong>now officially confirmed (June 2026)</strong> — >90% probability through H2 2026 into early 2027; 63% odds of a very strong event (>2.0°C). The 2026/27 West Africa main crop (October 2026 onward) is the primary risk window with no meaningful lag. Thin stock buffer (28.5–29.2% stocks-to-grindings vs. 35–40% norm) means any shortfall re-tightens fast — StoneX already cut 2026/27 surplus to 149kt from 267kt. Ghana farmers warning of early output slump from heavy rains + black pod disease. Per the lag framework: 2026 El Niño onset → <strong>2027 is the primary cocoa risk year</strong>. SOURCE: ICCO Quarterly Bulletins May/Feb 2026, USDA FAS, StoneX.",
     dir:'Production at risk ↓', dirColor:'var(--red)',
     geo:{lat:6.83,lon:-5.29,place:'Yamoussoukro cocoa belt, Côte d’Ivoire'}
   },
@@ -499,10 +499,10 @@ const C = {
     regions:'Indonesia, Malaysia (~85% of global supply)',
     driver:'Heat + drought → fire & lower FFB yield (9–18 mo lag)',
     wx:[ {l:'Drought · from Jul',t:'drought'}, {l:'Heat stress on palms',t:'heat'}, {l:'Forest fire & haze',t:'heat'} ],
-    mech:"<strong>Indonesia and Malaysia together produce ~85% of the world's palm oil</strong> — both sit in the same Maritime Continent climate zone, so a single El Niño drought hits the entire global supply base at once. Hot, dry conditions stress oil palms and lower <strong>fresh-fruit-bunch (FFB) yields</strong>, while fuelling forest fires and haze that thin the canopy. Palm has the <strong>longest lag of any crop</strong>: dryness starting in July can suppress yields 9–18 months later, into 2027. Indonesia's area expansion has masked most production declines — FAO data shows 2014–16 as the only event with a clear global production drop (−5%); <strong>FFB yield per hectare and oil extraction rate (OER)</strong> are the sharper El Niño signal.",
+    mech:"<strong>Indonesia and Malaysia together produce ~85% of the world's palm oil</strong> — both sit in the same Maritime Continent climate zone, so a single El Niño drought hits the entire global supply base at once. Hot, dry conditions stress oil palms and lower <strong>fresh-fruit-bunch (FFB) yields</strong>, while fuelling forest fires and haze that thin the canopy. Palm has the <strong>longest lag of any crop</strong>: dryness starting in July can suppress yields 9–18 months later, into 2027. Indonesia's area expansion has masked most production declines — FAO data shows 2014–16 as the only event with a clear global production drop (−5%); <strong>FFB yield per hectare and oil extraction rate (OER)</strong> are the sharper El Niño signal. Indonesia's B50 biodiesel mandate <strong>launched July 1, 2026</strong> (confirmed), adding ~2–3 Mt additional domestic CPO demand vs. B40. Indonesia has also seized ~1.5M ha of illegal plantations (1.8M ha under review) — if fertilizer/input supply is cut, 2–5 Mt of CPO could be at risk. El Niño + positive Indian Ocean Dipole (IOD+) — the same double-threat as the 2015–16 Godzilla event — is active per BMKG, with 23,546 peatland hotspots already detected in early 2026.",
     why:[ "Two countries in one climate zone supply ~85% — no geographic diversification.",
           "Yield response lags 9–18 months, so a 2026 drought damages 2027 supply.",
-          "Indonesia's B50 biodiesel mandate (from July 2026) diverts oil to fuel, tightening exports on top of any weather hit." ],
+          "Indonesia's B50 biodiesel mandate (launched July 1, 2026) absorbs ~2–3 Mt additional CPO domestically. Combined with plantation seizures (1.5M ha seized) and Malaysia's 2026 output moderation, supply risk is compounding on top of El Niño yield suppression." ],
     events:{
       '2002-03':{prod:30000,base:27700,src:'rep'},  // +8.3% USDA PSD world CPO 2003 vs 2002 — expansion dominated El Niño drag
       '2004-05':{prod:36000,base:33600,src:'rep'},  // +7.1% USDA PSD world CPO 2005 vs 2004 — same pattern
@@ -513,15 +513,15 @@ const C = {
       '2023-24':{prod:73031,base:72511,src:'rep'}    // +0.7% FAO/OWID 2023 vs 2022
     },
     supply:{ stocks:null, use:null, src:'todo' }, // TODO USDA PSD: palm oil ending stocks & consumption
-    superNote:"FAO production data (OWID) shows 2014–16 as the only event with a clear global CPO production decline (−5.0%; USDA FAS shows −5.4%); all other events flat or positive as Indonesia's area expansion dominates volume. The real El Niño signal is FFB yield per hectare: Malaysia fell ~−14% in 2015–16 (CPO output −13.2%, USDA IPAD Aug 2016); Indonesia's yield impact was smaller (~−5%, USDA) but its scale makes even a small % shock material. Indonesia's B50 biodiesel mandate from July 1, 2026 adds structural demand pull on top of any weather-driven yield shortfall.",
+    superNote:"Malaysia 2025: record 20.28 Mt CPO (MPOB confirmed); MPOB forecasts 2026 at 19.5–19.8 Mt (tree-resting cycle + ageing profile). Indonesia 2025/26: 47.0 Mt (USDA PSD); 2026/27 forecast 48.0 Mt, but plantation seizures (~1.5M ha seized, 1.8M ha under review) put 2–5 Mt at risk. B50 biodiesel launched July 1, 2026, absorbing ~2–3 Mt additional CPO domestically vs. B40. El Niño + IOD+ double-threat (Godzilla pattern): BMKG flags H2 2026 drought risk across Sumatra/Borneo — same as 2015–16. Fire hotspots already elevated: 23,546 peatland hotspots since Jan 2026, 6,192 within oil palm concessions. 2014–16 remains the only El Niño with a clear global production decline (−5%), but FFB yield is the sharper signal: Malaysia −14% in 2015–16.",
     trendIdx:{labels:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],vals:[88,90,97,103,110,115,110,105,112,115,110,100],src:'2026 est.'},
     verdict:'MIXED',
-    verdictNote:"Long-run expansion kept output rising, but the 2023 El Niño lag plus B50 biodiesel diversion are tightening exportable supply into 2026.",
+    verdictNote:"Malaysia set a 2025 CPO record (20.28 Mt) but forecasts moderation in 2026. B50 biodiesel (July 2026) absorbs ~2–3 Mt additional domestic demand. El Niño + IOD+ now active — 2027 is the primary yield-suppression risk window per the 9–18 month lag.",
     tiles:{ Production:{v:'Rising, lagged',d:'up',n:'Expansion; 2023 drought lag still feeding through'},
             'Planted area':{v:'+ Expanding',d:'up',n:'Indonesia & Malaysia replanting/new area'},
             Yield:{v:'Pressured',d:'down',n:'FFB stress post-2023; recovery slow'},
             'Exportable supply':{v:'Tightening',d:'down',n:'B50 mandate diverts to biodiesel'} },
-    predict:"If El Niño dryness sets in from July 2026, the <strong>yield hit lands largely in 2027</strong> given palm's long lag. Layered on the B50 biodiesel mandate diverting supply to fuel, the balance tightens materially. <strong>High conviction conditional on the event reaching strong/super intensity</strong> (watch ONI ≥ +1.5°C by mid-2026).",
+    predict:"El Niño + IOD+ is <strong>now active</strong> (BMKG, June 2026) — the same double-threat as the 2015–16 Godzilla event. H2 2026 drought stress across Sumatra/Borneo triggers the 9–18 month lag, with the <strong>primary yield hit in 2027</strong>. Three compounding factors: (1) B50 mandate absorbing ~2–3 Mt additional CPO domestically from July 1; (2) plantation seizures (1.5M ha+ at risk of input cutoff = 2–5 Mt CPO); (3) Malaysia's 2026 output already forecast to moderate from the 2025 record. Fire season already elevated (6,192 hotspots in palm concessions as of Jan–Apr 2026). <strong>High conviction</strong> — multiple independent supply risks converging on 2027. SOURCE: MPOB 2025, USDA PSD Apr 2026, BMKG, NOAA.",
     dir:'Supply tightening ↓', dirColor:'var(--red)',
     geo:{lat:0.51,lon:101.45,place:'Pekanbaru, Sumatra (palm belt), Indonesia'}
   },
@@ -1258,17 +1258,6 @@ C.cocoa.outcomes.yield.trajectory=[
   {yr:'2024',yoy:+0.14,abs:'0.5037 t/ha',src:'rep',note:'SOURCE: OWID/FAO'},
   {yr:'2025',yoy:+0.0,abs:'~0.504 t/ha',src:'est',note:'Est. — neutral/La Niña year; global yield broadly flat'},
   {yr:'2026',yoy:-2.0,abs:'~0.494 t/ha',src:'est',note:'Est. — El Niño onset; CIV Harmattan + IDN drought; -2% consistent with historical El Niño avg'},
-];
-// Grindings trajectory — ECA Western Europe YTD index (confirmed seed values)
-// yoy = deviation from prior year (e.g. index=93.9% → -6.1% YoY)
-C.cocoa.outcomes.grindings.trajectory=[
-  {yr:'2024/2023',yoy:-1.5,abs:'ECA index 98.5%',src:'rep',note:'ECA Western European grindings YTD index 98.5% — mild demand softening'},
-  {yr:'2025/2024',yoy:-6.1,abs:'ECA index 93.9%',src:'rep',note:'ECA Western European grindings YTD 93.9% (Q1:95.6 Q2:92.8 Q3:95.2 Q4:91.7) — accelerating demand destruction'},
-  {yr:'2026/2025',yoy:-7.8,abs:'ECA index 92.2%',src:'rep',note:'ECA Q1 2026 YTD index 92.2% — European grindings contracting -7.8% YoY; NA Q1 -3.8% (106,087 MT); Asia Q1 +5.2% (223,503 MT)'},
-];
-// Stocks trajectory — sourced from USDA PSD API (pipeline will populate)
-C.cocoa.outcomes.stocks.trajectory=[
-  {yr:'2023/24',yoy:null,abs:'26.4%',src:'rep',note:'ICCO Quarterly Bulletin — stocks-to-grindings ratio; below 30% concern threshold; market has almost no buffer'},
 ];
 // Per-country yield (t/ha) — SOURCE: OWID/FAO cocoa-bean-yields.csv 2000–2024
 C.cocoa.countryYield={
@@ -2893,14 +2882,14 @@ function detail(k){
         <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="palmBarSeries" value="wld" onchange="getOutcome('palmoil')==='volume'?chartPalmBar(this.value):chartPalmYieldBar(this.value);updateElNinoStats('palmoil',getOutcome('palmoil'))"><span style="color:#94a3b8;font-weight:600">● World</span></label>
       </div>
       <div style="font-size:11px;color:var(--muted);margin:-2px 0 4px">${ok==='volume'?'World = USDA PSD global total (all countries summed)':'World = USDA PSD area-weighted avg — total CPO ÷ total harvested ha (dominated by ID + MY ~85%)'}</div>`:''}
-      ${k==='cocoa'&&ok==='volume'?`<div style="display:flex;gap:16px;align-items:center;margin:8px 0 4px;flex-wrap:wrap">
-        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="civ" checked onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa','volume')"><span style="color:#fb923c;font-weight:600">● Côte d'Ivoire</span></label>
-        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="gha" onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa','volume')"><span style="color:#facc15;font-weight:600">● Ghana</span></label>
-        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="ecu" onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa','volume')"><span style="color:#a3e635;font-weight:600">● Ecuador</span></label>
-        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="idn" onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa','volume')"><span style="color:#38bdf8;font-weight:600">● Indonesia</span></label>
-        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="wld" onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa','volume')"><span style="color:#94a3b8;font-weight:600">● World</span></label>
+      ${k==='cocoa'&&(ok==='volume'||ok==='yield')?`<div style="display:flex;gap:16px;align-items:center;margin:8px 0 4px;flex-wrap:wrap">
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="civ" checked onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa',getOutcome('cocoa'))"><span style="color:#fb923c;font-weight:600">● Côte d'Ivoire</span></label>
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="gha" onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa',getOutcome('cocoa'))"><span style="color:#facc15;font-weight:600">● Ghana</span></label>
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="ecu" onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa',getOutcome('cocoa'))"><span style="color:#a3e635;font-weight:600">● Ecuador</span></label>
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="idn" onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa',getOutcome('cocoa'))"><span style="color:#38bdf8;font-weight:600">● Indonesia</span></label>
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="wld" onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa',getOutcome('cocoa'))"><span style="color:#94a3b8;font-weight:600">● World</span></label>
       </div>
-      <div style="font-size:11px;color:var(--muted);margin:-2px 0 4px">World = ICCO global total. CIV ~40%, Ghana ~12% of world supply.</div>`:''}
+      <div style="font-size:11px;color:var(--muted);margin:-2px 0 4px">${ok==='yield'?'kg/ha yield per country — FAO FAOSTAT. World = global average.':'World = ICCO global total. CIV ~40%, Ghana ~12% of world supply.'}</div>`:''}
       ${k==='avocado'&&ok==='volume'?`<div style="display:flex;gap:16px;align-items:center;margin:8px 0 4px;flex-wrap:wrap">
         <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="mex" checked onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','volume')"><span style="color:#4ade80;font-weight:600">● Mexico</span><span style="color:var(--muted);font-size:10px">24.6%</span></label>
         <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="per" onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','volume')"><span style="color:#f97316;font-weight:600">● Peru</span><span style="color:var(--muted);font-size:10px">8.2%</span></label>
@@ -2984,8 +2973,8 @@ function detail(k){
 
     ${(c.verdict||c.tiles||c.superNote||c.predict)?`
     <div class="panel">
-      ${c.verdict?`<div class="verdict" style="margin-bottom:14px"><span class="verdict-badge ${vcls}">${c.verdict}</span><span style="font-size:13px;color:var(--muted);line-height:1.5;margin-left:4px">${c.verdictNote||''}</span></div>`:''}
-      ${c.tiles&&Object.keys(c.tiles).length?`<div style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#64748b;margin-bottom:8px">2023–24 El Niño Outcome</div><div class="tile-grid" style="margin-bottom:${c.superNote||c.predict?'16px':'0'}">${Object.entries(c.tiles).map(([lbl,t])=>'<div class="tile"><div class="l">'+lbl+'</div><div class="v '+(t.d==='up'?'up':t.d==='down'?'down':'flat')+'">'+t.v+'</div>'+(t.n?'<div class="n">'+t.n+'</div>':'')+'</div>').join('')}</div>`:''}
+      ${c.verdict&&k!=='cocoa'&&k!=='palmoil'?`<div class="verdict" style="margin-bottom:14px"><span class="verdict-badge ${vcls}">${c.verdict}</span><span style="font-size:13px;color:var(--muted);line-height:1.5;margin-left:4px">${c.verdictNote||''}</span></div>`:''}
+      ${c.tiles&&Object.keys(c.tiles).length&&k!=='cocoa'&&k!=='palmoil'?`<div style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#64748b;margin-bottom:8px">2023–24 El Niño Outcome</div><div class="tile-grid" style="margin-bottom:${c.superNote||c.predict?'16px':'0'}">${Object.entries(c.tiles).map(([lbl,t])=>'<div class="tile"><div class="l">'+lbl+'</div><div class="v '+(t.d==='up'?'up':t.d==='down'?'down':'flat')+'">'+t.v+'</div>'+(t.n?'<div class="n">'+t.n+'</div>':'')+'</div>').join('')}</div>`:''}
       ${c.superNote?`<div style="margin:0 0 ${c.predict?'14px':'0'};font-size:12.5px;line-height:1.6;color:var(--faint);padding:10px 14px;background:rgba(0,0,0,.2);border-radius:8px;border-left:3px solid var(--border)">${c.superNote}</div>`:''}
       ${c.predict?`<div class="predict"><div class="pl">🔭 2026 Outlook</div><div class="pc">${c.predict}</div></div>`:''}
     </div>
@@ -3011,7 +3000,7 @@ function detail(k){
   setTimeout(()=>{
     if(k==='palmoil'&&getOutcome('palmoil')==='volume') chartPalmBar('id');
     else if(k==='palmoil'&&getOutcome('palmoil')==='yield') chartPalmYieldBar('my');
-    else if(k==='cocoa'&&getOutcome('cocoa')==='volume') chartCocoaBar('civ');
+    else if(k==='cocoa'&&(getOutcome('cocoa')==='volume'||getOutcome('cocoa')==='yield')) chartCocoaBar('civ');
     else if(k==='avocado'){
       const aok=getOutcome('avocado');
       const defC=aok==='yield'?'col':'mex';
@@ -3117,7 +3106,7 @@ function updateElNinoStats(k,ok){
     const lagSet=new Set(EVENTS.map(evt=>parseInt(evt.split('-')[0])+1));
     ensoYrs=yrData.filter(d=>lagSet.has(d.yr));
     nonYrs=yrData.filter(d=>!lagSet.has(d.yr));
-  } else if(avoWater||cocoaWater||palmWater){
+  } else if(isWater){
     // Onset-adjusted: if El Niño started after June (month>6), year+1 is first full impacted year
     const waterSet=new Set();
     EVENTS.forEach(evt=>{
