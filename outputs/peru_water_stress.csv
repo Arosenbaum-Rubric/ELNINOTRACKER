@@ -1,0 +1,26 @@
+year,country,iso_code,commodity,climate_region,precip_mm_coastal,precip_mm_national,pct_anomaly_coastal,pct_anomaly_national,flooding_risk_flag,drought_flag,enso_analog_flag,provenance
+2000,Peru,PER,Avocado,Peru-Coastal-La-Libertad-Lambayeque,466.4,1684.58,-14.26,4.89,0,0,0,SOURCE: World Bank CCKP coastal CSV + national CSV
+2001,Peru,PER,Avocado,Peru-Coastal-La-Libertad-Lambayeque,512.68,1749.32,-5.76,8.92,0,0,0,SOURCE: World Bank CCKP coastal CSV + national CSV
+2002,Peru,PER,Avocado,Peru-Coastal-La-Libertad-Lambayeque,661.9,1695.84,21.67,5.59,0,0,0,SOURCE: World Bank CCKP coastal CSV + national CSV
+2003,Peru,PER,Avocado,Peru-Coastal-La-Libertad-Lambayeque,733.98,1764.28,34.92,9.86,0,0,0,SOURCE: World Bank CCKP coastal CSV + national CSV
+2004,Peru,PER,Avocado,Peru-Coastal-La-Libertad-Lambayeque,622.73,1752.64,14.47,9.13,0,0,0,SOURCE: World Bank CCKP coastal CSV + national CSV
+2005,Peru,PER,Avocado,Peru-Coastal-La-Libertad-Lambayeque,313.27,1536.04,-42.41,-4.36,0,1,0,SOURCE: World Bank CCKP coastal CSV + national CSV
+2006,Peru,PER,Avocado,Peru-Coastal-La-Libertad-Lambayeque,688.8,1809.69,26.62,12.68,0,0,0,SOURCE: World Bank CCKP coastal CSV + national CSV
+2007,Peru,PER,Avocado,Peru-Coastal-La-Libertad-Lambayeque,412.85,1697.16,-24.11,5.68,0,0,0,SOURCE: World Bank CCKP coastal CSV + national CSV
+2008,Peru,PER,Avocado,Peru-Coastal-La-Libertad-Lambayeque,625.25,1685.59,14.94,4.96,0,0,0,SOURCE: World Bank CCKP coastal CSV + national CSV
+2009,Peru,PER,Avocado,Peru-Coastal-La-Libertad-Lambayeque,699.6,1711.83,28.6,6.59,0,0,1,SOURCE: World Bank CCKP coastal CSV + national CSV
+2010,Peru,PER,Avocado,Peru-Coastal-La-Libertad-Lambayeque,574.85,1407.81,5.67,-12.34,0,0,1,SOURCE: World Bank CCKP coastal CSV + national CSV
+2011,Peru,PER,Avocado,Peru-Coastal-La-Libertad-Lambayeque,384.61,1633.49,-29.3,1.71,0,0,0,SOURCE: World Bank CCKP coastal CSV + national CSV
+2012,Peru,PER,Avocado,Peru-Coastal-La-Libertad-Lambayeque,479.83,1503.31,-11.8,-6.39,0,0,0,SOURCE: World Bank CCKP coastal CSV + national CSV
+2013,Peru,PER,Avocado,Peru-Coastal-La-Libertad-Lambayeque,749.05,1605.18,37.69,-0.05,0,0,0,SOURCE: World Bank CCKP coastal CSV + national CSV
+2014,Peru,PER,Avocado,Peru-Coastal-La-Libertad-Lambayeque,407.53,1573.1,-25.09,-2.05,0,0,0,SOURCE: World Bank CCKP coastal CSV + national CSV
+2015,Peru,PER,Avocado,Peru-Coastal-La-Libertad-Lambayeque,815.71,1575.91,49.95,-1.87,0,0,1,SOURCE: World Bank CCKP coastal CSV + national CSV
+2016,Peru,PER,Avocado,Peru-Coastal-La-Libertad-Lambayeque,390.05,1510.55,-28.3,-5.94,0,0,1,SOURCE: World Bank CCKP coastal CSV + national CSV
+2017,Peru,PER,Avocado,Peru-Coastal-La-Libertad-Lambayeque,1046.12,1725.86,92.3,7.46,1,0,1,SOURCE: World Bank CCKP coastal CSV + national CSV
+2018,Peru,PER,Avocado,Peru-Coastal-La-Libertad-Lambayeque,492.03,1597.47,-9.55,-0.53,0,0,0,SOURCE: World Bank CCKP coastal CSV + national CSV
+2019,Peru,PER,Avocado,Peru-Coastal-La-Libertad-Lambayeque,462.1,1745.83,-15.06,8.71,0,0,0,SOURCE: World Bank CCKP coastal CSV + national CSV
+2020,Peru,PER,Avocado,Peru-Coastal-La-Libertad-Lambayeque,335.63,1302.93,-38.3,-18.87,0,1,0,SOURCE: World Bank CCKP coastal CSV + national CSV
+2021,Peru,PER,Avocado,Peru-Coastal-La-Libertad-Lambayeque,1007.24,1516.64,85.15,-5.56,1,0,0,SOURCE: World Bank CCKP coastal CSV + national CSV
+2022,Peru,PER,Avocado,Peru-Coastal-La-Libertad-Lambayeque,391.24,1234.41,-28.08,-23.14,0,0,0,SOURCE: World Bank CCKP coastal CSV + national CSV
+2023,Peru,PER,Avocado,Peru-Coastal-La-Libertad-Lambayeque,557.15,1472.94,2.42,-8.29,0,0,1,SOURCE: World Bank CCKP coastal CSV + national CSV
+2024,Peru,PER,Avocado,Peru-Coastal-La-Libertad-Lambayeque,338.58,1408.98,-37.76,-12.27,0,1,1,SOURCE: World Bank CCKP coastal CSV + national CSV

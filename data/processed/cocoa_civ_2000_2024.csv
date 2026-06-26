@@ -1,0 +1,26 @@
+year,production_tonnes,yield_t_per_ha,yoy_production_pct,yoy_yield_pct,yield_deviation_flag,enso_analog_flag,provenance
+2000,1401101.0,0.7006,,,False,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2001,1212428.0,0.6821,-13.4661,-2.6406,False,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2002,1264708.0,0.67270005,4.312,-1.3781,False,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2003,1351546.0,0.6758,6.8662,0.4608,False,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2004,1407213.0,0.68640006,4.1188,1.5685,False,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2005,1286330.0,0.58640003,-8.5902,-14.5688,True,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2006,1408854.0,0.6176,9.5251,5.3206,False,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2007,1229908.0,0.5184001,-12.7015,-16.0622,True,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2008,1382441.0,0.6011,12.402,15.9529,False,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2009,1223153.0,0.5621,-11.5222,-6.4881,True,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2010,1301347.0,0.5711,6.3928,1.6011,False,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2011,1511255.0,0.5628,16.1301,-1.4533,False,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2012,1485882.0,0.5411,-1.6789,-3.8557,False,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2013,1448992.0,0.53050005,-2.4827,-1.959,False,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2014,1637777.5,0.531,13.0287,0.0942,False,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2015,1796000.0,0.51940006,9.6608,-2.1845,False,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2016,1634000.0,0.51570004,-9.02,-0.7124,False,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2017,2034000.0,0.51070005,24.4798,-0.9696,False,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2018,2113189.0,0.51890004,3.8933,1.6056,False,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2019,2235043.0,0.51870006,5.7664,-0.0385,False,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2020,2200000.0,0.51570004,-1.5679,-0.5784,False,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2021,2228459.0,0.50920004,1.2936,-1.2604,False,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2022,2358991.0,0.5034,5.8575,-1.139,False,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2023,1822441.0,0.49950004,-22.7449,-0.7747,False,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2024,1890442.0,0.49550003,3.7313,-0.8008,False,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID

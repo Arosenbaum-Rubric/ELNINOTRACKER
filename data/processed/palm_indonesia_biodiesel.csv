@@ -1,0 +1,6 @@
+year,mandate_level,biodiesel_volume_bn_liters,industrial_consumption_mmt,yoy_industrial_pct,squeeze_risk_flag,provenance
+2022,B30,,9.6,,False,"SOURCE: USDA GAIN ID2022-0007 Jakarta March 23, 2022"
+2023,B35,,11.8,22.916666666666675,False,"SOURCE: USDA GAIN ID2023-0005 Jakarta March 20, 2023"
+2024,B35,,12.4,5.084745762711851,False,"SOURCE: USDA GAIN ID2024-0004 Jakarta March 20, 2024"
+2025,B40,15.6,14.7,18.548387096774178,False,"SOURCE: USDA GAIN ID2025-0015 Jakarta April 14, 2025"
+2026,B40,14.4,14.9,1.3605442176870763,True,"SOURCE: USDA GAIN ID2026-0013 Jakarta April 15, 2026"

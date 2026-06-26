@@ -1,0 +1,226 @@
+year,entity,production_tonnes,yield_t_per_ha,yoy_production_pct,section,climate_region,enso_analog_flag,provenance
+2000,CIV,1401101.0,0.7006,,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2001,CIV,1212428.0,0.6821,-13.4661,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2002,CIV,1264708.0,0.67270005,4.312,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2003,CIV,1351546.0,0.6758,6.8662,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2004,CIV,1407213.0,0.68640006,4.1188,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2005,CIV,1286330.0,0.58640003,-8.5902,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2006,CIV,1408854.0,0.6176,9.5251,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2007,CIV,1229908.0,0.5184001,-12.7015,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2008,CIV,1382441.0,0.6011,12.402,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2009,CIV,1223153.0,0.5621,-11.5222,West Africa,Tropical humid,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2010,CIV,1301347.0,0.5711,6.3928,West Africa,Tropical humid,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2011,CIV,1511255.0,0.5628,16.1301,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2012,CIV,1485882.0,0.5411,-1.6789,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2013,CIV,1448992.0,0.53050005,-2.4827,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2014,CIV,1637777.5,0.531,13.0287,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2015,CIV,1796000.0,0.51940006,9.6608,West Africa,Tropical humid,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2016,CIV,1634000.0,0.51570004,-9.02,West Africa,Tropical humid,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2017,CIV,2034000.0,0.51070005,24.4798,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2018,CIV,2113189.0,0.51890004,3.8933,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2019,CIV,2235043.0,0.51870006,5.7664,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2020,CIV,2200000.0,0.51570004,-1.5679,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2021,CIV,2228459.0,0.50920004,1.2936,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2022,CIV,2358991.0,0.5034,5.8575,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2023,CIV,1822441.0,0.49950004,-22.7449,West Africa,Tropical humid,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2024,CIV,1890442.0,0.49550003,3.7313,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2000,GHA,436600.0,0.29110003,,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2001,GHA,389591.0,0.28860003,-10.7671,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2002,GHA,340562.0,0.28500003,-12.5847,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2003,GHA,497000.0,0.3313,45.9352,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2004,GHA,737000.0,0.36850002,48.2897,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2005,GHA,740000.0,0.4,0.4071,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2006,GHA,734000.0,0.4,-0.8108,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2007,GHA,614500.0,0.42000002,-16.2807,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2008,GHA,680781.0,0.37350002,10.7862,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2009,GHA,710638.0,0.44410002,4.3857,West Africa,Tropical humid,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2010,GHA,632037.4,0.395,-11.0606,West Africa,Tropical humid,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2011,GHA,700020.0,0.4374,10.7561,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2012,GHA,879348.0,0.54950005,25.6176,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2013,GHA,835466.0,0.5221,-4.9903,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2014,GHA,858720.0,0.51000005,2.7834,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2015,GHA,858720.0,0.51000005,0.0,West Africa,Tropical humid,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2016,GHA,858720.0,0.51000005,0.0,West Africa,Tropical humid,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2017,GHA,969300.0,0.5201,12.8773,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2018,GHA,904700.0,0.52400005,-6.6646,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2019,GHA,811700.0,0.52820003,-10.2797,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2020,GHA,800000.0,0.53830004,-1.4414,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2021,GHA,1047385.0,0.55,30.9231,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2022,GHA,683300.0,0.5606,-34.7613,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2023,GHA,653700.0,0.5684,-4.3319,West Africa,Tropical humid,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2024,GHA,530000.0,0.57620007,-18.9231,West Africa,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2000,IDN,421142.0,0.5616,,Southeast Asia,Equatorial,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2001,IDN,536804.0,0.7013,27.4639,Southeast Asia,Equatorial,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2002,IDN,619192.0,0.79700005,15.3479,Southeast Asia,Equatorial,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2003,IDN,695361.0,0.7235,12.3014,Southeast Asia,Equatorial,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2004,IDN,691704.0,0.634,-0.5259,Southeast Asia,Equatorial,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2005,IDN,748827.0,0.6416,8.2583,Southeast Asia,Equatorial,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2006,IDN,769386.0,0.84950006,2.7455,Southeast Asia,Equatorial,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2007,IDN,740006.0,0.80090004,-3.8186,Southeast Asia,Equatorial,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2008,IDN,803593.0,0.56380004,8.5928,Southeast Asia,Equatorial,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2009,IDN,809583.0,0.5101,0.7454,Southeast Asia,Equatorial,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2010,IDN,844626.0,0.51140004,4.3285,Southeast Asia,Equatorial,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2011,IDN,712200.0,0.41110003,-15.6787,Southeast Asia,Equatorial,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2012,IDN,740500.0,0.39960003,3.9736,Southeast Asia,Equatorial,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2013,IDN,720900.0,0.41420004,-2.6469,Southeast Asia,Equatorial,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2014,IDN,728400.0,0.42170003,1.0404,Southeast Asia,Equatorial,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2015,IDN,593331.0,0.34710002,-18.5432,Southeast Asia,Equatorial,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2016,IDN,656817.0,0.38610002,10.6999,Southeast Asia,Equatorial,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2017,IDN,590684.0,0.35620004,-10.0687,Southeast Asia,Equatorial,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2018,IDN,767280.0,0.4763,29.8969,Southeast Asia,Equatorial,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2019,IDN,734795.0,0.47070003,-4.2338,Southeast Asia,Equatorial,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2020,IDN,720660.0,0.47760004,-1.9237,Southeast Asia,Equatorial,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2021,IDN,650611.7,0.45790002,-9.72,Southeast Asia,Equatorial,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2022,IDN,650611.7,0.45790002,0.0,Southeast Asia,Equatorial,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2023,IDN,632117.0,0.45370004,-2.8427,Southeast Asia,Equatorial,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2024,IDN,632702.0,0.45620003,0.0925,Southeast Asia,Equatorial,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2000,ECU,64991.0,0.1613,,South America,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2001,ECU,76030.0,0.177,16.9854,South America,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2002,ECU,60268.0,0.1658,-20.7313,South America,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2003,ECU,88263.0,0.2533,46.4509,South America,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2004,ECU,89680.0,0.2666,1.6054,South America,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2005,ECU,93658.0,0.2618,4.4358,South America,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2006,ECU,87561.0,0.2502,-6.5099,South America,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2007,ECU,85891.0,0.24080001,-1.9072,South America,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2008,ECU,94300.0,0.2504,9.7903,South America,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2009,ECU,120581.0,0.30290002,27.8696,South America,Tropical,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2010,ECU,132099.0,0.3669,9.5521,South America,Tropical,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2011,ECU,163151.73,0.4084,23.5072,South America,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2012,ECU,133322.98,0.34170002,-18.2828,South America,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2013,ECU,128446.0,0.31920004,-3.658,South America,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2014,ECU,156215.97,0.41920003,21.62,South America,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2015,ECU,180192.38,0.41700003,15.3482,South America,Tropical,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2016,ECU,177551.3,0.39090002,-1.4657,South America,Tropical,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2017,ECU,205955.0,0.44070002,15.9975,South America,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2018,ECU,235182.0,0.46850002,14.191,South America,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2019,ECU,283679.56,0.53990006,20.6213,South America,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2020,ECU,327902.56,0.6218,15.5891,South America,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2021,ECU,302093.9,0.5558,-7.8708,South America,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2022,ECU,337149.4,0.6621,11.6042,South America,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2023,ECU,375719.12,0.72720003,11.4399,South America,Tropical,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2024,ECU,403698.84,0.7454001,7.447,South America,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2000,CMR,122600.0,0.33020002,,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2001,CMR,122100.0,0.33520004,-0.4078,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2002,CMR,125000.0,0.342,2.3751,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2003,CMR,154965.0,0.34440002,23.972,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2004,CMR,166754.0,0.3403,7.6075,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2005,CMR,140000.0,0.35000002,-16.044,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2006,CMR,164553.0,0.374,17.5379,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2007,CMR,212619.0,0.38660002,29.21,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2008,CMR,229203.0,0.3885,7.7999,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2009,CMR,235500.0,0.3925,2.7473,Rest of World,Tropical,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2010,CMR,264077.0,0.3941,12.1346,Rest of World,Tropical,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2011,CMR,240000.0,0.35820004,-9.1174,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2012,CMR,268941.0,0.4014,12.0587,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2013,CMR,275000.0,0.4104,2.2529,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2014,CMR,269228.0,0.37690002,-2.0989,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2015,CMR,310000.0,0.40390003,15.144,Rest of World,Tropical,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2016,CMR,344752.0,0.40460002,11.2103,Rest of World,Tropical,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2017,CMR,322247.8,0.41750002,-6.5276,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2018,CMR,317530.3,0.48180002,-1.4639,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2019,CMR,301255.2,0.44790003,-5.1255,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2020,CMR,310077.0,0.53580004,2.9283,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2021,CMR,295000.0,0.49970004,-4.8623,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2022,CMR,295000.0,0.48040003,0.0,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2023,CMR,300000.0,0.4934,1.6949,Rest of World,Tropical,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2024,CMR,320000.0,0.49830002,6.6667,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2000,NGA,338000.0,0.3499,,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2001,NGA,340000.0,0.35200003,0.5917,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2002,NGA,362000.0,0.3515,6.4706,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2003,NGA,385000.0,0.38420004,6.3536,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2004,NGA,412000.0,0.38790002,7.013,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2005,NGA,441000.0,0.3678,7.0388,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2006,NGA,485000.0,0.4393,9.9773,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2007,NGA,360570.0,0.26520002,-25.6557,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2008,NGA,367020.0,0.272,1.7888,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2009,NGA,363510.0,0.2684,-0.9564,Rest of World,Tropical,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2010,NGA,399200.0,0.31370002,9.8182,Rest of World,Tropical,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2011,NGA,391000.0,0.31500003,-2.0541,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2012,NGA,383000.0,0.30240002,-2.046,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2013,NGA,367000.0,0.296,-4.1775,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2014,NGA,329870.0,0.28820002,-10.1172,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2015,NGA,302066.0,0.2858,-8.4288,Rest of World,Tropical,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2016,NGA,298029.0,0.28410003,-1.3365,Rest of World,Tropical,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2017,NGA,250000.0,0.28020003,-16.1155,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2018,NGA,270000.0,0.2842,8.0,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2019,NGA,250000.0,0.2823,-7.4074,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2020,NGA,357608.25,0.3009,43.0433,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2021,NGA,280000.0,0.27800003,-21.702,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2022,NGA,300000.0,0.27290002,7.1429,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2023,NGA,350000.0,0.27240002,16.6667,Rest of World,Tropical,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2024,NGA,350000.0,0.2691,0.0,Rest of World,Tropical,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2000,BRA,196788.0,0.2788,,Rest of World,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2001,BRA,185662.0,0.2789,-5.6538,Rest of World,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2002,BRA,174796.0,0.30020002,-5.8526,Rest of World,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2003,BRA,170004.0,0.28770003,-2.7415,Rest of World,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2004,BRA,196005.0,0.3068,15.2943,Rest of World,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2005,BRA,208620.0,0.3336,6.4361,Rest of World,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2006,BRA,212270.0,0.328,1.7496,Rest of World,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2007,BRA,201651.0,0.32060003,-5.0026,Rest of World,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2008,BRA,202030.0,0.31500003,0.1879,Rest of World,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2009,BRA,218487.0,0.34350002,8.1458,Rest of World,Tropical humid,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2010,BRA,235389.0,0.3563,7.7359,Rest of World,Tropical humid,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2011,BRA,248524.0,0.36520004,5.5801,Rest of World,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2012,BRA,253211.0,0.37,1.8859,Rest of World,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2013,BRA,256186.0,0.37170002,1.1749,Rest of World,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2014,BRA,273793.0,0.3888,6.8727,Rest of World,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2015,BRA,278299.0,0.39600003,1.6458,Rest of World,Tropical humid,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2016,BRA,213871.0,0.29700002,-23.1506,Rest of World,Tropical humid,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2017,BRA,235809.0,0.39910004,10.2576,Rest of World,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2018,BRA,239318.0,0.4146,1.4881,Rest of World,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2019,BRA,259451.0,0.44590002,8.4127,Rest of World,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2020,BRA,269740.0,0.4584,3.9657,Rest of World,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2021,BRA,302126.0,0.5029,12.0064,Rest of World,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2022,BRA,301026.0,0.49940002,-0.3641,Rest of World,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2023,BRA,296114.0,0.4833,-1.6318,Rest of World,Tropical humid,True,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2024,BRA,297509.0,0.48210004,0.4711,Rest of World,Tropical humid,False,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+2000,Rest of World,657388.0,0.3249423732285956,,Rest of World,Mixed,False,DERIVED: sum CMR+NGA+BRA SOURCE OWID local
+2001,Rest of World,647762.0,0.32788133123585517,-1.4643,Rest of World,Mixed,False,DERIVED: sum CMR+NGA+BRA SOURCE OWID local
+2002,Rest of World,661796.0,0.33615610051423706,2.1665,Rest of World,Mixed,False,DERIVED: sum CMR+NGA+BRA SOURCE OWID local
+2003,Rest of World,709969.0,0.35240569714934034,7.2791,Rest of World,Mixed,False,DERIVED: sum CMR+NGA+BRA SOURCE OWID local
+2004,Rest of World,774759.0,0.3571375465660935,9.1258,Rest of World,Mixed,False,DERIVED: sum CMR+NGA+BRA SOURCE OWID local
+2005,Rest of World,789620.0,0.3556083113396317,1.9181,Rest of World,Mixed,False,DERIVED: sum CMR+NGA+BRA SOURCE OWID local
+2006,Rest of World,861823.0,0.3994183051508256,9.144,Rest of World,Mixed,False,DERIVED: sum CMR+NGA+BRA SOURCE OWID local
+2007,Rest of World,774840.0,0.3129304082304863,-10.0929,Rest of World,Mixed,False,DERIVED: sum CMR+NGA+BRA SOURCE OWID local
+2008,Rest of World,798253.0,0.31633362049488073,3.0217,Rest of World,Mixed,False,DERIVED: sum CMR+NGA+BRA SOURCE OWID local
+2009,Rest of World,817497.0,0.32422152358937095,2.4108,Rest of World,Mixed,True,DERIVED: sum CMR+NGA+BRA SOURCE OWID local
+2010,Rest of World,898666.0,0.34848419143931114,9.929,Rest of World,Mixed,True,DERIVED: sum CMR+NGA+BRA SOURCE OWID local
+2011,Rest of World,879524.0,0.34097306733069255,-2.13,Rest of World,Mixed,False,DERIVED: sum CMR+NGA+BRA SOURCE OWID local
+2012,Rest of World,905152.0,0.3507258394833133,2.9138,Rest of World,Mixed,False,DERIVED: sum CMR+NGA+BRA SOURCE OWID local
+2013,Rest of World,898186.0,0.35261776661373034,-0.7696,Rest of World,Mixed,False,DERIVED: sum CMR+NGA+BRA SOURCE OWID local
+2014,Rest of World,872891.0,0.34711240874514687,-2.8162,Rest of World,Mixed,False,DERIVED: sum CMR+NGA+BRA SOURCE OWID local
+2015,Rest of World,890365.0,0.36136402986300004,2.0019,Rest of World,Mixed,True,DERIVED: sum CMR+NGA+BRA SOURCE OWID local
+2016,Rest of World,856652.0,0.3358147826811004,-3.7864,Rest of World,Mixed,True,DERIVED: sum CMR+NGA+BRA SOURCE OWID local
+2017,Rest of World,808056.8,0.36965204893680237,-5.6727,Rest of World,Mixed,False,DERIVED: sum CMR+NGA+BRA SOURCE OWID local
+2018,Rest of World,826848.3,0.39782551127045435,2.3255,Rest of World,Mixed,False,DERIVED: sum CMR+NGA+BRA SOURCE OWID local
+2019,Rest of World,810706.2,0.3961933672231396,-1.9522,Rest of World,Mixed,False,DERIVED: sum CMR+NGA+BRA SOURCE OWID local
+2020,Rest of World,937425.25,0.42391903506768136,15.6307,Rest of World,Mixed,False,DERIVED: sum CMR+NGA+BRA SOURCE OWID local
+2021,Rest of World,877126.0,0.4300302186914993,-6.4324,Rest of World,Mixed,False,DERIVED: sum CMR+NGA+BRA SOURCE OWID local
+2022,Rest of World,896026.0,0.41730977144694464,2.1548,Rest of World,Mixed,False,DERIVED: sum CMR+NGA+BRA SOURCE OWID local
+2023,Rest of World,946114.0,0.4084834419530839,5.59,Rest of World,Mixed,True,DERIVED: sum CMR+NGA+BRA SOURCE OWID local
+2024,Rest of World,967509.0,0.41040456181840174,2.2614,Rest of World,Mixed,False,DERIVED: sum CMR+NGA+BRA SOURCE OWID local
+2000,Global,2981222.0,0.5263999950523645,,Global,Global,False,DERIVED: sum all countries SOURCE OWID local
+2001,Global,2862615.0,0.5385775366829736,-3.9785,Global,Global,False,DERIVED: sum all countries SOURCE OWID local
+2002,Global,2946526.0,0.5680535542899604,2.9313,Global,Global,False,DERIVED: sum all countries SOURCE OWID local
+2003,Global,3342139.0,0.554638424254473,13.4264,Global,Global,False,DERIVED: sum all countries SOURCE OWID local
+2004,Global,3700356.0,0.5341756725063157,10.7182,Global,Global,False,DERIVED: sum all countries SOURCE OWID local
+2005,Global,3658435.0,0.5018720991325252,-1.1329,Global,Global,False,DERIVED: sum all countries SOURCE OWID local
+2006,Global,3861624.0,0.565419452479879,5.554,Global,Global,False,DERIVED: sum all countries SOURCE OWID local
+2007,Global,3445145.0,0.5083962586925254,-10.7851,Global,Global,False,DERIVED: sum all countries SOURCE OWID local
+2008,Global,3759368.0,0.48264754855609765,9.1207,Global,Global,False,DERIVED: sum all countries SOURCE OWID local
+2009,Global,3681452.0,0.4665743434368071,-2.0726,Global,Global,True,DERIVED: sum all countries SOURCE OWID local
+2010,Global,3808775.4,0.4690310256595966,3.4585,Global,Global,True,DERIVED: sum all countries SOURCE OWID local
+2011,Global,3966150.73,0.45788316924832556,4.1319,Global,Global,False,DERIVED: sum all countries SOURCE OWID local
+2012,Global,4144204.98,0.46960346116249774,4.4893,Global,Global,False,DERIVED: sum all countries SOURCE OWID local
+2013,Global,4031990.0,0.46160834861871186,-2.7078,Global,Global,False,DERIVED: sum all countries SOURCE OWID local
+2014,Global,4254004.470000001,0.46620788674922065,5.5063,Global,Global,False,DERIVED: sum all countries SOURCE OWID local
+2015,Global,4318608.38,0.4570039446312013,1.5187,Global,Global,True,DERIVED: sum all countries SOURCE OWID local
+2016,Global,4183740.3,0.45205467869664284,-3.123,Global,Global,True,DERIVED: sum all countries SOURCE OWID local
+2017,Global,4607995.8,0.4650096947839614,10.1406,Global,Global,False,DERIVED: sum all countries SOURCE OWID local
+2018,Global,4847199.3,0.4900100322379578,5.1911,Global,Global,False,DERIVED: sum all countries SOURCE OWID local
+2019,Global,4875923.76,0.49391255489377867,0.5926,Global,Global,False,DERIVED: sum all countries SOURCE OWID local
+2020,Global,4985987.8100000005,0.5035410594119524,2.2573,Global,Global,False,DERIVED: sum all countries SOURCE OWID local
+2021,Global,5105675.600000001,0.5001889950862906,2.4005,Global,Global,False,DERIVED: sum all countries SOURCE OWID local
+2022,Global,4926078.1,0.5005272212092524,-3.5176,Global,Global,False,DERIVED: sum all countries SOURCE OWID local
+2023,Global,4430091.12,0.5030051840373643,-10.0686,Global,Global,True,DERIVED: sum all countries SOURCE OWID local
+2024,Global,4424351.84,0.503740687833851,-0.1296,Global,Global,False,DERIVED: sum all countries SOURCE OWID local

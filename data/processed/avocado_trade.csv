@@ -1,0 +1,80 @@
+year,country,iso_code,commodity,ending_stocks,exports,imports,export_value_1000usd,yoy_stocks_pct,yoy_exports_pct,enso_analog_flag,provenance
+2000,Colombia,COL,Avocado,,8000.0,,,,,0,friend avocado_export_volumes.csv — direction signal only
+2001,Colombia,COL,Avocado,,9000.0,,,,12.5,0,friend avocado_export_volumes.csv — direction signal only
+2002,Colombia,COL,Avocado,,9000.0,,,,0.0,1,friend avocado_export_volumes.csv — direction signal only
+2003,Colombia,COL,Avocado,,7000.0,,,,-22.22222222222222,1,friend avocado_export_volumes.csv — direction signal only
+2004,Colombia,COL,Avocado,,8000.0,,,,14.28571428571428,1,friend avocado_export_volumes.csv — direction signal only
+2005,Colombia,COL,Avocado,,9000.0,,,,12.5,1,friend avocado_export_volumes.csv — direction signal only
+2006,Colombia,COL,Avocado,,9000.0,,,,0.0,1,friend avocado_export_volumes.csv — direction signal only
+2007,Colombia,COL,Avocado,,10000.0,,,,11.111111111111116,1,friend avocado_export_volumes.csv — direction signal only
+2008,Colombia,COL,Avocado,,11000.0,,,,10.000000000000009,0,friend avocado_export_volumes.csv — direction signal only
+2009,Colombia,COL,Avocado,,9000.0,,,,-18.181818181818176,1,friend avocado_export_volumes.csv — direction signal only
+2010,Colombia,COL,Avocado,,11000.0,,,,22.222222222222232,1,friend avocado_export_volumes.csv — direction signal only
+2011,Colombia,COL,Avocado,,12000.0,,,,9.090909090909083,0,friend avocado_export_volumes.csv — direction signal only
+2012,Colombia,COL,Avocado,,15000.0,,,,25.0,0,friend avocado_export_volumes.csv — direction signal only
+2013,Colombia,COL,Avocado,,22000.0,,,,46.66666666666666,0,friend avocado_export_volumes.csv — direction signal only
+2014,Colombia,COL,Avocado,,35000.0,,,,59.09090909090908,0,friend avocado_export_volumes.csv — direction signal only
+2015,Colombia,COL,Avocado,,55000.0,,,,57.14285714285714,1,friend avocado_export_volumes.csv — direction signal only
+2016,Colombia,COL,Avocado,,80000.0,,,,45.45454545454546,1,friend avocado_export_volumes.csv — direction signal only
+2017,Colombia,COL,Avocado,,120000.0,,,,50.0,0,friend avocado_export_volumes.csv — direction signal only
+2018,Colombia,COL,Avocado,,185000.0,,,,54.16666666666667,1,friend avocado_export_volumes.csv — direction signal only
+2019,Colombia,COL,Avocado,,220000.0,,,,18.918918918918926,1,friend avocado_export_volumes.csv — direction signal only
+2020,Colombia,COL,Avocado,,270000.0,,,,22.72727272727273,0,friend avocado_export_volumes.csv — direction signal only
+2021,Colombia,COL,Avocado,,320000.0,,,,18.518518518518512,0,friend avocado_export_volumes.csv — direction signal only
+2022,Colombia,COL,Avocado,,380000.0,,,,18.75,0,friend avocado_export_volumes.csv — direction signal only
+2023,Colombia,COL,Avocado,,360000.0,,,,-5.263157894736848,1,friend avocado_export_volumes.csv — direction signal only
+2024,Colombia,COL,Avocado,,138562.0,,310035.29,,-61.510555555555555,1,WITS HS 080440 — Colombia to World 2024
+2000,Mexico,MEX,Avocado,,105000.0,,,,,0,friend avocado_export_volumes.csv — direction signal only
+2001,Mexico,MEX,Avocado,,120000.0,,,,14.28571428571428,0,friend avocado_export_volumes.csv — direction signal only
+2002,Mexico,MEX,Avocado,,148000.0,,,,23.33333333333334,1,friend avocado_export_volumes.csv — direction signal only
+2003,Mexico,MEX,Avocado,,175000.0,,,,18.243243243243246,1,friend avocado_export_volumes.csv — direction signal only
+2004,Mexico,MEX,Avocado,,220000.0,,,,25.71428571428571,1,friend avocado_export_volumes.csv — direction signal only
+2005,Mexico,MEX,Avocado,,290000.0,,,,31.818181818181813,1,friend avocado_export_volumes.csv — direction signal only
+2006,Mexico,MEX,Avocado,,340000.0,,,,17.24137931034482,1,friend avocado_export_volumes.csv — direction signal only
+2007,Mexico,MEX,Avocado,,380000.0,,,,11.764705882352944,1,friend avocado_export_volumes.csv — direction signal only
+2008,Mexico,MEX,Avocado,,401000.0,,,,5.52631578947369,0,friend avocado_export_volumes.csv — direction signal only
+2009,Mexico,MEX,Avocado,,450000.0,,,,12.219451371571077,1,friend avocado_export_volumes.csv — direction signal only
+2010,Mexico,MEX,Avocado,,520000.0,,,,15.555555555555545,1,friend avocado_export_volumes.csv — direction signal only
+2011,Mexico,MEX,Avocado,,600000.0,,,,15.384615384615374,0,friend avocado_export_volumes.csv — direction signal only
+2012,Mexico,MEX,Avocado,,680000.0,,,,13.33333333333333,0,friend avocado_export_volumes.csv — direction signal only
+2013,Mexico,MEX,Avocado,,750000.0,,,,10.294117647058831,0,friend avocado_export_volumes.csv — direction signal only
+2014,Mexico,MEX,Avocado,,820000.0,,,,9.333333333333327,0,friend avocado_export_volumes.csv — direction signal only
+2015,Mexico,MEX,Avocado,,900000.0,,,,9.756097560975618,1,friend avocado_export_volumes.csv — direction signal only
+2016,Mexico,MEX,Avocado,,960000.0,,,,6.666666666666665,1,friend avocado_export_volumes.csv — direction signal only
+2017,Mexico,MEX,Avocado,,1030000.0,,,,7.291666666666674,0,friend avocado_export_volumes.csv — direction signal only
+2018,Mexico,MEX,Avocado,,1100000.0,,,,6.796116504854366,1,friend avocado_export_volumes.csv — direction signal only
+2019,Mexico,MEX,Avocado,,1250000.0,,,,13.636363636363647,1,friend avocado_export_volumes.csv — direction signal only
+2020,Mexico,MEX,Avocado,,1159000.0,,,,-7.279999999999998,0,friend avocado_export_volumes.csv — direction signal only
+2021,Mexico,MEX,Avocado,,1200000.0,,,,3.5375323554788674,0,friend avocado_export_volumes.csv — direction signal only
+2022,Mexico,MEX,Avocado,,1200000.0,,3440000.0,,0.0,0,USDA GAIN MX2026-0019/MX2024-0018
+2023,Mexico,MEX,Avocado,,1400000.0,,3030000.0,,16.666666666666675,1,USDA GAIN MX2026-0019/MX2024-0018
+2024,Mexico,MEX,Avocado,,1190400.0,,3828209.0,,-14.971428571428568,1,WITS HS 080440
+2025,Mexico,MEX,Avocado,,1220000.0,,,,2.4865591397849496,0,USDA GAIN MX2026-0019/MX2024-0018
+2026,Mexico,MEX,Avocado,,1310000.0,,,,7.377049180327866,0,USDA GAIN MX2026-0019/MX2024-0018
+2000,World,OWID_WRL,Avocado,,390000.0,,,,,0,friend avocado_export_volumes.csv — direction signal only
+2001,World,OWID_WRL,Avocado,,430000.0,,,,10.256410256410264,0,friend avocado_export_volumes.csv — direction signal only
+2002,World,OWID_WRL,Avocado,,460000.0,,,,6.976744186046502,1,friend avocado_export_volumes.csv — direction signal only
+2003,World,OWID_WRL,Avocado,,490000.0,,,,6.521739130434789,1,friend avocado_export_volumes.csv — direction signal only
+2004,World,OWID_WRL,Avocado,,530000.0,,,,8.163265306122458,1,friend avocado_export_volumes.csv — direction signal only
+2005,World,OWID_WRL,Avocado,,600000.0,,,,13.207547169811317,1,friend avocado_export_volumes.csv — direction signal only
+2006,World,OWID_WRL,Avocado,,660000.0,,,,10.000000000000009,1,friend avocado_export_volumes.csv — direction signal only
+2007,World,OWID_WRL,Avocado,,730000.0,,,,10.606060606060597,1,friend avocado_export_volumes.csv — direction signal only
+2008,World,OWID_WRL,Avocado,,820000.0,,,,12.328767123287676,0,friend avocado_export_volumes.csv — direction signal only
+2009,World,OWID_WRL,Avocado,,890000.0,,,,8.536585365853666,1,friend avocado_export_volumes.csv — direction signal only
+2010,World,OWID_WRL,Avocado,,950000.0,,,,6.741573033707859,1,friend avocado_export_volumes.csv — direction signal only
+2011,World,OWID_WRL,Avocado,,1050000.0,,,,10.526315789473696,0,friend avocado_export_volumes.csv — direction signal only
+2012,World,OWID_WRL,Avocado,,1150000.0,,,,9.523809523809534,0,friend avocado_export_volumes.csv — direction signal only
+2013,World,OWID_WRL,Avocado,,1280000.0,,,,11.304347826086957,0,friend avocado_export_volumes.csv — direction signal only
+2014,World,OWID_WRL,Avocado,,1450000.0,,,,13.28125,0,friend avocado_export_volumes.csv — direction signal only
+2015,World,OWID_WRL,Avocado,,1620000.0,,,,11.724137931034484,1,friend avocado_export_volumes.csv — direction signal only
+2016,World,OWID_WRL,Avocado,,1820000.0,,,,12.34567901234569,1,friend avocado_export_volumes.csv — direction signal only
+2017,World,OWID_WRL,Avocado,,2050000.0,,,,12.637362637362637,0,friend avocado_export_volumes.csv — direction signal only
+2018,World,OWID_WRL,Avocado,,2400000.0,,,,17.07317073170731,1,friend avocado_export_volumes.csv — direction signal only
+2019,World,OWID_WRL,Avocado,,2646000.0,,,,10.250000000000004,1,friend avocado_export_volumes.csv — direction signal only
+2020,World,OWID_WRL,Avocado,,2901000.0,,,,9.637188208616788,0,friend avocado_export_volumes.csv — direction signal only
+2021,World,OWID_WRL,Avocado,,3100000.0,,,,6.859703550499829,0,friend avocado_export_volumes.csv — direction signal only
+2022,World,OWID_WRL,Avocado,,3350000.0,,,,8.064516129032251,0,friend avocado_export_volumes.csv — direction signal only
+2023,World,OWID_WRL,Avocado,,3500000.0,,,,4.477611940298498,1,friend avocado_export_volumes.csv — direction signal only
+2023,Peru,PER,Avocado,,619000.0,,,,,1,USDA GAIN PE2025-0005 — year 2023
+2024,Peru,PER,Avocado,,590000.0,,,,-4.684975767366717,1,USDA GAIN PE2025-0005 — year 2024
+2025,Peru,PER,Avocado,,630000.0,,,,6.779661016949157,0,USDA GAIN PE2025-0005 — year 2025

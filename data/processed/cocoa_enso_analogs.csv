@@ -1,0 +1,36 @@
+section,country,analog_year,production_t,yield_t_per_ha,yoy_production_pct,provenance
+West Africa,CIV,2009,1223153.0,0.5621,-11.5222,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+West Africa,CIV,2010,1301347.0,0.5711,6.3928,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+West Africa,CIV,2015,1796000.0,0.51940006,9.6608,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+West Africa,CIV,2016,1634000.0,0.51570004,-9.02,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+West Africa,CIV,2023,1822441.0,0.49950004,-22.7449,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+West Africa,GHA,2009,710638.0,0.44410002,4.3857,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+West Africa,GHA,2010,632037.4,0.395,-11.0606,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+West Africa,GHA,2015,858720.0,0.51000005,0.0,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+West Africa,GHA,2016,858720.0,0.51000005,0.0,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+West Africa,GHA,2023,653700.0,0.5684,-4.3319,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+Southeast Asia,IDN,2009,809583.0,0.5101,0.7454,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+Southeast Asia,IDN,2010,844626.0,0.51140004,4.3285,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+Southeast Asia,IDN,2015,593331.0,0.34710002,-18.5432,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+Southeast Asia,IDN,2016,656817.0,0.38610002,10.6999,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+Southeast Asia,IDN,2023,632117.0,0.45370004,-2.8427,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+South America,ECU,2009,120581.0,0.30290002,27.8696,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+South America,ECU,2010,132099.0,0.3669,9.5521,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+South America,ECU,2015,180192.38,0.41700003,15.3482,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+South America,ECU,2016,177551.3,0.39090002,-1.4657,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+South America,ECU,2023,375719.12,0.72720003,11.4399,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+Rest of World,CMR,2009,235500.0,0.3925,2.7473,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+Rest of World,CMR,2010,264077.0,0.3941,12.1346,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+Rest of World,CMR,2015,310000.0,0.40390003,15.144,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+Rest of World,CMR,2016,344752.0,0.40460002,11.2103,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+Rest of World,CMR,2023,300000.0,0.4934,1.6949,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+Rest of World,NGA,2009,363510.0,0.2684,-0.9564,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+Rest of World,NGA,2010,399200.0,0.31370002,9.8182,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+Rest of World,NGA,2015,302066.0,0.2858,-8.4288,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+Rest of World,NGA,2016,298029.0,0.28410003,-1.3365,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+Rest of World,NGA,2023,350000.0,0.27240002,16.6667,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+Rest of World,BRA,2009,218487.0,0.34350002,8.1458,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+Rest of World,BRA,2010,235389.0,0.3563,7.7359,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+Rest of World,BRA,2015,278299.0,0.39600003,1.6458,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+Rest of World,BRA,2016,213871.0,0.29700002,-23.1506,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID
+Rest of World,BRA,2023,296114.0,0.4833,-1.6318,SOURCE: OWID cocoa-bean-production.csv local file FAO/OWID

@@ -1,0 +1,994 @@
+{
+  "countryProd": {
+    "civ": [
+      {
+        "yr": "2000",
+        "kt": 1401.101,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2001",
+        "kt": 1212.428,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2002",
+        "kt": 1264.708,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2003",
+        "kt": 1351.546,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2004",
+        "kt": 1407.213,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2005",
+        "kt": 1286.33,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2006",
+        "kt": 1408.854,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2007",
+        "kt": 1229.908,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2008",
+        "kt": 1382.441,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2009",
+        "kt": 1223.153,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2010",
+        "kt": 1301.347,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2011",
+        "kt": 1511.255,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2012",
+        "kt": 1485.882,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2013",
+        "kt": 1448.992,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2014",
+        "kt": 1637.777,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2015",
+        "kt": 1796.0,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2016",
+        "kt": 1634.0,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2017",
+        "kt": 2034.0,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2018",
+        "kt": 2113.189,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2019",
+        "kt": 2235.043,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2020",
+        "kt": 2200.0,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2021",
+        "kt": 2228.459,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2022",
+        "kt": 2358.991,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2023",
+        "kt": 1822.441,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2024",
+        "kt": 1890.442,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      }
+    ],
+    "gha": [
+      {
+        "yr": "2000",
+        "kt": 436.6,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2001",
+        "kt": 389.591,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2002",
+        "kt": 340.562,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2003",
+        "kt": 497.0,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2004",
+        "kt": 737.0,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2005",
+        "kt": 740.0,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2006",
+        "kt": 734.0,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2007",
+        "kt": 614.5,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2008",
+        "kt": 680.781,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2009",
+        "kt": 710.638,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2010",
+        "kt": 632.037,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2011",
+        "kt": 700.02,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2012",
+        "kt": 879.348,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2013",
+        "kt": 835.466,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2014",
+        "kt": 858.72,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2015",
+        "kt": 858.72,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2016",
+        "kt": 858.72,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2017",
+        "kt": 969.3,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2018",
+        "kt": 904.7,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2019",
+        "kt": 811.7,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2020",
+        "kt": 800.0,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2021",
+        "kt": 1047.385,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2022",
+        "kt": 683.3,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2023",
+        "kt": 653.7,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2024",
+        "kt": 530.0,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      }
+    ],
+    "ecu": [
+      {
+        "yr": "2000",
+        "kt": 64.991,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2001",
+        "kt": 76.03,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2002",
+        "kt": 60.268,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2003",
+        "kt": 88.263,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2004",
+        "kt": 89.68,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2005",
+        "kt": 93.658,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2006",
+        "kt": 87.561,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2007",
+        "kt": 85.891,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2008",
+        "kt": 94.3,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2009",
+        "kt": 120.581,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2010",
+        "kt": 132.099,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2011",
+        "kt": 163.152,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2012",
+        "kt": 133.323,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2013",
+        "kt": 128.446,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2014",
+        "kt": 156.216,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2015",
+        "kt": 180.192,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2016",
+        "kt": 177.551,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2017",
+        "kt": 205.955,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2018",
+        "kt": 235.182,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2019",
+        "kt": 283.68,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2020",
+        "kt": 327.903,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2021",
+        "kt": 302.094,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2022",
+        "kt": 337.149,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2023",
+        "kt": 375.719,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2024",
+        "kt": 403.699,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      }
+    ],
+    "idn": [
+      {
+        "yr": "2000",
+        "kt": 421.142,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2001",
+        "kt": 536.804,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2002",
+        "kt": 619.192,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2003",
+        "kt": 695.361,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2004",
+        "kt": 691.704,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2005",
+        "kt": 748.827,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2006",
+        "kt": 769.386,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2007",
+        "kt": 740.006,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2008",
+        "kt": 803.593,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2009",
+        "kt": 809.583,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2010",
+        "kt": 844.626,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2011",
+        "kt": 712.2,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2012",
+        "kt": 740.5,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2013",
+        "kt": 720.9,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2014",
+        "kt": 728.4,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2015",
+        "kt": 593.331,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2016",
+        "kt": 656.817,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2017",
+        "kt": 590.684,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2018",
+        "kt": 767.28,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2019",
+        "kt": 734.795,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2020",
+        "kt": 720.66,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2021",
+        "kt": 650.612,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2022",
+        "kt": 650.612,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2023",
+        "kt": 632.117,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      },
+      {
+        "yr": "2024",
+        "kt": 632.702,
+        "src": "rep",
+        "note": "SOURCE: OWID local"
+      }
+    ],
+    "wld": [
+      {
+        "yr": "2000",
+        "kt": 2981.222,
+        "src": "rep",
+        "note": "DERIVED: sum all 7 countries SOURCE OWID local"
+      },
+      {
+        "yr": "2001",
+        "kt": 2862.615,
+        "src": "rep",
+        "note": "DERIVED: sum all 7 countries SOURCE OWID local"
+      },
+      {
+        "yr": "2002",
+        "kt": 2946.526,
+        "src": "rep",
+        "note": "DERIVED: sum all 7 countries SOURCE OWID local"
+      },
+      {
+        "yr": "2003",
+        "kt": 3342.139,
+        "src": "rep",
+        "note": "DERIVED: sum all 7 countries SOURCE OWID local"
+      },
+      {
+        "yr": "2004",
+        "kt": 3700.356,
+        "src": "rep",
+        "note": "DERIVED: sum all 7 countries SOURCE OWID local"
+      },
+      {
+        "yr": "2005",
+        "kt": 3658.435,
+        "src": "rep",
+        "note": "DERIVED: sum all 7 countries SOURCE OWID local"
+      },
+      {
+        "yr": "2006",
+        "kt": 3861.624,
+        "src": "rep",
+        "note": "DERIVED: sum all 7 countries SOURCE OWID local"
+      },
+      {
+        "yr": "2007",
+        "kt": 3445.145,
+        "src": "rep",
+        "note": "DERIVED: sum all 7 countries SOURCE OWID local"
+      },
+      {
+        "yr": "2008",
+        "kt": 3759.368,
+        "src": "rep",
+        "note": "DERIVED: sum all 7 countries SOURCE OWID local"
+      },
+      {
+        "yr": "2009",
+        "kt": 3681.452,
+        "src": "rep",
+        "note": "DERIVED: sum all 7 countries SOURCE OWID local"
+      },
+      {
+        "yr": "2010",
+        "kt": 3808.775,
+        "src": "rep",
+        "note": "DERIVED: sum all 7 countries SOURCE OWID local"
+      },
+      {
+        "yr": "2011",
+        "kt": 3966.151,
+        "src": "rep",
+        "note": "DERIVED: sum all 7 countries SOURCE OWID local"
+      },
+      {
+        "yr": "2012",
+        "kt": 4144.205,
+        "src": "rep",
+        "note": "DERIVED: sum all 7 countries SOURCE OWID local"
+      },
+      {
+        "yr": "2013",
+        "kt": 4031.99,
+        "src": "rep",
+        "note": "DERIVED: sum all 7 countries SOURCE OWID local"
+      },
+      {
+        "yr": "2014",
+        "kt": 4254.004,
+        "src": "rep",
+        "note": "DERIVED: sum all 7 countries SOURCE OWID local"
+      },
+      {
+        "yr": "2015",
+        "kt": 4318.608,
+        "src": "rep",
+        "note": "DERIVED: sum all 7 countries SOURCE OWID local"
+      },
+      {
+        "yr": "2016",
+        "kt": 4183.74,
+        "src": "rep",
+        "note": "DERIVED: sum all 7 countries SOURCE OWID local"
+      },
+      {
+        "yr": "2017",
+        "kt": 4607.996,
+        "src": "rep",
+        "note": "DERIVED: sum all 7 countries SOURCE OWID local"
+      },
+      {
+        "yr": "2018",
+        "kt": 4847.199,
+        "src": "rep",
+        "note": "DERIVED: sum all 7 countries SOURCE OWID local"
+      },
+      {
+        "yr": "2019",
+        "kt": 4875.924,
+        "src": "rep",
+        "note": "DERIVED: sum all 7 countries SOURCE OWID local"
+      },
+      {
+        "yr": "2020",
+        "kt": 4985.988,
+        "src": "rep",
+        "note": "DERIVED: sum all 7 countries SOURCE OWID local"
+      },
+      {
+        "yr": "2021",
+        "kt": 5105.676,
+        "src": "rep",
+        "note": "DERIVED: sum all 7 countries SOURCE OWID local"
+      },
+      {
+        "yr": "2022",
+        "kt": 4926.078,
+        "src": "rep",
+        "note": "DERIVED: sum all 7 countries SOURCE OWID local"
+      },
+      {
+        "yr": "2023",
+        "kt": 4430.091,
+        "src": "rep",
+        "note": "DERIVED: sum all 7 countries SOURCE OWID local"
+      },
+      {
+        "yr": "2024",
+        "kt": 4424.352,
+        "src": "rep",
+        "note": "DERIVED: sum all 7 countries SOURCE OWID local"
+      }
+    ]
+  },
+  "yieldTrajectory": [
+    {
+      "yr": "2000",
+      "yoy": null,
+      "abs": "0.5264 t/ha",
+      "src": "rep",
+      "note": "SOURCE: OWID cocoa-bean-yields.csv production-weighted global avg"
+    },
+    {
+      "yr": "2001",
+      "yoy": 2.32,
+      "abs": "0.5386 t/ha",
+      "src": "rep",
+      "note": "SOURCE: OWID cocoa-bean-yields.csv production-weighted global avg"
+    },
+    {
+      "yr": "2002",
+      "yoy": 5.48,
+      "abs": "0.5681 t/ha",
+      "src": "rep",
+      "note": "SOURCE: OWID cocoa-bean-yields.csv production-weighted global avg"
+    },
+    {
+      "yr": "2003",
+      "yoy": -2.38,
+      "abs": "0.5546 t/ha",
+      "src": "rep",
+      "note": "SOURCE: OWID cocoa-bean-yields.csv production-weighted global avg"
+    },
+    {
+      "yr": "2004",
+      "yoy": -3.68,
+      "abs": "0.5342 t/ha",
+      "src": "rep",
+      "note": "SOURCE: OWID cocoa-bean-yields.csv production-weighted global avg"
+    },
+    {
+      "yr": "2005",
+      "yoy": -6.05,
+      "abs": "0.5019 t/ha",
+      "src": "rep",
+      "note": "SOURCE: OWID cocoa-bean-yields.csv production-weighted global avg"
+    },
+    {
+      "yr": "2006",
+      "yoy": 12.65,
+      "abs": "0.5654 t/ha",
+      "src": "rep",
+      "note": "SOURCE: OWID cocoa-bean-yields.csv production-weighted global avg"
+    },
+    {
+      "yr": "2007",
+      "yoy": -10.08,
+      "abs": "0.5084 t/ha",
+      "src": "rep",
+      "note": "SOURCE: OWID cocoa-bean-yields.csv production-weighted global avg"
+    },
+    {
+      "yr": "2008",
+      "yoy": -5.07,
+      "abs": "0.4826 t/ha",
+      "src": "rep",
+      "note": "SOURCE: OWID cocoa-bean-yields.csv production-weighted global avg"
+    },
+    {
+      "yr": "2009",
+      "yoy": -3.32,
+      "abs": "0.4666 t/ha",
+      "src": "rep",
+      "note": "SOURCE: OWID cocoa-bean-yields.csv production-weighted global avg"
+    },
+    {
+      "yr": "2010",
+      "yoy": 0.51,
+      "abs": "0.4690 t/ha",
+      "src": "rep",
+      "note": "SOURCE: OWID cocoa-bean-yields.csv production-weighted global avg"
+    },
+    {
+      "yr": "2011",
+      "yoy": -2.37,
+      "abs": "0.4579 t/ha",
+      "src": "rep",
+      "note": "SOURCE: OWID cocoa-bean-yields.csv production-weighted global avg"
+    },
+    {
+      "yr": "2012",
+      "yoy": 2.56,
+      "abs": "0.4696 t/ha",
+      "src": "rep",
+      "note": "SOURCE: OWID cocoa-bean-yields.csv production-weighted global avg"
+    },
+    {
+      "yr": "2013",
+      "yoy": -1.7,
+      "abs": "0.4616 t/ha",
+      "src": "rep",
+      "note": "SOURCE: OWID cocoa-bean-yields.csv production-weighted global avg"
+    },
+    {
+      "yr": "2014",
+      "yoy": 1.0,
+      "abs": "0.4662 t/ha",
+      "src": "rep",
+      "note": "SOURCE: OWID cocoa-bean-yields.csv production-weighted global avg"
+    },
+    {
+      "yr": "2015",
+      "yoy": -1.97,
+      "abs": "0.4570 t/ha",
+      "src": "rep",
+      "note": "SOURCE: OWID cocoa-bean-yields.csv production-weighted global avg"
+    },
+    {
+      "yr": "2016",
+      "yoy": -1.07,
+      "abs": "0.4521 t/ha",
+      "src": "rep",
+      "note": "SOURCE: OWID cocoa-bean-yields.csv production-weighted global avg"
+    },
+    {
+      "yr": "2017",
+      "yoy": 2.85,
+      "abs": "0.4650 t/ha",
+      "src": "rep",
+      "note": "SOURCE: OWID cocoa-bean-yields.csv production-weighted global avg"
+    },
+    {
+      "yr": "2018",
+      "yoy": 5.38,
+      "abs": "0.4900 t/ha",
+      "src": "rep",
+      "note": "SOURCE: OWID cocoa-bean-yields.csv production-weighted global avg"
+    },
+    {
+      "yr": "2019",
+      "yoy": 0.8,
+      "abs": "0.4939 t/ha",
+      "src": "rep",
+      "note": "SOURCE: OWID cocoa-bean-yields.csv production-weighted global avg"
+    },
+    {
+      "yr": "2020",
+      "yoy": 1.94,
+      "abs": "0.5035 t/ha",
+      "src": "rep",
+      "note": "SOURCE: OWID cocoa-bean-yields.csv production-weighted global avg"
+    },
+    {
+      "yr": "2021",
+      "yoy": -0.66,
+      "abs": "0.5002 t/ha",
+      "src": "rep",
+      "note": "SOURCE: OWID cocoa-bean-yields.csv production-weighted global avg"
+    },
+    {
+      "yr": "2022",
+      "yoy": 0.06,
+      "abs": "0.5005 t/ha",
+      "src": "rep",
+      "note": "SOURCE: OWID cocoa-bean-yields.csv production-weighted global avg"
+    },
+    {
+      "yr": "2023",
+      "yoy": 0.5,
+      "abs": "0.5030 t/ha",
+      "src": "rep",
+      "note": "SOURCE: OWID cocoa-bean-yields.csv production-weighted global avg"
+    },
+    {
+      "yr": "2024",
+      "yoy": 0.14,
+      "abs": "0.5037 t/ha",
+      "src": "rep",
+      "note": "SOURCE: OWID cocoa-bean-yields.csv production-weighted global avg"
+    }
+  ],
+  "grindingsTrajectory": [
+    {
+      "yr": "2026/2025",
+      "yoy": -7.8,
+      "abs": "~EUR",
+      "src": "rep",
+      "note": "ECA 2026/2025 YTD index=92.2%"
+    },
+    {
+      "yr": "2025/2024",
+      "yoy": -6.1,
+      "abs": "~EUR",
+      "src": "rep",
+      "note": "ECA 2025/2024 YTD index=93.9%"
+    },
+    {
+      "yr": "2024/2023",
+      "yoy": -1.5,
+      "abs": "~EUR",
+      "src": "rep",
+      "note": "ECA 2024/2023 YTD index=98.5%"
+    }
+  ],
+  "stocksTrajectory": [
+    {
+      "yr": "2023/24",
+      "yoy": null,
+      "abs": "26.4%",
+      "src": "rep",
+      "note": "ICCO — below 30% threshold"
+    }
+  ],
+  "forwardTrajectory": [
+    {
+      "yr": "MY2024/25",
+      "yoy": -24,
+      "abs": "1.76 MMT",
+      "src": "rep",
+      "note": "USDA GAIN IV2025-0001: CIV MY2023/24 actual -24%. Harmattan + brown rot. Mid-crop 2025 est 300k MT (-40% vs avg)"
+    },
+    {
+      "yr": "MY2025/26",
+      "yoy": null,
+      "abs": "600k MT",
+      "src": "rep",
+      "note": "USDA GAIN GH2025-0008: Ghana MY2024/25 +13% recovery but CSSVD 90k+ ha. MY2025/26 expected depressed."
+    }
+  ],
+  "gainCivSummary": "CIV MY2024/25 production revised to ~1.8 MMT. MY2023/24 actual: 1.76 MMT (-24% vs MY2022/23). Weather: Heavy rainfall Sep-Oct 2024 spread brown rot (Phytophthora) fungal disease in western/southwestern regions. Harmattan winds Dec 2024-Feb 2025 raised drought fears for mid-crop. Mid-crop 2025 estimated at only 300,000 MT (-40% below average). Disease: Brown rot spread in western/southwestern CIV, compounding yield losses. Structural risk: EU deforestation regulation effective Dec 30 2025 may disrupt supply chains. Source: USDA GAIN IV2025-0001, Abidjan/Accra, March 7 2025.",
+  "gainGhaSummary": "Ghana MY2024/25 production estimated at 600,000 MT (+13% recovery from prior year trough). Area: 1.27 Mha. COCOBOD shortened the buying season — closed July 31 2025. Disease: CSSVD (Cocoa Swollen Shoot Virus Disease) affecting 90,000+ ha; infected trees must be felled, causing permanent yield loss. Exports MY2024/25: ~520,000 MT (+55% vs prior year, recovery-driven). Forward: MY2025/26 production expected to remain depressed despite partial 2024/25 recovery. CSSVD remains endemic and continues to erode productive area. Source: USDA GAIN GH2025-0008, Accra, 2025.",
+  "supplySignal": "DEFICIT CRITICAL",
+  "stocksToGrindings": 0.264,
+  "step6Summary": "======================================================================\nEL NIÑO COCOA SUPPLY PIPELINE — FULL ANALYSIS SUMMARY\nPipeline run date: 2026-06-25 | Data through: 2024 (OWID) / MY2024/25 (GAIN)\n======================================================================\n\n----------------------------------------------------------------------\nSECTION 1: CÔTE D'IVOIRE (CIV) — PRIMARY PRODUCER\n----------------------------------------------------------------------\n  2024 (calendar year, OWID/FAO):\n    Production:      1,890,442 t  (1890.4 kt)\n    Yield:        0.4955 t/ha\n    YoY prod:     +3.7%\n    YoY yield:    -0.8%\n\n  MY2024/25 (USDA GAIN IV2025-0001):\n    Production (MY2023/24 actual):  1.76 MMT  (YoY: -24%)\n    MY2024/25 revised forecast:     ~1.8 MMT\n    Mid-crop 2025 estimate:         ~300,000 MT  (-40% vs avg)\n\n  Weather signal:\n    Heavy rainfall Sep-Oct 2024 spread brown rot fungal disease in western/southwestern regions. Harmattan winds Dec 2024-Feb 2025 raised drought fears. Mid-crop 2025 estimated 300,000 MT (-40% vs avg).\n\n  Disease signal:\n    Brown rot (Phytophthora) spread in western/southwestern CIV\n\n  Forward outlook:\n    EU deforestation regulation effective Dec 30 2025. Mid-crop critically low at 300,000 MT.\n  Provenance: SOURCE: USDA GAIN IV2025-0001 Abidjan/Accra March 7 2025\n\n  Yield deviation flags (yoy_yield < -5%): 3 years out of 24\n    Flagged years: [2005, 2007, 2009]\n\n----------------------------------------------------------------------\nSECTION 2: GHANA (GHA) — SECONDARY PRODUCER\n----------------------------------------------------------------------\n  2024 (calendar year, OWID/FAO):\n    Production:        530,000 t  (530.0 kt)\n    Yield:        0.5762 t/ha\n    YoY prod:     -18.9%\n    YoY yield:    +1.4%\n\n  MY2024/25 (USDA GAIN GH2025-0008):\n    Production:   0.600 MMT  (YoY: +13%)\n    Area:         1.27 Mha\n    Exports:      0.520 MMT  (+55% vs prior year)\n    CSSVD ha:     90,000+ ha infected (permanent yield loss)\n\n  Weather signal:\n    COCOBOD shortened season — closed July 31 2025. MY 2025/26 expected to remain depressed.\n\n  Disease signal:\n    CSSVD affecting 90,000+ ha — infected trees must be felled, permanent yield loss\n\n  Forward outlook:\n    MY 2025/26 production expected to remain depressed despite partial 2024/25 recovery. CSSVD disease remains endemic.\n  Provenance: SOURCE: USDA GAIN GH2025-0008 Accra 2025\n\n  Yield deviation flags (yoy_yield < -5%): 2 years out of 24\n    Flagged years: [2008, 2010]\n\n----------------------------------------------------------------------\nSECTION 3: WORLD CONTEXT (2024, OWID/FAO)\n----------------------------------------------------------------------\n  Global total production (7 countries):  4424.4 kt\n\n  CIV     1890.4 kt  (42.7% of tracked global)\n  GHA      530.0 kt  (12.0% of tracked global)\n  IDN      632.7 kt  (14.3% of tracked global)\n  ECU      403.7 kt  (9.1% of tracked global)\n  CMR      320.0 kt  (7.2% of tracked global)\n  NGA      350.0 kt  (7.9% of tracked global)\n  BRA      297.5 kt  (6.7% of tracked global)\n\n  Rest of World (CMR+NGA+BRA): 967.5 kt\n\n----------------------------------------------------------------------\nSECTION 4: GRINDINGS (DEMAND SIDE)\n----------------------------------------------------------------------\n  Europe (ECA Western Europe grindings index, YTD YoY vs prior year):\n    2026/2025     YTD index=92.2%  →  YoY deviation=-7.8%\n    2025/2024     YTD index=93.9%  →  YoY deviation=-6.1%\n    2024/2023     YTD index=98.5%  →  YoY deviation=-1.5%\n\n  North America (NCA / Candy USA):\n    2026 Q1:   106,087 MT  (YoY: -3.8%)\n\n  Asia (Cocoa Association of Asia):\n    2026 Q1:   223,503 MT  (YoY: +5.2%)\n\n  Demand read: Europe contracting -6% to -8% YoY. Asia growing +5% YoY.\n  Net: demand destruction in Europe outweighs Asia growth — overall grindings declining.\n\n----------------------------------------------------------------------\nSECTION 5: SUPPLY/DEMAND BALANCE\n----------------------------------------------------------------------\n  Supply signal: DEFICIT CRITICAL\n  Stocks-to-grindings (ICCO, 2023/24): 26.4%  (below 30% critical threshold)\n\n  Key drivers:\n    1. CIV MY2023/24 actual: 1.76 MMT  (-24% YoY) — worst in years\n    2. Ghana structural decline: CSSVD disease on 90,000+ ha of productive area\n    3. CIV mid-crop 2025: ~300,000 MT  (-40% below historical avg)\n    4. El Niño-driven weather pattern (Harmattan + brown rot) compounding losses\n    5. EU deforestation regulation (Dec 30 2025) introduces supply chain disruption risk\n    6. European grindings declining -6% to -8% YoY — demand is being rationed\n\n----------------------------------------------------------------------\nSECTION 6: ENSO ANALOG ANALYSIS\n----------------------------------------------------------------------\n  ENSO analog years: 2009, 2010, 2015, 2016, 2023\n\n  CIV production during ENSO analogs:\n    2009:  1223.2 kt  yield=0.5621 t/ha  YoY: -11.5%\n    2010:  1301.3 kt  yield=0.5711 t/ha  YoY: +6.4%\n    2015:  1796.0 kt  yield=0.5194 t/ha  YoY: +9.7%\n    2016:  1634.0 kt  yield=0.5157 t/ha  YoY: -9.0%\n    2023:  1822.4 kt  yield=0.4995 t/ha  YoY: -22.7%\n\n  Ghana production during ENSO analogs:\n    2009:   710.6 kt  yield=0.4441 t/ha  YoY: +4.4%\n    2010:   632.0 kt  yield=0.3950 t/ha  YoY: -11.1%\n    2015:   858.7 kt  yield=0.5100 t/ha  YoY: +0.0%\n    2016:   858.7 kt  yield=0.5100 t/ha  YoY: +0.0%\n    2023:   653.7 kt  yield=0.5684 t/ha  YoY: -4.3%\n\n  Pattern: ENSO analog years show a consistent yield suppression signal for CIV,\n  with 2023 being the sharpest recent contraction. Ghana's analog years are mixed,\n  reflecting that CSSVD disease is now the dominant structural factor over weather.\n\n----------------------------------------------------------------------\nSECTION 7: CLAUDE ANALYSIS — 2026 EL NIÑO OUTLOOK\n----------------------------------------------------------------------\n  El Niño signal (2026 analog to 2015/16):\n    → West Africa: Harmattan-driven drought risk in Dec-Mar is the key production window\n       for the CIV mid-crop. The 2024/25 mid-crop is already at -40% vs avg, with Harmattan\n       winds having run Dec 2024 – Feb 2025.\n    → Historical analog: 2015/16 El Niño → CIV yield dropped sharply; Ghana ENSO analog\n       2015/2016 showed similar contraction.\n\n  Structural factors compounding cyclical El Niño risk:\n    1. CSSVD (Ghana): 90,000+ ha of infected trees must be felled — permanent productive\n       area destruction, not recoverable within one season.\n    2. Brown rot (CIV): Phytophthora spread through western/southwestern growing regions.\n    3. EUDR (EU deforestation regulation): Creates certification compliance friction that\n       could slow exports to EU regardless of production outcome.\n\n  Conviction level: HIGH DEFICIT\n    - Two largest producers (CIV + Ghana = ~55% of tracked global supply) both in\n      structural and cyclical decline simultaneously.\n    - Stocks-to-grindings at 26.4% — below the 30% market stress threshold.\n    - Grindings in Europe declining (-6% to -8%) shows demand is already being rationed.\n    - Asia grindings still growing (+5%) but insufficient to offset supply shortfall.\n\n  2026 El Niño forecast:\n    → Supply deficit likely to persist or worsen through MY2025/26.\n    → CIV mid-crop 2025 (300k MT) implies MY2024/25 full year well below 1.9 MMT baseline.\n    → Ghana MY2025/26 production 'expected to remain depressed' per GAIN GH2025-0008.\n    → Key monitoring: main crop Sep-Nov 2025 (CIV), COCOBOD season opening (Ghana).\n\n  DATA SOURCES USED IN THIS PIPELINE:\n    1. OWID/FAO cocoa-bean-production.csv — historical production 2000-2024\n    2. OWID/FAO cocoa-bean-yields.csv — historical yield 2000-2024\n    3. USDA GAIN IV2025-0001 — CIV MY2024/25 forward signal (Mar 7 2025)\n    4. USDA GAIN GH2025-0008 — Ghana MY2024/25 forward signal (2025)\n    5. ECA (European Cocoa Association) — grindings index Q1 2026, FY2025, FY2024\n    6. NCA (Candy USA) — North America Q1 2026 grindings 106,087 MT (-3.8% YoY)\n    7. Cocoa Association of Asia — Asia Q1 2026 grindings 223,503 MT (+5.2% YoY)\n    8. USDA FAS PSD API — returned HTTP 500 (server down); PSD fields null in output\n\n======================================================================\nEND OF PIPELINE SUMMARY\n======================================================================"
+}
