@@ -2809,7 +2809,7 @@ function detail(k){
     ${(c.verdict||c.tiles||c.superNote||c.predict)?`
     <div class="panel">
       ${c.verdict?`<div class="verdict" style="margin-bottom:14px"><span class="verdict-badge ${vcls}">${c.verdict}</span><span style="font-size:13px;color:var(--muted);line-height:1.5;margin-left:4px">${c.verdictNote||''}</span></div>`:''}
-      ${c.tiles&&Object.keys(c.tiles).length?`<div class="tile-grid" style="margin-bottom:${c.superNote||c.predict?'16px':'0'}">${Object.entries(c.tiles).map(([lbl,t])=>'<div class="tile"><div class="l">'+lbl+'</div><div class="v '+(t.d==='up'?'up':t.d==='down'?'down':'flat')+'">'+t.v+'</div>'+(t.n?'<div class="n">'+t.n+'</div>':'')+'</div>').join('')}</div>`:''}
+      ${c.tiles&&Object.keys(c.tiles).length?`<div style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#64748b;margin-bottom:8px">2023–24 El Niño Outcome</div><div class="tile-grid" style="margin-bottom:${c.superNote||c.predict?'16px':'0'}">${Object.entries(c.tiles).map(([lbl,t])=>'<div class="tile"><div class="l">'+lbl+'</div><div class="v '+(t.d==='up'?'up':t.d==='down'?'down':'flat')+'">'+t.v+'</div>'+(t.n?'<div class="n">'+t.n+'</div>':'')+'</div>').join('')}</div>`:''}
       ${c.superNote?`<div style="margin:0 0 ${c.predict?'14px':'0'};font-size:12.5px;line-height:1.6;color:var(--faint);padding:10px 14px;background:rgba(0,0,0,.2);border-radius:8px;border-left:3px solid var(--border)">${c.superNote}</div>`:''}
       ${c.predict?`<div class="predict"><div class="pl">🔭 2026 Outlook</div><div class="pc">${c.predict}</div></div>`:''}
     </div>
