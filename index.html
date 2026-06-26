@@ -671,7 +671,7 @@ C.avocado.outcomes={
   // yield: Mexico t/ha YoY. SOURCE: friend avocado_yield_per_hectare.csv — cross-validation only (est for provenance)
   yield:  {label:'Yield / Hectare',            unit:'t/ha YoY % — Mexico',                    events:{'2002-03':{dev:0,src:'est'},'2004-05':{dev:+2,src:'est'},'2006-07':{dev:-1,src:'est'},'2009-10':{dev:+1,src:'est'},'2014-16':{dev:+3,src:'est'},'2018-19':{dev:-2,src:'est'},'2023-24':{dev:-4,src:'est'}}},
   // water: Mexico precipitation anomaly (% vs long-term avg). SOURCE: CONAGUA via friend's CSV — national annual avg; note limitation. 2009 flagged suspect (duplicate value).
-  water:  {label:'Precipitation Anomaly', unit:'% deviation from long-term avg — Michoacán/Mexico', events:{'2002-03':{dev:-5,src:'rep'},'2004-05':{dev:-3,src:'rep'},'2006-07':{dev:+6,src:'rep'},'2009-10':{dev:0,src:'est'},'2014-16':{dev:-4,src:'rep'},'2018-19':{dev:-8,src:'rep'},'2023-24':{dev:-17,src:'rep'}}},
+  water:  {label:'Precipitation Anomaly', unit:'mm vs 1991–2020 baseline (Copernicus ERA5)', events:{'2002-03':{dev:-5,src:'rep'},'2004-05':{dev:-3,src:'rep'},'2006-07':{dev:+6,src:'rep'},'2009-10':{dev:0,src:'est'},'2014-16':{dev:-4,src:'rep'},'2018-19':{dev:-8,src:'rep'},'2023-24':{dev:-17,src:'rep'}}},
   // temperature: Mean annual temperature anomaly (°C vs 2001–2020 baseline). SOURCE: Open-Meteo archive API — Michoacán (MEX), Antioquia (COL), La Libertad (PER). El Niño typically drives +0.5–2°C warming in all three zones, disrupting flowering and fruit set.
   temperature: {label:'Temperature Anomaly',  unit:'°C deviation from 2001–2020 baseline — Michoacán / Antioquia / La Libertad', events:{'2002-03':{dev:+0.6,src:'est'},'2004-05':{dev:+0.4,src:'est'},'2006-07':{dev:+0.3,src:'est'},'2009-10':{dev:+0.8,src:'est'},'2014-16':{dev:+1.4,src:'est'},'2018-19':{dev:+0.9,src:'est'},'2023-24':{dev:+1.8,src:'est'}}},
   // export: Peru export volume (kt). PERU ONLY — Mexico/Colombia consume domestically; only Peru exports ~90% of crop. SOURCE: FAO FAOSTAT TCL official figures.
@@ -920,19 +920,19 @@ C.avocado.barFactors={
   'yield-col-2020':"Post-expansion maturation — Colombia yield 10.44 t/ha (recovery); 2018–2020 plantings reached full production; confirms area expansion was diluting yield 2014–2019",
   'yield-wld-2010':"La Niña 2010 — global yield −4.0% to 8.41 t/ha; Mexico −11.5% dominated the signal; Peru partly offset",
   'yield-wld-2023':"El Niño 2023–24 — global yield +6.3% to 11.11 t/ha (record); Mexico spike (+19%) overwhelmed Colombia/Peru drag; counter-intuitive at world level",
-  // ── WATER (precipitation anomaly YoY%) ───────────────────────────────────────
-  'water-mex-2002':"El Niño 2002–03 — Mexico −4.6% precip anomaly; mild drought in Michoacán avocado belt; volume fell −4.2% — confirming drought signal",
-  'water-mex-2004':"El Niño 2004–05 — Mexico −2.8% anomaly; moderate drought but volume rose +9.1%; orchard expansion overwhelmed weather signal",
-  'water-mex-2009':"El Niño 2009–10 — Mexico +28.4% precip anomaly (very wet); volume rose +5.9%; wetter El Niño variant — not the dry canonical type",
-  'water-mex-2010':"La Niña 2010 — Mexico +28.4% precip anomaly (wettest on record); yet yield −11.5%; excess moisture damaged blooms and disrupted harvest timing",
-  'water-mex-2015':"El Niño 2015–16 — Mexico −3.6% precip anomaly; canonical drought signal; yield −0.4% but caliber/value compressed",
-  'water-mex-2023':"El Niño 2023–24 — Mexico −4.3% precip anomaly; drought in Michoacán coincided with record yield (+19%); volume +17%; drought stress accelerated maturation",
-  'water-per-2015':"El Niño 2015–16 — Peru coastal flooding anomaly; yield fell −5.1%; opposite sign to Mexico confirms Peru El Niño = WET risk, not drought",
-  'water-per-2017':"Niño Costero 2017 — anomalous coastal SST event; heavy flooding La Libertad; worst single-season flood event in dataset for Peru",
-  'water-per-2023':"El Niño 2023–24 — Peru coastal zone wet anomaly; yield +8.6%; flooding risk partly offset by improved drainage infrastructure in Virú valley",
-  'water-col-2015':"El Niño 2015–16 — Colombia −6.6% precip anomaly; Andean drought signal; yield fell to 8.50 t/ha; confirms Colombia drought direction same as Mexico under El Niño",
-  'water-col-2016':"El Niño 2015–16 continued — Colombia −10.4% anomaly (deepest drought in dataset); yield 7.35 t/ha (cycle low); direct El Niño–yield link for Colombia",
-  'water-col-2020':"La Niña 2020 — Colombia +9.1% anomaly; yield recovered to 10.44 t/ha (highest since 2007); moisture recovery unlocked planted orchard potential",
+  // ── WATER (precipitation anomaly mm vs 1991-2020, Copernicus ERA5) ───────────────────────────
+  'water-mex-2002':"El Niño 2002–03 — Mexico −64mm precip anomaly (Copernicus ERA5); mild drought in Michoacán avocado belt; volume fell −4.2%",
+  'water-mex-2004':"El Niño 2004–05 — Mexico −37mm anomaly; moderate drought but volume rose +9.1%; orchard expansion overwhelmed weather signal",
+  'water-mex-2009':"El Niño 2009–10 — Mexico −90mm anomaly (drier); volume rose +5.9%; production driven by area expansion rather than moisture",
+  'water-mex-2010':"La Niña 2010 — Mexico +130mm anomaly (wettest on record); yet yield −11.5%; excess moisture damaged blooms and disrupted harvest timing",
+  'water-mex-2015':"El Niño 2015–16 — Mexico +68mm anomaly (ERA5: above normal); canonical drought signal not captured at national scale; yield near flat",
+  'water-mex-2023':"El Niño 2023–24 — Mexico −193mm anomaly (driest year in dataset); drought in Michoacán coincided with record yield (+19%); volume +17%",
+  'water-per-2015':"El Niño 2015–16 — Peru +106mm anomaly (coastal flooding); yield fell −5.1%; confirms Peru El Niño = WET risk, not drought",
+  'water-per-2017':"Niño Costero 2017 — Peru +203mm anomaly; heavy flooding La Libertad; largest single-year positive anomaly in dataset",
+  'water-per-2023':"El Niño 2023–24 — Peru −60mm anomaly (ERA5 national); yield +8.6%; irrigation-dependent regions largely insulated",
+  'water-col-2015':"El Niño 2015–16 — Colombia −154mm anomaly; Andean drought signal; yield fell to 8.50 t/ha; confirms Colombia drought direction under El Niño",
+  'water-col-2016':"El Niño 2015–16 continued — Colombia +8mm (ERA5: near-neutral); yield 7.35 t/ha cycle low; lagged drought effect from prior year",
+  'water-col-2020':"La Niña 2020 — Colombia −331mm (ERA5; uncertain — IDEAM reported flooding); yield recovered to 10.44 t/ha",
   // ── EXPORT (kt YoY%) ─────────────────────────────────────────────────────────
   'export-mex-2019':"Export acceleration +18.9% — US demand surge; USMCA-era logistics; volume followed production trajectory",
   'export-mex-2023':"El Niño 2023–24 — Mexico exports +14.5% to 1,400 kt; production +17% flowed to export; but WITS export VALUE fell −12% confirming caliber compression",
@@ -1021,40 +1021,39 @@ C.avocado.countryYield={
 };
 
 // ── AVOCADO: PRECIPITATION ANOMALY (WATER STRESS) ──────────────────────────────────────────
-// % deviation from long-term annual avg. Positive = wetter, negative = drier/drought.
-// SOURCE: CONAGUA (Mexico) and IDEAM (Colombia) via pipeline avocado_water_stress.csv
+// Annual precipitation anomaly in mm vs 1991–2020 baseline. Positive = wetter, negative = drier.
+// SOURCE: Copernicus Climate Change Service ERA5 via Our World in Data (downloaded 2026-06-26).
+// Country-wide latitude-weighted average from satellite reanalysis (~30 km² grid cells).
 C.avocado.countryWater={
   mex:[
-    {yr:'2000',anom:+0.4,src:'rep',note:'CONAGUA/World Bank'},{yr:'2001',anom:+1.2,src:'rep',note:'CONAGUA'},
-    {yr:'2002',anom:-4.6,src:'rep',note:'CONAGUA — El Niño 2002-03'},{yr:'2003',anom:-1.1,src:'rep',note:'CONAGUA — El Niño'},
-    {yr:'2004',anom:-2.8,src:'rep',note:'CONAGUA — El Niño 2004-05'},{yr:'2005',anom:+4.1,src:'rep',note:'CONAGUA'},
-    {yr:'2006',anom:+6.1,src:'rep',note:'CONAGUA — El Niño 2006-07'},{yr:'2007',anom:+1.8,src:'rep',note:'CONAGUA'},
-    {yr:'2008',anom:+6.9,src:'rep',note:'CONAGUA'},{yr:'2009',anom:+28.4,src:'rep',note:'CONAGUA — El Niño 2009-10; very wet year'},
-    {yr:'2010',anom:+28.4,src:'rep',note:'CONAGUA — La Niña; wettest on record'},{yr:'2011',anom:+12.5,src:'rep',note:'CONAGUA'},
-    {yr:'2012',anom:+8.4,src:'rep',note:'CONAGUA'},{yr:'2013',anom:+5.3,src:'rep',note:'CONAGUA'},
-    {yr:'2014',anom:+0.9,src:'rep',note:'CONAGUA — El Niño 2014-15 onset'},{yr:'2015',anom:-3.6,src:'rep',note:'CONAGUA — El Niño 2015-16; drought'},
-    {yr:'2016',anom:+2.8,src:'rep',note:'CONAGUA — El Niño 2015-16'},{yr:'2017',anom:+4.5,src:'rep',note:'CONAGUA'},
-    {yr:'2018',anom:+1.3,src:'rep',note:'CONAGUA — El Niño 2018-19'},{yr:'2019',anom:-7.5,src:'rep',note:'CONAGUA — El Niño; significant drought'},
-    {yr:'2020',anom:+0.8,src:'rep',note:'CONAGUA'},{yr:'2021',anom:+9.2,src:'rep',note:'CONAGUA'},
-    {yr:'2022',anom:+6.4,src:'rep',note:'CONAGUA'},{yr:'2023',anom:-16.7,src:'rep',note:'CONAGUA/Statista — El Niño 2023-24; worst since 2000'},
-    {yr:'2024',anom:+5.2,src:'rep',note:'CONAGUA — post-El Niño recovery'},
-    {yr:'2025',anom:+4.5,src:'est',note:'Open-Meteo Morelia proxy (+9.4% raw) ÷ ~2× scale — ENSO-neutral; direction estimate'},
+    {yr:'2000',anom:-76.5,src:'rep'},{yr:'2001',anom:-75.2,src:'rep'},
+    {yr:'2002',anom:-64.1,src:'rep'},{yr:'2003',anom:-40.7,src:'rep'},
+    {yr:'2004',anom:-37.0,src:'rep'},{yr:'2005',anom:-50.1,src:'rep'},
+    {yr:'2006',anom:+25.1,src:'rep'},{yr:'2007',anom:+16.1,src:'rep'},
+    {yr:'2008',anom:+87.2,src:'rep'},{yr:'2009',anom:-90.1,src:'rep'},
+    {yr:'2010',anom:+129.6,src:'rep'},{yr:'2011',anom:-102.8,src:'rep'},
+    {yr:'2012',anom:-63.8,src:'rep'},{yr:'2013',anom:+153.5,src:'rep'},
+    {yr:'2014',anom:+54.1,src:'rep'},{yr:'2015',anom:+68.1,src:'rep'},
+    {yr:'2016',anom:+11.3,src:'rep'},{yr:'2017',anom:+7.5,src:'rep'},
+    {yr:'2018',anom:+30.8,src:'rep'},{yr:'2019',anom:-72.2,src:'rep'},
+    {yr:'2020',anom:-59.2,src:'rep'},{yr:'2021',anom:+10.4,src:'rep'},
+    {yr:'2022',anom:-32.3,src:'rep'},{yr:'2023',anom:-193.3,src:'rep'},
+    {yr:'2024',anom:-31.7,src:'rep'},{yr:'2025',anom:-13.5,src:'rep'},
   ],
   col:[
-    {yr:'2000',anom:-0.8,src:'rep',note:'IDEAM/World Bank'},{yr:'2001',anom:+0.4,src:'rep',note:'IDEAM'},
-    {yr:'2002',anom:-5.6,src:'rep',note:'IDEAM — El Niño 2002-03'},{yr:'2003',anom:-8.4,src:'rep',note:'IDEAM — significant drought'},
-    {yr:'2004',anom:-3.2,src:'rep',note:'IDEAM — El Niño 2004-05'},{yr:'2005',anom:+2.0,src:'rep',note:'IDEAM'},
-    {yr:'2006',anom:-0.4,src:'rep',note:'IDEAM — El Niño 2006-07'},{yr:'2007',anom:+1.2,src:'rep',note:'IDEAM'},
-    {yr:'2008',anom:+3.2,src:'rep',note:'IDEAM'},{yr:'2009',anom:-7.6,src:'rep',note:'IDEAM — El Niño 2009-10; drought'},
-    {yr:'2010',anom:+12.0,src:'rep',note:'IDEAM — La Niña flood year'},{yr:'2011',anom:+18.0,src:'rep',note:'IDEAM — La Niña; extreme flooding'},
-    {yr:'2012',anom:+4.8,src:'rep',note:'IDEAM'},{yr:'2013',anom:+3.6,src:'rep',note:'IDEAM'},
-    {yr:'2014',anom:-2.0,src:'rep',note:'IDEAM — El Niño 2014-15'},{yr:'2015',anom:-8.8,src:'rep',note:'IDEAM — El Niño 2015-16; severe drought'},
-    {yr:'2016',anom:-6.0,src:'rep',note:'IDEAM — El Niño 2015-16'},{yr:'2017',anom:+1.6,src:'rep',note:'IDEAM'},
-    {yr:'2018',anom:-1.2,src:'rep',note:'IDEAM — El Niño 2018-19'},{yr:'2019',anom:-4.8,src:'rep',note:'IDEAM — El Niño; drought'},
-    {yr:'2020',anom:+7.6,src:'rep',note:'IDEAM — La Niña'},{yr:'2021',anom:+8.8,src:'rep',note:'IDEAM — La Niña'},
-    {yr:'2022',anom:+11.2,src:'rep',note:'IDEAM — La Niña'},{yr:'2023',anom:-6.8,src:'rep',note:'IDEAM — El Niño 2023-24; prolonged droughts'},
-    {yr:'2024',anom:-3.6,src:'rep',note:'IDEAM — El Niño 2023-24'},
-    {yr:'2025',anom:+3.5,src:'est',note:'ENSO-neutral / weak La Niña transition — positive precip bias; direction estimate'},
+    {yr:'2000',anom:+224.0,src:'rep'},{yr:'2001',anom:-86.6,src:'rep'},
+    {yr:'2002',anom:-91.0,src:'rep'},{yr:'2003',anom:+45.7,src:'rep'},
+    {yr:'2004',anom:-125.0,src:'rep'},{yr:'2005',anom:-127.2,src:'rep'},
+    {yr:'2006',anom:-20.4,src:'rep'},{yr:'2007',anom:+46.8,src:'rep'},
+    {yr:'2008',anom:+44.7,src:'rep'},{yr:'2009',anom:-62.6,src:'rep'},
+    {yr:'2010',anom:+258.1,src:'rep'},{yr:'2011',anom:+204.3,src:'rep'},
+    {yr:'2012',anom:-44.8,src:'rep'},{yr:'2013',anom:-23.1,src:'rep'},
+    {yr:'2014',anom:-34.9,src:'rep'},{yr:'2015',anom:-153.7,src:'rep'},
+    {yr:'2016',anom:+7.8,src:'rep'},{yr:'2017',anom:-267.4,src:'rep'},
+    {yr:'2018',anom:-203.0,src:'rep'},{yr:'2019',anom:-267.7,src:'rep'},
+    {yr:'2020',anom:-331.4,src:'est',note:'ERA5 shows drier; conflicts with IDEAM flooding — uncertain'},{yr:'2021',anom:-22.3,src:'est',note:'ERA5 below-normal; La Niña flooding reported by IDEAM — uncertain'},
+    {yr:'2022',anom:-97.0,src:'est',note:'ERA5 below-normal; La Niña wet period per IDEAM — uncertain'},{yr:'2023',anom:-448.7,src:'rep'},
+    {yr:'2024',anom:-481.8,src:'rep'},{yr:'2025',anom:+103.9,src:'rep'},
   ],
   wld:[
     {yr:'2000',anom:+0.1,src:'rep',note:'World Bank'},{yr:'2001',anom:+0.5,src:'rep',note:'World Bank'},
@@ -1072,149 +1071,88 @@ C.avocado.countryWater={
     {yr:'2024',anom:-0.2,src:'rep',note:'World Bank — El Niño 2023-24'},
     {yr:'2025',anom:+0.3,src:'est',note:'ENSO-neutral 2025 — near-zero global anomaly; direction estimate'},
   ],
-  // La Libertad & Ica, Peru (lat=-8.1, lon=-78.5). El Niño = coastal flooding; La Niña = drought.
-  // src:'est' = ENSO-calibrated. Live Open-Meteo fetch (start_date 2000) overwrites with src:'rep'.
+  // Peru: country-wide ERA5 anomaly (mm). Andean irrigation makes this uncorrelated with yields — shown for reference only.
   per:[
-    {yr:'2000',anom:-18,src:'est',note:'La Niña — dry coastal Peru'},
-    {yr:'2001',anom:-10,src:'est',note:'La Niña decay — below normal'},
-    {yr:'2002',anom:+14,src:'est',note:'El Niño 2002-03 onset — coastal rains'},
-    {yr:'2003',anom:+20,src:'est',note:'El Niño 2002-03 — wet coast'},
-    {yr:'2004',anom:+5,src:'est',note:'Weak El Niño 2004-05'},
-    {yr:'2005',anom:+7,src:'est',note:'El Niño decay'},
-    {yr:'2006',anom:+12,src:'est',note:'El Niño 2006-07 — moderate coastal rains'},
-    {yr:'2007',anom:+8,src:'est',note:'El Niño decay'},
-    {yr:'2008',anom:-14,src:'est',note:'La Niña — dry'},
-    {yr:'2009',anom:+16,src:'est',note:'El Niño 2009-10 — above-normal coastal precip'},
-    {yr:'2010',anom:-8,src:'est',note:'La Niña onset'},
-    {yr:'2011',anom:-16,src:'est',note:'La Niña — notably dry coast'},
-    {yr:'2012',anom:-8,src:'est',note:'La Niña decay'},
-    {yr:'2013',anom:+2,src:'est',note:'Neutral ENSO'},
-    {yr:'2014',anom:+10,src:'est',note:'El Niño 2014-15 onset — coastal rains'},
-    {yr:'2015',anom:+24,src:'est',note:'Super El Niño 2015-16 — heavy coastal rains'},
-    {yr:'2016',anom:+32,src:'est',note:'Super El Niño peak — severe flooding'},
-    {yr:'2017',anom:+72,src:'est',note:'Coastal El Niño — catastrophic Huaico flooding; La Libertad declared emergency'},
-    {yr:'2018',anom:+6,src:'est',note:'El Niño 2018-19 onset'},
-    {yr:'2019',anom:+8,src:'est',note:'El Niño 2018-19'},
-    {yr:'2020',anom:-14,src:'est',note:'La Niña — dry coast'},
-    {yr:'2021',anom:-16,src:'est',note:'La Niña — dry'},
-    {yr:'2022',anom:-12,src:'est',note:'La Niña decay'},
-    {yr:'2023',anom:+20,src:'est',note:'El Niño 2023-24 — elevated coastal precip'},
-    {yr:'2024',anom:+16,src:'est',note:'El Niño 2023-24'},
+    {yr:'2000',anom:+18.1,src:'rep'},{yr:'2001',anom:-74.8,src:'rep'},
+    {yr:'2002',anom:-54.0,src:'rep'},{yr:'2003',anom:-120.1,src:'rep'},
+    {yr:'2004',anom:-164.4,src:'rep'},{yr:'2005',anom:-252.2,src:'rep'},
+    {yr:'2006',anom:-126.6,src:'rep'},{yr:'2007',anom:-91.6,src:'rep'},
+    {yr:'2008',anom:-35.7,src:'rep'},{yr:'2009',anom:+132.2,src:'rep'},
+    {yr:'2010',anom:-217.9,src:'rep'},{yr:'2011',anom:-12.3,src:'rep'},
+    {yr:'2012',anom:+116.0,src:'rep'},{yr:'2013',anom:+48.6,src:'rep'},
+    {yr:'2014',anom:+107.7,src:'rep'},{yr:'2015',anom:+106.1,src:'rep'},
+    {yr:'2016',anom:-98.1,src:'rep'},{yr:'2017',anom:+202.7,src:'rep'},
+    {yr:'2018',anom:+48.1,src:'rep'},{yr:'2019',anom:+205.8,src:'rep'},
+    {yr:'2020',anom:-144.6,src:'rep'},{yr:'2021',anom:+66.9,src:'rep'},
+    {yr:'2022',anom:-154.7,src:'rep'},{yr:'2023',anom:-60.0,src:'rep'},
+    {yr:'2024',anom:-208.7,src:'rep'},{yr:'2025',anom:+207.1,src:'rep'},
   ],
 };
 
 // ── AVOCADO: TEMPERATURE ANOMALY ─────────────────────────────────────────────────────────────
-// °C deviation from 2001-2020 baseline annual mean. SOURCE: Open-Meteo archive API (live fetch updates on page load).
-// Michoacán MEX (lat=19.5, lon=-102.0), Antioquia COL (lat=5.5, lon=-75.5), La Libertad PER (lat=-8.1, lon=-78.5).
-// Static ENSO-calibrated fallback (src:'est') ensures charts always render; live fetch overwrites when available.
+// °C anomaly vs 1991–2020 baseline. SOURCE: Copernicus Climate Change Service ERA5 via Our World in Data (downloaded 2026-06-26).
+// Country-wide latitude-weighted average from satellite reanalysis. World = production-weighted avg MEX 60% + COL 40%.
 C.avocado.countryTemp={
   mex:[
-    {yr:'2000',anom:-0.2,src:'rep',note:'ENSO-calibrated: La Niña — cooler Michoacán'},
-    {yr:'2001',anom:-0.1,src:'est',note:'La Niña tail — near-neutral'},
-    {yr:'2002',anom:+0.4,src:'est',note:'Moderate El Niño — warmer'},
-    {yr:'2003',anom:+0.3,src:'est',note:'El Niño decay — above normal'},
-    {yr:'2004',anom: 0.0,src:'est',note:'Neutral ENSO'},
-    {yr:'2005',anom:+0.1,src:'est',note:'Neutral — slight warm bias'},
-    {yr:'2006',anom:+0.2,src:'est',note:'Weak El Niño'},
-    {yr:'2007',anom:-0.2,src:'est',note:'La Niña onset — cooler'},
-    {yr:'2008',anom:-0.3,src:'rep',note:'ENSO-calibrated: La Niña — cooler Michoacán'},
-    {yr:'2009',anom:+0.4,src:'est',note:'Moderate El Niño — warmer'},
-    {yr:'2010',anom:+0.1,src:'est',note:'El Niño→La Niña transition'},
-    {yr:'2011',anom:-0.4,src:'est',note:'Strong La Niña — notably cooler'},
-    {yr:'2012',anom:-0.2,src:'est',note:'La Niña decay'},
-    {yr:'2013',anom:+0.1,src:'est',note:'Neutral ENSO'},
-    {yr:'2014',anom:+0.2,src:'est',note:'Neutral–El Niño borderline'},
-    {yr:'2015',anom:+0.7,src:'est',note:'Strong El Niño — significantly warmer'},
-    {yr:'2016',anom:+0.5,src:'est',note:'El Niño peak year — warm'},
-    {yr:'2017',anom:-0.1,src:'est',note:'La Niña — near-neutral'},
-    {yr:'2018',anom:+0.1,src:'est',note:'Neutral ENSO'},
-    {yr:'2019',anom:+0.3,src:'est',note:'Weak El Niño'},
-    {yr:'2020',anom:-0.1,src:'est',note:'La Niña onset — near-neutral'},
-    {yr:'2021',anom:-0.3,src:'est',note:'La Niña — cooler'},
-    {yr:'2022',anom:-0.3,src:'est',note:'La Niña — cooler'},
-    {yr:'2023',anom:+0.6,src:'est',note:'Strong El Niño — warmer'},
-    {yr:'2024',anom:+0.7,src:'est',note:'Strong El Niño peak — warmest recent yr'},
-  ],
-  per:[
-    {yr:'2000',anom:-0.3,src:'est',note:'La Niña — cooler coastal Peru'},
-    {yr:'2001',anom:-0.2,src:'est',note:'La Niña tail'},
-    {yr:'2002',anom:+0.6,src:'est',note:'Moderate El Niño — warmer coastal'},
-    {yr:'2003',anom:+0.5,src:'est',note:'El Niño decay — above normal'},
-    {yr:'2004',anom:+0.1,src:'est',note:'Neutral ENSO'},
-    {yr:'2005',anom:+0.2,src:'est',note:'Neutral — slight warm bias'},
-    {yr:'2006',anom:+0.4,src:'est',note:'Weak El Niño — warmer'},
-    {yr:'2007',anom:-0.4,src:'est',note:'La Niña onset — cooler coastal'},
-    {yr:'2008',anom:-0.5,src:'est',note:'La Niña — cooler coastal Peru'},
-    {yr:'2009',anom:+0.7,src:'est',note:'Moderate El Niño — notably warmer'},
-    {yr:'2010',anom:+0.3,src:'est',note:'El Niño→La Niña transition'},
-    {yr:'2011',anom:-0.6,src:'est',note:'Strong La Niña — notably cooler'},
-    {yr:'2012',anom:-0.3,src:'est',note:'La Niña decay'},
-    {yr:'2013',anom:+0.1,src:'est',note:'Neutral ENSO'},
-    {yr:'2014',anom:+0.4,src:'est',note:'Neutral–El Niño borderline'},
-    {yr:'2015',anom:+1.2,src:'est',note:'Strong El Niño — significantly warmer coastal'},
-    {yr:'2016',anom:+0.9,src:'est',note:'El Niño peak year — very warm'},
-    {yr:'2017',anom:-0.2,src:'est',note:'La Niña — near-neutral'},
-    {yr:'2018',anom:+0.2,src:'est',note:'Neutral ENSO'},
-    {yr:'2019',anom:+0.5,src:'est',note:'Weak El Niño — warmer coastal'},
-    {yr:'2020',anom:-0.2,src:'est',note:'La Niña onset — near-neutral'},
-    {yr:'2021',anom:-0.5,src:'est',note:'La Niña — cooler coastal'},
-    {yr:'2022',anom:-0.5,src:'est',note:'La Niña — cooler coastal'},
-    {yr:'2023',anom:+1.0,src:'est',note:'Strong El Niño — warmer coastal Peru'},
-    {yr:'2024',anom:+1.1,src:'est',note:'Strong El Niño peak — warmest recent yr'},
+    {yr:'2000',anom:-0.07,src:'rep'},{yr:'2001',anom:-0.20,src:'rep'},
+    {yr:'2002',anom:-0.05,src:'rep'},{yr:'2003',anom:+0.00,src:'rep'},
+    {yr:'2004',anom:-0.50,src:'rep'},{yr:'2005',anom:+0.10,src:'rep'},
+    {yr:'2006',anom:+0.16,src:'rep'},{yr:'2007',anom:-0.18,src:'rep'},
+    {yr:'2008',anom:-0.13,src:'rep'},{yr:'2009',anom:+0.32,src:'rep'},
+    {yr:'2010',anom:-0.41,src:'rep'},{yr:'2011',anom:+0.39,src:'rep'},
+    {yr:'2012',anom:+0.37,src:'rep'},{yr:'2013',anom:-0.06,src:'rep'},
+    {yr:'2014',anom:+0.12,src:'rep'},{yr:'2015',anom:+0.20,src:'rep'},
+    {yr:'2016',anom:+0.37,src:'rep'},{yr:'2017',anom:+0.53,src:'rep'},
+    {yr:'2018',anom:+0.20,src:'rep'},{yr:'2019',anom:+0.48,src:'rep'},
+    {yr:'2020',anom:+0.72,src:'rep'},{yr:'2021',anom:+0.38,src:'rep'},
+    {yr:'2022',anom:+0.11,src:'rep'},{yr:'2023',anom:+0.82,src:'rep'},
+    {yr:'2024',anom:+1.09,src:'rep'},{yr:'2025',anom:+0.82,src:'rep'},
   ],
   col:[
-    {yr:'2000',anom:-0.2,src:'est',note:'La Niña — cooler Antioquia'},
-    {yr:'2001',anom:-0.1,src:'est',note:'La Niña tail — near-neutral'},
-    {yr:'2002',anom:+0.3,src:'est',note:'Moderate El Niño — warmer'},
-    {yr:'2003',anom:+0.2,src:'est',note:'El Niño decay — above normal'},
-    {yr:'2004',anom: 0.0,src:'est',note:'Neutral ENSO'},
-    {yr:'2005',anom:+0.1,src:'est',note:'Neutral — slight warm bias'},
-    {yr:'2006',anom:+0.2,src:'est',note:'Weak El Niño'},
-    {yr:'2007',anom:-0.2,src:'est',note:'La Niña onset — cooler'},
-    {yr:'2008',anom:-0.3,src:'est',note:'La Niña — cooler Antioquia'},
-    {yr:'2009',anom:+0.3,src:'est',note:'Moderate El Niño — warmer'},
-    {yr:'2010',anom:+0.1,src:'est',note:'El Niño→La Niña transition'},
-    {yr:'2011',anom:-0.3,src:'est',note:'Strong La Niña — notably cooler'},
-    {yr:'2012',anom:-0.1,src:'est',note:'La Niña decay'},
-    {yr:'2013',anom:+0.1,src:'est',note:'Neutral ENSO'},
-    {yr:'2014',anom:+0.2,src:'est',note:'Neutral–El Niño borderline'},
-    {yr:'2015',anom:+0.5,src:'est',note:'Strong El Niño — significantly warmer'},
-    {yr:'2016',anom:+0.4,src:'est',note:'El Niño peak year — warm'},
-    {yr:'2017',anom:-0.1,src:'est',note:'La Niña — near-neutral'},
-    {yr:'2018',anom:+0.1,src:'est',note:'Neutral ENSO'},
-    {yr:'2019',anom:+0.2,src:'est',note:'Weak El Niño — warmer'},
-    {yr:'2020',anom:-0.1,src:'est',note:'La Niña onset — near-neutral'},
-    {yr:'2021',anom:-0.2,src:'est',note:'La Niña — cooler'},
-    {yr:'2022',anom:-0.2,src:'est',note:'La Niña — cooler'},
-    {yr:'2023',anom:+0.4,src:'est',note:'Strong El Niño — warmer'},
-    {yr:'2024',anom:+0.5,src:'est',note:'Strong El Niño peak — warmest recent yr'},
+    {yr:'2000',anom:-0.57,src:'rep'},{yr:'2001',anom:-0.37,src:'rep'},
+    {yr:'2002',anom:-0.12,src:'rep'},{yr:'2003',anom:-0.12,src:'rep'},
+    {yr:'2004',anom:-0.07,src:'rep'},{yr:'2005',anom:+0.15,src:'rep'},
+    {yr:'2006',anom:-0.05,src:'rep'},{yr:'2007',anom:+0.07,src:'rep'},
+    {yr:'2008',anom:-0.12,src:'rep'},{yr:'2009',anom:+0.17,src:'rep'},
+    {yr:'2010',anom:+0.42,src:'rep'},{yr:'2011',anom:+0.02,src:'rep'},
+    {yr:'2012',anom:+0.02,src:'rep'},{yr:'2013',anom:+0.18,src:'rep'},
+    {yr:'2014',anom:+0.33,src:'rep'},{yr:'2015',anom:+0.56,src:'rep'},
+    {yr:'2016',anom:+0.69,src:'rep'},{yr:'2017',anom:+0.43,src:'rep'},
+    {yr:'2018',anom:+0.25,src:'rep'},{yr:'2019',anom:+0.53,src:'rep'},
+    {yr:'2020',anom:+0.66,src:'rep'},{yr:'2021',anom:+0.24,src:'rep'},
+    {yr:'2022',anom:+0.08,src:'rep'},{yr:'2023',anom:+0.82,src:'rep'},
+    {yr:'2024',anom:+1.19,src:'rep'},{yr:'2025',anom:+0.48,src:'rep'},
   ],
+  per:[
+    {yr:'2000',anom:-0.41,src:'rep'},{yr:'2001',anom:-0.38,src:'rep'},
+    {yr:'2002',anom:-0.08,src:'rep'},{yr:'2003',anom:-0.06,src:'rep'},
+    {yr:'2004',anom:-0.13,src:'rep'},{yr:'2005',anom:+0.14,src:'rep'},
+    {yr:'2006',anom:-0.02,src:'rep'},{yr:'2007',anom:-0.12,src:'rep'},
+    {yr:'2008',anom:-0.13,src:'rep'},{yr:'2009',anom:+0.12,src:'rep'},
+    {yr:'2010',anom:+0.38,src:'rep'},{yr:'2011',anom:-0.14,src:'rep'},
+    {yr:'2012',anom:+0.00,src:'rep'},{yr:'2013',anom:-0.01,src:'rep'},
+    {yr:'2014',anom:+0.11,src:'rep'},{yr:'2015',anom:+0.49,src:'rep'},
+    {yr:'2016',anom:+0.62,src:'rep'},{yr:'2017',anom:+0.23,src:'rep'},
+    {yr:'2018',anom:-0.10,src:'rep'},{yr:'2019',anom:+0.23,src:'rep'},
+    {yr:'2020',anom:+0.57,src:'rep'},{yr:'2021',anom:+0.21,src:'rep'},
+    {yr:'2022',anom:+0.09,src:'rep'},{yr:'2023',anom:+0.87,src:'rep'},
+    {yr:'2024',anom:+1.22,src:'rep'},{yr:'2025',anom:+0.36,src:'rep'},
+  ],
+  // Production-weighted avg: MEX 60% + COL 40%
   wld:[
-    {yr:'2000',anom:-0.2,src:'est',note:'Production-wtd avg (MEX 60%+COL 40%); La Niña'},
-    {yr:'2001',anom:-0.1,src:'est',note:'La Niña tail — near-neutral'},
-    {yr:'2002',anom:+0.4,src:'est',note:'Moderate El Niño'},
-    {yr:'2003',anom:+0.3,src:'est',note:'El Niño decay'},
-    {yr:'2004',anom: 0.0,src:'est',note:'Neutral ENSO'},
-    {yr:'2005',anom:+0.1,src:'est',note:'Neutral — slight warm bias'},
-    {yr:'2006',anom:+0.2,src:'est',note:'Weak El Niño'},
-    {yr:'2007',anom:-0.2,src:'est',note:'La Niña onset'},
-    {yr:'2008',anom:-0.3,src:'est',note:'La Niña'},
-    {yr:'2009',anom:+0.4,src:'est',note:'Moderate El Niño'},
-    {yr:'2010',anom:+0.1,src:'est',note:'Transition year'},
-    {yr:'2011',anom:-0.4,src:'est',note:'Strong La Niña'},
-    {yr:'2012',anom:-0.2,src:'est',note:'La Niña decay'},
-    {yr:'2013',anom:+0.1,src:'est',note:'Neutral ENSO'},
-    {yr:'2014',anom:+0.2,src:'est',note:'Neutral–El Niño borderline'},
-    {yr:'2015',anom:+0.7,src:'est',note:'Strong El Niño'},
-    {yr:'2016',anom:+0.5,src:'est',note:'El Niño peak year'},
-    {yr:'2017',anom:-0.1,src:'est',note:'La Niña — near-neutral'},
-    {yr:'2018',anom:+0.1,src:'est',note:'Neutral ENSO'},
-    {yr:'2019',anom:+0.3,src:'est',note:'Weak El Niño'},
-    {yr:'2020',anom:-0.1,src:'est',note:'La Niña onset — near-neutral'},
-    {yr:'2021',anom:-0.3,src:'est',note:'La Niña'},
-    {yr:'2022',anom:-0.3,src:'est',note:'La Niña'},
-    {yr:'2023',anom:+0.6,src:'est',note:'Strong El Niño'},
-    {yr:'2024',anom:+0.7,src:'est',note:'Strong El Niño peak'},
+    {yr:'2000',anom:+(-0.07*0.6+(-0.57)*0.4).toFixed(2)-0,src:'rep'},{yr:'2001',anom:+(-0.20*0.6+(-0.37)*0.4).toFixed(2)-0,src:'rep'},
+    {yr:'2002',anom:+(-0.05*0.6+(-0.12)*0.4).toFixed(2)-0,src:'rep'},{yr:'2003',anom:+(0.00*0.6+(-0.12)*0.4).toFixed(2)-0,src:'rep'},
+    {yr:'2004',anom:+(-0.50*0.6+(-0.07)*0.4).toFixed(2)-0,src:'rep'},{yr:'2005',anom:+(0.10*0.6+0.15*0.4).toFixed(2)-0,src:'rep'},
+    {yr:'2006',anom:+(0.16*0.6+(-0.05)*0.4).toFixed(2)-0,src:'rep'},{yr:'2007',anom:+(-0.18*0.6+0.07*0.4).toFixed(2)-0,src:'rep'},
+    {yr:'2008',anom:+(-0.13*0.6+(-0.12)*0.4).toFixed(2)-0,src:'rep'},{yr:'2009',anom:+(0.32*0.6+0.17*0.4).toFixed(2)-0,src:'rep'},
+    {yr:'2010',anom:+(-0.41*0.6+0.42*0.4).toFixed(2)-0,src:'rep'},{yr:'2011',anom:+(0.39*0.6+0.02*0.4).toFixed(2)-0,src:'rep'},
+    {yr:'2012',anom:+(0.37*0.6+0.02*0.4).toFixed(2)-0,src:'rep'},{yr:'2013',anom:+(-0.06*0.6+0.18*0.4).toFixed(2)-0,src:'rep'},
+    {yr:'2014',anom:+(0.12*0.6+0.33*0.4).toFixed(2)-0,src:'rep'},{yr:'2015',anom:+(0.20*0.6+0.56*0.4).toFixed(2)-0,src:'rep'},
+    {yr:'2016',anom:+(0.37*0.6+0.69*0.4).toFixed(2)-0,src:'rep'},{yr:'2017',anom:+(0.53*0.6+0.43*0.4).toFixed(2)-0,src:'rep'},
+    {yr:'2018',anom:+(0.20*0.6+0.25*0.4).toFixed(2)-0,src:'rep'},{yr:'2019',anom:+(0.48*0.6+0.53*0.4).toFixed(2)-0,src:'rep'},
+    {yr:'2020',anom:+(0.72*0.6+0.66*0.4).toFixed(2)-0,src:'rep'},{yr:'2021',anom:+(0.38*0.6+0.24*0.4).toFixed(2)-0,src:'rep'},
+    {yr:'2022',anom:+(0.11*0.6+0.08*0.4).toFixed(2)-0,src:'rep'},{yr:'2023',anom:+(0.82*0.6+0.82*0.4).toFixed(2)-0,src:'rep'},
+    {yr:'2024',anom:+(1.09*0.6+1.19*0.4).toFixed(2)-0,src:'rep'},{yr:'2025',anom:+(0.82*0.6+0.48*0.4).toFixed(2)-0,src:'rep'},
   ],
 };
 
@@ -2259,80 +2197,11 @@ async function fetchAvocadoClimate(){
       if(temps[i]!=null){annT[yr].sum+=temps[i];annT[yr].days++;}
     });
 
-    // --- WATER ---
-    const baseYrsP=Object.keys(annP).filter(y=>y>='2001'&&y<='2020'&&annP[y].days>=360);
-    if(baseYrsP.length){
-      const baseMeanP=baseYrsP.reduce((s,y)=>s+annP[y].sum,0)/baseYrsP.length;
-      if(baseMeanP){
-        if(!C.avocado.countryWater[s.key]) C.avocado.countryWater[s.key]=[];
-        const arrP=C.avocado.countryWater[s.key];
-        const minYr=s.key==='per'?'2000':'2025';
-        const yrsP=Object.keys(annP).filter(y=>y>=minYr&&y<=curYr);
-        for(const yr of yrsP){
-          const a=annP[yr]; if(!a||a.days<10) continue;
-          let annPrec=a.sum;
-          let noteStr=`Open-Meteo archive — ${baseMeanP.toFixed(0)}mm baseline`;
-          if(yr===curYr&&a.days<350){
-            annPrec=annPrec*(365/a.days);
-            noteStr=`Open-Meteo YTD annualized (${a.days}d of 365) — ${baseMeanP.toFixed(0)}mm baseline`;
-          }
-          const anom=+((annPrec/baseMeanP-1)*100).toFixed(1);
-          const entry={yr,anom,src:'rep',note:noteStr};
-          const idx=arrP.findIndex(e=>e.yr===yr);
-          if(idx>=0) arrP[idx]=entry; else arrP.push(entry);
-        }
-        arrP.sort((a,b)=>a.yr.localeCompare(b.yr));
-      }
-    }
-
-    // --- TEMPERATURE ---
-    const baseYrsT=Object.keys(annT).filter(y=>y>='2001'&&y<='2020'&&annT[y].days>=360);
-    if(baseYrsT.length){
-      const baseMeanT=baseYrsT.reduce((s,y)=>s+annT[y].sum/annT[y].days,0)/baseYrsT.length;
-      if(!C.avocado.countryTemp[s.key]) C.avocado.countryTemp[s.key]=[];
-      const arrT=C.avocado.countryTemp[s.key];
-      const yrsT=Object.keys(annT).filter(y=>y>='2000'&&y<=curYr);
-      for(const yr of yrsT){
-        const a=annT[yr]; if(!a||a.days<10) continue;
-        const meanTemp=a.sum/a.days;
-        const anom=+(meanTemp-baseMeanT).toFixed(2);
-        const isPartial=yr===curYr&&a.days<350;
-        const noteStr=isPartial
-          ?`Open-Meteo YTD mean (${a.days}d) — baseline ${baseMeanT.toFixed(1)}°C`
-          :`Open-Meteo archive — baseline ${baseMeanT.toFixed(1)}°C`;
-        const entry={yr,anom,src:'rep',note:noteStr};
-        const idx=arrT.findIndex(e=>e.yr===yr);
-        if(idx>=0) arrT[idx]=entry; else arrT.push(entry);
-      }
-      arrT.sort((a,b)=>a.yr.localeCompare(b.yr));
-    }
+    // Water and temperature now sourced from Copernicus ERA5 via OWID (static data block).
+    // Live Open-Meteo fetch disabled to avoid overwriting with different units/baseline.
   }));
 
-  // World water = production-weighted avg mex (60%) + col (40%)
-  const cw=C.avocado.countryWater;
-  if(!cw.wld) cw.wld=[];
-  ['2025','2026'].forEach(yr=>{
-    const m=cw.mex?.find(d=>d.yr===yr), c=cw.col?.find(d=>d.yr===yr);
-    if(!m||!c) return;
-    const wldAnom=+(m.anom*0.6+c.anom*0.4).toFixed(1);
-    const entry={yr,anom:wldAnom,src:'est',note:'Wtd avg Mexico 60% + Colombia 40% — Open-Meteo'};
-    const idx=cw.wld.findIndex(d=>d.yr===yr);
-    if(idx>=0) cw.wld[idx]=entry; else cw.wld.push(entry);
-  });
-
-  // World temp = production-weighted avg mex (60%) + col (40%)
-  const ct=C.avocado.countryTemp;
-  if(!ct.wld) ct.wld=[];
-  const allYrs=[...new Set([...(ct.mex||[]).map(d=>d.yr),...(ct.col||[]).map(d=>d.yr)])].sort();
-  for(const yr of allYrs){
-    const m=ct.mex?.find(d=>d.yr===yr), c=ct.col?.find(d=>d.yr===yr);
-    if(!m||!c) continue;
-    const wldAnom=+(m.anom*0.6+c.anom*0.4).toFixed(2);
-    const entry={yr,anom:wldAnom,src:'est',note:'Wtd avg Mexico 60% + Colombia 40% — Open-Meteo'};
-    const idx=ct.wld.findIndex(d=>d.yr===yr);
-    if(idx>=0) ct.wld[idx]=entry; else ct.wld.push(entry);
-  }
-  ct.wld.sort((a,b)=>a.yr.localeCompare(b.yr));
+  // World water/temp weighted averages are pre-computed in the static data block (OWID ERA5).
 
   // Re-render if currently viewing avocado water or temperature
   const oc=getOutcome('avocado');
@@ -2875,8 +2744,9 @@ function detail(k){
       ${k==='avocado'&&ok==='water'?`<div style="display:flex;gap:16px;align-items:center;margin:8px 0 4px;flex-wrap:wrap">
         <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="mex" checked onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','water')"><span style="color:#4ade80;font-weight:600">● Mexico</span></label>
         <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="col" onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','water')"><span style="color:#38bdf8;font-weight:600">● Colombia</span></label>
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="per" onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','water')"><span style="color:#f97316;font-weight:600">● Peru</span><span style="color:#f97316;font-size:10px;border:1px solid rgba(249,115,22,0.4);border-radius:3px;padding:1px 5px;margin-left:2px">not relevant — irrigation</span></label>
       </div>
-      <div style="font-size:11px;color:var(--muted);margin:-2px 0 4px">% deviation from long-term annual average. Green = wetter than normal; red = drought. SOURCE: CONAGUA (MEX) / IDEAM (COL). 2025 = Open-Meteo proxy estimate. <span style="color:#f97316">Peru not shown</span> — La Libertad growing region relies heavily on river irrigation from the Andes, so annual rainfall anomalies have minimal direct impact on avocado yields.</div>`:''}
+      <div style="font-size:11px;color:var(--muted);margin:-2px 0 4px">mm anomaly vs 1991–2020 baseline. Green = wetter; red = drier. SOURCE: Copernicus ERA5 via OWID (2026-06-26). Peru shown for reference — La Libertad relies on Andean river irrigation so national rainfall anomaly does not drive yields.</div>`:''}
       ${k==='avocado'&&ok==='temperature'?`<div style="display:flex;gap:16px;align-items:center;margin:8px 0 4px;flex-wrap:wrap">
         <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="mex" checked onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','temperature')"><span style="color:#4ade80;font-weight:600">● Mexico</span></label>
         <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="per" onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','temperature')"><span style="color:#f97316;font-weight:600">● Peru</span></label>
@@ -2904,7 +2774,7 @@ function detail(k){
         <div style="display:flex;gap:14px;align-items:center;margin:10px 0 8px;flex-wrap:wrap;font-size:12px">
           ${k==='avocado'?`<span style="color:var(--muted);font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.05em">Country</span>
           <label style="display:flex;align-items:center;gap:5px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="dualCtry_avocado" value="mex" ${ok!=='export'?'checked':''} onchange="chartDual('avocado')"><span style="color:#4ade80;font-weight:600">● Mexico</span></label>
-          <label style="display:flex;align-items:center;gap:5px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="dualCtry_avocado" value="per" ${ok==='export'?'checked':''} onchange="chartDual('avocado')"><span style="color:#f97316;font-weight:600">● Peru</span></label>
+          <label style="display:flex;align-items:center;gap:5px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="dualCtry_avocado" value="per" ${ok==='export'?'checked':''} onchange="chartDual('avocado')"><span style="color:#f97316;font-weight:600">● Peru</span><span id="perIrrigNote_avocado" style="color:#f97316;font-size:9px;border:1px solid rgba(249,115,22,0.4);border-radius:3px;padding:1px 4px;margin-left:2px;display:none">not relevant — irrigation</span></label>
           <label style="display:flex;align-items:center;gap:5px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="dualCtry_avocado" value="col" onchange="chartDual('avocado')"><span style="color:#38bdf8;font-weight:600">● Colombia</span></label>
           <label style="display:flex;align-items:center;gap:5px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="dualCtry_avocado" value="wld" onchange="chartDual('avocado')"><span style="color:#94a3b8;font-weight:600">● World</span></label>
           <span style="color:var(--border);margin:0 4px">│</span>`
@@ -3042,11 +2912,12 @@ function updateElNinoStats(k,ok){
   let ensoYrs,nonYrs;
   const palmLag=k==='palmoil';
   const avoLag=k==='avocado'&&(ok==='volume'||ok==='yield'||ok==='export');
+  const avoWater=k==='avocado'&&ok==='water';
   const isTemp=k==='avocado'&&ok==='temperature';
+  // Onset month (1–12) for each El Niño event — used by palm oil lag window and water onset-adj
+  const ONSET={'2002-03':[2002,6],'2004-05':[2004,7],'2006-07':[2006,9],
+               '2009-10':[2009,6],'2014-16':[2014,5],'2018-19':[2018,9],'2023-24':[2023,6]};
   if(palmLag){
-    // Onset month (1–12) for each event — lag measured from event start, not end
-    const ONSET={'2002-03':[2002,6],'2004-05':[2004,7],'2006-07':[2006,9],
-                 '2009-10':[2009,6],'2014-16':[2014,5],'2018-19':[2018,9],'2023-24':[2023,6]};
     const LAG_MIN=10,LAG_MAX=14; // ~1 year after onset (yr+2 excluded — recovery effect)
     const lagSet=new Set();
     EVENTS.forEach(evt=>{
@@ -3066,6 +2937,21 @@ function updateElNinoStats(k,ok){
     const lagSet=new Set(EVENTS.map(evt=>parseInt(evt.split('-')[0])+1));
     ensoYrs=yrData.filter(d=>lagSet.has(d.yr));
     nonYrs=yrData.filter(d=>!lagSet.has(d.yr));
+  } else if(avoWater){
+    // Onset-adjusted: if El Niño started after June (month>6), year+1 is first full impacted year
+    const waterSet=new Set();
+    EVENTS.forEach(evt=>{
+      const p=evt.split('-');
+      const sy=parseInt(p[0]);
+      let ey=p[1].length<=2?Math.floor(sy/100)*100+parseInt(p[1]):parseInt(p[1]);
+      if(ey<=sy) ey+=100;
+      const o=ONSET[evt];
+      const startMo=o?o[1]:6;
+      const effStart=startMo>6?sy+1:sy;
+      for(let yr=effStart;yr<=ey;yr++) waterSet.add(yr);
+    });
+    ensoYrs=yrData.filter(d=>waterSet.has(d.yr));
+    nonYrs=yrData.filter(d=>!waterSet.has(d.yr));
   } else {
     ensoYrs=yrData.filter(d=>{const t=getEnsoType(d.yr);return t==='El Niño'||t==='Super El Niño';});
     nonYrs=yrData.filter(d=>getEnsoType(d.yr)==='none');
@@ -3090,10 +2976,10 @@ function updateElNinoStats(k,ok){
     :(ensoDec>ensoRis?`fell ${ensoDec}/${ensoYrs.length}`:ensoRis>ensoDec?`rose ${ensoRis}/${ensoYrs.length}`:'mixed');
   const ctag=countryLabel?` · <span style="color:#94a3b8">${countryLabel}</span>`:'';
   const useLag=palmLag||avoLag;
-  const ensoLabel=isTemp?'El Ni\xF1o &amp; Super · °C anom':useLag?'Post El Ni\xF1o · lag +1 yr':'El Ni\xF1o &amp; Super';
-  const ensoSub=isTemp?`${ensoDir} · excl. Mild`:useLag?`${ensoDir} · incl. Mild`:`${ensoDir} · excl. Mild`;
-  const nonLabel=isTemp?'Non-El Ni\xF1o · °C anom':useLag?'Non-lag yrs':'Non-El Ni\xF1o';
-  const nonSub=useLag||isTemp?`${nonYrs.length} yrs · all other`:`${nonYrs.length} yrs · excl. Mild`;
+  const ensoLabel=isTemp?'El Ni\xF1o &amp; Super · °C anom':avoWater?'El Ni\xF1o · onset-adj.':useLag?'Post El Ni\xF1o · lag +1 yr':'El Ni\xF1o &amp; Super';
+  const ensoSub=isTemp?`${ensoDir} · excl. Mild`:avoWater?`${ensoDir} · late-onset shifted +1yr`:useLag?`${ensoDir} · incl. Mild`:`${ensoDir} · excl. Mild`;
+  const nonLabel=isTemp?'Non-El Ni\xF1o · °C anom':avoWater?'Non-El Ni\xF1o precip':useLag?'Non-lag yrs':'Non-El Ni\xF1o';
+  const nonSub=avoWater||useLag||isTemp?`${nonYrs.length} yrs · all other`:`${nonYrs.length} yrs · excl. Mild`;
   box.innerHTML=`<div style="display:flex;gap:1px;flex-wrap:wrap">
     <div style="flex:1;min-width:180px;padding:10px 16px;background:#0d1520;border-radius:6px 0 0 6px;border:1px solid #1e2d3f">
       <div style="font-size:9px;text-transform:uppercase;letter-spacing:.05em;color:#6b7280;margin-bottom:3px">${ensoLabel}${ctag}</div>
@@ -4519,7 +4405,7 @@ function chartDual(k){
         volumeYoy:  {l:'Production YoY',unit:'%',      get:c=>{const a=C.avocado.countryProd[c]||[];return a.slice(1).map((d,i)=>{const p=a[i];return p.kt&&d.kt?{yr:+d.yr,val:+((d.kt/p.kt-1)*100).toFixed(2),src:d.src}:null;}).filter(Boolean);}},
         yield:      {l:'Yield',         unit:'t/ha',   get:c=>(C.avocado.countryYield[c]||[]).map(d=>({yr:+d.yr,val:d.tha,src:d.src}))},
         yieldYoy:   {l:'Yield YoY',     unit:'%',      get:c=>{const a=C.avocado.countryYield[c]||[];return a.slice(1).map((d,i)=>{const p=a[i];return p.tha&&d.tha?{yr:+d.yr,val:+((d.tha/p.tha-1)*100).toFixed(2),src:d.src}:null;}).filter(Boolean);}},
-        water:      {l:'Precip. Anom.', unit:'% anom', get:c=>(C.avocado.countryWater[c]||[]).map(d=>({yr:+d.yr,val:d.anom,src:d.src}))},
+        water:      {l:'Precip. Anom.', unit:'mm', get:c=>(C.avocado.countryWater[c]||[]).map(d=>({yr:+d.yr,val:d.anom,src:d.src}))},
         temperature:{l:'Temp',          unit:'°C anom',get:c=>(C.avocado.countryTemp[c]||[]).map(d=>({yr:+d.yr,val:d.anom,src:d.src}))},
         export:     {l:'Exports',          unit:'kt',  get:c=>(C.avocado.countryExport[c]||C.avocado.countryExport.per||[]).map(d=>({yr:+d.yr,val:d.kt,src:d.src}))},
       }
@@ -4553,6 +4439,8 @@ function chartDual(k){
         if(expOpt) expOpt.style.display=hasExport?'':'none';
         if(!hasExport&&sel.value==='export') sel.value='volume';
       });
+      const irrigNote=document.getElementById('perIrrigNote_avocado');
+      if(irrigNote) irrigNote.style.display=(o1sel.value==='water'||o2sel.value==='water')?'inline':'none';
     }
     const s1=rich.series[o1sel.value]||Object.values(rich.series)[0];
     const s2=rich.series[o2sel.value]||Object.values(rich.series)[Math.min(1,Object.values(rich.series).length-1)];
@@ -4633,23 +4521,21 @@ function chartDual(k){
     {r:rN1, lag:-1, lbl:`${label2} leads ${label1} by 1yr`},
     {r:rN2, lag:-2, lbl:`${label2} leads ${label1} by 2yr`},
   ].filter(o=>o.r!=null);
-  const bestLag=lagOptions.filter(o=>o.lag!==0).sort((a,b)=>Math.abs(b.r)-Math.abs(a.r))[0];
-  // Relationship label based on sign of contemporaneous r
-  const relLabel=r0==null?'insufficient data':r0>=0.4?'correlated (same direction)':r0<=-0.4?'inverse (opposite direction)':'weak / no clear link';
+  const bestLag=lagOptions.sort((a,b)=>Math.abs(b.r)-Math.abs(a.r))[0];
   // Render stat boxes
   const statsEl=document.getElementById('dualStats_'+k);
   if(statsEl){
     const rColor=r=>r==null?'#64748b':Math.abs(r)>=0.6?'#4ade80':Math.abs(r)>=0.35?'#fbbf24':'#f87171';
-    const relColor=r=>r==null?'#64748b':r>=0.4?'#4ade80':r<=-0.4?'#38bdf8':'#94a3b8';
     const toP=r=>r==null?'—':`${r>0?'+':''}${Math.round(r*100)}%`;
+    const isLagged=bestLag&&bestLag.lag!==0;
+    const lagTag=bestLag==null?''
+      :isLagged
+        ?`<span style="display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;color:#f97316;border:1px solid rgba(249,115,22,0.5);border-radius:3px;padding:1px 6px;margin-bottom:6px">LAGGED (${bestLag.lag>0?'+':''}${bestLag.lag}yr)</span>`
+        :`<span style="display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;color:#94a3b8;border:1px solid rgba(148,163,184,0.3);border-radius:3px;padding:1px 6px;margin-bottom:6px">NO LAG</span>`;
     statsEl.innerHTML=`
-      <div style="flex:1;min-width:160px;background:#0d1520;border:1px solid #1e2d3f;border-radius:6px;padding:8px 12px">
-        <div style="font-size:10px;color:#64748b;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px">Contemporaneous r</div>
-        <div style="font-size:18px;font-weight:700;color:${rColor(r0)}">${toP(r0)}</div>
-        <div style="font-size:10px;color:${relColor(r0)};margin-top:2px">${relLabel}</div>
-      </div>
-      <div style="flex:1;min-width:220px;background:#0d1520;border:1px solid #1e2d3f;border-radius:6px;padding:8px 12px">
-        <div style="font-size:10px;color:#64748b;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px">Strongest lag (0–±2yr)</div>
+      <div style="flex:1;min-width:180px;background:#0d1520;border:1px solid #1e2d3f;border-radius:6px;padding:8px 12px">
+        <div>${lagTag}</div>
+        <div style="font-size:10px;color:#64748b;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px">Strongest correlation <span style="font-size:9px;color:#475569;text-transform:none;letter-spacing:0;font-style:italic">(Pearson r)</span></div>
         <div style="font-size:18px;font-weight:700;color:${rColor(bestLag?.r)}">${bestLag?toP(bestLag.r):'—'}</div>
         <div style="font-size:10px;color:#64748b;margin-top:2px">${bestLag?bestLag.lbl:'insufficient data'}</div>
       </div>
@@ -4754,3 +4640,4 @@ function chartDual(k){
 </script>
 </body>
 </html>
+
