@@ -606,33 +606,33 @@ const C = {
   avocado:{
     name:'Avocado', icon:'🥑', cls:'neg', score:0.65,
     unit:'production YoY % — Mexico (primary signal)',
-    regions:'Mexico (~25% global, Michoacán 75% + Jalisco 10%), Colombia (~11%), Peru (~8%), Kenya (~7%)',
-    driver:'El Niño drives heat-stress fruit-size compression in Mexico — export VALUE falls even when volume holds. No futures market.',
+    regions:'Mexico (~25% global, Michoacán 75% + Jalisco 10%), Colombia (~11%), Peru (~8%), Kenya (~4%)',
+    driver:'El Niño correlates with Mexico production softness on a 1-year lag — volume held in 2023 (+17%) then fell −7.1% in 2024 (FAO). Peru exports more directly sensitive: −13% in 2018-19, −5% in 2023-24 (FAO). No futures market.',
     wx:[ {l:'Drought + heat · Michoacán Jun–Sep',t:'drought'}, {l:'La Niña flood risk · Peru coast',t:'rain'}, {l:'AWC wilt (Phytophthora) · Colombia drought',t:'disease'} ],
-    mech:"Mexico produces ~25% of global supply from Michoacán and Jalisco. <strong>65% of orchards are rain-fed</strong> — El Niño drought during the La Normal blooming window (Dec–Apr) causes heat spikes that reduce fruit caliber. Crucially, raw volume often holds while export <strong>value falls</strong> (2023 precedent: volume +17%, value −12%). Colombia faces the same drought direction as Mexico — in 2026, both are stressed simultaneously with no offset country. Peru is a partial offset but its threat is La Niña coastal flooding, not El Niño. <strong>No futures market exists</strong> — this is a physical supply signal only.",
+    mech:"Mexico (~25% global supply) has grown production through almost every El Niño event — structural area expansion has dominated weather effects. The cleaner signal is lagged: Mexico production rose +17% in 2023 then fell <strong>−7.1% in 2024</strong> (FAO), consistent with flowering-window stress in 2023 hitting the 2024 harvest. Mexico exports followed the same pattern: +17.2% in 2023, −2.5% in 2024 (FAO FAOSTAT). Peru is more directly exposed — exports fell <strong>−13.4% in 2018-19</strong> and <strong>−4.7% in 2023-24</strong> (FAO). Colombia bucked the 2023-24 El Niño entirely: exports grew +20.7% in 2024 to 139 kt (FAO). We have no export value data in this dashboard — the fruit-caliber/value-compression thesis is directionally plausible but unverified here. <strong>No futures market exists</strong> — this is a physical volume signal only.",
     why:[
-      "Mexico export value, not volume, is the primary signal — heat-stress shrinks fruit caliber; smaller sizes fetch lower $/MT even at full throughput.",
-      "El Niño onset H2 2026 → La Normal flowering window Dec 2026–Apr 2027 → harvest and export value impact visible 2027. 4–8 month lag from onset to impact. SOURCE: USDA GAIN MX2026-0019",
-      "Colombia (Andean Hass belt) faces drought in same direction as Mexico — both stressed simultaneously in 2026 El Niño means no counter-seasonal offset.",
-      "Peru's primary climate threat is La Niña coastal flooding, not El Niño — it is a partial offset for Mexico tightening, but monitor quarterly."
+      "Mexico production shows a 1-year lag to El Niño: +17% in 2023 (El Niño onset), then −7.1% in 2024 (FAO). Volume, not value, is what our data can confirm.",
+      "Peru export volume is the most consistent El Niño signal in our dataset: −6% in 2009-10, −13.4% in 2018-19, −4.7% in 2023-24 (FAO FAOSTAT). Peru exports ~62–73% of production (FAO, 2022–2024) and declining as domestic consumption grows.",
+      "Colombia exports grew through the 2023-24 El Niño (+20.7% in 2024, FAO) — Andean geography means drought exposure differs from Mexico. Not a reliable offset assumption.",
+      "No futures market — any El Niño signal is a physical volume read only. Export value compression (caliber effect) is a plausible mechanism but requires value data to confirm."
     ],
     events:{
       '2002-03':{dev:-4,src:'rep'}, '2004-05':{dev:+9,src:'rep'}, '2006-07':{dev:+11,src:'rep'}, '2009-10':{dev:+6,src:'rep'},
-      '2014-16':{dev:+15,src:'rep'}, '2018-19':{dev:+8,src:'rep'}, '2023-24':{dev:+2,src:'rep'}
+      '2014-16':{dev:+15,src:'rep'}, '2018-19':{dev:+8,src:'rep'}, '2023-24':{dev:-7,src:'rep'}
     },
     supply:{stocks:null, use:null, src:'n/a — avocado is perishable, no standardized stocks-to-use ratio'},
-    superNote:"2023–24 El Niño confirmed the value-compression mechanism: Mexico production +1.9% (SIAP), but Michoacán/Jalisco heat stress drove smaller fruit caliber → export value −12% to $3.03B despite volume at 1.4 MMT. 2024 exports then fell −15% to 1.19 MMT (WITS HS 080440). The 2026 El Niño risk is a repeat of this mechanism — USDA GAIN MX2026-0019 (Mar 2026) explicitly flags H2 2026 El Niño as a threat to fruit size. SOURCE: SIAP via GAIN MX2026-0019/MX2024-0018; WITS HS 080440.",
+    superNote:"2023–24 El Niño — what the data shows: Mexico production surged +17.0% in 2023 to 2,973 kt, then fell −7.1% in 2024 to 2,761 kt — consistent with a 1-year flowering lag (FAO). Mexico exports rose +17.2% in 2023 to 1,221 kt, then eased −2.5% in 2024 to 1,190 kt (FAO FAOSTAT). Peru exports dipped −4.7% in 2024 to 570 kt. Colombia exports grew +20.7% in 2024 to 139 kt. World exports near-flat +1.3% in 2024 at 3,457 kt (FAO FAOSTAT). The fruit-caliber/value-compression thesis (volume holds, price falls) is widely cited but we have no export value data to verify it here.",
     trendIdx:{labels:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],vals:[105,108,110,112,110,105,95,88,85,88,95,102],src:'2026 est.'},
     verdict:'MIXED',
-    verdictNote:"Volume growth continues (+3% forecast 2026, GAIN MX2026-0019) but El Niño H2 2026 creates flowering risk for the 2027 crop. The primary 2026 signal is export value compression, not tonnage.",
+    verdictNote:"Mexico production fell −7.1% in 2024 after the 2023-24 El Niño onset (FAO) — the 1-year lag pattern. If 2026 El Niño follows the same template, the 2027 harvest is the primary risk window. Peru exports are more immediately sensitive. Colombia has been resilient. Volume growth trend remains intact; the question is magnitude of the next lag dip.",
     tiles:{
-      'Mexico 2026 prod.':{v:'2.80 MMT',d:'up',n:'+3% YoY forecast — SOURCE: USDA GAIN MX2026-0019'},
-      'Mexico 2026 exports':{v:'1.31 MMT',d:'up',n:'+7% YoY forecast — SOURCE: USDA GAIN MX2026-0019'},
-      'Peru 2025 exports':{v:'630 kMT',d:'up',n:'+6% YoY est. — SOURCE: USDA GAIN PE2025-0005'},
-      'Colombia 2024 exports':{v:'138 kMT',d:'up',n:'+221% YoY value — SOURCE: WITS HS 080440 + GAIN CO2025-0004'}
+      'Mexico 2024 prod.':{v:'2.76 MMT',d:'down',n:'−7.1% YoY — SOURCE: FAO FAOSTAT 2024'},
+      'Mexico 2024 exports':{v:'1.19 MMT',d:'down',n:'−2.5% YoY — SOURCE: FAO FAOSTAT TCL 2024'},
+      'Peru 2024 exports':{v:'570 kt',d:'down',n:'−4.7% YoY — SOURCE: FAO FAOSTAT TCL 2024'},
+      'Colombia 2024 exports':{v:'139 kt',d:'up',n:'+20.7% YoY volume — SOURCE: FAO FAOSTAT TCL 2024'}
     },
-    predict:"<strong>No futures market — physical supply signal only.</strong> The key 2026 watch: El Niño H2 2026 onset → La Normal flowering window Dec 2026–Apr 2027 → fruit-size compression → export <em>value</em> falls in 2027 even if volume holds. Colombia faces the same drought direction as Mexico with no offset. Peru is a partial offset if La Niña develops — monitor quarterly. Any position must be sized against export value, not tonnage. SOURCE: USDA GAIN MX2026-0019.",
-    dir:'Export value at risk 2027 ↓ (no futures market)', dirColor:'var(--accent)',
+    predict:"<strong>No futures market — physical volume signal only.</strong> The 1-year lag pattern (Mexico: +17% production in 2023, −7.1% in 2024) is the most data-supported mechanism. If 2026 El Niño onset stress hits the Dec 2026–Apr 2027 flowering window, the 2027 harvest is the primary risk. Peru export volume is the most consistent near-term signal — monitor quarterly. The caliber/value-compression thesis is plausible but requires export value data (not in this dashboard) to trade against. SOURCE: FAO FAOSTAT 2000–2024.",
+    dir:'Mexico 2027 harvest at risk (1yr lag) ↓', dirColor:'var(--accent)',
     geo:{lat:19.42,lon:-102.07,place:'Uruapan (avocado belt), Michoacán, Mexico'}
   }
 };
@@ -675,7 +675,7 @@ C.avocado.outcomes={
   // temperature: Mean annual temperature anomaly (°C vs 2001–2020 baseline). SOURCE: Open-Meteo archive API — Michoacán (MEX), Antioquia (COL), La Libertad (PER). El Niño typically drives +0.5–2°C warming in all three zones, disrupting flowering and fruit set.
   temperature: {label:'Temperature Anomaly',  unit:'°C deviation from 2001–2020 baseline — Michoacán / Antioquia / La Libertad', events:{'2002-03':{dev:+0.6,src:'est'},'2004-05':{dev:+0.4,src:'est'},'2006-07':{dev:+0.3,src:'est'},'2009-10':{dev:+0.8,src:'est'},'2014-16':{dev:+1.4,src:'est'},'2018-19':{dev:+0.9,src:'est'},'2023-24':{dev:+1.8,src:'est'}}},
   // export: Peru export volume (kt). PERU ONLY — Mexico/Colombia consume domestically; only Peru exports ~90% of crop. SOURCE: FAO FAOSTAT TCL official figures.
-  export: {label:'Export Quantity (Peru)', unit:'kt — Peru only (FAO FAOSTAT)', events:{'2002-03':{dev:+93,src:'rep'},'2004-05':{dev:+28,src:'rep'},'2006-07':{dev:+70,src:'rep'},'2009-10':{dev:-6,src:'rep'},'2014-16':{dev:+14,src:'rep'},'2018-19':{dev:-13,src:'rep'},'2023-24':{dev:-5,src:'rep'}}}
+  export: {label:'Export Quantity', unit:'kilotonnes (kt = 1,000 metric tonnes) — FAO FAOSTAT', events:{'2002-03':{dev:+93,src:'rep'},'2004-05':{dev:+28,src:'rep'},'2006-07':{dev:+70,src:'rep'},'2009-10':{dev:-6,src:'rep'},'2014-16':{dev:+14,src:'rep'},'2018-19':{dev:-13,src:'rep'},'2023-24':{dev:-5,src:'rep'}}}
 };
 
 // ── PER-OUTCOME SENSITIVITY DRIVERS ─────────────────────────────────────────────────────
@@ -1071,6 +1071,35 @@ C.avocado.countryWater={
     {yr:'2022',anom:+0.7,src:'rep',note:'World Bank'},{yr:'2023',anom:-1.0,src:'rep',note:'World Bank — El Niño 2023-24'},
     {yr:'2024',anom:-0.2,src:'rep',note:'World Bank — El Niño 2023-24'},
     {yr:'2025',anom:+0.3,src:'est',note:'ENSO-neutral 2025 — near-zero global anomaly; direction estimate'},
+  ],
+  // La Libertad & Ica, Peru (lat=-8.1, lon=-78.5). El Niño = coastal flooding; La Niña = drought.
+  // src:'est' = ENSO-calibrated. Live Open-Meteo fetch (start_date 2000) overwrites with src:'rep'.
+  per:[
+    {yr:'2000',anom:-18,src:'est',note:'La Niña — dry coastal Peru'},
+    {yr:'2001',anom:-10,src:'est',note:'La Niña decay — below normal'},
+    {yr:'2002',anom:+14,src:'est',note:'El Niño 2002-03 onset — coastal rains'},
+    {yr:'2003',anom:+20,src:'est',note:'El Niño 2002-03 — wet coast'},
+    {yr:'2004',anom:+5,src:'est',note:'Weak El Niño 2004-05'},
+    {yr:'2005',anom:+7,src:'est',note:'El Niño decay'},
+    {yr:'2006',anom:+12,src:'est',note:'El Niño 2006-07 — moderate coastal rains'},
+    {yr:'2007',anom:+8,src:'est',note:'El Niño decay'},
+    {yr:'2008',anom:-14,src:'est',note:'La Niña — dry'},
+    {yr:'2009',anom:+16,src:'est',note:'El Niño 2009-10 — above-normal coastal precip'},
+    {yr:'2010',anom:-8,src:'est',note:'La Niña onset'},
+    {yr:'2011',anom:-16,src:'est',note:'La Niña — notably dry coast'},
+    {yr:'2012',anom:-8,src:'est',note:'La Niña decay'},
+    {yr:'2013',anom:+2,src:'est',note:'Neutral ENSO'},
+    {yr:'2014',anom:+10,src:'est',note:'El Niño 2014-15 onset — coastal rains'},
+    {yr:'2015',anom:+24,src:'est',note:'Super El Niño 2015-16 — heavy coastal rains'},
+    {yr:'2016',anom:+32,src:'est',note:'Super El Niño peak — severe flooding'},
+    {yr:'2017',anom:+72,src:'est',note:'Coastal El Niño — catastrophic Huaico flooding; La Libertad declared emergency'},
+    {yr:'2018',anom:+6,src:'est',note:'El Niño 2018-19 onset'},
+    {yr:'2019',anom:+8,src:'est',note:'El Niño 2018-19'},
+    {yr:'2020',anom:-14,src:'est',note:'La Niña — dry coast'},
+    {yr:'2021',anom:-16,src:'est',note:'La Niña — dry'},
+    {yr:'2022',anom:-12,src:'est',note:'La Niña decay'},
+    {yr:'2023',anom:+20,src:'est',note:'El Niño 2023-24 — elevated coastal precip'},
+    {yr:'2024',anom:+16,src:'est',note:'El Niño 2023-24'},
   ],
 };
 
@@ -2765,7 +2794,7 @@ function detail(k){
           ok==='yield'?'Annual yield — Mexico, Peru, Colombia, World (t/ha)':
           ok==='water'?'Annual precipitation — Mexico, Peru, Colombia, World (% vs long-term avg)':
           ok==='temperature'?'Annual temperature anomaly — Mexico, Peru, Colombia, World (°C vs 2001–2020 baseline)':
-          'Annual export volume — Mexico, Peru, Colombia, World (kt)'}</summary>
+          'Annual export quantity — Peru only (kt = kilotonnes, 1 kt = 1,000 metric tonnes)'}</summary>
         <div style="display:flex;gap:20px;align-items:center;margin:10px 0 4px;flex-wrap:wrap">
           ${ok==='volume'?`
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkAvoMex" checked onchange="if(charts.avocadoProd){charts.avocadoProd.data.datasets[0].hidden=!this.checked;charts.avocadoProd.update()}"><span style="color:#4ade80;font-weight:600">● Mexico</span><span style="color:var(--muted);font-size:10px">24.6%</span></label>
@@ -2779,9 +2808,9 @@ function detail(k){
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkAvoWld" checked onchange="if(charts.avocadoProd){charts.avocadoProd.data.datasets[3].hidden=!this.checked;charts.avocadoProd.update()}"><span style="color:#94a3b8;font-weight:600">● World</span></label>
           `:ok==='water'?`
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkAvoMex" checked onchange="if(charts.avocadoProd){charts.avocadoProd.data.datasets[0].hidden=!this.checked;charts.avocadoProd.update()}"><span style="color:#4ade80;font-weight:600">● Mexico</span><span style="color:var(--muted);font-size:10px">CONAGUA</span></label>
-          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkAvoCol" checked onchange="if(charts.avocadoProd){charts.avocadoProd.data.datasets[1].hidden=!this.checked;charts.avocadoProd.update()}"><span style="color:#38bdf8;font-weight:600">● Colombia</span><span style="color:var(--muted);font-size:10px">IDEAM</span></label>
-          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkAvoWld" checked onchange="if(charts.avocadoProd){charts.avocadoProd.data.datasets[2].hidden=!this.checked;charts.avocadoProd.update()}"><span style="color:#94a3b8;font-weight:600">● World</span><span style="color:var(--muted);font-size:10px">wtd avg</span></label>
-          <span style="display:flex;align-items:center;gap:5px;font-size:11px;color:#f97316;border:1px solid rgba(249,115,22,0.35);border-radius:4px;padding:2px 8px;margin-left:4px">⚠ Peru excluded — La Libertad grows use Andean river irrigation, so rainfall anomalies do not materially affect yields</span>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkAvoPer" checked onchange="if(charts.avocadoProd){charts.avocadoProd.data.datasets[1].hidden=!this.checked;charts.avocadoProd.update()}"><span style="color:#f97316;font-weight:600">● Peru</span><span style="color:var(--muted);font-size:10px">Open-Meteo</span></label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkAvoCol" checked onchange="if(charts.avocadoProd){charts.avocadoProd.data.datasets[2].hidden=!this.checked;charts.avocadoProd.update()}"><span style="color:#38bdf8;font-weight:600">● Colombia</span><span style="color:var(--muted);font-size:10px">IDEAM</span></label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkAvoWld" checked onchange="if(charts.avocadoProd){charts.avocadoProd.data.datasets[3].hidden=!this.checked;charts.avocadoProd.update()}"><span style="color:#94a3b8;font-weight:600">● World</span><span style="color:var(--muted);font-size:10px">wtd avg</span></label>
           `:ok==='temperature'?`
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkAvoMex" checked onchange="if(charts.avocadoProd){charts.avocadoProd.data.datasets[0].hidden=!this.checked;charts.avocadoProd.update()}"><span style="color:#4ade80;font-weight:600">● Mexico</span><span style="color:var(--muted);font-size:10px">Open-Meteo Live</span></label>
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkAvoPer" checked onchange="if(charts.avocadoProd){charts.avocadoProd.data.datasets[1].hidden=!this.checked;charts.avocadoProd.update()}"><span style="color:#f97316;font-weight:600">● Peru</span><span style="color:var(--muted);font-size:10px">Open-Meteo Live</span></label>
@@ -2807,6 +2836,7 @@ function detail(k){
           ok==='volume'?'Production in kt. Mexico + Peru + Colombia + World = OWID/FAO 2000–2024; Mexico 2025–2026 = USDA GAIN forecast. El Niño bands: NOAA CPC.':
           ok==='yield'?'Yield in t/ha. Mexico 2000–2024 SIAP/FAO raw; Colombia + World OWID/FAO 2000–2024. Colombia improving with Hass expansion. El Niño bands: NOAA CPC.':
           ok==='water'?'Precipitation anomaly (% vs 2001–2020 baseline). Positive = wetter, negative = drought. CONAGUA (Mexico hist), IDEAM (Colombia hist); 2025–2026 + Peru = Open-Meteo archive live. World = wtd avg Mex 60% + Col 40%. El Niño bands: NOAA CPC.':
+          ok==='export'?'Export quantity in kilotonnes (kt). 1 kt = 1,000 metric tonnes. Peru only — FAO FAOSTAT official figures 2000–2024. YoY% bars show year-on-year change. El Niño bands: NOAA CPC.':
           'Mean temperature anomaly (°C vs 2001–2020 baseline). All series: Open-Meteo archive live — Michoacán (MEX), Antioquia (COL), La Libertad (PER). World = wtd avg Mex 60% + Col 40%. Current year = YTD mean. El Niño bands: NOAA CPC.'}</div>
       </details>
     </div>
@@ -2854,9 +2884,12 @@ function detail(k){
       </div>
       <div style="font-size:11px;color:var(--muted);margin:-2px 0 4px">°C anomaly vs 2001–2020 baseline. SOURCE: Open-Meteo archive live — loads on page open. Bars appear once live data fetches.</div>`:''}
       ${k==='avocado'&&ok==='export'?`<div style="display:flex;gap:16px;align-items:center;margin:8px 0 4px;flex-wrap:wrap">
-        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="per" checked onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','export')"><span style="color:#f97316;font-weight:600">● Peru</span><span style="color:var(--muted);font-size:10px">only country</span></label>
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="mex" checked onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','export')"><span style="color:#4ade80;font-weight:600">● Mexico</span></label>
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="per" onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','export')"><span style="color:#f97316;font-weight:600">● Peru</span></label>
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="col" onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','export')"><span style="color:#38bdf8;font-weight:600">● Colombia</span></label>
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="wld" onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','export')"><span style="color:#94a3b8;font-weight:600">● World</span></label>
       </div>
-      <div style="font-size:11px;color:var(--muted);margin:-2px 0 4px">Export quantity YoY%. Peru only — Mexico and Colombia do not have export-dominated supply chains. SOURCE: FAO FAOSTAT TCL official figures 2000–2024.</div>`:''}
+      <div style="font-size:11px;color:var(--muted);margin:-2px 0 4px">Export quantity YoY%. SOURCE: FAO FAOSTAT TCL official figures 2000–2024.</div>`:''}
       <div style="display:flex;gap:28px;align-items:stretch;margin-top:6px">
         <div class="chart-wrap" style="height:320px;flex:1"><canvas id="chEvents"></canvas></div>
         <div id="evHoverBox" class="ev-hover-box"><div class="ehb-section"><span style="color:var(--muted);font-size:11px">Hover a bar</span></div></div>
@@ -2866,8 +2899,8 @@ function detail(k){
     </div>
 
     <div class="panel">
-      <details class="traj-details" open ontoggle="if(this.open&&charts['dual_${k}'])charts['dual_${k}'].resize()">
-        <summary class="section-t"><span>📈</span> Outcome comparison — dual-axis correlation</summary>
+      <div class="traj-details">
+        <div class="section-t"><span>📈</span> Outcome comparison — dual-axis correlation</div>
         <div style="display:flex;gap:14px;align-items:center;margin:10px 0 8px;flex-wrap:wrap;font-size:12px">
           ${k==='avocado'?`<span style="color:var(--muted);font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.05em">Country</span>
           <label style="display:flex;align-items:center;gap:5px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="dualCtry_avocado" value="mex" ${ok!=='export'?'checked':''} onchange="chartDual('avocado')"><span style="color:#4ade80;font-weight:600">● Mexico</span></label>
@@ -2902,7 +2935,7 @@ function detail(k){
         <div class="chart-wrap" style="height:280px"><canvas id="chDual_${k}"></canvas></div>
         <div id="dualStats_${k}" style="display:flex;gap:10px;margin:8px 0 4px;flex-wrap:wrap"></div>
         <div class="chart-cap"><span style="color:#a78bfa;font-weight:600">—</span> Left axis = Y1 &nbsp;|&nbsp; <span style="color:#fb923c;font-weight:600">—</span> Right axis = Y2. Grey fill = area between lines (narrow = tracking together). El Niño bands: NOAA CPC.</div>
-      </details>
+      </div>
     </div>
 
     ${(c.verdict||c.tiles||c.superNote||c.predict)?`
@@ -2937,7 +2970,7 @@ function detail(k){
     else if(k==='cocoa'&&getOutcome('cocoa')==='volume') chartCocoaBar('civ');
     else if(k==='avocado'){
       const aok=getOutcome('avocado');
-      const defC=aok==='yield'?'col':aok==='export'?'per':'mex';
+      const defC=aok==='yield'?'col':'mex';
       chartAvocadoBar(defC);
     } else chartEvents(c,k);
     chartTrend(c);
@@ -4020,12 +4053,7 @@ function chartAvocadoBar(country){
     series=raw.map(d=>({yr:d.yr,yoy:d.anom,src:d.src,val:d.anom,note:d.note}));
     yAxisLabel=C.avocado.outcomes.temperature.unit;
   } else if(ok==='export'){
-    if(country!=='per'){
-      const canvEl=document.getElementById('chEvents');
-      if(canvEl){const ctx2=canvEl.getContext('2d');ctx2.clearRect(0,0,canvEl.width,canvEl.height);ctx2.fillStyle='#3b4f63';ctx2.font='13px system-ui,sans-serif';ctx2.textAlign='center';ctx2.fillText('Export volume data is available for Peru only.',canvEl.width/2,canvEl.height/2);}
-      return;
-    }
-    raw=C.avocado.countryExport.per||[]; if(!raw.length) return;
+    raw=C.avocado.countryExport[country]||[]; if(!raw.length) return;
     series=raw.map((d,i)=>{
       const prev=i>0?raw[i-1]:null;
       const yoy=prev?+((d.kt/prev.kt-1)*100).toFixed(1):null;
@@ -4194,12 +4222,12 @@ function chartAvocadoProd(){
   // ── water stress branch ────────────────────────────────────────────────────
   if(ok==='water'){
     const cw=C.avocado.countryWater;
-    const longest=[cw.mex,cw.col,cw.wld||[]].reduce((a,b)=>b.length>a.length?b:a,[]);
+    const longest=[cw.mex,cw.per||[],cw.col,cw.wld||[]].reduce((a,b)=>b.length>a.length?b:a,[]);
     if(!longest.length) return;
     const labels=longest.map(d=>d.yr);
     const n=labels.length;
     function toAnom(arr){return labels.map(yr=>{const d=arr.find(a=>a.yr===yr);return d?d.anom:null;});}
-    const mexAnom=toAnom(cw.mex),colAnom=toAnom(cw.col),wldAnom=toAnom(cw.wld||[]);
+    const mexAnom=toAnom(cw.mex),perAnom=toAnom(cw.per||[]),colAnom=toAnom(cw.col),wldAnom=toAnom(cw.wld||[]);
     const dashLast=sc=>sc.p1DataIndex===n-1?[5,4]:[];
     function updateAvoWaterBox(ni){
       const box=document.getElementById('avocadoProdHoverBox');if(!box)return;
@@ -4210,6 +4238,7 @@ function chartAvocadoProd(){
       box.innerHTML=
         `<div class="ehb-section"><div class="ehb-label">Year</div><div class="ehb-yr">${yr}</div></div>`+
         `<div class="ehb-section"><div class="ehb-label" style="color:${ACLR.mex}">MEX anom</div><div class="ehb-pct" style="color:${ACLR.mex}">${fmt(mexAnom[ni])}</div></div>`+
+        `<div class="ehb-section"><div class="ehb-label" style="color:${ACLR.per}">PER anom</div><div class="ehb-pct" style="color:${ACLR.per}">${fmt(perAnom[ni])}</div></div>`+
         `<div class="ehb-section"><div class="ehb-label" style="color:${ACLR.col}">COL anom</div><div class="ehb-pct" style="color:${ACLR.col}">${fmt(colAnom[ni])}</div></div>`+
         `<div class="ehb-section"><div class="ehb-label" style="color:${ACLR.wld}">WLD anom</div><div class="ehb-pct" style="color:${ACLR.wld}">${fmt(wldAnom[ni])}</div></div>`+
         `<div class="ehb-section"><div class="ehb-label">Severity</div><div class="ehb-sev ${sevCls}" style="visibility:${sev?'visible':'hidden'}">${sev||'—'}</div></div>`;
@@ -4226,20 +4255,22 @@ function chartAvocadoProd(){
         let ni=0,md=Infinity;meta.data.forEach((el,i)=>{const d=Math.abs(el.x-chart._mouseX);if(d<md){md=d;ni=i;}});
         updateAvoWaterBox(ni);
         const fmt=v=>v!=null?(v>=0?'+':'')+v.toFixed(1)+'%':'—';
-        const bw=110,bh=90,mx=chart._mouseX,my=chart._mouseY!=null?chart._mouseY:top+40;
+        const bw=120,bh=106,mx=chart._mouseX,my=chart._mouseY!=null?chart._mouseY:top+40;
         const bx=Math.min(Math.max(mx-bw/2,left+2),right-bw-2);
         const by=Math.min(Math.max(my-bh-14,top+1),bottom-bh-1);
         c2.fillStyle='rgba(10,14,22,0.93)';c2.fillRect(bx,by,bw,bh);c2.strokeStyle='rgba(255,255,255,0.15)';c2.lineWidth=1;c2.strokeRect(bx,by,bw,bh);
         c2.textAlign='center';c2.textBaseline='middle';c2.fillStyle='#cbd5e1';c2.font='bold 11px system-ui,sans-serif';c2.fillText(labels[ni],bx+bw/2,by+12);
         c2.textAlign='left';c2.font='10px system-ui,sans-serif';
         c2.fillStyle=ACLR.mex;c2.fillText('MEX '+fmt(mexAnom[ni]),bx+8,by+28);
-        c2.fillStyle=ACLR.col;c2.fillText('COL '+fmt(colAnom[ni]),bx+8,by+44);
-        c2.fillStyle=ACLR.wld;c2.fillText('WLD '+fmt(wldAnom[ni]),bx+8,by+60);
+        c2.fillStyle=ACLR.per;c2.fillText('PER '+fmt(perAnom[ni]),bx+8,by+44);
+        c2.fillStyle=ACLR.col;c2.fillText('COL '+fmt(colAnom[ni]),bx+8,by+60);
+        c2.fillStyle=ACLR.wld;c2.fillText('WLD '+fmt(wldAnom[ni]),bx+8,by+76);
         c2.restore();
       }
     }],
       data:{labels,datasets:[
         {label:'Mexico',data:mexAnom,borderColor:ACLR.mex,fill:false,tension:0.2,pointRadius:3,pointHoverRadius:5,pointBackgroundColor:'#0a0e16',pointBorderColor:ACLR.mex,segment:{borderDash:dashLast}},
+        {label:'Peru',data:perAnom,borderColor:ACLR.per,fill:false,tension:0.2,pointRadius:3,pointHoverRadius:5,pointStyle:'rectRot',pointBackgroundColor:'#0a0e16',pointBorderColor:ACLR.per,segment:{borderDash:dashLast}},
         {label:'Colombia',data:colAnom,borderColor:ACLR.col,fill:false,tension:0.2,pointRadius:3,pointHoverRadius:5,pointStyle:'triangle',pointBackgroundColor:'#0a0e16',pointBorderColor:ACLR.col,segment:{borderDash:dashLast}},
         {label:'World',data:wldAnom,borderColor:ACLR.wld,fill:false,tension:0.2,pointRadius:2,pointHoverRadius:4,borderWidth:1.5,borderDash:[3,3],pointBackgroundColor:'#0a0e16',pointBorderColor:ACLR.wld,segment:{borderDash:dashLast}},
       ]},
@@ -4371,7 +4402,7 @@ function chartAvocadoProd(){
         plugins:{legend:{display:false},tooltip:{enabled:false}},
         scales:{x:xScale,y:{type:'linear',position:'left',grid:{color:'#1b232d'},
           ticks:{color:'#8b9bab',font:{size:10},callback:v=>v>=1000?(v/1000).toFixed(1)+'k':v.toFixed(0)},
-          title:{display:true,text:'Export volume (kt)',color:'#8b9bab',font:{size:9}}}}}});
+          title:{display:true,text:'Export qty — kilotonnes (1 kt = 1,000 metric tonnes)',color:'#8b9bab',font:{size:9}}}}}});
     return;
   }
 
