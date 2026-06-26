@@ -3077,20 +3077,47 @@ function updateElNinoStats(k,ok){
     </div>
   </div>
   <div style="font-size:9px;color:#475569;margin-top:5px">SOURCE: ${(()=>{
+    const ctry=(document.querySelector(`input[name="${k==='avocado'?'avocadoBarSeries':k==='palmoil'?'palmBarSeries':'cocoaBarSeries'"]:checked`)||{}).value||'wld';
     const srcs={
-      'avocado:volume':'FAO FAOSTAT QCL — production quantity (official figures)',
-      'avocado:volumeYoy':'FAO FAOSTAT QCL — production quantity (official figures)',
-      'avocado:yield':'FAO FAOSTAT QCL — yield t/ha; Mexico supplemented by SIAP',
-      'avocado:yieldYoy':'FAO FAOSTAT QCL — yield t/ha; Mexico supplemented by SIAP',
-      'avocado:water':'Copernicus ERA5 via OWID — annual precip anomaly mm vs 1991–2020 baseline (downloaded 2026-06-26)',
-      'avocado:temperature':'Copernicus ERA5 via OWID — annual temp anomaly °C vs 1991–2020 baseline (downloaded 2026-06-26)',
-      'avocado:export':'FAO FAOSTAT TCL — export quantity (official figures, 2000–2024)',
-      'palmoil:volume':'USDA PSD / MPOB — CPO production',
-      'palmoil:yield':'MPOB Annual Overview — FFB yield t/ha (Malaysia); USDA PSD (Indonesia)',
-      'cocoa:volume':'ICCO / Wells Fargo Securities — crop-year production',
-      'cocoa:yield':'FAO FAOSTAT — yield kg/ha',
+      'avocado:volume:mex':'FAO FAOSTAT QCL — Mexico production quantity (official figures)',
+      'avocado:volume:col':'FAO FAOSTAT QCL — Colombia production quantity (official figures)',
+      'avocado:volume:per':'FAO FAOSTAT QCL — Peru production quantity (official figures)',
+      'avocado:volume:wld':'FAO FAOSTAT QCL — world production quantity (official figures)',
+      'avocado:volumeYoy:mex':'FAO FAOSTAT QCL — Mexico production quantity (official figures)',
+      'avocado:volumeYoy:col':'FAO FAOSTAT QCL — Colombia production quantity (official figures)',
+      'avocado:volumeYoy:per':'FAO FAOSTAT QCL — Peru production quantity (official figures)',
+      'avocado:volumeYoy:wld':'FAO FAOSTAT QCL — world production quantity (official figures)',
+      'avocado:yield:mex':'OWID/FAO FAOSTAT QCL — Mexico yield t/ha (downloaded 2026-06-25)',
+      'avocado:yield:col':'OWID/FAO FAOSTAT QCL — Colombia yield t/ha (downloaded 2026-06-25)',
+      'avocado:yield:per':'OWID/FAO FAOSTAT QCL — Peru yield t/ha; 2024 MIDAGRI via GAIN PE2025-0005',
+      'avocado:yield:wld':'OWID/FAO FAOSTAT QCL — world avg yield t/ha (downloaded 2026-06-25)',
+      'avocado:water:mex':'Copernicus ERA5 via OWID — Mexico precip anomaly mm vs 1991–2020 baseline (downloaded 2026-06-26)',
+      'avocado:water:col':'Copernicus ERA5 via OWID — Colombia precip anomaly mm vs 1991–2020 baseline (downloaded 2026-06-26)',
+      'avocado:water:per':'Copernicus ERA5 via OWID — Peru precip anomaly mm vs 1991–2020 baseline (downloaded 2026-06-26)',
+      'avocado:water:wld':'Copernicus ERA5 via OWID — wtd avg precip anomaly mm vs 1991–2020 baseline (MEX 60% + COL 40%)',
+      'avocado:temperature:mex':'Copernicus ERA5 via OWID — Mexico temp anomaly °C vs 1991–2020 baseline (downloaded 2026-06-26)',
+      'avocado:temperature:col':'Copernicus ERA5 via OWID — Colombia temp anomaly °C vs 1991–2020 baseline (downloaded 2026-06-26)',
+      'avocado:temperature:per':'Copernicus ERA5 via OWID — Peru temp anomaly °C vs 1991–2020 baseline (downloaded 2026-06-26)',
+      'avocado:temperature:wld':'Copernicus ERA5 via OWID — wtd avg temp anomaly °C vs 1991–2020 baseline (MEX 60% + COL 40%)',
+      'avocado:export:mex':'FAO FAOSTAT TCL — Mexico export quantity (official figures, 2000–2024)',
+      'avocado:export:col':'FAO FAOSTAT TCL — Colombia export quantity (official figures, 2000–2024)',
+      'avocado:export:per':'FAO FAOSTAT TCL — Peru export quantity (official figures, 2000–2024)',
+      'avocado:export:wld':'FAO FAOSTAT TCL — world export quantity (official figures, 2000–2024)',
+      'palmoil:volume:id':'USDA PSD — Indonesia CPO production',
+      'palmoil:volume:my':'MPOB Annual Overview — Malaysia CPO production',
+      'palmoil:volume:wld':'USDA PSD — world CPO production',
+      'palmoil:yield:my':'MPOB Annual Overview — Malaysia FFB yield t/ha',
+      'palmoil:yield:id':'USDA PSD — Indonesia CPO yield t/ha',
+      'cocoa:volume:civ':'ICCO / Wells Fargo Securities — Côte d\'Ivoire crop-year production',
+      'cocoa:volume:gha':'ICCO / Wells Fargo Securities — Ghana crop-year production',
+      'cocoa:volume:ecu':'FAO FAOSTAT — Ecuador production',
+      'cocoa:volume:idn':'FAO FAOSTAT — Indonesia production',
+      'cocoa:volume:wld':'ICCO / Wells Fargo Securities — world crop-year production',
+      'cocoa:yield:civ':'FAO FAOSTAT — Côte d\'Ivoire yield kg/ha',
+      'cocoa:yield:gha':'FAO FAOSTAT — Ghana yield kg/ha',
+      'cocoa:yield:wld':'FAO FAOSTAT — world yield kg/ha',
     };
-    return srcs[`${k}:${ok}`]||'USDA WASDE / FAO FAOSTAT';
+    return srcs[`${k}:${ok}:${ctry}`]||srcs[`${k}:${ok}:wld`]||'USDA WASDE / FAO FAOSTAT';
   })()}</div>`;
 }
 
