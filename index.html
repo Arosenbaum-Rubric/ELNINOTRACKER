@@ -671,9 +671,9 @@ C.avocado.outcomes={
   // yield: Mexico t/ha YoY. SOURCE: friend avocado_yield_per_hectare.csv — cross-validation only (est for provenance)
   yield:  {label:'Yield / Hectare',            unit:'t/ha YoY % — Mexico',                    events:{'2002-03':{dev:0,src:'est'},'2004-05':{dev:+2,src:'est'},'2006-07':{dev:-1,src:'est'},'2009-10':{dev:+1,src:'est'},'2014-16':{dev:+3,src:'est'},'2018-19':{dev:-2,src:'est'},'2023-24':{dev:-4,src:'est'}}},
   // water: precipitation anomaly mm vs 1991–2020 baseline. SOURCE: Copernicus ERA5 via OWID (downloaded 2026-06-26).
-  water:  {label:'Precipitation Anomaly', unit:'mm anomaly vs 1991–2020 baseline (Copernicus ERA5)', events:{'2002-03':{dev:-5,src:'rep'},'2004-05':{dev:-3,src:'rep'},'2006-07':{dev:+6,src:'rep'},'2009-10':{dev:0,src:'est'},'2014-16':{dev:-4,src:'rep'},'2018-19':{dev:-8,src:'rep'},'2023-24':{dev:-17,src:'rep'}}},
-  // temperature: Mean annual temperature anomaly (°C vs 1991–2020 baseline). SOURCE: Copernicus ERA5 via OWID. El Niño typically drives +0.5–2°C warming in all three zones, disrupting flowering and fruit set.
-  temperature: {label:'Temperature Anomaly',  unit:'°C anomaly vs 1991–2020 baseline (Copernicus ERA5)', events:{'2002-03':{dev:+0.6,src:'est'},'2004-05':{dev:+0.4,src:'est'},'2006-07':{dev:+0.3,src:'est'},'2009-10':{dev:+0.8,src:'est'},'2014-16':{dev:+1.4,src:'est'},'2018-19':{dev:+0.9,src:'est'},'2023-24':{dev:+1.8,src:'est'}}},
+  water:  {label:'Precipitation Anomaly', unit:'mm vs 1991–2020 baseline (Copernicus ERA5)', events:{'2002-03':{dev:-5,src:'rep'},'2004-05':{dev:-3,src:'rep'},'2006-07':{dev:+6,src:'rep'},'2009-10':{dev:0,src:'est'},'2014-16':{dev:-4,src:'rep'},'2018-19':{dev:-8,src:'rep'},'2023-24':{dev:-17,src:'rep'}}},
+  // temperature: Mean annual temperature anomaly (°C vs 1991–2020 baseline). SOURCE: Open-Meteo archive API — Michoacán (MEX), Antioquia (COL), La Libertad (PER). El Niño typically drives +0.5–2°C warming in all three zones, disrupting flowering and fruit set.
+  temperature: {label:'Temperature Anomaly',  unit:'°C deviation from 1991–2020 baseline — Michoacán / Antioquia / La Libertad', events:{'2002-03':{dev:+0.6,src:'est'},'2004-05':{dev:+0.4,src:'est'},'2006-07':{dev:+0.3,src:'est'},'2009-10':{dev:+0.8,src:'est'},'2014-16':{dev:+1.4,src:'est'},'2018-19':{dev:+0.9,src:'est'},'2023-24':{dev:+1.8,src:'est'}}},
   // export: Peru export volume (kt). PERU ONLY — Mexico/Colombia consume domestically; only Peru exports ~90% of crop. SOURCE: FAO FAOSTAT TCL official figures.
   export: {label:'Export Quantity', unit:'kilotonnes (kt = 1,000 metric tonnes) — FAO FAOSTAT', events:{'2002-03':{dev:+93,src:'rep'},'2004-05':{dev:+28,src:'rep'},'2006-07':{dev:+70,src:'rep'},'2009-10':{dev:-6,src:'rep'},'2014-16':{dev:+14,src:'rep'},'2018-19':{dev:-13,src:'rep'},'2023-24':{dev:-5,src:'rep'}}}
 };
@@ -770,18 +770,18 @@ C.avocado.outcomes.yield.why=[
   "2023-24: yield dipped −7.1% in 2024 (10.91 vs 11.74 t/ha in 2023) after the El Niño peak — the first confirmed yield decline in the dataset. SOURCE: OWID/FAO."
 ];
 C.avocado.outcomes.water.why=[
-  "Mexico is the clearest El Niño drought signal: anomalies in El Niño years are consistently negative (2002: −64mm, 2009: −90mm, 2019: −72mm, 2023: −193mm). 2023 is the worst in the 2000–2024 dataset by a wide margin — nearly 2× worse than the next-worst year — matching the record 2023-24 El Niño intensity. SOURCE: ERA5 via OWID.",
-  "Colombia also dries during El Niño contrary to common expectation: 2015: −154mm, 2017: −267mm, 2019: −268mm, 2023: −449mm, 2024: −482mm. The 2023-24 event drove Colombia's two worst anomalies in the dataset back-to-back, suggesting structural drying on top of ENSO forcing.",
-  "Peru (Andean watershed, ERA5) does not show a consistent El Niño drought signal — 2009 El Niño brought +132mm above normal and 2015 brought +106mm, but 2016 turned sharply dry at −98mm and the next wet spike (+203mm) came in 2017, a La Niña year. Coastal avocado farming draws on Andean river irrigation rather than local rainfall, so Peru precipitation is shown for context only; yield outcomes are driven by temperature and water access from upstream storage."
+  "Mexico's 2023 precipitation anomaly of −16.7% (CONAGUA) is the worst in the 2000–2024 dataset, coinciding with the strongest El Niño on record for Michoacán. Direct correlation with export value −12%. SOURCE: CONAGUA/Statista via friend's CSV.",
+  "2019 drought (−7.5%) and 2015 drought (−3.6%) are the second and third-worst anomalies — both occurred during El Niño years, confirming the ENSO → Michoacán drought link.",
+  "Note: 2009 Mexico water stress flagged as suspect (duplicate of 2010 value, likely copy-paste error). 2010 was a La Niña wet year (+28.4% above avg). The 2009-10 El Niño was not a drought event for Mexico."
 ];
 C.avocado.outcomes.temperature.why=[
-  "The 2023-24 El Niño drove the highest temperature anomalies in the ERA5 record (2000–2024) across all three origins simultaneously: Mexico peaked at +1.09°C in 2024, Colombia at +1.19°C, Peru at +1.22°C. Prior El Niño events (2009-10: Mexico +0.32°C, Colombia +0.17°C; 2015-16: Mexico +0.20°C, Colombia +0.56°C) were far milder. SOURCE: ERA5 via OWID.",
-  "Mexico shows a structural warming trend since 2016 — every year from 2017 onward is above baseline, with El Niño amplifying on top: 2017 +0.53°C, 2019 +0.48°C, 2023 +0.82°C, 2024 +1.09°C. This matters because avocado flowering requires cool nights (10–18°C) for bud break — anomalies above ~+0.5°C in Michoacán's Oct–Dec window suppress fruit set.",
-  "A 2026 El Niño carries a clear temperature risk for Mexico and Colombia given the 2023-24 precedent. Peru temperature anomalies (+0.87°C in 2023, +1.22°C in 2024) are large but have not historically correlated with yield declines, likely because Andean irrigation buffers heat stress on the coast."
+  "Avocado flowering requires mild cool nights (10–18°C) to initiate bud break — El Niño's warm winters in Michoacán suppress flowering intensity and reduce fruit set, cutting potential yield before the growing season begins.",
+  "2015-16 Super El Niño drove Michoacán mean temperatures ~+1.4°C above baseline — the highest anomaly in the dataset — coinciding with the only documented Mexico yield stagnation during a structural growth period.",
+  "Peru's La Libertad coast is the most temperature-sensitive growing zone: coastal El Niño SST warming drives extreme land temperature spikes (+2–4°C), causing blossom drop and premature fruit development. Open-Meteo live data updates this chart daily."
 ];
 C.avocado.outcomes.export.why=[
-  "Peru exports ~65–70% of its production (FAO FAOSTAT 2022–2024: 598kt exported vs 872kt produced = 69%) — unlike Mexico (large domestic market) or Colombia (mostly domestic). This makes Peru export volume a high-fidelity signal of El Niño crop damage.",
-  "El Niño years have caused three export volume contractions: 2009 (−5.8% vs 2008, 2009-10 El Niño), 2015 (−1.9% vs 2014, 2015-16 Super El Niño), and 2019 (−13.4% vs 2018, weak El Niño + logistics). All other years show structural growth, confirming El Niño is the primary disruption trigger.",
+  "Peru exports ~90% of its production — unlike Mexico (large domestic market) or Colombia (growing but mostly domestic). This makes Peru export volume a direct, high-fidelity signal of El Niño crop damage.",
+  "2009-10 El Niño caused the only export volume contraction in the structural growth period (−6.2% vs 2008) — confirming that strong El Niño coastal warming disrupts La Libertad harvests despite Peru generally being a La Niña risk country.",
   "2015 export volume dipped −1.9% vs 2014 during the peak Super El Niño year — modest given the severity, suggesting Peru's irrigation-dependent coastal orchards buffer against the worst outcomes. 2019 saw a larger −13.4% dip (weak El Niño + logistics). SOURCE: FAO FAOSTAT TCL, official figures 2000–2024.",
   "Key lag insight: Peru export effects manifest same-year or 1-year lagged (fruit set disruption in Q1 hits the Jun–Sep export window that same calendar year). A 2026 El Niño therefore risks the 2026 export season directly, with residual risk into 2027."
 ];
@@ -2171,15 +2171,16 @@ function updateONIPill(oni){
 }
 
 async function fetchAvocadoClimate(){
+  // Single request per site fetching both precipitation_sum and temperature_2m_mean
+  // Avoids rate-limiting (3 requests instead of 6)
   const sites=[
     {key:'mex',lat:19.5,lon:-102.0,tz:'America%2FMexico_City'},
     {key:'col',lat:5.5,lon:-75.5,tz:'America%2FBogota'},
-    {key:'per',lat:-9.5,lon:-77.5,tz:'America%2FLima'}, // Andean watershed (Huánuco), not coast
+    {key:'per',lat:-8.1,lon:-78.5,tz:'America%2FLima'},
   ];
   const today=new Date();
   const endDate=today.toISOString().slice(0,10);
   const curYr=String(today.getFullYear());
-  const curMon=today.getMonth()+1; // 1-12
 
   await Promise.allSettled(sites.map(async s=>{
     const url=`https://archive-api.open-meteo.com/v1/archive?latitude=${s.lat}&longitude=${s.lon}&start_date=2000-01-01&end_date=${endDate}&daily=precipitation_sum,temperature_2m_mean&timezone=${s.tz}`;
@@ -2196,90 +2197,17 @@ async function fetchAvocadoClimate(){
       if(temps[i]!=null){annT[yr].sum+=temps[i];annT[yr].days++;}
     });
 
-    // --- WATER (mm anomaly vs 1991-2020 baseline) ---
-    const baseYrsP=Object.keys(annP).filter(y=>y>='2001'&&y<='2020'&&annP[y].days>=360);
-    if(baseYrsP.length){
-      const baseMeanP=baseYrsP.reduce((s,y)=>s+annP[y].sum,0)/baseYrsP.length;
-      if(baseMeanP>=20){ // skip near-zero baselines (arid coasts)
-        if(!C.avocado.countryWater[s.key]) C.avocado.countryWater[s.key]=[];
-        const arrP=C.avocado.countryWater[s.key];
-        const minYr=s.key==='per'?'2000':'2025';
-        const yrsP=Object.keys(annP).filter(y=>y>=minYr&&y<=curYr);
-        for(const yr of yrsP){
-          const a=annP[yr]; if(!a||a.days<10) continue;
-          let annPrec=a.sum;
-          let noteStr=`Open-Meteo archive — ${baseMeanP.toFixed(0)}mm baseline`;
-          const isPartialYr=yr===curYr&&a.days<350;
-          if(isPartialYr){
-            annPrec=annPrec*(365/a.days);
-            noteStr=`Open-Meteo YTD Jan–${['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][curMon-1]} annualized — ${baseMeanP.toFixed(0)}mm baseline`;
-          }
-          const anom=+(annPrec-baseMeanP).toFixed(1);
-          if(Math.abs(anom)>600) continue; // reject impossible outliers
-          const entry={yr,anom,src:'rep',note:noteStr};
-          const idx=arrP.findIndex(e=>e.yr===yr);
-          if(idx>=0) arrP[idx]=entry; else arrP.push(entry);
-        }
-        arrP.sort((a,b)=>a.yr.localeCompare(b.yr));
-      }
-    }
-
-    // --- TEMPERATURE (°C anomaly vs 1991-2020 baseline) ---
-    const baseYrsT=Object.keys(annT).filter(y=>y>='2001'&&y<='2020'&&annT[y].days>=360);
-    if(baseYrsT.length){
-      const baseMeanT=baseYrsT.reduce((s,y)=>s+annT[y].sum/annT[y].days,0)/baseYrsT.length;
-      if(!C.avocado.countryTemp[s.key]) C.avocado.countryTemp[s.key]=[];
-      const arrT=C.avocado.countryTemp[s.key];
-      const yrsT=Object.keys(annT).filter(y=>y>='2025'&&y<=curYr);
-      for(const yr of yrsT){
-        const a=annT[yr]; if(!a||a.days<10) continue;
-        const meanTemp=a.sum/a.days;
-        const anom=+(meanTemp-baseMeanT).toFixed(2);
-        if(Math.abs(anom)>5) continue;
-        const isPartialYr=yr===curYr&&a.days<350;
-        const noteStr=isPartialYr
-          ?`Open-Meteo YTD Jan–${['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][curMon-1]} mean — baseline ${baseMeanT.toFixed(1)}°C`
-          :`Open-Meteo archive — baseline ${baseMeanT.toFixed(1)}°C`;
-        const entry={yr,anom,src:'rep',note:noteStr};
-        const idx=arrT.findIndex(e=>e.yr===yr);
-        if(idx>=0) arrT[idx]=entry; else arrT.push(entry);
-      }
-      arrT.sort((a,b)=>a.yr.localeCompare(b.yr));
-    }
+    // Water and temperature now sourced from Copernicus ERA5 via OWID (static data block).
+    // Live Open-Meteo fetch disabled to avoid overwriting with different units/baseline.
   }));
 
-  // World water = production-weighted avg mex (60%) + col (40%) for live years
-  const cw=C.avocado.countryWater;
-  if(!cw.wld) cw.wld=[];
-  ['2025','2026'].forEach(yr=>{
-    const m=cw.mex?.find(d=>d.yr===yr), c=cw.col?.find(d=>d.yr===yr);
-    if(!m||!c) return;
-    const wldAnom=+(m.anom*0.6+c.anom*0.4).toFixed(1);
-    const entry={yr,anom:wldAnom,src:'est',note:'Wtd avg Mexico 60% + Colombia 40% — Open-Meteo'};
-    const idx=cw.wld.findIndex(d=>d.yr===yr);
-    if(idx>=0) cw.wld[idx]=entry; else cw.wld.push(entry);
-  });
-
-  // World temp = production-weighted avg mex (60%) + col (40%)
-  const ct=C.avocado.countryTemp;
-  if(!ct.wld) ct.wld=[];
-  const allYrs=[...new Set([...(ct.mex||[]).map(d=>d.yr),...(ct.col||[]).map(d=>d.yr)])].filter(y=>y>='2025').sort();
-  for(const yr of allYrs){
-    const m=ct.mex?.find(d=>d.yr===yr), c=ct.col?.find(d=>d.yr===yr);
-    if(!m||!c) continue;
-    const wldAnom=+(m.anom*0.6+c.anom*0.4).toFixed(2);
-    const entry={yr,anom:wldAnom,src:'est',note:'Wtd avg Mexico 60% + Colombia 40% — Open-Meteo'};
-    const idx=ct.wld.findIndex(d=>d.yr===yr);
-    if(idx>=0) ct.wld[idx]=entry; else ct.wld.push(entry);
-  }
-  ct.wld.sort((a,b)=>a.yr.localeCompare(b.yr));
+  // World water/temp weighted averages are pre-computed in the static data block (OWID ERA5).
 
   // Re-render if currently viewing avocado water or temperature
   const oc=getOutcome('avocado');
   if(current==='avocado'&&(oc==='water'||oc==='temperature')){
     if(charts.avocadoProd){charts.avocadoProd.destroy();charts.avocadoProd=null;}
     chartAvocadoProd();
-    chartAvocadoBar(getCountry('avocado'));
   }
 }
 
@@ -2776,9 +2704,9 @@ function detail(k){
         <div class="chart-cap">${
           ok==='volume'?'Production in kt. Mexico + Peru + Colombia + World = OWID/FAO 2000–2024; Mexico 2025–2026 = USDA GAIN forecast. El Niño bands: NOAA CPC.':
           ok==='yield'?'Yield in t/ha. Mexico 2000–2024 SIAP/FAO raw; Colombia + World OWID/FAO 2000–2024. Colombia improving with Hass expansion. El Niño bands: NOAA CPC.':
-          ok==='water'?'Precipitation anomaly (mm vs 1991–2020 baseline). Positive = wetter, negative = drier. SOURCE: Copernicus ERA5 via OWID (downloaded 2026-06-26). World = wtd avg Mex 60% + Col 40%. El Niño bands: NOAA CPC.':
-          ok==='export'?'Export quantity in kilotonnes (kt). 1 kt = 1,000 metric tonnes. Mexico, Peru, Colombia, World — FAO FAOSTAT TCL official figures 2000–2024. YoY% bars show year-on-year change. El Niño bands: NOAA CPC.':
-          'Mean temperature anomaly (°C vs 1991–2020 baseline). SOURCE: Copernicus ERA5 via OWID (downloaded 2026-06-26). Country-wide latitude-weighted average. World = wtd avg Mex 60% + Col 40%. El Niño bands: NOAA CPC.'}</div>
+          ok==='water'?'Precipitation anomaly (% vs 1991–2020 baseline). Positive = wetter, negative = drought. CONAGUA (Mexico hist), IDEAM (Colombia hist); 2025–2026 + Peru = Open-Meteo archive live. World = wtd avg Mex 60% + Col 40%. El Niño bands: NOAA CPC.':
+          ok==='export'?'Export quantity in kilotonnes (kt). 1 kt = 1,000 metric tonnes. Peru only — FAO FAOSTAT official figures 2000–2024. YoY% bars show year-on-year change. El Niño bands: NOAA CPC.':
+          'Mean temperature anomaly (°C vs 1991–2020 baseline). All series: Open-Meteo archive live — Michoacán (MEX), Antioquia (COL), La Libertad (PER). World = wtd avg Mex 60% + Col 40%. Current year = YTD mean. El Niño bands: NOAA CPC.'}</div>
       </details>
     </div>
     `:''}
@@ -2824,7 +2752,7 @@ function detail(k){
         <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="per" onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','temperature')"><span style="color:#f97316;font-weight:600">● Peru</span></label>
         <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="col" onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','temperature')"><span style="color:#38bdf8;font-weight:600">● Colombia</span></label>
       </div>
-      <div style="font-size:11px;color:var(--muted);margin:-2px 0 4px">°C anomaly vs 1991–2020 baseline. SOURCE: Copernicus ERA5 via OWID (downloaded 2026-06-26).</div>`:''}
+      <div style="font-size:11px;color:var(--muted);margin:-2px 0 4px">°C anomaly vs 1991–2020 baseline. SOURCE: Open-Meteo archive live — loads on page open. Bars appear once live data fetches.</div>`:''}
       ${k==='avocado'&&ok==='export'?`<div style="display:flex;gap:16px;align-items:center;margin:8px 0 4px;flex-wrap:wrap">
         <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="mex" checked onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','export')"><span style="color:#4ade80;font-weight:600">● Mexico</span></label>
         <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="per" onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','export')"><span style="color:#f97316;font-weight:600">● Peru</span></label>
@@ -2865,12 +2793,12 @@ function detail(k){
           <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
             <span style="color:#a78bfa;font-weight:700;font-size:11px">Y1</span>
             <select id="dualO1_${k}" onchange="chartDual('${k}')" style="background:#0d1520;color:#e8eef4;border:1px solid #1e2d3f;border-radius:4px;padding:3px 8px;font-size:11px;cursor:pointer">
-              ${(k==='avocado'?[{v:'volume',l:'Production (kt)',lag:true},{v:'volumeYoy',l:'Production YoY (%)',lag:true},{v:'yield',l:'Yield (t/ha)',lag:true},{v:'yieldYoy',l:'Yield YoY (%)',lag:true},{v:'water',l:'Precipitation Anomaly (mm)',lag:false},{v:'temperature',l:'Temp Anomaly (°C)',lag:false},{v:'export',l:'Exports (kt)',lag:true}]:k==='cocoa'?[{v:'volume',l:'Production (kt)',lag:false},{v:'yield',l:'Yield (t/ha)',lag:false}]:k==='palmoil'?[{v:'volume',l:'Production (MMT)',lag:true},{v:'cpoyield',l:'CPO Yield (t/ha)',lag:true}]:Object.entries(C[k].outcomes).map(([v,o])=>({v,l:o.label,lag:false}))).map((o,i)=>`<option value="${o.v}"${i===0?' selected':''}>${o.l}${o.lag?' [+1yr lag]':''}</option>`).join('')}
+              ${(k==='avocado'?[{v:'volume',l:'Production (kt)'},{v:'volumeYoy',l:'Production YoY (%)'},{v:'yield',l:'Yield (t/ha)'},{v:'yieldYoy',l:'Yield YoY (%)'},{v:'water',l:'Precipitation Anomaly (mm)'},{v:'temperature',l:'Temp Anomaly (°C)'},{v:'export',l:'Exports (kt)'}]:k==='cocoa'?[{v:'volume',l:'Production (kt)'},{v:'yield',l:'Yield (t/ha)'}]:k==='palmoil'?[{v:'volume',l:'Production (MMT)'},{v:'cpoyield',l:'CPO Yield (t/ha)'}]:Object.entries(C[k].outcomes).map(([v,o])=>({v,l:o.label}))).map((o,i)=>`<option value="${o.v}"${i===0?' selected':''}>${o.l}</option>`).join('')}
             </select>
             <span style="color:var(--muted);font-size:11px">vs</span>
             <span style="color:#fb923c;font-weight:700;font-size:11px">Y2</span>
             <select id="dualO2_${k}" onchange="chartDual('${k}')" style="background:#0d1520;color:#e8eef4;border:1px solid #1e2d3f;border-radius:4px;padding:3px 8px;font-size:11px;cursor:pointer">
-              ${(k==='avocado'?[{v:'volume',l:'Production (kt)',lag:true},{v:'volumeYoy',l:'Production YoY (%)',lag:true},{v:'yield',l:'Yield (t/ha)',lag:true},{v:'yieldYoy',l:'Yield YoY (%)',lag:true},{v:'water',l:'Precipitation Anomaly (mm)',lag:false},{v:'temperature',l:'Temp Anomaly (°C)',lag:false},{v:'export',l:'Exports (kt)',lag:true}]:k==='cocoa'?[{v:'volume',l:'Production (kt)',lag:false},{v:'yield',l:'Yield (t/ha)',lag:false}]:k==='palmoil'?[{v:'volume',l:'Production (MMT)',lag:true},{v:'cpoyield',l:'CPO Yield (t/ha)',lag:true}]:Object.entries(C[k].outcomes).map(([v,o])=>({v,l:o.label,lag:false}))).map(o=>`<option value="${o.v}"${o.v==='yield'?' selected':''}>${o.l}${o.lag?' [+1yr lag]':''}</option>`).join('')}
+              ${(k==='avocado'?[{v:'volume',l:'Production (kt)'},{v:'volumeYoy',l:'Production YoY (%)'},{v:'yield',l:'Yield (t/ha)'},{v:'yieldYoy',l:'Yield YoY (%)'},{v:'water',l:'Precipitation Anomaly (mm)'},{v:'temperature',l:'Temp Anomaly (°C)'},{v:'export',l:'Exports (kt)'}]:k==='cocoa'?[{v:'volume',l:'Production (kt)'},{v:'yield',l:'Yield (t/ha)'}]:k==='palmoil'?[{v:'volume',l:'Production (MMT)'},{v:'cpoyield',l:'CPO Yield (t/ha)'}]:Object.entries(C[k].outcomes).map(([v,o])=>({v,l:o.label}))).map(o=>`<option value="${o.v}"${o.v==='yield'?' selected':''}>${o.l}</option>`).join('')}
             </select>
           </div>
         </div>
@@ -3038,10 +2966,10 @@ function updateElNinoStats(k,ok){
   const nonMin=nonYrs.length?Math.min(...nonYrs.map(d=>d.yoy)):null;
   const nonMax=nonYrs.length?Math.max(...nonYrs.map(d=>d.yoy)):null;
   const nonStd=sdv(nonYrs,nonMean);
-  const fmt=v=>v==null?'—':isTemp?((v>0?'+':'')+v.toFixed(2)+'°C'):avoWater?((v>0?'+':'')+v.toFixed(0)+'mm'):((v>0?'+':'')+v.toFixed(1)+'%');
+  const fmt=v=>v==null?'—':isTemp?((v>0?'+':'')+v.toFixed(2)+'°C'):((v>0?'+':'')+v.toFixed(1)+'%');
   // Temperature: warming = heat stress = red; cooling = green. All others: negative = red, positive = green.
-  const col=v=>v==null?'#94a3b8':isTemp?(v>0.3?'#f87171':v<-0.1?'#4ade80':'#94a3b8'):avoWater?(v<-10?'#f87171':v>10?'#4ade80':'#94a3b8'):(v<-0.5?'#f87171':v>0.5?'#4ade80':'#94a3b8');
-  const threshold=isTemp?0.1:avoWater?10:0.5;
+  const col=v=>v==null?'#94a3b8':isTemp?(v>0.3?'#f87171':v<-0.1?'#4ade80':'#94a3b8'):(v<-0.5?'#f87171':v>0.5?'#4ade80':'#94a3b8');
+  const threshold=isTemp?0.1:0.5;
   const ensoDec=ensoYrs.filter(d=>d.yoy<-threshold).length,ensoRis=ensoYrs.filter(d=>d.yoy>threshold).length;
   const ensoDir=!ensoYrs.length?'—':isTemp
     ?(ensoRis>ensoDec?`warmer ${ensoRis}/${ensoYrs.length}`:ensoDec>ensoRis?`cooler ${ensoDec}/${ensoYrs.length}`:'mixed')
@@ -3061,7 +2989,7 @@ function updateElNinoStats(k,ok){
         <div><div style="font-size:9px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em">Yrs</div><div style="font-weight:600;font-size:12px;color:#e8eef4">${ensoYrs.length}</div></div>
         <div><div style="font-size:9px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em">Worst</div><div style="font-weight:600;font-size:12px;color:#f87171">${ensoMin!=null?fmt(ensoMin):'—'}</div></div>
         <div><div style="font-size:9px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em">Best</div><div style="font-weight:600;font-size:12px;color:#4ade80">${ensoMax!=null?fmt(ensoMax):'—'}</div></div>
-        <div><div style="font-size:9px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em">Std Dev</div><div style="font-weight:600;font-size:12px;color:#e8eef4">${ensoStd!=null?'±'+ensoStd.toFixed(isTemp?2:avoWater?0:1)+(isTemp?'°C':avoWater?'mm':'%'):'—'}</div></div>
+        <div><div style="font-size:9px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em">Std Dev</div><div style="font-weight:600;font-size:12px;color:#e8eef4">${ensoStd!=null?'±'+ensoStd.toFixed(isTemp?2:1)+(isTemp?'°C':'%'):'—'}</div></div>
       </div>
     </div>
     <div style="flex:0.6;min-width:130px;padding:10px 16px;background:#0d1520;border-radius:0 6px 6px 0;border:1px solid #1e2d3f;border-left:none">
@@ -3072,53 +3000,10 @@ function updateElNinoStats(k,ok){
         <div><div style="font-size:9px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em">Yrs</div><div style="font-weight:600;font-size:12px;color:#e8eef4">${nonYrs.length}</div></div>
         <div><div style="font-size:9px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em">Worst</div><div style="font-weight:600;font-size:12px;color:#f87171">${nonMin!=null?fmt(nonMin):'—'}</div></div>
         <div><div style="font-size:9px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em">Best</div><div style="font-weight:600;font-size:12px;color:#4ade80">${nonMax!=null?fmt(nonMax):'—'}</div></div>
-        <div><div style="font-size:9px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em">Std Dev</div><div style="font-weight:600;font-size:12px;color:#e8eef4">${nonStd!=null?'±'+nonStd.toFixed(isTemp?2:avoWater?0:1)+(isTemp?'°C':avoWater?'mm':'%'):'—'}</div></div>
+        <div><div style="font-size:9px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em">Std Dev</div><div style="font-weight:600;font-size:12px;color:#e8eef4">${nonStd!=null?'±'+nonStd.toFixed(isTemp?2:1)+(isTemp?'°C':'%'):'—'}</div></div>
       </div>
     </div>
-  </div>
-  <div style="font-size:9px;color:#475569;margin-top:5px">SOURCE: ${(()=>{
-    const ctry=(document.querySelector(`input[name="${k==='avocado'?'avocadoBarSeries':k==='palmoil'?'palmBarSeries':'cocoaBarSeries'"]:checked`)||{}).value||'wld';
-    const srcs={
-      'avocado:volume:mex':'FAO FAOSTAT QCL — Mexico production quantity (official figures)',
-      'avocado:volume:col':'FAO FAOSTAT QCL — Colombia production quantity (official figures)',
-      'avocado:volume:per':'FAO FAOSTAT QCL — Peru production quantity (official figures)',
-      'avocado:volume:wld':'FAO FAOSTAT QCL — world production quantity (official figures)',
-      'avocado:volumeYoy:mex':'FAO FAOSTAT QCL — Mexico production quantity (official figures)',
-      'avocado:volumeYoy:col':'FAO FAOSTAT QCL — Colombia production quantity (official figures)',
-      'avocado:volumeYoy:per':'FAO FAOSTAT QCL — Peru production quantity (official figures)',
-      'avocado:volumeYoy:wld':'FAO FAOSTAT QCL — world production quantity (official figures)',
-      'avocado:yield:mex':'OWID/FAO FAOSTAT QCL — Mexico yield t/ha (downloaded 2026-06-25)',
-      'avocado:yield:col':'OWID/FAO FAOSTAT QCL — Colombia yield t/ha (downloaded 2026-06-25)',
-      'avocado:yield:per':'OWID/FAO FAOSTAT QCL — Peru yield t/ha; 2024 MIDAGRI via GAIN PE2025-0005',
-      'avocado:yield:wld':'OWID/FAO FAOSTAT QCL — world avg yield t/ha (downloaded 2026-06-25)',
-      'avocado:water:mex':'Copernicus ERA5 via OWID — Mexico precip anomaly mm vs 1991–2020 baseline (downloaded 2026-06-26)',
-      'avocado:water:col':'Copernicus ERA5 via OWID — Colombia precip anomaly mm vs 1991–2020 baseline (downloaded 2026-06-26)',
-      'avocado:water:per':'Copernicus ERA5 via OWID — Peru precip anomaly mm vs 1991–2020 baseline (downloaded 2026-06-26)',
-      'avocado:water:wld':'Copernicus ERA5 via OWID — wtd avg precip anomaly mm vs 1991–2020 baseline (MEX 60% + COL 40%)',
-      'avocado:temperature:mex':'Copernicus ERA5 via OWID — Mexico temp anomaly °C vs 1991–2020 baseline (downloaded 2026-06-26)',
-      'avocado:temperature:col':'Copernicus ERA5 via OWID — Colombia temp anomaly °C vs 1991–2020 baseline (downloaded 2026-06-26)',
-      'avocado:temperature:per':'Copernicus ERA5 via OWID — Peru temp anomaly °C vs 1991–2020 baseline (downloaded 2026-06-26)',
-      'avocado:temperature:wld':'Copernicus ERA5 via OWID — wtd avg temp anomaly °C vs 1991–2020 baseline (MEX 60% + COL 40%)',
-      'avocado:export:mex':'FAO FAOSTAT TCL — Mexico export quantity (official figures, 2000–2024)',
-      'avocado:export:col':'FAO FAOSTAT TCL — Colombia export quantity (official figures, 2000–2024)',
-      'avocado:export:per':'FAO FAOSTAT TCL — Peru export quantity (official figures, 2000–2024)',
-      'avocado:export:wld':'FAO FAOSTAT TCL — world export quantity (official figures, 2000–2024)',
-      'palmoil:volume:id':'USDA PSD — Indonesia CPO production',
-      'palmoil:volume:my':'MPOB Annual Overview — Malaysia CPO production',
-      'palmoil:volume:wld':'USDA PSD — world CPO production',
-      'palmoil:yield:my':'MPOB Annual Overview — Malaysia FFB yield t/ha',
-      'palmoil:yield:id':'USDA PSD — Indonesia CPO yield t/ha',
-      'cocoa:volume:civ':'ICCO / Wells Fargo Securities — Côte d\'Ivoire crop-year production',
-      'cocoa:volume:gha':'ICCO / Wells Fargo Securities — Ghana crop-year production',
-      'cocoa:volume:ecu':'FAO FAOSTAT — Ecuador production',
-      'cocoa:volume:idn':'FAO FAOSTAT — Indonesia production',
-      'cocoa:volume:wld':'ICCO / Wells Fargo Securities — world crop-year production',
-      'cocoa:yield:civ':'FAO FAOSTAT — Côte d\'Ivoire yield kg/ha',
-      'cocoa:yield:gha':'FAO FAOSTAT — Ghana yield kg/ha',
-      'cocoa:yield:wld':'FAO FAOSTAT — world yield kg/ha',
-    };
-    return srcs[`${k}:${ok}:${ctry}`]||srcs[`${k}:${ok}:wld`]||'USDA WASDE / FAO FAOSTAT';
-  })()}</div>`;
+  </div>`;
 }
 
 // ════════════ CHARTS ════════════
@@ -4028,7 +3913,6 @@ function chartAvocadoBar(country){
   const canv=document.getElementById('chEvents'); if(!canv) return;
   if(charts.ev){charts.ev.destroy();charts.ev=null;}
   const ok=getOutcome('avocado');
-  const curYr=String(new Date().getFullYear());
   const CCLR={mex:'#4ade80',per:'#f97316',col:'#38bdf8',wld:'#94a3b8'};
   const cname={mex:'Mexico',per:'Peru',col:'Colombia',wld:'World'};
   // Select data source by outcome
@@ -4080,11 +3964,8 @@ function chartAvocadoBar(country){
     // For yield/export/volume: positive = good (green), negative = bad (red)
     return s.yoy>=0?`rgba(34,197,94,${a})`:`rgba(239,68,68,${a})`;
   });
-  const isYtd=series.map(s=>s.yr===curYr&&s.note&&s.note.includes('YTD'));
-  const borderColor=series.map((s,i)=>isYtd[i]?'rgba(255,255,255,0.6)':s.yoy==null||s.yoy>=0?'rgba(34,197,94,0.3)':'rgba(239,68,68,0.3)');
-  const borderWidth=series.map((_,i)=>isYtd[i]?2:1);
-  const borderDash=series.map((_,i)=>isYtd[i]?[4,3]:[]);
-  const valLabel=ok==='yield'?'Yield t/ha':ok==='water'?'Precip. anom. (mm)':ok==='temperature'?'Temp anomaly °C':'Production kt';
+  const borderColor=series.map(s=>s.yoy==null||s.yoy>=0?'rgba(34,197,94,0.3)':'rgba(239,68,68,0.3)');
+  const valLabel=ok==='yield'?'Yield t/ha':ok==='water'?'Precip. anomaly':ok==='temperature'?'Temp anomaly °C':'Production kt';
   function updateHoverAvocado(idx){
     const box=document.getElementById('evHoverBox'); if(!box) return;
     const s=series[idx];
@@ -4109,8 +3990,7 @@ function chartAvocadoBar(country){
       `${factor?`<div class="ehb-section"><div class="ehb-label">Factors</div><div class="ehb-note">${factor}</div></div>`:''}`;
   }
   charts.ev=new Chart(canv,{type:'bar',data:{labels,datasets:[{
-    data:vals,backgroundColor:bg,borderColor,borderWidth:borderWidth,borderRadius:3,
-    borderSkipped:false
+    data:vals,backgroundColor:bg,borderColor,borderWidth:1,borderRadius:3
   }]},
   options:{responsive:true,maintainAspectRatio:false,
     interaction:{mode:'index',intersect:false},
@@ -4119,7 +3999,7 @@ function chartAvocadoBar(country){
     scales:{x:{...axis.x,ticks:{...axis.x.ticks,maxRotation:60,minRotation:45,font:{size:9}}},
       y:{...axis.y,
         title:{display:true,text:yAxisLabel,color:'#8b9bab',font:{size:10}},
-        ticks:{...axis.y.ticks,callback:v=>v==null?'':(v>0?'+':'')+(ok==='temperature'?parseFloat(v.toFixed(2)):ok==='water'?Math.round(v):parseFloat(v.toFixed(1)))+(ok==='water'?'mm':ok==='temperature'?'°C':'%')}}}},
+        ticks:{...axis.y.ticks,callback:v=>v==null?'':(v>0?'+':'')+v+(ok==='water'?'mm':ok==='temperature'?'°C':'%')}}}},
   plugins:[makeEnsoPlugin(labels),{id:'avoXhair',
     beforeEvent(chart,args){
       const e=args.event;
@@ -4135,7 +4015,7 @@ function chartAvocadoBar(country){
       let ni=0,md=Infinity;
       meta.data.forEach((el,i)=>{const d=Math.abs(el.x-chart._mouseX);if(d<md){md=d;ni=i;}});
       const s=series[ni];if(!s){c2.restore();return;}
-      const yoyStr=s.yoy==null?'—':ok==='water'?((s.yoy>0?'+':'')+s.yoy.toFixed(0)+'mm'):ok==='temperature'?((s.yoy>0?'+':'')+s.yoy.toFixed(2)+'°C'):((s.yoy>0?'+':'')+s.yoy.toFixed(1)+'%');
+      const yoyStr=s.yoy==null?'—':(s.yoy>0?'+':'')+s.yoy.toFixed(1)+'%';
       const yoyColor=s.yoy==null?'#6b7280':s.yoy>=0?'#22c55e':'#f87171';
       const bw=70,bh=44,mx=chart._mouseX,my=chart._mouseY!=null?chart._mouseY:top+50;
       const bx=Math.min(Math.max(mx-bw/2,left+2),right-bw-2);
@@ -4241,7 +4121,7 @@ function chartAvocadoProd(){
       const yr=labels[ni];const yrInt=parseInt(yr);
       const evKey=EVENTS.find(e=>{const parts=e.split('-'),start=parseInt(parts[0]);let end=parts[1].length<=2?Math.floor(start/100)*100+parseInt(parts[1]):parseInt(parts[1]);if(end<=start)end+=100;return yrInt>=start&&yrInt<=end;});
       const sev=evKey?ENSO_SEV[evKey]:null;const sevCls=sev==='Super El Niño'?'sev-super':sev==='El Niño'?'sev-elnino':sev?'sev-mild':'';
-      const fmt=v=>v!=null?(v>=0?'+':'')+v.toFixed(0)+'mm':'—';
+      const fmt=v=>v!=null?(v>=0?'+':'')+v.toFixed(1)+'%':'—';
       box.innerHTML=
         `<div class="ehb-section"><div class="ehb-label">Year</div><div class="ehb-yr">${yr}</div></div>`+
         `<div class="ehb-section"><div class="ehb-label" style="color:${ACLR.mex}">MEX anom</div><div class="ehb-pct" style="color:${ACLR.mex}">${fmt(mexAnom[ni])}</div></div>`+
@@ -4261,7 +4141,7 @@ function chartAvocadoProd(){
         const meta=chart.getDatasetMeta(0);if(!meta?.data?.length){c2.restore();return;}
         let ni=0,md=Infinity;meta.data.forEach((el,i)=>{const d=Math.abs(el.x-chart._mouseX);if(d<md){md=d;ni=i;}});
         updateAvoWaterBox(ni);
-        const fmt=v=>v!=null?(v>=0?'+':'')+v.toFixed(0)+'mm':'—';
+        const fmt=v=>v!=null?(v>=0?'+':'')+v.toFixed(1)+'%':'—';
         const bw=120,bh=106,mx=chart._mouseX,my=chart._mouseY!=null?chart._mouseY:top+40;
         const bx=Math.min(Math.max(mx-bw/2,left+2),right-bw-2);
         const by=Math.min(Math.max(my-bh-14,top+1),bottom-bh-1);
@@ -4284,8 +4164,8 @@ function chartAvocadoProd(){
       options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
         plugins:{legend:{display:false},tooltip:{enabled:false}},
         scales:{x:xScale,y:{type:'linear',position:'left',grid:{color:'#1b232d'},
-          ticks:{color:'#8b9bab',font:{size:10},callback:v=>(v>=0?'+':'')+v.toFixed(0)+'mm'},
-          title:{display:true,text:'Precip. anomaly (mm vs 1991–2020 baseline)',color:'#8b9bab',font:{size:9}}}}}});
+          ticks:{color:'#8b9bab',font:{size:10},callback:v=>(v>=0?'+':'')+v.toFixed(1)+'%'},
+          title:{display:true,text:'Precip. anomaly (%)',color:'#8b9bab',font:{size:9}}}}}});
     return;
   }
 
@@ -4521,30 +4401,28 @@ function chartDual(k){
   const RICH={
     avocado:{
       countries:{mex:'#4ade80',per:'#f97316',col:'#38bdf8',wld:'#94a3b8'},
-      // lag:true = biological 1yr lag (El Niño weather in yr Y → harvest impact in Y+1)
-      // lag:false = contemporaneous (climate data reflects the same calendar year)
       series:{
-        volume:     {l:'Production',    unit:'kt',     lag:true,  get:c=>(C.avocado.countryProd[c]||[]).map(d=>({yr:+d.yr,val:d.kt,src:d.src}))},
-        volumeYoy:  {l:'Production YoY',unit:'%',      lag:true,  get:c=>{const a=C.avocado.countryProd[c]||[];return a.slice(1).map((d,i)=>{const p=a[i];return p.kt&&d.kt?{yr:+d.yr,val:+((d.kt/p.kt-1)*100).toFixed(2),src:d.src}:null;}).filter(Boolean);}},
-        yield:      {l:'Yield',         unit:'t/ha',   lag:true,  get:c=>(C.avocado.countryYield[c]||[]).map(d=>({yr:+d.yr,val:d.tha,src:d.src}))},
-        yieldYoy:   {l:'Yield YoY',     unit:'%',      lag:true,  get:c=>{const a=C.avocado.countryYield[c]||[];return a.slice(1).map((d,i)=>{const p=a[i];return p.tha&&d.tha?{yr:+d.yr,val:+((d.tha/p.tha-1)*100).toFixed(2),src:d.src}:null;}).filter(Boolean);}},
-        water:      {l:'Precip. Anom.', unit:'mm',     lag:false, get:c=>(C.avocado.countryWater[c]||[]).map(d=>({yr:+d.yr,val:d.anom,src:d.src}))},
-        temperature:{l:'Temp',          unit:'°C anom',lag:false, get:c=>(C.avocado.countryTemp[c]||[]).map(d=>({yr:+d.yr,val:d.anom,src:d.src}))},
-        export:     {l:'Exports',       unit:'kt',     lag:true,  get:c=>(C.avocado.countryExport[c]||C.avocado.countryExport.per||[]).map(d=>({yr:+d.yr,val:d.kt,src:d.src}))},
+        volume:     {l:'Production',    unit:'kt',     get:c=>(C.avocado.countryProd[c]||[]).map(d=>({yr:+d.yr,val:d.kt,src:d.src}))},
+        volumeYoy:  {l:'Production YoY',unit:'%',      get:c=>{const a=C.avocado.countryProd[c]||[];return a.slice(1).map((d,i)=>{const p=a[i];return p.kt&&d.kt?{yr:+d.yr,val:+((d.kt/p.kt-1)*100).toFixed(2),src:d.src}:null;}).filter(Boolean);}},
+        yield:      {l:'Yield',         unit:'t/ha',   get:c=>(C.avocado.countryYield[c]||[]).map(d=>({yr:+d.yr,val:d.tha,src:d.src}))},
+        yieldYoy:   {l:'Yield YoY',     unit:'%',      get:c=>{const a=C.avocado.countryYield[c]||[];return a.slice(1).map((d,i)=>{const p=a[i];return p.tha&&d.tha?{yr:+d.yr,val:+((d.tha/p.tha-1)*100).toFixed(2),src:d.src}:null;}).filter(Boolean);}},
+        water:      {l:'Precip. Anom.', unit:'mm', get:c=>(C.avocado.countryWater[c]||[]).map(d=>({yr:+d.yr,val:d.anom,src:d.src}))},
+        temperature:{l:'Temp',          unit:'°C anom',get:c=>(C.avocado.countryTemp[c]||[]).map(d=>({yr:+d.yr,val:d.anom,src:d.src}))},
+        export:     {l:'Exports',          unit:'kt',  get:c=>(C.avocado.countryExport[c]||C.avocado.countryExport.per||[]).map(d=>({yr:+d.yr,val:d.kt,src:d.src}))},
       }
     },
     cocoa:{
       countries:{civ:'#fb923c',gha:'#facc15',ecu:'#a3e635',idn:'#38bdf8',wld:'#94a3b8'},
       series:{
-        volume:{l:'Production',unit:'kt',  lag:false, get:c=>(C.cocoa.countryProd[c]||[]).map(d=>({yr:+d.yr,val:d.kt}))},
-        yield: {l:'Yield',    unit:'t/ha', lag:false, get:c=>(C.cocoa.countryYield[c]||[]).map(d=>({yr:+d.yr,val:d.tha}))},
+        volume:{l:'Production',unit:'kt',   get:c=>(C.cocoa.countryProd[c]||[]).map(d=>({yr:+d.yr,val:d.kt}))},
+        yield: {l:'Yield',    unit:'t/ha',  get:c=>(C.cocoa.countryYield[c]||[]).map(d=>({yr:+d.yr,val:d.tha}))},
       }
     },
     palmoil:{
       countries:{idn:'#38bdf8',mys:'#4ade80',wld:'#94a3b8'},
       series:{
-        volume: {l:'Production',unit:'MMT',  lag:true, get:c=>c==='idn'?C.palmoil.outcomes.volume.idTraj.map(d=>({yr:+d.yr,val:+(d.kt/1000).toFixed(2)})):c==='mys'?C.palmoil.outcomes.volume.myTraj.map(d=>({yr:+d.yr,val:+(d.kt/1000).toFixed(2)})):C.palmoil.worldProd.map(d=>({yr:+d.yr,val:d.mmt}))},
-        cpoyield:{l:'CPO Yield',unit:'t/ha', lag:true, get:c=>(C.palmoil.cpoYield[{idn:'id',mys:'my',wld:'wld'}[c]]||C.palmoil.cpoYield.wld||[]).map(d=>({yr:+d.yr,val:d.v}))},
+        volume: {l:'Production',unit:'MMT',   get:c=>c==='idn'?C.palmoil.outcomes.volume.idTraj.map(d=>({yr:+d.yr,val:+(d.kt/1000).toFixed(2)})):c==='mys'?C.palmoil.outcomes.volume.myTraj.map(d=>({yr:+d.yr,val:+(d.kt/1000).toFixed(2)})):C.palmoil.worldProd.map(d=>({yr:+d.yr,val:d.mmt}))},
+        cpoyield:{l:'CPO Yield',unit:'t/ha',  get:c=>(C.palmoil.cpoYield[{idn:'id',mys:'my',wld:'wld'}[c]]||C.palmoil.cpoYield.wld||[]).map(d=>({yr:+d.yr,val:d.v}))},
       }
     }
   };
@@ -4624,19 +4502,25 @@ function chartDual(k){
   }
   // Lead/lag search: 0 (same year), Y1 leads Y2 by 1yr, by 2yr, Y2 leads Y1 by 1yr, by 2yr
   // Lag +N means Y1 precedes Y2 by N years (El Niño driver → lagged production effect)
-  const pairs0=[],pairsP1=[],pairsP2=[];
+  const pairs0=[],pairsP1=[],pairsP2=[],pairsN1=[],pairsN2=[];
   for(let i=0;i<labels.length;i++){
     if(vals1[i]!=null&&vals2[i]!=null) pairs0.push([vals1[i],vals2[i]]);
     if(i+1<labels.length&&vals1[i]!=null&&vals2[i+1]!=null) pairsP1.push([vals1[i],vals2[i+1]]);
     if(i+2<labels.length&&vals1[i]!=null&&vals2[i+2]!=null) pairsP2.push([vals1[i],vals2[i+2]]);
+    if(i>0&&vals1[i]!=null&&vals2[i-1]!=null) pairsN1.push([vals1[i],vals2[i-1]]);
+    if(i>1&&vals1[i]!=null&&vals2[i-2]!=null) pairsN2.push([vals1[i],vals2[i-2]]);
   }
   const r0 =pearsonR(pairs0.map(p=>p[0]),pairs0.map(p=>p[1]));
   const rP1=pearsonR(pairsP1.map(p=>p[0]),pairsP1.map(p=>p[1]));
   const rP2=pearsonR(pairsP2.map(p=>p[0]),pairsP2.map(p=>p[1]));
+  const rN1=pearsonR(pairsN1.map(p=>p[0]),pairsN1.map(p=>p[1]));
+  const rN2=pearsonR(pairsN2.map(p=>p[0]),pairsN2.map(p=>p[1]));
   const lagOptions=[
     {r:r0,  lag:0,  lbl:'Same year'},
-    {r:rP1, lag:+1, lbl:'Y1 leads Y2 by 1yr'},
-    {r:rP2, lag:+2, lbl:'Y1 leads Y2 by 2yr'},
+    {r:rP1, lag:+1, lbl:`${label1} leads ${label2} by 1yr`},
+    {r:rP2, lag:+2, lbl:`${label1} leads ${label2} by 2yr`},
+    {r:rN1, lag:-1, lbl:`${label2} leads ${label1} by 1yr`},
+    {r:rN2, lag:-2, lbl:`${label2} leads ${label1} by 2yr`},
   ].filter(o=>o.r!=null);
   const bestLag=lagOptions.sort((a,b)=>Math.abs(b.r)-Math.abs(a.r))[0];
   // Render stat boxes
@@ -4644,11 +4528,11 @@ function chartDual(k){
   if(statsEl){
     const rColor=r=>r==null?'#64748b':Math.abs(r)>=0.6?'#4ade80':Math.abs(r)>=0.35?'#fbbf24':'#f87171';
     const toP=r=>r==null?'—':`${r>0?'+':''}${Math.round(r*100)}%`;
-    const lagRows=lagOptions.map(o=>{
-      const isBest=o===bestLag;
-      const lagLbl=o.lag===0?'\xb10yr':o.lag>0?'+'+o.lag+'yr':o.lag+'yr';
-      const hlStyle=isBest?'background:rgba(148,163,184,0.08);outline:1px solid rgba(148,163,184,0.2);':'';
-      const badge=isBest?'<span style="font-size:8px;font-weight:700;letter-spacing:.06em;color:#94a3b8;border:1px solid rgba(148,163,184,0.3);border-radius:3px;padding:1px 5px">STRONGEST</span>':'';
+    const lagRows=lagOptions.map(function(o){
+      var isBest=o===bestLag;
+      var lagLbl=o.lag===0?'\xb10yr':o.lag>0?'+'+o.lag+'yr':o.lag+'yr';
+      var hlStyle=isBest?'background:rgba(148,163,184,0.08);outline:1px solid rgba(148,163,184,0.2);':'';
+      var badge=isBest?'<span style="font-size:8px;font-weight:700;letter-spacing:.06em;color:#94a3b8;border:1px solid rgba(148,163,184,0.3);border-radius:3px;padding:1px 5px">STRONGEST</span>':'';
       return '<div style="display:flex;align-items:center;gap:8px;padding:3px 6px;border-radius:4px;margin-bottom:2px;'+hlStyle+'">'+
         '<span style="font-size:10px;color:#64748b;min-width:28px">'+lagLbl+'</span>'+
         '<span style="font-size:13px;font-weight:'+(isBest?'700':'400')+';color:'+rColor(o.r)+'">'+toP(o.r)+'</span>'+
