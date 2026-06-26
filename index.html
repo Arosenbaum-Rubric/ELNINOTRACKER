@@ -4502,25 +4502,19 @@ function chartDual(k){
   }
   // Lead/lag search: 0 (same year), Y1 leads Y2 by 1yr, by 2yr, Y2 leads Y1 by 1yr, by 2yr
   // Lag +N means Y1 precedes Y2 by N years (El Niño driver → lagged production effect)
-  const pairs0=[],pairsP1=[],pairsP2=[],pairsN1=[],pairsN2=[];
+  const pairs0=[],pairsP1=[],pairsP2=[];
   for(let i=0;i<labels.length;i++){
     if(vals1[i]!=null&&vals2[i]!=null) pairs0.push([vals1[i],vals2[i]]);
     if(i+1<labels.length&&vals1[i]!=null&&vals2[i+1]!=null) pairsP1.push([vals1[i],vals2[i+1]]);
     if(i+2<labels.length&&vals1[i]!=null&&vals2[i+2]!=null) pairsP2.push([vals1[i],vals2[i+2]]);
-    if(i>0&&vals1[i]!=null&&vals2[i-1]!=null) pairsN1.push([vals1[i],vals2[i-1]]);
-    if(i>1&&vals1[i]!=null&&vals2[i-2]!=null) pairsN2.push([vals1[i],vals2[i-2]]);
   }
   const r0 =pearsonR(pairs0.map(p=>p[0]),pairs0.map(p=>p[1]));
   const rP1=pearsonR(pairsP1.map(p=>p[0]),pairsP1.map(p=>p[1]));
   const rP2=pearsonR(pairsP2.map(p=>p[0]),pairsP2.map(p=>p[1]));
-  const rN1=pearsonR(pairsN1.map(p=>p[0]),pairsN1.map(p=>p[1]));
-  const rN2=pearsonR(pairsN2.map(p=>p[0]),pairsN2.map(p=>p[1]));
   const lagOptions=[
     {r:r0,  lag:0,  lbl:'Same year'},
-    {r:rP1, lag:+1, lbl:`${label1} leads ${label2} by 1yr`},
-    {r:rP2, lag:+2, lbl:`${label1} leads ${label2} by 2yr`},
-    {r:rN1, lag:-1, lbl:`${label2} leads ${label1} by 1yr`},
-    {r:rN2, lag:-2, lbl:`${label2} leads ${label1} by 2yr`},
+    {r:rP1, lag:+1, lbl:'Y1 leads Y2 by 1yr'},
+    {r:rP2, lag:+2, lbl:'Y1 leads Y2 by 2yr'},
   ].filter(o=>o.r!=null);
   const bestLag=lagOptions.sort((a,b)=>Math.abs(b.r)-Math.abs(a.r))[0];
   // Render stat boxes
