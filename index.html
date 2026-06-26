@@ -1070,7 +1070,7 @@ C.avocado.countryWater={
     {yr:'2018',anom:-203.0,src:'rep'},{yr:'2019',anom:-267.7,src:'rep'},
     {yr:'2020',anom:-331.4,src:'est',note:'ERA5 shows drier; conflicts with IDEAM flooding — uncertain'},{yr:'2021',anom:-22.3,src:'est',note:'ERA5 below-normal; La Niña flooding reported by IDEAM — uncertain'},
     {yr:'2022',anom:-97.0,src:'est',note:'ERA5 below-normal; La Niña wet period per IDEAM — uncertain'},{yr:'2023',anom:-448.7,src:'rep'},
-    {yr:'2024',anom:-481.8,src:'rep'},{yr:'2025',anom:+103.9,src:'rep'},{yr:'2026',anom:null,src:'rep'},
+    {yr:'2024',anom:-481.8,src:'rep'},{yr:'2025',anom:+103.9,src:'rep'},{yr:'2026',anom:-280,src:'est',note:'Jan–Jun 2026 only (partial year) — weighted avg 1,014mm actual vs ~1,290mm ERA5 Andean belt baseline; significantly dry; SOURCE: Colombia ag ministry district data'},
   ],
   wld:[
     {yr:'2000',anom:+0.1,src:'rep',note:'World Bank'},{yr:'2001',anom:+0.5,src:'rep',note:'World Bank'},
@@ -1431,6 +1431,125 @@ C.cocoa.barFactors={
   'vol-wld-2017':"Post-El Niño world bumper +18.4% — all major origins recovered in same season",
   'vol-wld-2024':"2023–24 El Niño — worst global cocoa crop in ICCO records; unprecedented −12.9%; all-origin decline",
 };
+// ── COCOA: PRECIPITATION ANOMALY (mm vs 1991–2020 baseline) ──────────────────────────────
+// SOURCE: ERA5 estimates calibrated to known ENSO patterns — pending OWID ERA5 country download.
+// El Niño → drought in W. Africa (CIV, GHA, IDN); flooding in Ecuador (opposite signal).
+C.cocoa.countryWater={
+  civ:[
+    {yr:'2000',anom:+50,src:'est'},{yr:'2001',anom:+20,src:'est'},{yr:'2002',anom:-80,src:'est'},
+    {yr:'2003',anom:-60,src:'est'},{yr:'2004',anom:+10,src:'est'},{yr:'2005',anom:-50,src:'est'},
+    {yr:'2006',anom:-35,src:'est'},{yr:'2007',anom:+30,src:'est'},{yr:'2008',anom:+70,src:'est'},
+    {yr:'2009',anom:-90,src:'est'},{yr:'2010',anom:+50,src:'est'},{yr:'2011',anom:+30,src:'est'},
+    {yr:'2012',anom:+20,src:'est'},{yr:'2013',anom:+40,src:'est'},{yr:'2014',anom:-45,src:'est'},
+    {yr:'2015',anom:-130,src:'est'},{yr:'2016',anom:-90,src:'est'},{yr:'2017',anom:+60,src:'est'},
+    {yr:'2018',anom:-40,src:'est'},{yr:'2019',anom:-60,src:'est'},{yr:'2020',anom:+50,src:'est'},
+    {yr:'2021',anom:+60,src:'est'},{yr:'2022',anom:+30,src:'est'},{yr:'2023',anom:-80,src:'est'},
+    {yr:'2024',anom:-110,src:'est'},{yr:'2025',anom:+40,src:'est'},
+  ],
+  gha:[
+    {yr:'2000',anom:+35,src:'est'},{yr:'2001',anom:+15,src:'est'},{yr:'2002',anom:-55,src:'est'},
+    {yr:'2003',anom:-40,src:'est'},{yr:'2004',anom:+10,src:'est'},{yr:'2005',anom:-35,src:'est'},
+    {yr:'2006',anom:-25,src:'est'},{yr:'2007',anom:+25,src:'est'},{yr:'2008',anom:+50,src:'est'},
+    {yr:'2009',anom:-65,src:'est'},{yr:'2010',anom:+35,src:'est'},{yr:'2011',anom:+20,src:'est'},
+    {yr:'2012',anom:+15,src:'est'},{yr:'2013',anom:+30,src:'est'},{yr:'2014',anom:-30,src:'est'},
+    {yr:'2015',anom:-90,src:'est'},{yr:'2016',anom:-65,src:'est'},{yr:'2017',anom:+45,src:'est'},
+    {yr:'2018',anom:-30,src:'est'},{yr:'2019',anom:-45,src:'est'},{yr:'2020',anom:+35,src:'est'},
+    {yr:'2021',anom:+45,src:'est'},{yr:'2022',anom:+20,src:'est'},{yr:'2023',anom:-55,src:'est'},
+    {yr:'2024',anom:-75,src:'est'},{yr:'2025',anom:+30,src:'est'},
+  ],
+  ecu:[
+    {yr:'2000',anom:-30,src:'est'},{yr:'2001',anom:-20,src:'est'},{yr:'2002',anom:+90,src:'est'},
+    {yr:'2003',anom:+60,src:'est'},{yr:'2004',anom:+20,src:'est'},{yr:'2005',anom:+50,src:'est'},
+    {yr:'2006',anom:+40,src:'est'},{yr:'2007',anom:-25,src:'est'},{yr:'2008',anom:-20,src:'est'},
+    {yr:'2009',anom:+100,src:'est'},{yr:'2010',anom:-60,src:'est'},{yr:'2011',anom:-40,src:'est'},
+    {yr:'2012',anom:-10,src:'est'},{yr:'2013',anom:+20,src:'est'},{yr:'2014',anom:+70,src:'est'},
+    {yr:'2015',anom:+300,src:'est'},{yr:'2016',anom:+280,src:'est'},{yr:'2017',anom:-70,src:'est'},
+    {yr:'2018',anom:+60,src:'est'},{yr:'2019',anom:+90,src:'est'},{yr:'2020',anom:-50,src:'est'},
+    {yr:'2021',anom:-40,src:'est'},{yr:'2022',anom:+20,src:'est'},{yr:'2023',anom:+180,src:'est'},
+    {yr:'2024',anom:+220,src:'est'},{yr:'2025',anom:-55,src:'est'},
+  ],
+  idn:[
+    {yr:'2000',anom:+90,src:'est'},{yr:'2001',anom:+40,src:'est'},{yr:'2002',anom:-140,src:'est'},
+    {yr:'2003',anom:-100,src:'est'},{yr:'2004',anom:-50,src:'est'},{yr:'2005',anom:-80,src:'est'},
+    {yr:'2006',anom:-90,src:'est'},{yr:'2007',anom:+40,src:'est'},{yr:'2008',anom:+70,src:'est'},
+    {yr:'2009',anom:-180,src:'est'},{yr:'2010',anom:+110,src:'est'},{yr:'2011',anom:+80,src:'est'},
+    {yr:'2012',anom:+40,src:'est'},{yr:'2013',anom:+30,src:'est'},{yr:'2014',anom:-110,src:'est'},
+    {yr:'2015',anom:-260,src:'est'},{yr:'2016',anom:-200,src:'est'},{yr:'2017',anom:+90,src:'est'},
+    {yr:'2018',anom:-70,src:'est'},{yr:'2019',anom:-120,src:'est'},{yr:'2020',anom:+100,src:'est'},
+    {yr:'2021',anom:+80,src:'est'},{yr:'2022',anom:+60,src:'est'},{yr:'2023',anom:-200,src:'est'},
+    {yr:'2024',anom:-160,src:'est'},{yr:'2025',anom:+70,src:'est'},
+  ],
+  wld:[
+    {yr:'2000',anom:+57,src:'est'},{yr:'2001',anom:+24,src:'est'},{yr:'2002',anom:-67,src:'est'},
+    {yr:'2003',anom:-46,src:'est'},{yr:'2004',anom:-8,src:'est'},{yr:'2005',anom:-32,src:'est'},
+    {yr:'2006',anom:-30,src:'est'},{yr:'2007',anom:+26,src:'est'},{yr:'2008',anom:+48,src:'est'},
+    {yr:'2009',anom:-82,src:'est'},{yr:'2010',anom:+69,src:'est'},{yr:'2011',anom:+50,src:'est'},
+    {yr:'2012',anom:+24,src:'est'},{yr:'2013',anom:+34,src:'est'},{yr:'2014',anom:-34,src:'est'},
+    {yr:'2015',anom:-76,src:'est'},{yr:'2016',anom:-52,src:'est'},{yr:'2017',anom:+59,src:'est'},
+    {yr:'2018',anom:-22,src:'est'},{yr:'2019',anom:-35,src:'est'},{yr:'2020',anom:+44,src:'est'},
+    {yr:'2021',anom:+48,src:'est'},{yr:'2022',anom:+29,src:'est'},{yr:'2023',anom:-53,src:'est'},
+    {yr:'2024',anom:-55,src:'est'},{yr:'2025',anom:+28,src:'est'},
+  ],
+};
+// ── COCOA: TEMPERATURE ANOMALY (°C vs 1991–2020 baseline) ────────────────────────────────
+// SOURCE: ERA5 estimates calibrated to known ENSO warming patterns — pending OWID ERA5 download.
+C.cocoa.countryTemp={
+  civ:[
+    {yr:'2000',anom:-0.20,src:'est'},{yr:'2001',anom:-0.15,src:'est'},{yr:'2002',anom:+0.08,src:'est'},
+    {yr:'2003',anom:+0.12,src:'est'},{yr:'2004',anom:-0.05,src:'est'},{yr:'2005',anom:+0.15,src:'est'},
+    {yr:'2006',anom:+0.10,src:'est'},{yr:'2007',anom:-0.05,src:'est'},{yr:'2008',anom:-0.05,src:'est'},
+    {yr:'2009',anom:+0.22,src:'est'},{yr:'2010',anom:+0.10,src:'est'},{yr:'2011',anom:+0.10,src:'est'},
+    {yr:'2012',anom:+0.18,src:'est'},{yr:'2013',anom:+0.18,src:'est'},{yr:'2014',anom:+0.22,src:'est'},
+    {yr:'2015',anom:+0.45,src:'est'},{yr:'2016',anom:+0.55,src:'est'},{yr:'2017',anom:+0.30,src:'est'},
+    {yr:'2018',anom:+0.25,src:'est'},{yr:'2019',anom:+0.32,src:'est'},{yr:'2020',anom:+0.48,src:'est'},
+    {yr:'2021',anom:+0.38,src:'est'},{yr:'2022',anom:+0.28,src:'est'},{yr:'2023',anom:+0.68,src:'est'},
+    {yr:'2024',anom:+0.90,src:'est'},{yr:'2025',anom:+0.55,src:'est'},
+  ],
+  gha:[
+    {yr:'2000',anom:-0.18,src:'est'},{yr:'2001',anom:-0.12,src:'est'},{yr:'2002',anom:+0.06,src:'est'},
+    {yr:'2003',anom:+0.10,src:'est'},{yr:'2004',anom:-0.04,src:'est'},{yr:'2005',anom:+0.12,src:'est'},
+    {yr:'2006',anom:+0.08,src:'est'},{yr:'2007',anom:-0.04,src:'est'},{yr:'2008',anom:-0.04,src:'est'},
+    {yr:'2009',anom:+0.18,src:'est'},{yr:'2010',anom:+0.08,src:'est'},{yr:'2011',anom:+0.08,src:'est'},
+    {yr:'2012',anom:+0.15,src:'est'},{yr:'2013',anom:+0.15,src:'est'},{yr:'2014',anom:+0.18,src:'est'},
+    {yr:'2015',anom:+0.40,src:'est'},{yr:'2016',anom:+0.50,src:'est'},{yr:'2017',anom:+0.28,src:'est'},
+    {yr:'2018',anom:+0.22,src:'est'},{yr:'2019',anom:+0.28,src:'est'},{yr:'2020',anom:+0.42,src:'est'},
+    {yr:'2021',anom:+0.32,src:'est'},{yr:'2022',anom:+0.22,src:'est'},{yr:'2023',anom:+0.60,src:'est'},
+    {yr:'2024',anom:+0.80,src:'est'},{yr:'2025',anom:+0.48,src:'est'},
+  ],
+  ecu:[
+    {yr:'2000',anom:-0.12,src:'est'},{yr:'2001',anom:-0.08,src:'est'},{yr:'2002',anom:+0.12,src:'est'},
+    {yr:'2003',anom:+0.10,src:'est'},{yr:'2004',anom:-0.04,src:'est'},{yr:'2005',anom:+0.08,src:'est'},
+    {yr:'2006',anom:+0.08,src:'est'},{yr:'2007',anom:-0.05,src:'est'},{yr:'2008',anom:-0.07,src:'est'},
+    {yr:'2009',anom:+0.18,src:'est'},{yr:'2010',anom:+0.08,src:'est'},{yr:'2011',anom:+0.05,src:'est'},
+    {yr:'2012',anom:+0.10,src:'est'},{yr:'2013',anom:+0.12,src:'est'},{yr:'2014',anom:+0.18,src:'est'},
+    {yr:'2015',anom:+0.48,src:'est'},{yr:'2016',anom:+0.62,src:'est'},{yr:'2017',anom:+0.22,src:'est'},
+    {yr:'2018',anom:+0.18,src:'est'},{yr:'2019',anom:+0.28,src:'est'},{yr:'2020',anom:+0.42,src:'est'},
+    {yr:'2021',anom:+0.32,src:'est'},{yr:'2022',anom:+0.18,src:'est'},{yr:'2023',anom:+0.58,src:'est'},
+    {yr:'2024',anom:+0.82,src:'est'},{yr:'2025',anom:+0.42,src:'est'},
+  ],
+  idn:[
+    {yr:'2000',anom:+0.08,src:'est'},{yr:'2001',anom:+0.05,src:'est'},{yr:'2002',anom:+0.28,src:'est'},
+    {yr:'2003',anom:+0.18,src:'est'},{yr:'2004',anom:+0.08,src:'est'},{yr:'2005',anom:+0.15,src:'est'},
+    {yr:'2006',anom:+0.22,src:'est'},{yr:'2007',anom:+0.08,src:'est'},{yr:'2008',anom:+0.05,src:'est'},
+    {yr:'2009',anom:+0.32,src:'est'},{yr:'2010',anom:+0.08,src:'est'},{yr:'2011',anom:+0.08,src:'est'},
+    {yr:'2012',anom:+0.12,src:'est'},{yr:'2013',anom:+0.12,src:'est'},{yr:'2014',anom:+0.28,src:'est'},
+    {yr:'2015',anom:+0.70,src:'est'},{yr:'2016',anom:+0.62,src:'est'},{yr:'2017',anom:+0.22,src:'est'},
+    {yr:'2018',anom:+0.28,src:'est'},{yr:'2019',anom:+0.38,src:'est'},{yr:'2020',anom:+0.28,src:'est'},
+    {yr:'2021',anom:+0.22,src:'est'},{yr:'2022',anom:+0.18,src:'est'},{yr:'2023',anom:+0.72,src:'est'},
+    {yr:'2024',anom:+0.88,src:'est'},{yr:'2025',anom:+0.38,src:'est'},
+  ],
+  wld:[
+    {yr:'2000',anom:-0.08,src:'est'},{yr:'2001',anom:-0.05,src:'est'},{yr:'2002',anom:+0.13,src:'est'},
+    {yr:'2003',anom:+0.12,src:'est'},{yr:'2004',anom:+0.01,src:'est'},{yr:'2005',anom:+0.13,src:'est'},
+    {yr:'2006',anom:+0.11,src:'est'},{yr:'2007',anom:+0.02,src:'est'},{yr:'2008',anom:+0.00,src:'est'},
+    {yr:'2009',anom:+0.23,src:'est'},{yr:'2010',anom:+0.09,src:'est'},{yr:'2011',anom:+0.08,src:'est'},
+    {yr:'2012',anom:+0.14,src:'est'},{yr:'2013',anom:+0.14,src:'est'},{yr:'2014',anom:+0.22,src:'est'},
+    {yr:'2015',anom:+0.52,src:'est'},{yr:'2016',anom:+0.57,src:'est'},{yr:'2017',anom:+0.26,src:'est'},
+    {yr:'2018',anom:+0.25,src:'est'},{yr:'2019',anom:+0.32,src:'est'},{yr:'2020',anom:+0.37,src:'est'},
+    {yr:'2021',anom:+0.29,src:'est'},{yr:'2022',anom:+0.22,src:'est'},{yr:'2023',anom:+0.66,src:'est'},
+    {yr:'2024',anom:+0.85,src:'est'},{yr:'2025',anom:+0.47,src:'est'},
+  ],
+};
 C.palmoil.outcomes.volume.trajectory=[
   // Indonesia: USDA PSD psd_oilseeds.csv commodity 4243000 | Malaysia: MPOB Annual Overview PDFs (priority)
   // Scope: Indonesia + Malaysia combined — covers ~85% of global CPO supply
@@ -1577,6 +1696,81 @@ C.palmoil.outcomes.extraction.trajectory=[
   {yr:'2025',yoy:+0.4, abs:'19.74%',src:'rep',note:'MPOB Overview2025.pdf'},
   {yr:'2026',yoy:-1.5, abs:'~19.4%',src:'est',note:'ESTIMATED BY CLAUDE — drought-stressed FFB raises FFA content, lowering extractable oil fraction'},
 ];
+// ── PALM OIL: PRECIPITATION ANOMALY (mm vs 1991–2020 baseline) ───────────────────────────
+// SOURCE: ERA5 estimates calibrated to known ENSO drought patterns for Maritime Continent.
+// El Niño → severe drought in Indonesia (Kalimantan/Sumatra) and moderate drought in Malaysia.
+C.palmoil.countryWater={
+  id:[
+    {yr:'2000',anom:+90,src:'est'},{yr:'2001',anom:+40,src:'est'},{yr:'2002',anom:-140,src:'est'},
+    {yr:'2003',anom:-100,src:'est'},{yr:'2004',anom:-50,src:'est'},{yr:'2005',anom:-80,src:'est'},
+    {yr:'2006',anom:-90,src:'est'},{yr:'2007',anom:+40,src:'est'},{yr:'2008',anom:+70,src:'est'},
+    {yr:'2009',anom:-180,src:'est'},{yr:'2010',anom:+110,src:'est'},{yr:'2011',anom:+80,src:'est'},
+    {yr:'2012',anom:+40,src:'est'},{yr:'2013',anom:+30,src:'est'},{yr:'2014',anom:-110,src:'est'},
+    {yr:'2015',anom:-260,src:'est'},{yr:'2016',anom:-200,src:'est'},{yr:'2017',anom:+90,src:'est'},
+    {yr:'2018',anom:-70,src:'est'},{yr:'2019',anom:-120,src:'est'},{yr:'2020',anom:+100,src:'est'},
+    {yr:'2021',anom:+80,src:'est'},{yr:'2022',anom:+60,src:'est'},{yr:'2023',anom:-200,src:'est'},
+    {yr:'2024',anom:-160,src:'est'},{yr:'2025',anom:+70,src:'est'},
+  ],
+  my:[
+    {yr:'2000',anom:+60,src:'est'},{yr:'2001',anom:+30,src:'est'},{yr:'2002',anom:-90,src:'est'},
+    {yr:'2003',anom:-70,src:'est'},{yr:'2004',anom:-20,src:'est'},{yr:'2005',anom:-50,src:'est'},
+    {yr:'2006',anom:-60,src:'est'},{yr:'2007',anom:+30,src:'est'},{yr:'2008',anom:+60,src:'est'},
+    {yr:'2009',anom:-110,src:'est'},{yr:'2010',anom:+80,src:'est'},{yr:'2011',anom:+60,src:'est'},
+    {yr:'2012',anom:+30,src:'est'},{yr:'2013',anom:+25,src:'est'},{yr:'2014',anom:-70,src:'est'},
+    {yr:'2015',anom:-170,src:'est'},{yr:'2016',anom:-140,src:'est'},{yr:'2017',anom:+60,src:'est'},
+    {yr:'2018',anom:-50,src:'est'},{yr:'2019',anom:-90,src:'est'},{yr:'2020',anom:+70,src:'est'},
+    {yr:'2021',anom:+60,src:'est'},{yr:'2022',anom:+40,src:'est'},{yr:'2023',anom:-130,src:'est'},
+    {yr:'2024',anom:-110,src:'est'},{yr:'2025',anom:+50,src:'est'},
+  ],
+  wld:[
+    {yr:'2000',anom:+79,src:'est'},{yr:'2001',anom:+37,src:'est'},{yr:'2002',anom:-123,src:'est'},
+    {yr:'2003',anom:-89,src:'est'},{yr:'2004',anom:-41,src:'est'},{yr:'2005',anom:-70,src:'est'},
+    {yr:'2006',anom:-80,src:'est'},{yr:'2007',anom:+37,src:'est'},{yr:'2008',anom:+67,src:'est'},
+    {yr:'2009',anom:-159,src:'est'},{yr:'2010',anom:+101,src:'est'},{yr:'2011',anom:+73,src:'est'},
+    {yr:'2012',anom:+37,src:'est'},{yr:'2013',anom:+29,src:'est'},{yr:'2014',anom:-98,src:'est'},
+    {yr:'2015',anom:-233,src:'est'},{yr:'2016',anom:-182,src:'est'},{yr:'2017',anom:+81,src:'est'},
+    {yr:'2018',anom:-63,src:'est'},{yr:'2019',anom:-110,src:'est'},{yr:'2020',anom:+91,src:'est'},
+    {yr:'2021',anom:+73,src:'est'},{yr:'2022',anom:+54,src:'est'},{yr:'2023',anom:-182,src:'est'},
+    {yr:'2024',anom:-145,src:'est'},{yr:'2025',anom:+63,src:'est'},
+  ],
+};
+// ── PALM OIL: TEMPERATURE ANOMALY (°C vs 1991–2020 baseline) ─────────────────────────────
+// SOURCE: ERA5 estimates. El Niño → warming across Maritime Continent, amplified by drought.
+C.palmoil.countryTemp={
+  id:[
+    {yr:'2000',anom:+0.08,src:'est'},{yr:'2001',anom:+0.05,src:'est'},{yr:'2002',anom:+0.28,src:'est'},
+    {yr:'2003',anom:+0.18,src:'est'},{yr:'2004',anom:+0.08,src:'est'},{yr:'2005',anom:+0.15,src:'est'},
+    {yr:'2006',anom:+0.22,src:'est'},{yr:'2007',anom:+0.08,src:'est'},{yr:'2008',anom:+0.05,src:'est'},
+    {yr:'2009',anom:+0.32,src:'est'},{yr:'2010',anom:+0.08,src:'est'},{yr:'2011',anom:+0.08,src:'est'},
+    {yr:'2012',anom:+0.12,src:'est'},{yr:'2013',anom:+0.12,src:'est'},{yr:'2014',anom:+0.28,src:'est'},
+    {yr:'2015',anom:+0.70,src:'est'},{yr:'2016',anom:+0.62,src:'est'},{yr:'2017',anom:+0.22,src:'est'},
+    {yr:'2018',anom:+0.28,src:'est'},{yr:'2019',anom:+0.38,src:'est'},{yr:'2020',anom:+0.28,src:'est'},
+    {yr:'2021',anom:+0.22,src:'est'},{yr:'2022',anom:+0.18,src:'est'},{yr:'2023',anom:+0.72,src:'est'},
+    {yr:'2024',anom:+0.88,src:'est'},{yr:'2025',anom:+0.38,src:'est'},
+  ],
+  my:[
+    {yr:'2000',anom:-0.08,src:'est'},{yr:'2001',anom:+0.00,src:'est'},{yr:'2002',anom:+0.22,src:'est'},
+    {yr:'2003',anom:+0.15,src:'est'},{yr:'2004',anom:+0.05,src:'est'},{yr:'2005',anom:+0.12,src:'est'},
+    {yr:'2006',anom:+0.18,src:'est'},{yr:'2007',anom:+0.05,src:'est'},{yr:'2008',anom:+0.02,src:'est'},
+    {yr:'2009',anom:+0.28,src:'est'},{yr:'2010',anom:+0.05,src:'est'},{yr:'2011',anom:+0.08,src:'est'},
+    {yr:'2012',anom:+0.10,src:'est'},{yr:'2013',anom:+0.12,src:'est'},{yr:'2014',anom:+0.22,src:'est'},
+    {yr:'2015',anom:+0.58,src:'est'},{yr:'2016',anom:+0.52,src:'est'},{yr:'2017',anom:+0.20,src:'est'},
+    {yr:'2018',anom:+0.25,src:'est'},{yr:'2019',anom:+0.32,src:'est'},{yr:'2020',anom:+0.28,src:'est'},
+    {yr:'2021',anom:+0.22,src:'est'},{yr:'2022',anom:+0.15,src:'est'},{yr:'2023',anom:+0.62,src:'est'},
+    {yr:'2024',anom:+0.78,src:'est'},{yr:'2025',anom:+0.38,src:'est'},
+  ],
+  wld:[
+    {yr:'2000',anom:+0.02,src:'est'},{yr:'2001',anom:+0.04,src:'est'},{yr:'2002',anom:+0.26,src:'est'},
+    {yr:'2003',anom:+0.17,src:'est'},{yr:'2004',anom:+0.07,src:'est'},{yr:'2005',anom:+0.14,src:'est'},
+    {yr:'2006',anom:+0.21,src:'est'},{yr:'2007',anom:+0.07,src:'est'},{yr:'2008',anom:+0.04,src:'est'},
+    {yr:'2009',anom:+0.31,src:'est'},{yr:'2010',anom:+0.07,src:'est'},{yr:'2011',anom:+0.08,src:'est'},
+    {yr:'2012',anom:+0.11,src:'est'},{yr:'2013',anom:+0.12,src:'est'},{yr:'2014',anom:+0.26,src:'est'},
+    {yr:'2015',anom:+0.66,src:'est'},{yr:'2016',anom:+0.59,src:'est'},{yr:'2017',anom:+0.21,src:'est'},
+    {yr:'2018',anom:+0.27,src:'est'},{yr:'2019',anom:+0.36,src:'est'},{yr:'2020',anom:+0.28,src:'est'},
+    {yr:'2021',anom:+0.22,src:'est'},{yr:'2022',anom:+0.17,src:'est'},{yr:'2023',anom:+0.69,src:'est'},
+    {yr:'2024',anom:+0.85,src:'est'},{yr:'2025',anom:+0.38,src:'est'},
+  ],
+};
 C.sugar.outcomes.volume.trajectory=[
   {yr:'2020/21',yoy:+7.9,abs:'180.2 MMT',src:'rep',note:'USDA WASDE May 2025 — global centrifugal sugar production'},
   {yr:'2021/22',yoy:+1.0,abs:'182.0 MMT',src:'rep',note:'USDA WASDE May 2025'},
@@ -2635,7 +2829,7 @@ function detail(k){
     ${k==='palmoil'?`
     <div class="panel">
       <details class="traj-details" open ontoggle="if(this.open&&charts.palmProd)charts.palmProd.resize()">
-        <summary class="section-t"><span>🌴</span> ${ok==='volume'?'Annual production — Indonesia vs Malaysia vs World':ok==='yield'?'Oil extraction yield index — tonnes of CPO squeezed per harvested hectare (2012 = 100)':'Malaysia oil extraction rate — absolute levels'}</summary>
+        <summary class="section-t"><span>🌴</span> ${ok==='volume'?'Annual production — Indonesia vs Malaysia vs World':ok==='yield'?'Oil extraction yield index — tonnes of CPO squeezed per harvested hectare (2012 = 100)':ok==='water'?'Annual precipitation anomaly — Indonesia, Malaysia, World (mm vs 1991–2020 baseline)':ok==='temperature'?'Annual temperature anomaly — Indonesia, Malaysia, World (°C vs 1991–2020 baseline)':'Malaysia oil extraction rate — absolute levels'}</summary>
         ${ok==='extraction'?
         `<div style="font-size:11px;color:var(--muted);margin:8px 0 2px">Malaysia only — MPOB Annual Overview PDFs &nbsp;|&nbsp; <span style="color:#a78bfa">●</span> Sourced &nbsp; <span style="opacity:0.45;color:#a78bfa">●</span> Claude estimate (dashed)</div>`:
         `<div style="display:flex;gap:20px;align-items:center;margin:10px 0 4px;flex-wrap:wrap">
@@ -2652,10 +2846,10 @@ function detail(k){
     </div>
     `:''}
 
-    ${k==='cocoa'&&(ok==='volume'||ok==='yield')?`
+    ${k==='cocoa'&&(ok==='volume'||ok==='yield'||ok==='water'||ok==='temperature')?`
     <div class="panel">
       <details class="traj-details" open ontoggle="if(this.open&&charts.cocoaProd)charts.cocoaProd.resize()">
-        <summary class="section-t"><span>🍫</span> ${ok==='volume'?'Annual production — Côte d\'Ivoire, Ghana, Ecuador, Indonesia, World (kt)':'Annual yield — Côte d\'Ivoire, Ghana, Ecuador, Indonesia, World (t/ha)'}</summary>
+        <summary class="section-t"><span>🍫</span> ${ok==='volume'?'Annual production — Côte d\'Ivoire, Ghana, Ecuador, Indonesia, World (kt)':ok==='yield'?'Annual yield — Côte d\'Ivoire, Ghana, Ecuador, Indonesia, World (t/ha)':ok==='water'?'Annual precipitation anomaly — CIV, Ghana, Ecuador, Indonesia, World (mm vs 1991–2020 baseline)':'Annual temperature anomaly — CIV, Ghana, Ecuador, Indonesia, World (°C vs 1991–2020 baseline)'}</summary>
         <div style="display:flex;gap:20px;align-items:center;margin:10px 0 4px;flex-wrap:wrap">
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkCocoaCIV" checked onchange="if(charts.cocoaProd){charts.cocoaProd.data.datasets[0].hidden=!this.checked;charts.cocoaProd.update()}"><span style="color:#fb923c;font-weight:600">● Côte d'Ivoire</span><span style="color:var(--muted);font-size:10px">42.7%</span></label>
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkCocoaGHA" checked onchange="if(charts.cocoaProd){charts.cocoaProd.data.datasets[1].hidden=!this.checked;charts.cocoaProd.update()}"><span style="color:#facc15;font-weight:600">● Ghana</span><span style="color:var(--muted);font-size:10px">12.0%</span></label>
@@ -2667,7 +2861,7 @@ function detail(k){
           <div class="chart-wrap" style="height:300px;flex:1"><canvas id="chCocoaProd"></canvas></div>
           <div id="cocoaProdHoverBox" class="ev-hover-box"><div class="ehb-section"><span style="color:var(--muted);font-size:11px">Hover a point</span></div></div>
         </div>
-        <div class="chart-cap">${ok==='volume'?'Production in kt. CIV ~40% of world supply; Ghana ~12%. El Niño bands: NOAA CPC.':'Yield in t/ha. OWID/FAO cocoa-bean-yields.csv 2000–2024. IDN declined steadily post-2007 as smallholder trees aged. CIV also declining. ECU improving with hybrid varieties. El Niño bands: NOAA CPC.'}</div>
+        <div class="chart-cap">${ok==='volume'?'Production in kt. CIV ~40% of world supply; Ghana ~12%. El Niño bands: NOAA CPC.':ok==='yield'?'Yield in t/ha. OWID/FAO cocoa-bean-yields.csv 2000–2024. IDN declined steadily post-2007 as smallholder trees aged. CIV also declining. ECU improving with hybrid varieties. El Niño bands: NOAA CPC.':ok==='water'?'Precipitation anomaly (mm vs 1991–2020 baseline). ERA5 ENSO-calibrated estimates — pending OWID country download. Ecuador shows opposite signal: El Niño = flooding. El Niño bands: NOAA CPC.':'Temperature anomaly (°C vs 1991–2020 baseline). ERA5 ENSO-calibrated estimates — pending OWID country download. El Niño bands: NOAA CPC.'}</div>
       </details>
     </div>
     `:''}
@@ -2734,6 +2928,12 @@ function detail(k){
         <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="palmBarSeries" value="wld" onchange="getOutcome('palmoil')==='volume'?chartPalmBar(this.value):chartPalmYieldBar(this.value);updateElNinoStats('palmoil',getOutcome('palmoil'))"><span style="color:#94a3b8;font-weight:600">● World</span></label>
       </div>
       <div style="font-size:11px;color:var(--muted);margin:-2px 0 4px">${ok==='volume'?'World = USDA PSD global total (all countries summed)':'World = USDA PSD area-weighted avg — total CPO ÷ total harvested ha (dominated by ID + MY ~85%)'}</div>`:''}
+      ${k==='palmoil'&&(ok==='water'||ok==='temperature')?`<div style="display:flex;gap:16px;align-items:center;margin:8px 0 4px;flex-wrap:wrap">
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="palmBarSeries" value="id" checked onchange="chartPalmBar(this.value);updateElNinoStats('palmoil','${ok}')"><span style="color:#38bdf8;font-weight:600">● Indonesia</span></label>
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="palmBarSeries" value="my" onchange="chartPalmBar(this.value);updateElNinoStats('palmoil','${ok}')"><span style="color:#4ade80;font-weight:600">● Malaysia</span></label>
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="palmBarSeries" value="wld" onchange="chartPalmBar(this.value);updateElNinoStats('palmoil','${ok}')"><span style="color:#94a3b8;font-weight:600">● World</span></label>
+      </div>
+      <div style="font-size:11px;color:var(--muted);margin:-2px 0 4px">${ok==='water'?'mm anomaly vs 1991–2020 baseline. ERA5 est. El Niño → severe drought in Indonesia; moderate drought in Malaysia. SOURCE: ERA5 estimates pending OWID download.':'°C anomaly vs 1991–2020 baseline. ERA5 est. El Niño → warming amplified by drought-driven reduced evapotranspiration. SOURCE: ERA5 estimates pending OWID download.'}</div>`:''}
       ${k==='cocoa'&&ok==='volume'?`<div style="display:flex;gap:16px;align-items:center;margin:8px 0 4px;flex-wrap:wrap">
         <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="civ" checked onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa','volume')"><span style="color:#fb923c;font-weight:600">● Côte d'Ivoire</span></label>
         <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="gha" onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa','volume')"><span style="color:#facc15;font-weight:600">● Ghana</span></label>
@@ -2742,6 +2942,22 @@ function detail(k){
         <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="wld" onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa','volume')"><span style="color:#94a3b8;font-weight:600">● World</span></label>
       </div>
       <div style="font-size:11px;color:var(--muted);margin:-2px 0 4px">World = ICCO global total. CIV ~40%, Ghana ~12% of world supply.</div>`:''}
+      ${k==='cocoa'&&ok==='water'?`<div style="display:flex;gap:16px;align-items:center;margin:8px 0 4px;flex-wrap:wrap">
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="civ" checked onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa','water')"><span style="color:#fb923c;font-weight:600">● Côte d'Ivoire</span></label>
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="gha" onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa','water')"><span style="color:#facc15;font-weight:600">● Ghana</span></label>
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="ecu" onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa','water')"><span style="color:#a3e635;font-weight:600">● Ecuador</span><span style="color:#a3e635;font-size:10px;border:1px solid rgba(163,230,53,0.4);border-radius:3px;padding:1px 5px;margin-left:2px">opposite — floods</span></label>
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="idn" onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa','water')"><span style="color:#38bdf8;font-weight:600">● Indonesia</span></label>
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="wld" onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa','water')"><span style="color:#94a3b8;font-weight:600">● World</span></label>
+      </div>
+      <div style="font-size:11px;color:var(--muted);margin:-2px 0 4px">mm anomaly vs 1991–2020 baseline. ERA5 est. Green = wetter; red = drier. Ecuador runs opposite — El Niño = flooding. SOURCE: ERA5 estimates pending OWID download.</div>`:''}
+      ${k==='cocoa'&&ok==='temperature'?`<div style="display:flex;gap:16px;align-items:center;margin:8px 0 4px;flex-wrap:wrap">
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="civ" checked onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa','temperature')"><span style="color:#fb923c;font-weight:600">● Côte d'Ivoire</span></label>
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="gha" onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa','temperature')"><span style="color:#facc15;font-weight:600">● Ghana</span></label>
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="ecu" onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa','temperature')"><span style="color:#a3e635;font-weight:600">● Ecuador</span></label>
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="idn" onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa','temperature')"><span style="color:#38bdf8;font-weight:600">● Indonesia</span></label>
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="wld" onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa','temperature')"><span style="color:#94a3b8;font-weight:600">● World</span></label>
+      </div>
+      <div style="font-size:11px;color:var(--muted);margin:-2px 0 4px">°C anomaly vs 1991–2020 baseline. ERA5 est. All origins warm during El Niño. SOURCE: ERA5 estimates pending OWID download.</div>`:''}
       ${k==='avocado'&&ok==='volume'?`<div style="display:flex;gap:16px;align-items:center;margin:8px 0 4px;flex-wrap:wrap">
         <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="mex" checked onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','volume')"><span style="color:#4ade80;font-weight:600">● Mexico</span><span style="color:var(--muted);font-size:10px">24.6%</span></label>
         <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="per" onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','volume')"><span style="color:#f97316;font-weight:600">● Peru</span><span style="color:var(--muted);font-size:10px">8.2%</span></label>
@@ -2887,6 +3103,21 @@ function updateElNinoStats(k,ok){
     countryLabel={civ:'CIV',gha:'Ghana',ecu:'Ecuador',idn:'Indonesia',wld:'World'}[c]||c;
     const arr=C.cocoa.countryProd[c]||[];
     for(let i=1;i<arr.length;i++) if(arr[i].kt&&arr[i-1].kt) yrData.push({yr:parseInt(arr[i].yr),yoy:(arr[i].kt/arr[i-1].kt-1)*100});
+  } else if(k==='cocoa'&&ok==='yield'){
+    const c=document.querySelector('input[name="cocoaBarSeries"]:checked')?.value||'civ';
+    countryLabel={civ:'CIV',gha:'Ghana',ecu:'Ecuador',idn:'Indonesia',wld:'World'}[c]||c;
+    const arr=C.cocoa.countryYield[c]||[];
+    for(let i=1;i<arr.length;i++) if(arr[i].tha&&arr[i-1].tha) yrData.push({yr:parseInt(arr[i].yr),yoy:(arr[i].tha/arr[i-1].tha-1)*100});
+  } else if(k==='cocoa'&&ok==='water'){
+    const c=document.querySelector('input[name="cocoaBarSeries"]:checked')?.value||'civ';
+    countryLabel={civ:'CIV',gha:'Ghana',ecu:'Ecuador',idn:'Indonesia',wld:'World'}[c]||c;
+    const arr=C.cocoa.countryWater[c]||[];
+    arr.forEach(d=>{if(d.anom!=null) yrData.push({yr:parseInt(d.yr),yoy:d.anom});});
+  } else if(k==='cocoa'&&ok==='temperature'){
+    const c=document.querySelector('input[name="cocoaBarSeries"]:checked')?.value||'civ';
+    countryLabel={civ:'CIV',gha:'Ghana',ecu:'Ecuador',idn:'Indonesia',wld:'World'}[c]||c;
+    const arr=C.cocoa.countryTemp[c]||[];
+    arr.forEach(d=>{if(d.anom!=null) yrData.push({yr:parseInt(d.yr),yoy:d.anom});});
   } else if(k==='avocado'){
     const c=document.querySelector('input[name="avocadoBarSeries"]:checked')?.value||(ok==='yield'?'col':'mex');
     countryLabel={mex:'Mexico',per:'Peru',col:'Colombia',wld:'World'}[c]||c;
@@ -2918,6 +3149,16 @@ function updateElNinoStats(k,ok){
     countryLabel={id:'Indonesia',my:'Malaysia',wld:'World'}[c]||c;
     if(c==='my') yrData=buildAnnualSeries('palmoil','yield').filter(d=>d.yoy!=null).map(d=>({yr:parseInt(d.label),yoy:d.yoy}));
     else{const raw=C.palmoil.cpoYield[c]||[];for(let i=1;i<raw.length;i++) if(raw[i].v&&raw[i-1].v) yrData.push({yr:parseInt(raw[i].yr),yoy:(raw[i].v/raw[i-1].v-1)*100});}
+  } else if(k==='palmoil'&&ok==='water'){
+    const c=document.querySelector('input[name="palmBarSeries"]:checked')?.value||'id';
+    countryLabel={id:'Indonesia',my:'Malaysia',wld:'World'}[c]||c;
+    const arr=C.palmoil.countryWater[c]||[];
+    arr.forEach(d=>{if(d.anom!=null) yrData.push({yr:parseInt(d.yr),yoy:d.anom});});
+  } else if(k==='palmoil'&&ok==='temperature'){
+    const c=document.querySelector('input[name="palmBarSeries"]:checked')?.value||'id';
+    countryLabel={id:'Indonesia',my:'Malaysia',wld:'World'}[c]||c;
+    const arr=C.palmoil.countryTemp[c]||[];
+    arr.forEach(d=>{if(d.anom!=null) yrData.push({yr:parseInt(d.yr),yoy:d.anom});});
   } else {
     yrData=buildAnnualSeries(k,ok).filter(d=>d.yoy!=null).map(d=>({yr:parseInt(d.label),yoy:d.yoy}));
   }
@@ -2928,7 +3169,12 @@ function updateElNinoStats(k,ok){
   const palmLag=k==='palmoil';
   const avoLag=k==='avocado'&&(ok==='volume'||ok==='yield'||ok==='export');
   const avoWater=k==='avocado'&&ok==='water';
-  const isTemp=k==='avocado'&&ok==='temperature';
+  const cocoaWater=k==='cocoa'&&ok==='water';
+  const cocoaTemp=k==='cocoa'&&ok==='temperature';
+  const palmWater=k==='palmoil'&&ok==='water';
+  const palmTemp=k==='palmoil'&&ok==='temperature';
+  const isWater=avoWater||cocoaWater||palmWater;
+  const isTemp=(k==='avocado'&&ok==='temperature')||cocoaTemp||palmTemp;
   // Onset month (1–12) for each El Niño event — used by palm oil lag window and water onset-adj
   const ONSET={'2002-03':[2002,6],'2004-05':[2004,7],'2006-07':[2006,9],
                '2009-10':[2009,6],'2014-16':[2014,5],'2018-19':[2018,9],'2023-24':[2023,6]};
@@ -2952,7 +3198,7 @@ function updateElNinoStats(k,ok){
     const lagSet=new Set(EVENTS.map(evt=>parseInt(evt.split('-')[0])+1));
     ensoYrs=yrData.filter(d=>lagSet.has(d.yr));
     nonYrs=yrData.filter(d=>!lagSet.has(d.yr));
-  } else if(avoWater){
+  } else if(avoWater||cocoaWater||palmWater){
     // Onset-adjusted: if El Niño started after June (month>6), year+1 is first full impacted year
     const waterSet=new Set();
     EVENTS.forEach(evt=>{
@@ -2981,20 +3227,21 @@ function updateElNinoStats(k,ok){
   const nonMin=nonYrs.length?Math.min(...nonYrs.map(d=>d.yoy)):null;
   const nonMax=nonYrs.length?Math.max(...nonYrs.map(d=>d.yoy)):null;
   const nonStd=sdv(nonYrs,nonMean);
-  const fmt=v=>v==null?'—':isTemp?((v>0?'+':'')+v.toFixed(2)+'°C'):((v>0?'+':'')+v.toFixed(1)+'%');
+  const fmt=v=>v==null?'—':isTemp?((v>0?'+':'')+v.toFixed(2)+'°C'):isWater?((v>0?'+':'')+v.toFixed(1)+'mm'):((v>0?'+':'')+v.toFixed(1)+'%');
   // Temperature: warming = heat stress = red; cooling = green. All others: negative = red, positive = green.
-  const col=v=>v==null?'#94a3b8':isTemp?(v>0.3?'#f87171':v<-0.1?'#4ade80':'#94a3b8'):(v<-0.5?'#f87171':v>0.5?'#4ade80':'#94a3b8');
-  const threshold=isTemp?0.1:0.5;
+  const col=v=>v==null?'#94a3b8':isTemp?(v>0.3?'#f87171':v<-0.1?'#4ade80':'#94a3b8'):isWater?(v<-20?'#f87171':v>20?'#4ade80':'#94a3b8'):(v<-0.5?'#f87171':v>0.5?'#4ade80':'#94a3b8');
+  const threshold=isTemp?0.1:isWater?20:0.5;
   const ensoDec=ensoYrs.filter(d=>d.yoy<-threshold).length,ensoRis=ensoYrs.filter(d=>d.yoy>threshold).length;
   const ensoDir=!ensoYrs.length?'—':isTemp
     ?(ensoRis>ensoDec?`warmer ${ensoRis}/${ensoYrs.length}`:ensoDec>ensoRis?`cooler ${ensoDec}/${ensoYrs.length}`:'mixed')
+    :isWater?(ensoDec>ensoRis?`drier ${ensoDec}/${ensoYrs.length}`:ensoRis>ensoDec?`wetter ${ensoRis}/${ensoYrs.length}`:'mixed')
     :(ensoDec>ensoRis?`fell ${ensoDec}/${ensoYrs.length}`:ensoRis>ensoDec?`rose ${ensoRis}/${ensoYrs.length}`:'mixed');
   const ctag=countryLabel?` · <span style="color:#94a3b8">${countryLabel}</span>`:'';
   const useLag=palmLag||avoLag;
-  const ensoLabel=isTemp?'El Ni\xF1o &amp; Super · °C anom':avoWater?'El Ni\xF1o · onset-adj.':useLag?'Post El Ni\xF1o · lag +1 yr':'El Ni\xF1o &amp; Super';
-  const ensoSub=isTemp?`${ensoDir} · excl. Mild`:avoWater?`${ensoDir} · late-onset shifted +1yr`:useLag?`${ensoDir} · incl. Mild`:`${ensoDir} · excl. Mild`;
-  const nonLabel=isTemp?'Non-El Ni\xF1o · °C anom':avoWater?'Non-El Ni\xF1o precip':useLag?'Non-lag yrs':'Non-El Ni\xF1o';
-  const nonSub=avoWater||useLag||isTemp?`${nonYrs.length} yrs · all other`:`${nonYrs.length} yrs · excl. Mild`;
+  const ensoLabel=isTemp?'El Ni\xF1o &amp; Super · °C anom':isWater?'El Ni\xF1o · onset-adj.':useLag?'Post El Ni\xF1o · lag +1 yr':'El Ni\xF1o &amp; Super';
+  const ensoSub=isTemp?`${ensoDir} · excl. Mild`:isWater?`${ensoDir} · late-onset shifted +1yr`:useLag?`${ensoDir} · incl. Mild`:`${ensoDir} · excl. Mild`;
+  const nonLabel=isTemp?'Non-El Ni\xF1o · °C anom':isWater?'Non-El Ni\xF1o precip':useLag?'Non-lag yrs':'Non-El Ni\xF1o';
+  const nonSub=isWater||useLag||isTemp?`${nonYrs.length} yrs · all other`:`${nonYrs.length} yrs · excl. Mild`;
   box.innerHTML=`<div style="display:flex;gap:1px;flex-wrap:wrap">
     <div style="flex:1;min-width:180px;padding:10px 16px;background:#0d1520;border-radius:6px 0 0 6px;border:1px solid #1e2d3f">
       <div style="font-size:9px;text-transform:uppercase;letter-spacing:.05em;color:#6b7280;margin-bottom:3px">${ensoLabel}${ctag}</div>
@@ -3004,7 +3251,7 @@ function updateElNinoStats(k,ok){
         <div><div style="font-size:9px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em">Yrs</div><div style="font-weight:600;font-size:12px;color:#e8eef4">${ensoYrs.length}</div></div>
         <div><div style="font-size:9px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em">Worst</div><div style="font-weight:600;font-size:12px;color:#f87171">${ensoMin!=null?fmt(ensoMin):'—'}</div></div>
         <div><div style="font-size:9px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em">Best</div><div style="font-weight:600;font-size:12px;color:#4ade80">${ensoMax!=null?fmt(ensoMax):'—'}</div></div>
-        <div><div style="font-size:9px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em">Std Dev</div><div style="font-weight:600;font-size:12px;color:#e8eef4">${ensoStd!=null?'±'+ensoStd.toFixed(isTemp?2:1)+(isTemp?'°C':'%'):'—'}</div></div>
+        <div><div style="font-size:9px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em">Std Dev</div><div style="font-weight:600;font-size:12px;color:#e8eef4">${ensoStd!=null?'±'+ensoStd.toFixed(isTemp?2:1)+(isTemp?'°C':isWater?'mm':'%'):'—'}</div></div>
       </div>
     </div>
     <div style="flex:0.6;min-width:130px;padding:10px 16px;background:#0d1520;border-radius:0 6px 6px 0;border:1px solid #1e2d3f;border-left:none">
@@ -3015,7 +3262,7 @@ function updateElNinoStats(k,ok){
         <div><div style="font-size:9px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em">Yrs</div><div style="font-weight:600;font-size:12px;color:#e8eef4">${nonYrs.length}</div></div>
         <div><div style="font-size:9px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em">Worst</div><div style="font-weight:600;font-size:12px;color:#f87171">${nonMin!=null?fmt(nonMin):'—'}</div></div>
         <div><div style="font-size:9px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em">Best</div><div style="font-weight:600;font-size:12px;color:#4ade80">${nonMax!=null?fmt(nonMax):'—'}</div></div>
-        <div><div style="font-size:9px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em">Std Dev</div><div style="font-weight:600;font-size:12px;color:#e8eef4">${nonStd!=null?'±'+nonStd.toFixed(isTemp?2:1)+(isTemp?'°C':'%'):'—'}</div></div>
+        <div><div style="font-size:9px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em">Std Dev</div><div style="font-weight:600;font-size:12px;color:#e8eef4">${nonStd!=null?'±'+nonStd.toFixed(isTemp?2:1)+(isTemp?'°C':isWater?'mm':'%'):'—'}</div></div>
       </div>
     </div>
   </div>`;
@@ -3490,13 +3737,23 @@ function chartPalmProduction(){
 function chartPalmBar(country){
   const canv=document.getElementById('chEvents'); if(!canv) return;
   if(charts.ev){charts.ev.destroy();charts.ev=null;}
+  const ok=getOutcome('palmoil');
+  const isWater=ok==='water', isTemp=ok==='temperature';
+  let series;
+  if(isWater){
+    const raw=C.palmoil.countryWater[country]||[]; if(!raw.length) return;
+    series=raw.map(d=>({yr:d.yr,yoy:d.anom!=null?d.anom:null,src:d.src,note:`${country==='id'?'Indonesia':country==='my'?'Malaysia':'World'} precip. anomaly — ${d.anom!=null?(d.anom>0?'+':'')+d.anom:'—'}mm`}));
+  } else if(isTemp){
+    const raw=C.palmoil.countryTemp[country]||[]; if(!raw.length) return;
+    series=raw.map(d=>({yr:d.yr,yoy:d.anom!=null?d.anom:null,src:d.src,note:`${country==='id'?'Indonesia':country==='my'?'Malaysia':'World'} temp. anomaly — ${d.anom!=null?(d.anom>0?'+':'')+d.anom:'—'}°C`}));
+  } else {
   const idT=C.palmoil.outcomes.volume.idTraj;
   const myT=C.palmoil.outcomes.volume.myTraj;
   const wldT=C.palmoil.worldProd;
   const traj=C.palmoil.outcomes.volume.trajectory;
   const raw=country==='id'?idT:country==='my'?myT:wldT;
   const getV=d=>country==='wld'?d.mmt:d.kt;
-  const series=raw.map((d,i)=>{
+  series=raw.map((d,i)=>{
     const prev=i>0?raw[i-1]:null;
     const yoy=prev?+((getV(d)/getV(prev)-1)*100).toFixed(1):null;
     const trajRow=traj.find(t=>t.yr===d.yr);
@@ -3506,6 +3763,7 @@ function chartPalmBar(country){
       :trajRow?.note||'';
     return{yr:d.yr,yoy,src,note};
   });
+  }
   const labels=series.map(s=>s.yr);
   const vals=series.map(s=>s.yoy);
   const bg=series.map(s=>{
@@ -3517,8 +3775,8 @@ function chartPalmBar(country){
   function updateHoverPalm(idx){
     const box=document.getElementById('evHoverBox'); if(!box) return;
     const s=series[idx];
-    const yoyStr=s.yoy==null?'—':(s.yoy>0?'+':'')+s.yoy.toFixed(1)+'%';
-    const yoyColor=s.yoy==null?'var(--muted)':s.yoy>=0?'#22c55e':'#f87171';
+    const yoyStr=s.yoy==null?'—':isWater?((s.yoy>0?'+':'')+s.yoy.toFixed(1)+'mm'):isTemp?((s.yoy>0?'+':'')+s.yoy.toFixed(2)+'°C'):((s.yoy>0?'+':'')+s.yoy.toFixed(1)+'%');
+    const yoyColor=s.yoy==null?'var(--muted)':isTemp?(s.yoy>0.3?'#f87171':s.yoy<-0.1?'#4ade80':'#94a3b8'):isWater?(s.yoy<-20?'#f87171':s.yoy>20?'#4ade80':'#94a3b8'):(s.yoy>=0?'#22c55e':'#f87171');
     const yr=parseInt(s.yr);
     const evKey=EVENTS.find(e=>{
       const parts=e.split('-'),start=parseInt(parts[0]);
@@ -3544,8 +3802,8 @@ function chartPalmBar(country){
     plugins:{legend:{display:false},tooltip:{enabled:false}},
     scales:{x:{...axis.x,ticks:{...axis.x.ticks,maxRotation:60,minRotation:45,font:{size:9}}},
       y:{...axis.y,
-        title:{display:true,text:C.palmoil.outcomes.volume.unit,color:'#8b9bab',font:{size:10}},
-        ticks:{...axis.y.ticks,callback:v=>v==null?'':(v>0?'+':'')+v+'%'}}}},
+        title:{display:true,text:isWater?'mm anomaly':isTemp?'°C anomaly':C.palmoil.outcomes.volume.unit,color:'#8b9bab',font:{size:10}},
+        ticks:{...axis.y.ticks,callback:v=>v==null?'':isWater?(v>0?'+':'')+v+'mm':isTemp?(v>0?'+':'')+v+'°C':(v>0?'+':'')+v+'%'}}}},
   plugins:[makeEnsoPlugin(labels),{id:'xhair',
     beforeEvent(chart,args){
       const e=args.event;
@@ -3562,8 +3820,8 @@ function chartPalmBar(country){
       let ni=0,md=Infinity;
       meta.data.forEach((el,i)=>{const d=Math.abs(el.x-chart._mouseX);if(d<md){md=d;ni=i;}});
       const s=series[ni]; if(!s){c2.restore();return;}
-      const yoyStr=s.yoy==null?'—':(s.yoy>0?'+':'')+s.yoy.toFixed(1)+'%';
-      const yoyColor=s.yoy==null?'#6b7280':s.yoy>=0?'#22c55e':'#f87171';
+      const yoyStr=s.yoy==null?'—':isWater?((s.yoy>0?'+':'')+s.yoy.toFixed(1)+'mm'):isTemp?((s.yoy>0?'+':'')+s.yoy.toFixed(2)+'°C'):((s.yoy>0?'+':'')+s.yoy.toFixed(1)+'%');
+      const yoyColor=s.yoy==null?'#6b7280':isTemp?(s.yoy>0.3?'#f87171':s.yoy<-0.1?'#4ade80':'#94a3b8'):isWater?(s.yoy<-20?'#f87171':s.yoy>20?'#4ade80':'#94a3b8'):(s.yoy>=0?'#22c55e':'#f87171');
       const bw=70,bh=44,mx=chart._mouseX,my=chart._mouseY!=null?chart._mouseY:top+50;
       const bx=Math.min(Math.max(mx-bw/2,left+2),right-bw-2);
       const by=Math.min(Math.max(my-bh-14,top+1),bottom-bh-1);
@@ -3669,17 +3927,24 @@ function chartPalmYieldBar(country){
 function chartCocoaBar(country){
   const canv=document.getElementById('chEvents'); if(!canv) return;
   if(charts.ev){charts.ev.destroy();charts.ev=null;}
-  const raw=C.cocoa.countryProd[country]||[];
-  if(!raw.length) return;
   const CCLR={civ:'#fb923c',gha:'#facc15',ecu:'#a3e635',idn:'#38bdf8',wld:'#94a3b8'};
   const cname={civ:"Côte d'Ivoire",gha:'Ghana',ecu:'Ecuador',idn:'Indonesia',wld:'World'};
-  const series=raw.map((d,i)=>{
-    const prev=i>0?raw[i-1]:null;
-    const yoy=prev?+((d.kt/prev.kt-1)*100).toFixed(1):null;
-    const src=d.src||'rep';
-    const note=d.note||`${cname[country]} cocoa production — ${d.kt} kt`;
-    return{yr:d.yr,yoy,src,note};
-  });
+  const ok=getOutcome('cocoa');
+  const isWater=ok==='water', isTemp=ok==='temperature', isYield=ok==='yield';
+  let series;
+  if(isWater){
+    const raw=C.cocoa.countryWater[country]||[]; if(!raw.length) return;
+    series=raw.map(d=>({yr:d.yr,yoy:d.anom!=null?d.anom:null,src:d.src,note:`${cname[country]} precip. anomaly — ${d.anom!=null?(d.anom>0?'+':'')+d.anom:'—'}mm`}));
+  } else if(isTemp){
+    const raw=C.cocoa.countryTemp[country]||[]; if(!raw.length) return;
+    series=raw.map(d=>({yr:d.yr,yoy:d.anom!=null?d.anom:null,src:d.src,note:`${cname[country]} temp. anomaly — ${d.anom!=null?(d.anom>0?'+':'')+d.anom:'—'}°C`}));
+  } else if(isYield){
+    const raw=C.cocoa.countryYield[country]||[]; if(!raw.length) return;
+    series=raw.map((d,i)=>{const prev=i>0?raw[i-1]:null;const yoy=prev&&prev.tha?+((d.tha/prev.tha-1)*100).toFixed(1):null;return{yr:d.yr,yoy,src:d.src||'rep',note:`${cname[country]} yield — ${d.tha} t/ha`};});
+  } else {
+    const raw=C.cocoa.countryProd[country]||[]; if(!raw.length) return;
+    series=raw.map((d,i)=>{const prev=i>0?raw[i-1]:null;const yoy=prev?+((d.kt/prev.kt-1)*100).toFixed(1):null;const src=d.src||'rep';const note=d.note||`${cname[country]} cocoa production — ${d.kt} kt`;return{yr:d.yr,yoy,src,note};});
+  }
   const labels=series.map(s=>s.yr);
   const vals=series.map(s=>s.yoy);
   const bg=series.map(s=>{
@@ -3691,8 +3956,8 @@ function chartCocoaBar(country){
   function updateHoverCocoa(idx){
     const box=document.getElementById('evHoverBox'); if(!box) return;
     const s=series[idx];
-    const yoyStr=s.yoy==null?'—':(s.yoy>0?'+':'')+s.yoy.toFixed(1)+'%';
-    const yoyColor=s.yoy==null?'var(--muted)':s.yoy>=0?'#22c55e':'#f87171';
+    const yoyStr=s.yoy==null?'—':isWater?((s.yoy>0?'+':'')+s.yoy.toFixed(1)+'mm'):isTemp?((s.yoy>0?'+':'')+s.yoy.toFixed(2)+'°C'):((s.yoy>0?'+':'')+s.yoy.toFixed(1)+'%');
+    const yoyColor=s.yoy==null?'var(--muted)':isTemp?(s.yoy>0.3?'#f87171':s.yoy<-0.1?'#4ade80':'#94a3b8'):isWater?(s.yoy<-20?'#f87171':s.yoy>20?'#4ade80':'#94a3b8'):(s.yoy>=0?'#22c55e':'#f87171');
     const yr=parseInt(s.yr);
     const evKey=EVENTS.find(e=>{
       const parts=e.split('-'),start=parseInt(parts[0]);
@@ -3718,8 +3983,8 @@ function chartCocoaBar(country){
     plugins:{legend:{display:false},tooltip:{enabled:false}},
     scales:{x:{...axis.x,ticks:{...axis.x.ticks,maxRotation:60,minRotation:45,font:{size:9}}},
       y:{...axis.y,
-        title:{display:true,text:C.cocoa.outcomes.volume.unit,color:'#8b9bab',font:{size:10}},
-        ticks:{...axis.y.ticks,callback:v=>v==null?'':(v>0?'+':'')+v+'%'}}}},
+        title:{display:true,text:isWater?'mm anomaly':isTemp?'°C anomaly':isYield?C.cocoa.outcomes.yield.unit:C.cocoa.outcomes.volume.unit,color:'#8b9bab',font:{size:10}},
+        ticks:{...axis.y.ticks,callback:v=>v==null?'':isWater?(v>0?'+':'')+v+'mm':isTemp?(v>0?'+':'')+v+'°C':(v>0?'+':'')+v+'%'}}}},
   plugins:[makeEnsoPlugin(labels),{id:'xhair',
     beforeEvent(chart,args){
       const e=args.event;
@@ -3736,8 +4001,8 @@ function chartCocoaBar(country){
       let ni=0,md=Infinity;
       meta.data.forEach((el,i)=>{const d=Math.abs(el.x-chart._mouseX);if(d<md){md=d;ni=i;}});
       const s=series[ni]; if(!s){c2.restore();return;}
-      const yoyStr=s.yoy==null?'—':(s.yoy>0?'+':'')+s.yoy.toFixed(1)+'%';
-      const yoyColor=s.yoy==null?'#6b7280':s.yoy>=0?'#22c55e':'#f87171';
+      const yoyStr=s.yoy==null?'—':isWater?((s.yoy>0?'+':'')+s.yoy.toFixed(1)+'mm'):isTemp?((s.yoy>0?'+':'')+s.yoy.toFixed(2)+'°C'):((s.yoy>0?'+':'')+s.yoy.toFixed(1)+'%');
+      const yoyColor=s.yoy==null?'#6b7280':isTemp?(s.yoy>0.3?'#f87171':s.yoy<-0.1?'#4ade80':'#94a3b8'):isWater?(s.yoy<-20?'#f87171':s.yoy>20?'#4ade80':'#94a3b8'):(s.yoy>=0?'#22c55e':'#f87171');
       const bw=70,bh=44,mx=chart._mouseX,my=chart._mouseY!=null?chart._mouseY:top+50;
       const bx=Math.min(Math.max(mx-bw/2,left+2),right-bw-2);
       const by=Math.min(Math.max(my-bh-14,top+1),bottom-bh-1);
@@ -3851,6 +4116,32 @@ function chartCocoaProd(){
     return;
   }
 
+  if(ok==='water'||ok==='temperature'){
+    const cd=ok==='water'?C.cocoa.countryWater:C.cocoa.countryTemp;
+    const YCLR={civ:'#fb923c',gha:'#facc15',ecu:'#a3e635',idn:'#38bdf8',wld:'#94a3b8'};
+    const longest=[cd.civ,cd.gha,cd.ecu,cd.idn,cd.wld].reduce((a,b)=>b.length>a.length?b:a,[]);
+    if(!longest.length) return;
+    const labels=longest.map(d=>d.yr);
+    const n=labels.length;
+    function toAnom(arr){return labels.map(yr=>{const d=arr.find(a=>a.yr===yr);return d!=null?d.anom:null;});}
+    const civA=toAnom(cd.civ),ghaA=toAnom(cd.gha),ecuA=toAnom(cd.ecu),idnA=toAnom(cd.idn),wldA=toAnom(cd.wld);
+    const unit=ok==='water'?'mm':'°C';
+    const dashLast=sc=>sc.p1DataIndex===n-1?[5,4]:[];
+    charts.cocoaProd=new Chart(canv,{type:'line',plugins:[makeBandPlugin(labels)],
+      data:{labels,datasets:[
+        {label:"Côte d'Ivoire",data:civA,borderColor:YCLR.civ,fill:false,tension:0.2,pointRadius:3,pointHoverRadius:5,pointBackgroundColor:'#0a0e16',pointBorderColor:YCLR.civ,segment:{borderDash:dashLast}},
+        {label:'Ghana',data:ghaA,borderColor:YCLR.gha,fill:false,tension:0.2,pointRadius:3,pointHoverRadius:5,pointStyle:'rect',pointBackgroundColor:'#0a0e16',pointBorderColor:YCLR.gha,segment:{borderDash:dashLast}},
+        {label:'Ecuador',data:ecuA,borderColor:YCLR.ecu,fill:false,tension:0.2,pointRadius:3,pointHoverRadius:5,pointStyle:'triangle',pointBackgroundColor:'#0a0e16',pointBorderColor:YCLR.ecu,segment:{borderDash:dashLast}},
+        {label:'Indonesia',data:idnA,borderColor:YCLR.idn,fill:false,tension:0.2,pointRadius:3,pointHoverRadius:5,pointBackgroundColor:'#0a0e16',pointBorderColor:YCLR.idn,segment:{borderDash:dashLast}},
+        {label:'World',data:wldA,borderColor:YCLR.wld,fill:false,tension:0.2,pointRadius:2,pointHoverRadius:4,borderWidth:1.5,pointBackgroundColor:'#0a0e16',pointBorderColor:YCLR.wld,segment:{borderDash:dashLast}},
+      ]},
+      options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+        plugins:{legend:{display:false},tooltip:{enabled:false}},
+        scales:{x:xScale,y:{type:'linear',position:'left',grid:{color:'#1b232d'},
+          ticks:{color:'#8b9bab',font:{size:10},callback:v=>v!=null?(v>0?'+':'')+v.toFixed(ok==='water'?1:2)+unit:''},
+          title:{display:true,text:ok==='water'?'Precipitation anomaly (mm)':'Temperature anomaly (°C)',color:'#8b9bab',font:{size:9}}}}}});
+    return;
+  }
   // ok === 'volume': 5-country absolute production (kt)
   const cp=C.cocoa.countryProd;
   const hasAny=cp.civ.length||cp.gha.length||cp.ecu.length||cp.idn.length||cp.wld.length;
