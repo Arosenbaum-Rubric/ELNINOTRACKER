@@ -673,7 +673,7 @@ C.avocado.outcomes={
   // water: precipitation anomaly mm vs 1991–2020 baseline. SOURCE: Copernicus ERA5 via OWID (downloaded 2026-06-26).
   water:  {label:'Precipitation Anomaly', unit:'mm vs 1991–2020 baseline (Copernicus ERA5)', events:{'2002-03':{dev:-5,src:'rep'},'2004-05':{dev:-3,src:'rep'},'2006-07':{dev:+6,src:'rep'},'2009-10':{dev:0,src:'est'},'2014-16':{dev:-4,src:'rep'},'2018-19':{dev:-8,src:'rep'},'2023-24':{dev:-17,src:'rep'}}},
   // temperature: Mean annual temperature anomaly (°C vs 1991–2020 baseline). SOURCE: Open-Meteo archive API — Michoacán (MEX), Antioquia (COL), La Libertad (PER). El Niño typically drives +0.5–2°C warming in all three zones, disrupting flowering and fruit set.
-  temperature: {label:'Temperature Anomaly',  unit:'°C deviation from 1991–2020 baseline — Michoacán / Antioquia / La Libertad', events:{'2002-03':{dev:+0.6,src:'est'},'2004-05':{dev:+0.4,src:'est'},'2006-07':{dev:+0.3,src:'est'},'2009-10':{dev:+0.8,src:'est'},'2014-16':{dev:+1.4,src:'est'},'2018-19':{dev:+0.9,src:'est'},'2023-24':{dev:+1.8,src:'est'}}},
+  temperature: {label:'Temperature Anomaly',  unit:'°C anomaly vs 1991–2020 baseline (Copernicus ERA5)', events:{'2002-03':{dev:+0.6,src:'est'},'2004-05':{dev:+0.4,src:'est'},'2006-07':{dev:+0.3,src:'est'},'2009-10':{dev:+0.8,src:'est'},'2014-16':{dev:+1.4,src:'est'},'2018-19':{dev:+0.9,src:'est'},'2023-24':{dev:+1.8,src:'est'}}},
   // export: Peru export volume (kt). PERU ONLY — Mexico/Colombia consume domestically; only Peru exports ~90% of crop. SOURCE: FAO FAOSTAT TCL official figures.
   export: {label:'Export Quantity', unit:'kilotonnes (kt = 1,000 metric tonnes) — FAO FAOSTAT', events:{'2002-03':{dev:+93,src:'rep'},'2004-05':{dev:+28,src:'rep'},'2006-07':{dev:+70,src:'rep'},'2009-10':{dev:-6,src:'rep'},'2014-16':{dev:+14,src:'rep'},'2018-19':{dev:-13,src:'rep'},'2023-24':{dev:-5,src:'rep'}}}
 };
@@ -3981,12 +3981,14 @@ function chartAvocadoBar(country){
     const sev=evKey?ENSO_SEV[evKey]:null;
     const sevCls=sev==='Super El Niño'?'sev-super':sev==='El Niño'?'sev-elnino':sev?'sev-mild':'';
     const factor=C.avocado.barFactors[`${ok==='volume'?'vol':ok}-${country}-${s.yr}`]||'';
+    const srcFallback=ok==='water'||ok==='temperature'?'Copernicus ERA5 via OWID':'';
+    const srcNote=s.note||srcFallback;
     box.innerHTML=
       `<div class="ehb-section"><div class="ehb-label">Year</div><div class="ehb-yr">${s.yr}</div></div>`+
       `<div class="ehb-section"><div class="ehb-label" style="color:${CCLR[country]}">${cname[country]}</div><div class="ehb-pct" style="color:${CCLR[country]}">${yoyStr}</div></div>`+
       `<div class="ehb-section"><div class="ehb-label">${valLabel}</div><div style="font-size:11px;color:var(--text-2);font-weight:600">${s.val!=null?s.val.toFixed(ok==='yield'?2:1):'-'}</div></div>`+
       `<div class="ehb-section"><div class="ehb-label">Severity</div><div class="ehb-sev ${sevCls}" style="visibility:${sev?'visible':'hidden'}">${sev||'—'}</div></div>`+
-      `${s.note?`<div class="ehb-section"><div class="ehb-label">${s.src==='rep'?'Source':'Estimate'}</div><div class="ehb-note">${s.note}</div></div>`:''}`+
+      `${srcNote?`<div class="ehb-section"><div class="ehb-label">${s.src==='rep'?'Source':'Estimate'}</div><div class="ehb-note">${srcNote}</div></div>`:''}`+
       `${factor?`<div class="ehb-section"><div class="ehb-label">Factors</div><div class="ehb-note">${factor}</div></div>`:''}`;
   }
   charts.ev=new Chart(canv,{type:'bar',data:{labels,datasets:[{
@@ -3999,7 +4001,7 @@ function chartAvocadoBar(country){
     scales:{x:{...axis.x,ticks:{...axis.x.ticks,maxRotation:60,minRotation:45,font:{size:9}}},
       y:{...axis.y,
         title:{display:true,text:yAxisLabel,color:'#8b9bab',font:{size:10}},
-        ticks:{...axis.y.ticks,callback:v=>v==null?'':(v>0?'+':'')+v+(ok==='water'?'mm':ok==='temperature'?'°C':'%')}}}},
+        ticks:{...axis.y.ticks,callback:v=>{if(v==null)return'';const sign=v>0?'+':'';if(ok==='temperature')return sign+parseFloat(v.toFixed(2))+'°C';if(ok==='water')return sign+Math.round(v)+'mm';return sign+v+'%';}}}}},
   plugins:[makeEnsoPlugin(labels),{id:'avoXhair',
     beforeEvent(chart,args){
       const e=args.event;
@@ -4226,7 +4228,7 @@ function chartAvocadoProd(){
       options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
         plugins:{legend:{display:false},tooltip:{enabled:false}},
         scales:{x:xScale,y:{type:'linear',position:'left',grid:{color:'#1b232d'},
-          ticks:{color:'#8b9bab',font:{size:10},callback:v=>(v>=0?'+':'')+v.toFixed(2)+'°C'},
+          ticks:{color:'#8b9bab',font:{size:10},callback:v=>(v>=0?'+':'')+parseFloat(v.toFixed(2))+'°C'},
           title:{display:true,text:'Temp. anomaly (°C)',color:'#8b9bab',font:{size:9}}}}}});
     return;
   }
