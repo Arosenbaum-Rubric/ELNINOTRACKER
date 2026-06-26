@@ -4644,20 +4644,20 @@ function chartDual(k){
   if(statsEl){
     const rColor=r=>r==null?'#64748b':Math.abs(r)>=0.6?'#4ade80':Math.abs(r)>=0.35?'#fbbf24':'#f87171';
     const toP=r=>r==null?'—':`${r>0?'+':''}${Math.round(r*100)}%`;
-    statsEl.innerHTML=`
-      <div style="background:#0d1520;border:1px solid #1e2d3f;border-radius:6px;padding:8px 12px">
-        <div style="font-size:10px;color:#64748b;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">Pearson r by lag</div>
-        ${lagOptions.map(o=>{
-          const isBest=o===bestLag;
-          const lagLbl=o.lag===0?'±0yr':o.lag>0?'+'+o.lag+'yr':o.lag+'yr';
-          return `<div style="display:flex;align-items:center;gap:8px;padding:3px 6px;border-radius:4px;margin-bottom:2px;${isBest?'background:rgba(148,163,184,0.08);outline:1px solid rgba(148,163,184,0.2);':''}">`+
-            `<span style="font-size:10px;color:#64748b;min-width:28px">${lagLbl}</span>`+
-            `<span style="font-size:13px;font-weight:${isBest?'700':'400'};color:${rColor(o.r)}">${toP(o.r)}</span>`+
-            `<span style="font-size:9px;color:#475569;flex:1">${o.lbl}</span>`+
-            `${isBest?'<span style="font-size:8px;font-weight:700;letter-spacing:.06em;color:#94a3b8;border:1px solid rgba(148,163,184,0.3);border-radius:3px;padding:1px 5px">STRONGEST</span>':''}`+
-            `</div>`;
-        }).join('')}
-      </div>`;
+    const lagRows=lagOptions.map(o=>{
+      const isBest=o===bestLag;
+      const lagLbl=o.lag===0?'\xb10yr':o.lag>0?'+'+o.lag+'yr':o.lag+'yr';
+      const hlStyle=isBest?'background:rgba(148,163,184,0.08);outline:1px solid rgba(148,163,184,0.2);':'';
+      const badge=isBest?'<span style="font-size:8px;font-weight:700;letter-spacing:.06em;color:#94a3b8;border:1px solid rgba(148,163,184,0.3);border-radius:3px;padding:1px 5px">STRONGEST</span>':'';
+      return '<div style="display:flex;align-items:center;gap:8px;padding:3px 6px;border-radius:4px;margin-bottom:2px;'+hlStyle+'">'+
+        '<span style="font-size:10px;color:#64748b;min-width:28px">'+lagLbl+'</span>'+
+        '<span style="font-size:13px;font-weight:'+(isBest?'700':'400')+';color:'+rColor(o.r)+'">'+toP(o.r)+'</span>'+
+        '<span style="font-size:9px;color:#475569;flex:1">'+o.lbl+'</span>'+
+        badge+'</div>';
+    }).join('');
+    statsEl.innerHTML='<div style="background:#0d1520;border:1px solid #1e2d3f;border-radius:6px;padding:8px 12px">'+
+      '<div style="font-size:10px;color:#64748b;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">Pearson r by lag</div>'+
+      lagRows+'</div>';
   }
 
   // ── Fill plugin: grey area between the two lines ──────────────────────────
