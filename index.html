@@ -765,23 +765,23 @@ C.avocado.outcomes.volume.why=[
   "Avocados have no futures market — this is a physical supply signal only. Proxy instruments: equity in Mexico Hass packers (APEAM members), cold-chain logistics operators, US fresh-produce distributors with Mexico supply concentration."
 ];
 C.avocado.outcomes.yield.why=[
-  "Mexico yield (t/ha) is broadly stable at ~10–11 t/ha (friend's dataset, cross-validation only) — El Niño events do not cause the large yield swings seen in palm oil or cocoa.",
+  "Mexico yield (t/ha) is broadly stable at ~10–12 t/ha (OWID/FAO 2000–2024) — El Niño events do not cause the large yield swings seen in palm oil or cocoa.",
   "Fruit-size compression under heat stress is the real mechanism: more fruits per tree but each weighs less → similar tonnes/ha but lower export grade → value compression not caught by yield/ha alone.",
   "2023-24: yield dipped −7.1% in 2024 (10.91 vs 11.74 t/ha in 2023) after the El Niño peak — the first confirmed yield decline in the dataset. SOURCE: OWID/FAO."
 ];
 C.avocado.outcomes.water.why=[
-  "Mexico's 2023 precipitation anomaly of −16.7% (CONAGUA) is the worst in the 2000–2024 dataset, coinciding with the strongest El Niño on record for Michoacán. Direct correlation with export value −12%. SOURCE: CONAGUA/Statista via friend's CSV.",
-  "2019 drought (−7.5%) and 2015 drought (−3.6%) are the second and third-worst anomalies — both occurred during El Niño years, confirming the ENSO → Michoacán drought link.",
-  "Note: 2009 Mexico water stress flagged as suspect (duplicate of 2010 value, likely copy-paste error). 2010 was a La Niña wet year (+28.4% above avg). The 2009-10 El Niño was not a drought event for Mexico."
+  "Mexico's 2023 precipitation anomaly was −193mm vs 1991–2020 baseline (ERA5 via OWID) — worst in the 2000–2025 dataset, coinciding with the strongest El Niño on record. Despite this, production rose +17% that year, confirming that volume does not fall during El Niño onset — the lag is what matters.",
+  "2009 (−90mm) and 2011 (−103mm) are the next-worst Mexico drought anomalies after 2023 — both El Niño years. 2010 La Niña was the wettest on record (+130mm) yet produced the largest yield crash in the dataset (−11.5%), confirming that excess moisture is also a risk.",
+  "Colombia shows the opposite ERA5 pattern: 2010 La Niña = +258mm (wettest) and yields recovered strongly. Under El Niño, Colombia drought signal is clearest in 2015 (−154mm) and 2018–19 (−203mm). SOURCE: Copernicus ERA5 via OWID, 2000–2025."
 ];
 C.avocado.outcomes.temperature.why=[
   "Avocado flowering requires mild cool nights (10–18°C) to initiate bud break — El Niño's warm winters in Michoacán suppress flowering intensity and reduce fruit set, cutting potential yield before the growing season begins.",
-  "2015-16 Super El Niño drove Michoacán mean temperatures ~+1.4°C above baseline — the highest anomaly in the dataset — coinciding with the only documented Mexico yield stagnation during a structural growth period.",
-  "Peru's La Libertad coast is the most temperature-sensitive growing zone: coastal El Niño SST warming drives extreme land temperature spikes (+2–4°C), causing blossom drop and premature fruit development. Open-Meteo live data updates this chart daily."
+  "ERA5 country-wide temperature anomaly for Mexico peaks at +1.09°C in 2024 — the highest in the dataset. The 2015-16 Super El Niño shows only +0.20°C at national scale (ERA5), suggesting that El Niño temperature stress in Michoacán is more localized than the national average captures.",
+  "Peru's La Libertad coast is the most temperature-sensitive growing zone: coastal El Niño SST warming drives land temperature spikes that ERA5 partially captures (+1.22°C national peak in 2024), causing blossom drop and premature fruit development. SOURCE: Copernicus ERA5 via OWID."
 ];
 C.avocado.outcomes.export.why=[
-  "Peru exports ~90% of its production — unlike Mexico (large domestic market) or Colombia (growing but mostly domestic). This makes Peru export volume a direct, high-fidelity signal of El Niño crop damage.",
-  "2009-10 El Niño caused the only export volume contraction in the structural growth period (−6.2% vs 2008) — confirming that strong El Niño coastal warming disrupts La Libertad harvests despite Peru generally being a La Niña risk country.",
+  "Peru exports ~62–73% of its production (FAO 2022–2024: 570–598 kt exported vs 872–920 kt produced) — much higher than Mexico or Colombia. This makes Peru export volume a direct, high-fidelity signal of El Niño crop damage.",
+  "2009-10 El Niño caused the only export volume contraction in the structural growth period (−5.7% vs 2008: 48.4 kt vs 51.3 kt, FAO) — confirming that strong El Niño coastal warming disrupts La Libertad harvests despite Peru generally being a La Niña risk country.",
   "2015 export volume dipped −1.9% vs 2014 during the peak Super El Niño year — modest given the severity, suggesting Peru's irrigation-dependent coastal orchards buffer against the worst outcomes. 2019 saw a larger −13.4% dip (weak El Niño + logistics). SOURCE: FAO FAOSTAT TCL, official figures 2000–2024.",
   "Key lag insight: Peru export effects manifest same-year or 1-year lagged (fruit set disruption in Q1 hits the Jun–Sep export window that same calendar year). A 2026 El Niño therefore risks the 2026 export season directly, with residual risk into 2027."
 ];
@@ -941,7 +941,7 @@ C.avocado.barFactors={
   'export-per-2016':"El Niño 2014–16 recovery — Peru exports +10.5% to 194 kt (FAO FAOSTAT); Hass expansion harvest surge; Peru confirmed as structural offset country to Mexico El Niño disruption",
   'export-per-2017':"Niño Costero 2017 — Peru exports +2.7% despite flooding; irrigated Hass export operations resilient; minor disruption vs scale of flooding",
   'export-per-2024':"Peru exports 570 kt (FAO FAOSTAT) — −4.7% YoY; El Niño tail effect; confirms Peru export vulnerability is not fully buffered by irrigation",
-  'export-per-2025':"El Niño onset — Peru exports forecast −8.0% to 633 kt (GAIN PE2025-0005); production −8.2%; confirms El Niño reverses Peru's offsetting role",
+  'export-per-2025':"El Niño onset — Peru production forecast −8.2% to 844 kt (GAIN PE2025-0005); export volume expected to fall proportionally; confirms El Niño reverses Peru's offsetting role",
   'export-col-2018':"Colombia export ramp +5.3% to 30 kt (FAO FAOSTAT) — new Hass orchards reaching export maturity; structural shift began; Colombia joins global supply chain",
   'export-col-2023':"El Niño 2023–24 — Colombia exports +16.3% to 115 kt (FAO FAOSTAT); structural growth continued despite drought; Andean belt showed resilience at this scale",
   'export-col-2024':"Colombia exports +20.7% to 139 kt (FAO FAOSTAT) — continued structural ramp; El Niño drought did not suppress export growth at current orchard maturity stage",
