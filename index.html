@@ -634,18 +634,13 @@ const C = {
 C.cocoa.outcomes={
   volume:   {label:'Production Volume',     unit:'production YoY %',         events:C.cocoa.events},
   yield:    {label:'Yield per Hectare',     unit:'kg/ha YoY %',              events:{'2002-03':{dev:-8,src:'est'},'2004-05':{dev:-3,src:'est'},'2006-07':{dev:-10,src:'rep'},'2009-10':{dev:1,src:'rep'},'2014-16':{dev:0,src:'rep'},'2018-19':{dev:0,src:'rep'},'2023-24':{dev:0,src:'rep'}}},  // rep = FAO/OWID pipeline
-  grindings:{label:'Grindings',             unit:'grindings YoY %',          events:{'2002-03':{dev:-4,src:'est'},'2004-05':{dev:-2,src:'est'},'2006-07':{dev:-6,src:'est'},'2009-10':{dev:+2,src:'est'},'2014-16':{dev:-3,src:'est'},'2018-19':{dev:0,src:'est'},'2023-24':{dev:-5,src:'est'}}},
-  stocks:   {label:'Ending Stocks / S:G',  unit:'stocks-to-grindings %',    events:{'2002-03':{dev:-7,src:'est'},'2004-05':{dev:-4,src:'est'},'2006-07':{dev:-11,src:'est'},'2009-10':{dev:+3,src:'est'},'2014-16':{dev:-6,src:'est'},'2018-19':{dev:-2,src:'est'},'2023-24':{dev:-14,src:'est'}}},
-  water:     {label:'Precipitation Anomaly', unit:'mm vs 1991–2020 baseline (ERA5 est.)', events:{'2002-03':{dev:-70,src:'est'},'2004-05':{dev:-40,src:'est'},'2006-07':{dev:-50,src:'est'},'2009-10':{dev:-100,src:'est'},'2014-16':{dev:-90,src:'est'},'2018-19':{dev:-50,src:'est'},'2023-24':{dev:-90,src:'est'}}},
-  temperature:{label:'Temperature Anomaly', unit:'°C anomaly vs 1991–2020 baseline (ERA5 est.)', events:{'2002-03':{dev:+0.1,src:'est'},'2004-05':{dev:+0.1,src:'est'},'2006-07':{dev:+0.1,src:'est'},'2009-10':{dev:+0.25,src:'est'},'2014-16':{dev:+0.5,src:'est'},'2018-19':{dev:+0.28,src:'est'},'2023-24':{dev:+0.8,src:'est'}}},
 };
 C.palmoil.outcomes={
   volume:     {label:'CPO Production',         unit:'total output YoY %', events:C.palmoil.events},
   yield:      {label:'FFB Yield / Hectare',    unit:'t/ha YoY %',         events:{'2002-03':{dev:-4,src:'est'},'2004-05':{dev:-2,src:'est'},'2006-07':{dev:-9,src:'rep'},'2009-10':{dev:2,src:'rep'},'2014-16':{prod:15.91,base:18.48,src:'rep'},'2018-19':{dev:0,src:'rep'},'2023-24':{dev:-5,src:'est'}}},  // 2014-16: MPOB Overview_of_Industry_2016.pdf vs 2015.pdf (15.91 vs 18.48 t/ha = −13.9%)
   extraction: {label:'Oil Extraction Rate',   unit:'OER YoY %',           events:{'2002-03':{dev:-5,src:'est'},'2004-05':{dev:-2,src:'est'},'2006-07':{dev:-7,src:'est'},'2009-10':{dev:-4,src:'est'},'2014-16':{prod:20.18,base:20.46,src:'rep'},'2018-19':{dev:-2,src:'est'},'2023-24':{dev:-7,src:'est'}}}
 };
-C.palmoil.outcomes.water=    {label:'Precipitation Anomaly', unit:'mm vs 1991–2020 baseline (ERA5 est.)', events:{'2002-03':{dev:-100,src:'est'},'2004-05':{dev:-60,src:'est'},'2006-07':{dev:-80,src:'est'},'2009-10':{dev:-140,src:'est'},'2014-16':{dev:-190,src:'est'},'2018-19':{dev:-80,src:'est'},'2023-24':{dev:-155,src:'est'}}};
-C.palmoil.outcomes.temperature={label:'Temperature Anomaly', unit:'°C anomaly vs 1991–2020 baseline (ERA5 est.)', events:{'2002-03':{dev:+0.25,src:'est'},'2004-05':{dev:+0.10,src:'est'},'2006-07':{dev:+0.20,src:'est'},'2009-10':{dev:+0.30,src:'est'},'2014-16':{dev:+0.60,src:'est'},'2018-19':{dev:+0.28,src:'est'},'2023-24':{dev:+0.75,src:'est'}}};
+
 C.sugar.outcomes={
   volume:   {label:'Sugar Production',    unit:'total output YoY %',      events:C.sugar.events},
   cane:     {label:'Cane Yield',          unit:'t/ha YoY %',              events:{'2002-03':{dev:-4,src:'est'},'2004-05':{dev:-2,src:'est'},'2006-07':{dev:-3,src:'est'},'2009-10':{dev:-7,src:'est'},'2014-16':{dev:-6,src:'est'},'2018-19':{dev:-3,src:'est'},'2023-24':{dev:-7,src:'est'}}},
@@ -685,26 +680,6 @@ C.cocoa.outcomes.yield.why=[
   "Disease pressure (Black-pod, CSSVD) reduces pods per tree, not just harvestable area — yield per ha falls independent of planted area.",
   "Perennial crop: stress damage in one season weakens tree health and suppresses the following season's yield — the lag makes it a leading indicator."
 ];
-C.cocoa.outcomes.grindings.why=[
-  "European (ECA), North American (NCA), and Asian (CAA) quarterly grindings are the primary demand signal — if they fall, buyers are pulling back on price or end-demand.",
-  "Supply shocks initially cause manufacturers to front-load inventory; prolonged tightness forces reformulation or volume cuts — grindings lag supply by 1–2 quarters.",
-  "A divergence between production and grindings reveals whether a supply shock is being absorbed by the pipeline or is already hitting end demand."
-];
-C.cocoa.outcomes.stocks.why=[
-  "Below 30% stocks-to-grindings is the industry concern threshold — the 2023/24 reading of 26.4% (ICCO) leaves almost no buffer against a repeat supply shock.",
-  "Stock drawdowns during El Niño years compound the following season's risk: lower inventory means any new disruption hits spot availability immediately.",
-  "USDA PSD tracks ending stocks for all origins; ICCO's S:G ratio is the definitive tightness gauge used by the trade."
-];
-C.cocoa.outcomes.water.why=[
-  "West Africa (CIV/Ghana) shows the strongest El Niño drought signal: El Niño suppresses the Oct–Nov minor rainy season that fills developing pods. 2015-16 Super El Niño drove CIV ~−130mm and Ghana ~−90mm below baseline — the worst drought anomaly in the 2000–2024 ERA5 record. SOURCE: ERA5 estimates (pending OWID download).",
-  "Indonesia (Sulawesi) faces the most severe El Niño drought globally: 2009-10 ~−180mm, 2015-16 ~−260mm, 2023-24 ~−200mm. Indonesia's smallholder cocoa is rainfed with no irrigation buffer — drought stress directly cuts pod set and accelerates disease.",
-  "Ecuador runs opposite: El Niño brings coastal flooding (+100 to +300mm above normal). 2015-16 Super El Niño caused +300mm flooding, disrupting harvest logistics and increasing pod rot. For global supply, Ecuador's flood upside does not offset CIV/GHA/IDN drought losses."
-];
-C.cocoa.outcomes.temperature.why=[
-  "All four major producing origins show El Niño warming: CIV and Ghana +0.4–0.9°C above baseline during 2015-16 and 2023-24 — accelerating Harmattan-driven desiccation and shortening the favorable pod-fill period. SOURCE: ERA5 estimates (pending OWID download).",
-  "Indonesia saw +0.70°C (2015) and +0.72°C (2023) anomalies — the highest in the dataset. Combined with drought, heat stress increases Black Pod pressure and causes premature pod senescence on stressed trees.",
-  "A 2026 El Niño following the 2023-24 benchmark (all-origin warming) would stress trees already weakened by consecutive El Niño events. CIV and Ghana face the highest risk: accumulated heat debt since 2015-16 has left less physiological reserve for buffering new thermal shocks."
-];
 C.palmoil.outcomes.volume.why=[
   "Drought reduces fresh-fruit-bunch (FFB) formation on palms; fewer bunches harvested means lower CPO output even at normal extraction rates.",
   "9–18 month lag: drought stress starting in Jul 2026 suppresses FFB yields through 2027, making volume the slowest-moving and longest-lasting signal.",
@@ -719,16 +694,6 @@ C.palmoil.outcomes.extraction.why=[
   "Drought causes premature ripening of fruit: dehydrated bunches yield less oil per tonne processed even if harvested on schedule.",
   "Heat stress increases free fatty acid (FFA) content in ripe fruit — lower-quality oil with a smaller refinable fraction reduces effective OER.",
   "Haze and smoke exposure during harvest accelerates oxidation of fruit bunches before milling, further reducing extractable oil."
-];
-C.palmoil.outcomes.water.why=[
-  "Indonesia (57.7% of world supply) has the world's strongest El Niño drought signal in the equatorial Pacific. 2015-16 Super El Niño brought ~−260mm to Kalimantan/Sumatra — the worst in the ERA5 record — directly suppressing FFB formation and cutting 2016–17 CPO output. SOURCE: ERA5 estimates (pending OWID download).",
-  "Malaysia (24.5% share) is somewhat buffered by proximity to the South China Sea but still suffers −110 to −170mm drought during strong El Niño events. The 2015-16 Super El Niño drove Malaysia FFB yield −13.9% (MPOB) — the single largest decline in the dataset.",
-  "Drought onset in Jul–Aug triggers the worst harvest impact 9–18 months later due to palm's long FFB development cycle. A 2026 El Niño with dry season intensification by Q3 would peak in the 2027 harvest year."
-];
-C.palmoil.outcomes.temperature.why=[
-  "Indonesia reached +0.70°C (2015) and +0.72°C (2023) temperature anomalies during El Niño events — the highest in the ERA5 record. Heat stress combines with drought: elevated evapotranspiration depletes soil moisture faster than rainfall can replenish it, amplifying FFB stress. SOURCE: ERA5 estimates (pending OWID download).",
-  "Malaysia temperature anomalies are slightly lower than Indonesia (+0.52–0.62°C during peak events) but still significant. Heat above 33°C during flowering inhibits pollen viability and reduces bunch set rates — a direct yield mechanism operating independently of drought.",
-  "The 2023-24 El Niño drove the highest pan-Maritime-Continent temperature anomalies in the ERA5 record. If 2026 follows the same intensity, the 2026-27 harvest window faces compounding heat and drought stress with less physiological buffer after consecutive warm years."
 ];
 C.sugar.outcomes.volume.why=[
   "The South Asian monsoon (Jun–Sep) provides 75% of India's annual rainfall — a below-normal monsoon cuts cane biomass by 20–40% in the worst events.",
@@ -2829,7 +2794,7 @@ function detail(k){
     ${k==='palmoil'?`
     <div class="panel">
       <details class="traj-details" open ontoggle="if(this.open&&charts.palmProd)charts.palmProd.resize()">
-        <summary class="section-t"><span>🌴</span> ${ok==='volume'?'Annual production — Indonesia vs Malaysia vs World':ok==='yield'?'Oil extraction yield index — tonnes of CPO squeezed per harvested hectare (2012 = 100)':ok==='water'?'Annual precipitation anomaly — Indonesia, Malaysia, World (mm vs 1991–2020 baseline)':ok==='temperature'?'Annual temperature anomaly — Indonesia, Malaysia, World (°C vs 1991–2020 baseline)':'Malaysia oil extraction rate — absolute levels'}</summary>
+        <summary class="section-t"><span>🌴</span> ${ok==='volume'?'Annual production — Indonesia vs Malaysia vs World':ok==='yield'?'Oil extraction yield index — tonnes of CPO squeezed per harvested hectare (2012 = 100)':'Malaysia oil extraction rate — absolute levels'}</summary>
         ${ok==='extraction'?
         `<div style="font-size:11px;color:var(--muted);margin:8px 0 2px">Malaysia only — MPOB Annual Overview PDFs &nbsp;|&nbsp; <span style="color:#a78bfa">●</span> Sourced &nbsp; <span style="opacity:0.45;color:#a78bfa">●</span> Claude estimate (dashed)</div>`:
         `<div style="display:flex;gap:20px;align-items:center;margin:10px 0 4px;flex-wrap:wrap">
@@ -2846,10 +2811,10 @@ function detail(k){
     </div>
     `:''}
 
-    ${k==='cocoa'&&(ok==='volume'||ok==='yield'||ok==='water'||ok==='temperature')?`
+    ${k==='cocoa'&&(ok==='volume'||ok==='yield')?`
     <div class="panel">
       <details class="traj-details" open ontoggle="if(this.open&&charts.cocoaProd)charts.cocoaProd.resize()">
-        <summary class="section-t"><span>🍫</span> ${ok==='volume'?'Annual production — Côte d\'Ivoire, Ghana, Ecuador, Indonesia, World (kt)':ok==='yield'?'Annual yield — Côte d\'Ivoire, Ghana, Ecuador, Indonesia, World (t/ha)':ok==='water'?'Annual precipitation anomaly — CIV, Ghana, Ecuador, Indonesia, World (mm vs 1991–2020 baseline)':'Annual temperature anomaly — CIV, Ghana, Ecuador, Indonesia, World (°C vs 1991–2020 baseline)'}</summary>
+        <summary class="section-t"><span>🍫</span> ${ok==='volume'?'Annual production — Côte d\'Ivoire, Ghana, Ecuador, Indonesia, World (kt)':'Annual yield — Côte d\'Ivoire, Ghana, Ecuador, Indonesia, World (t/ha)'}</summary>
         <div style="display:flex;gap:20px;align-items:center;margin:10px 0 4px;flex-wrap:wrap">
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkCocoaCIV" checked onchange="if(charts.cocoaProd){charts.cocoaProd.data.datasets[0].hidden=!this.checked;charts.cocoaProd.update()}"><span style="color:#fb923c;font-weight:600">● Côte d'Ivoire</span><span style="color:var(--muted);font-size:10px">42.7%</span></label>
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkCocoaGHA" checked onchange="if(charts.cocoaProd){charts.cocoaProd.data.datasets[1].hidden=!this.checked;charts.cocoaProd.update()}"><span style="color:#facc15;font-weight:600">● Ghana</span><span style="color:var(--muted);font-size:10px">12.0%</span></label>
@@ -2861,7 +2826,7 @@ function detail(k){
           <div class="chart-wrap" style="height:300px;flex:1"><canvas id="chCocoaProd"></canvas></div>
           <div id="cocoaProdHoverBox" class="ev-hover-box"><div class="ehb-section"><span style="color:var(--muted);font-size:11px">Hover a point</span></div></div>
         </div>
-        <div class="chart-cap">${ok==='volume'?'Production in kt. CIV ~40% of world supply; Ghana ~12%. El Niño bands: NOAA CPC.':ok==='yield'?'Yield in t/ha. OWID/FAO cocoa-bean-yields.csv 2000–2024. IDN declined steadily post-2007 as smallholder trees aged. CIV also declining. ECU improving with hybrid varieties. El Niño bands: NOAA CPC.':ok==='water'?'Precipitation anomaly (mm vs 1991–2020 baseline). ERA5 ENSO-calibrated estimates — pending OWID country download. Ecuador shows opposite signal: El Niño = flooding. El Niño bands: NOAA CPC.':'Temperature anomaly (°C vs 1991–2020 baseline). ERA5 ENSO-calibrated estimates — pending OWID country download. El Niño bands: NOAA CPC.'}</div>
+        <div class="chart-cap">${ok==='volume'?'Production in kt. CIV ~40% of world supply; Ghana ~12%. El Niño bands: NOAA CPC.':'Yield in t/ha. OWID/FAO cocoa-bean-yields.csv 2000–2024. IDN declined steadily post-2007 as smallholder trees aged. CIV also declining. ECU improving with hybrid varieties. El Niño bands: NOAA CPC.'}</div>
       </details>
     </div>
     `:''}
@@ -2913,7 +2878,7 @@ function detail(k){
         <div class="chart-cap">${
           ok==='volume'?'Production in kt. Mexico + Peru + Colombia + World = OWID/FAO 2000–2024; Mexico 2025–2026 = USDA GAIN forecast. El Niño bands: NOAA CPC.':
           ok==='yield'?'Yield in t/ha. Mexico 2000–2024 SIAP/FAO raw; Colombia + World OWID/FAO 2000–2024. Colombia improving with Hass expansion. El Niño bands: NOAA CPC.':
-          ok==='water'?'Precipitation anomaly (% vs 1991–2020 baseline). Positive = wetter, negative = drought. CONAGUA (Mexico hist), IDEAM (Colombia hist); 2025–2026 + Peru = Open-Meteo archive live. World = wtd avg Mex 60% + Col 40%. El Niño bands: NOAA CPC.':
+          ok==='water'?'Precipitation anomaly (mm vs 1991–2020 baseline). Positive = wetter, negative = drought. SOURCE: Copernicus ERA5 via OWID (2000–2025). Colombia 2026 = partial year Jan–Jun from ag ministry data. El Niño bands: NOAA CPC.':
           ok==='export'?'Export quantity in kilotonnes (kt). 1 kt = 1,000 metric tonnes. Peru only — FAO FAOSTAT official figures 2000–2024. YoY% bars show year-on-year change. El Niño bands: NOAA CPC.':
           'Mean temperature anomaly (°C vs 1991–2020 baseline). All series: Open-Meteo archive live — Michoacán (MEX), Antioquia (COL), La Libertad (PER). World = wtd avg Mex 60% + Col 40%. Current year = YTD mean. El Niño bands: NOAA CPC.'}</div>
       </details>
@@ -2928,12 +2893,6 @@ function detail(k){
         <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="palmBarSeries" value="wld" onchange="getOutcome('palmoil')==='volume'?chartPalmBar(this.value):chartPalmYieldBar(this.value);updateElNinoStats('palmoil',getOutcome('palmoil'))"><span style="color:#94a3b8;font-weight:600">● World</span></label>
       </div>
       <div style="font-size:11px;color:var(--muted);margin:-2px 0 4px">${ok==='volume'?'World = USDA PSD global total (all countries summed)':'World = USDA PSD area-weighted avg — total CPO ÷ total harvested ha (dominated by ID + MY ~85%)'}</div>`:''}
-      ${k==='palmoil'&&(ok==='water'||ok==='temperature')?`<div style="display:flex;gap:16px;align-items:center;margin:8px 0 4px;flex-wrap:wrap">
-        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="palmBarSeries" value="id" checked onchange="chartPalmBar(this.value);updateElNinoStats('palmoil','${ok}')"><span style="color:#38bdf8;font-weight:600">● Indonesia</span></label>
-        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="palmBarSeries" value="my" onchange="chartPalmBar(this.value);updateElNinoStats('palmoil','${ok}')"><span style="color:#4ade80;font-weight:600">● Malaysia</span></label>
-        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="palmBarSeries" value="wld" onchange="chartPalmBar(this.value);updateElNinoStats('palmoil','${ok}')"><span style="color:#94a3b8;font-weight:600">● World</span></label>
-      </div>
-      <div style="font-size:11px;color:var(--muted);margin:-2px 0 4px">${ok==='water'?'mm anomaly vs 1991–2020 baseline. ERA5 est. El Niño → severe drought in Indonesia; moderate drought in Malaysia. SOURCE: ERA5 estimates pending OWID download.':'°C anomaly vs 1991–2020 baseline. ERA5 est. El Niño → warming amplified by drought-driven reduced evapotranspiration. SOURCE: ERA5 estimates pending OWID download.'}</div>`:''}
       ${k==='cocoa'&&ok==='volume'?`<div style="display:flex;gap:16px;align-items:center;margin:8px 0 4px;flex-wrap:wrap">
         <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="civ" checked onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa','volume')"><span style="color:#fb923c;font-weight:600">● Côte d'Ivoire</span></label>
         <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="gha" onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa','volume')"><span style="color:#facc15;font-weight:600">● Ghana</span></label>
@@ -2942,22 +2901,6 @@ function detail(k){
         <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="wld" onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa','volume')"><span style="color:#94a3b8;font-weight:600">● World</span></label>
       </div>
       <div style="font-size:11px;color:var(--muted);margin:-2px 0 4px">World = ICCO global total. CIV ~40%, Ghana ~12% of world supply.</div>`:''}
-      ${k==='cocoa'&&ok==='water'?`<div style="display:flex;gap:16px;align-items:center;margin:8px 0 4px;flex-wrap:wrap">
-        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="civ" checked onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa','water')"><span style="color:#fb923c;font-weight:600">● Côte d'Ivoire</span></label>
-        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="gha" onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa','water')"><span style="color:#facc15;font-weight:600">● Ghana</span></label>
-        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="ecu" onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa','water')"><span style="color:#a3e635;font-weight:600">● Ecuador</span><span style="color:#a3e635;font-size:10px;border:1px solid rgba(163,230,53,0.4);border-radius:3px;padding:1px 5px;margin-left:2px">opposite — floods</span></label>
-        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="idn" onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa','water')"><span style="color:#38bdf8;font-weight:600">● Indonesia</span></label>
-        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="wld" onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa','water')"><span style="color:#94a3b8;font-weight:600">● World</span></label>
-      </div>
-      <div style="font-size:11px;color:var(--muted);margin:-2px 0 4px">mm anomaly vs 1991–2020 baseline. ERA5 est. Green = wetter; red = drier. Ecuador runs opposite — El Niño = flooding. SOURCE: ERA5 estimates pending OWID download.</div>`:''}
-      ${k==='cocoa'&&ok==='temperature'?`<div style="display:flex;gap:16px;align-items:center;margin:8px 0 4px;flex-wrap:wrap">
-        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="civ" checked onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa','temperature')"><span style="color:#fb923c;font-weight:600">● Côte d'Ivoire</span></label>
-        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="gha" onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa','temperature')"><span style="color:#facc15;font-weight:600">● Ghana</span></label>
-        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="ecu" onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa','temperature')"><span style="color:#a3e635;font-weight:600">● Ecuador</span></label>
-        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="idn" onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa','temperature')"><span style="color:#38bdf8;font-weight:600">● Indonesia</span></label>
-        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="wld" onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa','temperature')"><span style="color:#94a3b8;font-weight:600">● World</span></label>
-      </div>
-      <div style="font-size:11px;color:var(--muted);margin:-2px 0 4px">°C anomaly vs 1991–2020 baseline. ERA5 est. All origins warm during El Niño. SOURCE: ERA5 estimates pending OWID download.</div>`:''}
       ${k==='avocado'&&ok==='volume'?`<div style="display:flex;gap:16px;align-items:center;margin:8px 0 4px;flex-wrap:wrap">
         <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="mex" checked onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','volume')"><span style="color:#4ade80;font-weight:600">● Mexico</span><span style="color:var(--muted);font-size:10px">24.6%</span></label>
         <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="per" onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','volume')"><span style="color:#f97316;font-weight:600">● Peru</span><span style="color:var(--muted);font-size:10px">8.2%</span></label>
@@ -3108,16 +3051,6 @@ function updateElNinoStats(k,ok){
     countryLabel={civ:'CIV',gha:'Ghana',ecu:'Ecuador',idn:'Indonesia',wld:'World'}[c]||c;
     const arr=C.cocoa.countryYield[c]||[];
     for(let i=1;i<arr.length;i++) if(arr[i].tha&&arr[i-1].tha) yrData.push({yr:parseInt(arr[i].yr),yoy:(arr[i].tha/arr[i-1].tha-1)*100});
-  } else if(k==='cocoa'&&ok==='water'){
-    const c=document.querySelector('input[name="cocoaBarSeries"]:checked')?.value||'civ';
-    countryLabel={civ:'CIV',gha:'Ghana',ecu:'Ecuador',idn:'Indonesia',wld:'World'}[c]||c;
-    const arr=C.cocoa.countryWater[c]||[];
-    arr.forEach(d=>{if(d.anom!=null) yrData.push({yr:parseInt(d.yr),yoy:d.anom});});
-  } else if(k==='cocoa'&&ok==='temperature'){
-    const c=document.querySelector('input[name="cocoaBarSeries"]:checked')?.value||'civ';
-    countryLabel={civ:'CIV',gha:'Ghana',ecu:'Ecuador',idn:'Indonesia',wld:'World'}[c]||c;
-    const arr=C.cocoa.countryTemp[c]||[];
-    arr.forEach(d=>{if(d.anom!=null) yrData.push({yr:parseInt(d.yr),yoy:d.anom});});
   } else if(k==='avocado'){
     const c=document.querySelector('input[name="avocadoBarSeries"]:checked')?.value||(ok==='yield'?'col':'mex');
     countryLabel={mex:'Mexico',per:'Peru',col:'Colombia',wld:'World'}[c]||c;
@@ -3149,16 +3082,6 @@ function updateElNinoStats(k,ok){
     countryLabel={id:'Indonesia',my:'Malaysia',wld:'World'}[c]||c;
     if(c==='my') yrData=buildAnnualSeries('palmoil','yield').filter(d=>d.yoy!=null).map(d=>({yr:parseInt(d.label),yoy:d.yoy}));
     else{const raw=C.palmoil.cpoYield[c]||[];for(let i=1;i<raw.length;i++) if(raw[i].v&&raw[i-1].v) yrData.push({yr:parseInt(raw[i].yr),yoy:(raw[i].v/raw[i-1].v-1)*100});}
-  } else if(k==='palmoil'&&ok==='water'){
-    const c=document.querySelector('input[name="palmBarSeries"]:checked')?.value||'id';
-    countryLabel={id:'Indonesia',my:'Malaysia',wld:'World'}[c]||c;
-    const arr=C.palmoil.countryWater[c]||[];
-    arr.forEach(d=>{if(d.anom!=null) yrData.push({yr:parseInt(d.yr),yoy:d.anom});});
-  } else if(k==='palmoil'&&ok==='temperature'){
-    const c=document.querySelector('input[name="palmBarSeries"]:checked')?.value||'id';
-    countryLabel={id:'Indonesia',my:'Malaysia',wld:'World'}[c]||c;
-    const arr=C.palmoil.countryTemp[c]||[];
-    arr.forEach(d=>{if(d.anom!=null) yrData.push({yr:parseInt(d.yr),yoy:d.anom});});
   } else {
     yrData=buildAnnualSeries(k,ok).filter(d=>d.yoy!=null).map(d=>({yr:parseInt(d.label),yoy:d.yoy}));
   }
@@ -3169,12 +3092,8 @@ function updateElNinoStats(k,ok){
   const palmLag=k==='palmoil';
   const avoLag=k==='avocado'&&(ok==='volume'||ok==='yield'||ok==='export');
   const avoWater=k==='avocado'&&ok==='water';
-  const cocoaWater=k==='cocoa'&&ok==='water';
-  const cocoaTemp=k==='cocoa'&&ok==='temperature';
-  const palmWater=k==='palmoil'&&ok==='water';
-  const palmTemp=k==='palmoil'&&ok==='temperature';
-  const isWater=avoWater||cocoaWater||palmWater;
-  const isTemp=(k==='avocado'&&ok==='temperature')||cocoaTemp||palmTemp;
+  const isWater=avoWater;
+  const isTemp=(k==='avocado'&&ok==='temperature');
   // Onset month (1–12) for each El Niño event — used by palm oil lag window and water onset-adj
   const ONSET={'2002-03':[2002,6],'2004-05':[2004,7],'2006-07':[2006,9],
                '2009-10':[2009,6],'2014-16':[2014,5],'2018-19':[2018,9],'2023-24':[2023,6]};
@@ -4429,7 +4348,7 @@ function chartAvocadoProd(){
       const yr=labels[ni];const yrInt=parseInt(yr);
       const evKey=EVENTS.find(e=>{const parts=e.split('-'),start=parseInt(parts[0]);let end=parts[1].length<=2?Math.floor(start/100)*100+parseInt(parts[1]):parseInt(parts[1]);if(end<=start)end+=100;return yrInt>=start&&yrInt<=end;});
       const sev=evKey?ENSO_SEV[evKey]:null;const sevCls=sev==='Super El Niño'?'sev-super':sev==='El Niño'?'sev-elnino':sev?'sev-mild':'';
-      const fmt=v=>v!=null?(v>=0?'+':'')+v.toFixed(1)+'%':'—';
+      const fmt=v=>v!=null?(v>=0?'+':'')+Math.round(v)+'mm':'—';
       box.innerHTML=
         `<div class="ehb-section"><div class="ehb-label">Year</div><div class="ehb-yr">${yr}</div></div>`+
         `<div class="ehb-section"><div class="ehb-label" style="color:${ACLR.mex}">MEX anom</div><div class="ehb-pct" style="color:${ACLR.mex}">${fmt(mexAnom[ni])}</div></div>`+
@@ -4448,7 +4367,7 @@ function chartAvocadoProd(){
         const meta=chart.getDatasetMeta(0);if(!meta?.data?.length){c2.restore();return;}
         let ni=0,md=Infinity;meta.data.forEach((el,i)=>{const d=Math.abs(el.x-chart._mouseX);if(d<md){md=d;ni=i;}});
         updateAvoWaterBox(ni);
-        const fmt=v=>v!=null?(v>=0?'+':'')+v.toFixed(1)+'%':'—';
+        const fmt=v=>v!=null?(v>=0?'+':'')+Math.round(v)+'mm':'—';
         const bw=120,bh=106,mx=chart._mouseX,my=chart._mouseY!=null?chart._mouseY:top+40;
         const bx=Math.min(Math.max(mx-bw/2,left+2),right-bw-2);
         const by=Math.min(Math.max(my-bh-14,top+1),bottom-bh-1);
@@ -4469,8 +4388,8 @@ function chartAvocadoProd(){
       options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
         plugins:{legend:{display:false},tooltip:{enabled:false}},
         scales:{x:xScale,y:{type:'linear',position:'left',grid:{color:'#1b232d'},
-          ticks:{color:'#8b9bab',font:{size:10},callback:v=>(v>=0?'+':'')+v.toFixed(1)+'%'},
-          title:{display:true,text:'Precip. anomaly (%)',color:'#8b9bab',font:{size:9}}}}}});
+          ticks:{color:'#8b9bab',font:{size:10},callback:v=>(v>=0?'+':'')+Math.round(v)+'mm'},
+          title:{display:true,text:'Precip. anomaly (mm)',color:'#8b9bab',font:{size:9}}}}}});
     return;
   }
 
