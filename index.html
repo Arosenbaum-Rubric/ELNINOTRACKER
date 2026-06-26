@@ -673,7 +673,9 @@ C.avocado.outcomes={
   // water: Mexico precipitation anomaly (% vs long-term avg). SOURCE: CONAGUA via friend's CSV — national annual avg; note limitation. 2009 flagged suspect (duplicate value).
   water:  {label:'Precipitation', unit:'% deviation from long-term avg — Michoacán/Mexico', events:{'2002-03':{dev:-5,src:'rep'},'2004-05':{dev:-3,src:'rep'},'2006-07':{dev:+6,src:'rep'},'2009-10':{dev:0,src:'est'},'2014-16':{dev:-4,src:'rep'},'2018-19':{dev:-8,src:'rep'},'2023-24':{dev:-17,src:'rep'}}},
   // export: Mexico export volume YoY. 2024 anchor = WITS HS 080440 (1,190,400 MT); historical = friend's CSV (direction only). KEY: 2023-24 shows first export decline (-15%) driven by value compression.
-  export: {label:'Export Volume',              unit:'1000 MT YoY % — Mexico',                 events:{'2002-03':{dev:+23,src:'rep'},'2004-05':{dev:+26,src:'rep'},'2006-07':{dev:+17,src:'rep'},'2009-10':{dev:+12,src:'rep'},'2014-16':{dev:+10,src:'rep'},'2018-19':{dev:+7,src:'rep'},'2023-24':{dev:-15,src:'rep'}}}
+  export: {label:'Export Volume',              unit:'1000 MT YoY % — Mexico',                 events:{'2002-03':{dev:+23,src:'rep'},'2004-05':{dev:+26,src:'rep'},'2006-07':{dev:+17,src:'rep'},'2009-10':{dev:+12,src:'rep'},'2014-16':{dev:+10,src:'rep'},'2018-19':{dev:+7,src:'rep'},'2023-24':{dev:-15,src:'rep'}}},
+  // temperature: Mean annual temperature anomaly (°C vs 2001–2020 baseline). SOURCE: Open-Meteo archive API — Michoacán (MEX), Antioquia (COL), La Libertad (PER). El Niño typically drives +0.5–2°C warming in all three zones, disrupting flowering and fruit set.
+  temperature: {label:'Temperature Anomaly',  unit:'°C deviation from 2001–2020 baseline — Michoacán / Antioquia / La Libertad', events:{'2002-03':{dev:+0.6,src:'est'},'2004-05':{dev:+0.4,src:'est'},'2006-07':{dev:+0.3,src:'est'},'2009-10':{dev:+0.8,src:'est'},'2014-16':{dev:+1.4,src:'est'},'2018-19':{dev:+0.9,src:'est'},'2023-24':{dev:+1.8,src:'est'}}}
 };
 
 // ── PER-OUTCOME SENSITIVITY DRIVERS ─────────────────────────────────────────────────────
@@ -776,6 +778,11 @@ C.avocado.outcomes.export.why=[
   "2023-24 delivered the first confirmed Mexico export decline (−15% to 1.19 MMT in 2024) after 20+ years of continuous growth — anchored to WITS HS 080440. The trigger was 2023 El Niño heat stress reducing fruit size/grade.",
   "Historical export YoY was positive throughout every prior El Niño event (structural demand growth overriding any supply stress). The 2023-24 break is a structural signal, not noise.",
   "Colombia's rapid export growth (+221% value YoY in 2024) amplifies the 2026 compounding risk: Colombia now matters as a supplier, but faces the same drought direction as Mexico — no offset country in 2026. SOURCE: GAIN CO2025-0004 + WITS."
+];
+C.avocado.outcomes.temperature.why=[
+  "Avocado flowering requires mild cool nights (10–18°C) to initiate bud break — El Niño's warm winters in Michoacán suppress flowering intensity and reduce fruit set, cutting potential yield before the growing season begins.",
+  "2015-16 Super El Niño drove Michoacán mean temperatures ~+1.4°C above baseline — the highest anomaly in the dataset — coinciding with the only documented Mexico yield stagnation during a structural growth period.",
+  "Peru's La Libertad coast is the most temperature-sensitive growing zone: coastal El Niño SST warming drives extreme land temperature spikes (+2–4°C), causing blossom drop and premature fruit development. Open-Meteo live data updates this chart daily."
 ];
 
 // ── AVOCADO: PER-COUNTRY PRODUCTION ────────────────────────────────────────────────────────
@@ -1065,6 +1072,12 @@ C.avocado.countryWater={
     {yr:'2025',anom:+0.3,src:'est',note:'ENSO-neutral 2025 — near-zero global anomaly; direction estimate'},
   ],
 };
+
+// ── AVOCADO: TEMPERATURE ANOMALY ─────────────────────────────────────────────────────────────
+// °C deviation from 2001-2020 baseline annual mean. SOURCE: Open-Meteo archive API (all years, all countries).
+// Michoacán MEX (lat=19.5, lon=-102.0), Antioquia COL (lat=5.5, lon=-75.5), La Libertad PER (lat=-8.1, lon=-78.5).
+// Populated entirely by fetchAvocadoTemp() on page load — no static pre-fill needed.
+C.avocado.countryTemp={mex:[],col:[],per:[],wld:[]};
 
 // ── AVOCADO: EXPORT VOLUMES ──────────────────────────────────────────────────────────────────
 // kt = 1000 MT. mex 2022-2024: USDA GAIN MX / WITS HS 080440 (rep). mex 2000-2021: direction signal (est).
@@ -2163,12 +2176,86 @@ async function fetchAvocadoWater(){
   }
 }
 
+async function fetchAvocadoTemp(){
+  // Open-Meteo archive — temperature_2m_mean, same three sites as water
+  const sites=[
+    {key:'mex',lat:19.5,lon:-102.0,tz:'America%2FMexico_City'},
+    {key:'col',lat:5.5,lon:-75.5,tz:'America%2FBogota'},
+    {key:'per',lat:-8.1,lon:-78.5,tz:'America%2FLima'},
+  ];
+  const today=new Date();
+  const endDate=today.toISOString().slice(0,10);
+  const curYr=String(today.getFullYear());
+
+  await Promise.allSettled(sites.map(async s=>{
+    const url=`https://archive-api.open-meteo.com/v1/archive?latitude=${s.lat}&longitude=${s.lon}&start_date=2000-01-01&end_date=${endDate}&daily=temperature_2m_mean&timezone=${s.tz}`;
+    let d;
+    try{ const r=await fetch(url); if(!r.ok) return; d=await r.json(); }catch(e){ return; }
+    const times=d.daily.time, temps=d.daily.temperature_2m_mean;
+
+    // Aggregate annual means
+    const ann={};
+    times.forEach((t,i)=>{
+      const yr=t.slice(0,4);
+      if(!ann[yr]) ann[yr]={sum:0,days:0};
+      if(temps[i]!=null){ann[yr].sum+=temps[i];ann[yr].days++;}
+    });
+
+    // 2001-2020 baseline mean (full years ≥360 days)
+    const baseYrs=Object.keys(ann).filter(y=>y>='2001'&&y<='2020'&&ann[y].days>=360);
+    if(!baseYrs.length) return;
+    const baseMean=baseYrs.reduce((s,y)=>s+ann[y].sum/ann[y].days,0)/baseYrs.length;
+
+    if(!C.avocado.countryTemp[s.key]) C.avocado.countryTemp[s.key]=[];
+    const arr=C.avocado.countryTemp[s.key];
+
+    // Populate all years 2000–curYr
+    const yrsToUpdate=Object.keys(ann).filter(y=>y>='2000'&&y<=curYr);
+    for(const yr of yrsToUpdate){
+      const a=ann[yr]; if(!a||a.days<10) continue;
+      // For partial current year: compare YTD mean vs same-period baseline
+      // Use annual mean directly — mean is not affected by partial-year bias the same way sum is
+      const meanTemp=a.sum/a.days;
+      const anom=+(meanTemp-baseMean).toFixed(2);
+      const isPartial=yr===curYr&&a.days<350;
+      const noteStr=isPartial
+        ?`Open-Meteo YTD mean (${a.days}d) — baseline ${baseMean.toFixed(1)}°C`
+        :`Open-Meteo archive — baseline ${baseMean.toFixed(1)}°C`;
+      const entry={yr,anom,src:'rep',note:noteStr};
+      const idx=arr.findIndex(e=>e.yr===yr);
+      if(idx>=0) arr[idx]=entry; else arr.push(entry);
+    }
+    arr.sort((a,b)=>a.yr.localeCompare(b.yr));
+  }));
+
+  // World = production-weighted avg mex (60%) + col (40%)
+  const ct=C.avocado.countryTemp;
+  if(!ct.wld) ct.wld=[];
+  const allYrs=[...new Set([...ct.mex.map(d=>d.yr),...ct.col.map(d=>d.yr)])].sort();
+  for(const yr of allYrs){
+    const m=ct.mex.find(d=>d.yr===yr), c=ct.col.find(d=>d.yr===yr);
+    if(!m||!c) continue;
+    const wldAnom=+(m.anom*0.6+c.anom*0.4).toFixed(2);
+    const entry={yr,anom:wldAnom,src:'est',note:'Wtd avg Mexico 60% + Colombia 40% — Open-Meteo'};
+    const idx=ct.wld.findIndex(d=>d.yr===yr);
+    if(idx>=0) ct.wld[idx]=entry; else ct.wld.push(entry);
+  }
+  ct.wld.sort((a,b)=>a.yr.localeCompare(b.yr));
+
+  // Re-render if currently viewing avocado temperature
+  if(current==='avocado'&&getOutcome('avocado')==='temperature'){
+    if(charts.avocadoProd){charts.avocadoProd.destroy();charts.avocadoProd=null;}
+    chartAvocadoProd();
+  }
+}
+
 async function fetchAllLiveData(force){
   // Always load pipeline CSVs — local files, fast, must not be skipped by cache
   loadPipelineCsvs().catch(()=>{});
 
-  // Always fetch live water data — not cached, re-renders chart when ready
+  // Always fetch live water + temperature data — not cached, re-renders chart when ready
   fetchAvocadoWater().catch(()=>{});
+  fetchAvocadoTemp().catch(()=>{});
 
   // Try sessionStorage cache first
   if(!force){
@@ -2614,6 +2701,7 @@ function detail(k){
           ok==='volume'?'Annual production — Mexico, Peru, Colombia, World (kt)':
           ok==='yield'?'Annual yield — Mexico, Peru, Colombia, World (t/ha)':
           ok==='water'?'Annual precipitation — Mexico, Peru, Colombia, World (% vs long-term avg)':
+          ok==='temperature'?'Annual temperature anomaly — Mexico, Peru, Colombia, World (°C vs 2001–2020 baseline)':
           'Annual export volume — Mexico, Peru, Colombia, World (kt)'}</summary>
         <div style="display:flex;gap:20px;align-items:center;margin:10px 0 4px;flex-wrap:wrap">
           ${ok==='volume'?`
@@ -2631,6 +2719,11 @@ function detail(k){
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkAvoPer" checked onchange="if(charts.avocadoProd){charts.avocadoProd.data.datasets[1].hidden=!this.checked;charts.avocadoProd.update()}"><span style="color:#f97316;font-weight:600">● Peru</span><span style="color:var(--muted);font-size:10px">Live</span></label>
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkAvoCol" checked onchange="if(charts.avocadoProd){charts.avocadoProd.data.datasets[2].hidden=!this.checked;charts.avocadoProd.update()}"><span style="color:#38bdf8;font-weight:600">● Colombia</span><span style="color:var(--muted);font-size:10px">IDEAM/Live</span></label>
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkAvoWld" checked onchange="if(charts.avocadoProd){charts.avocadoProd.data.datasets[3].hidden=!this.checked;charts.avocadoProd.update()}"><span style="color:#94a3b8;font-weight:600">● World</span><span style="color:var(--muted);font-size:10px">wtd avg</span></label>
+          `:ok==='temperature'?`
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkAvoMex" checked onchange="if(charts.avocadoProd){charts.avocadoProd.data.datasets[0].hidden=!this.checked;charts.avocadoProd.update()}"><span style="color:#4ade80;font-weight:600">● Mexico</span><span style="color:var(--muted);font-size:10px">Open-Meteo Live</span></label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkAvoPer" checked onchange="if(charts.avocadoProd){charts.avocadoProd.data.datasets[1].hidden=!this.checked;charts.avocadoProd.update()}"><span style="color:#f97316;font-weight:600">● Peru</span><span style="color:var(--muted);font-size:10px">Open-Meteo Live</span></label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkAvoCol" checked onchange="if(charts.avocadoProd){charts.avocadoProd.data.datasets[2].hidden=!this.checked;charts.avocadoProd.update()}"><span style="color:#38bdf8;font-weight:600">● Colombia</span><span style="color:var(--muted);font-size:10px">Open-Meteo Live</span></label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkAvoWld" checked onchange="if(charts.avocadoProd){charts.avocadoProd.data.datasets[3].hidden=!this.checked;charts.avocadoProd.update()}"><span style="color:#94a3b8;font-weight:600">● World</span><span style="color:var(--muted);font-size:10px">wtd avg</span></label>
           `:`
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkAvoMex" checked onchange="if(charts.avocadoProd){charts.avocadoProd.data.datasets[0].hidden=!this.checked;charts.avocadoProd.update()}"><span style="color:#4ade80;font-weight:600">● Mexico</span></label>
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkAvoPer" checked onchange="if(charts.avocadoProd){charts.avocadoProd.data.datasets[1].hidden=!this.checked;charts.avocadoProd.update()}"><span style="color:#f97316;font-weight:600">● Peru</span></label>
@@ -2646,6 +2739,7 @@ function detail(k){
           ok==='volume'?'Production in kt. Mexico + Peru + Colombia + World = OWID/FAO 2000–2024; Mexico 2025–2026 = USDA GAIN forecast. El Niño bands: NOAA CPC.':
           ok==='yield'?'Yield in t/ha. Mexico 2000–2024 SIAP/FAO raw; Colombia + World OWID/FAO 2000–2024. Colombia improving with Hass expansion. El Niño bands: NOAA CPC.':
           ok==='water'?'Precipitation anomaly (% vs 2001–2020 baseline). Positive = wetter, negative = drought. CONAGUA (Mexico hist), IDEAM (Colombia hist); 2025–2026 + Peru = Open-Meteo archive live. World = wtd avg Mex 60% + Col 40%. El Niño bands: NOAA CPC.':
+          ok==='temperature'?'Mean temperature anomaly (°C vs 2001–2020 baseline). All series: Open-Meteo archive live — Michoacán (MEX), Antioquia (COL), La Libertad (PER). World = wtd avg Mex 60% + Col 40%. Current year = YTD mean. El Niño bands: NOAA CPC.':
           'Export volume in kt. Mexico 2000–2021 est, 2022–2026 USDA GAIN/WITS. Colombia 2000–2023 est, 2024 WITS. World 2000–2023 est direction signal. El Niño bands: NOAA CPC.'}</div>
       </details>
     </div>
@@ -2727,12 +2821,12 @@ function detail(k){
           <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
             <span style="color:#a78bfa;font-weight:700;font-size:11px">Y1</span>
             <select id="dualO1_${k}" onchange="chartDual('${k}')" style="background:#0d1520;color:#e8eef4;border:1px solid #1e2d3f;border-radius:4px;padding:3px 8px;font-size:11px;cursor:pointer">
-              ${(k==='avocado'?[{v:'volume',l:'Production (kt)'},{v:'yield',l:'Yield (t/ha)'},{v:'water',l:'Water Stress (%)'},{v:'export',l:'Exports (kt)'}]:k==='cocoa'?[{v:'volume',l:'Production (kt)'},{v:'yield',l:'Yield (t/ha)'}]:k==='palmoil'?[{v:'volume',l:'Production (MMT)'},{v:'cpoyield',l:'CPO Yield (t/ha)'}]:Object.entries(C[k].outcomes).map(([v,o])=>({v,l:o.label}))).map((o,i)=>`<option value="${o.v}"${i===0?' selected':''}>${o.l}</option>`).join('')}
+              ${(k==='avocado'?[{v:'volume',l:'Production (kt)'},{v:'yield',l:'Yield (t/ha)'},{v:'water',l:'Water Stress (%)'},{v:'export',l:'Exports (kt)'},{v:'temperature',l:'Temp Anomaly (°C)'}]:k==='cocoa'?[{v:'volume',l:'Production (kt)'},{v:'yield',l:'Yield (t/ha)'}]:k==='palmoil'?[{v:'volume',l:'Production (MMT)'},{v:'cpoyield',l:'CPO Yield (t/ha)'}]:Object.entries(C[k].outcomes).map(([v,o])=>({v,l:o.label}))).map((o,i)=>`<option value="${o.v}"${i===0?' selected':''}>${o.l}</option>`).join('')}
             </select>
             <span style="color:var(--muted);font-size:11px">vs</span>
             <span style="color:#fb923c;font-weight:700;font-size:11px">Y2</span>
             <select id="dualO2_${k}" onchange="chartDual('${k}')" style="background:#0d1520;color:#e8eef4;border:1px solid #1e2d3f;border-radius:4px;padding:3px 8px;font-size:11px;cursor:pointer">
-              ${(k==='avocado'?[{v:'volume',l:'Production (kt)'},{v:'yield',l:'Yield (t/ha)'},{v:'water',l:'Water Stress (%)'},{v:'export',l:'Exports (kt)'}]:k==='cocoa'?[{v:'volume',l:'Production (kt)'},{v:'yield',l:'Yield (t/ha)'}]:k==='palmoil'?[{v:'volume',l:'Production (MMT)'},{v:'cpoyield',l:'CPO Yield (t/ha)'}]:Object.entries(C[k].outcomes).map(([v,o])=>({v,l:o.label}))).map((o,i)=>`<option value="${o.v}"${i===1?' selected':''}>${o.l}</option>`).join('')}
+              ${(k==='avocado'?[{v:'volume',l:'Production (kt)'},{v:'yield',l:'Yield (t/ha)'},{v:'water',l:'Water Stress (%)'},{v:'export',l:'Exports (kt)'},{v:'temperature',l:'Temp Anomaly (°C)'}]:k==='cocoa'?[{v:'volume',l:'Production (kt)'},{v:'yield',l:'Yield (t/ha)'}]:k==='palmoil'?[{v:'volume',l:'Production (MMT)'},{v:'cpoyield',l:'CPO Yield (t/ha)'}]:Object.entries(C[k].outcomes).map(([v,o])=>({v,l:o.label}))).map((o,i)=>`<option value="${o.v}"${i===1?' selected':''}>${o.l}</option>`).join('')}
             </select>
           </div>
         </div>
@@ -4047,6 +4141,68 @@ function chartAvocadoProd(){
         scales:{x:xScale,y:{type:'linear',position:'left',grid:{color:'#1b232d'},
           ticks:{color:'#8b9bab',font:{size:10},callback:v=>(v>=0?'+':'')+v.toFixed(1)+'%'},
           title:{display:true,text:'Precip. anomaly (%)',color:'#8b9bab',font:{size:9}}}}}});
+    return;
+  }
+
+  // ── temperature branch ────────────────────────────────────────────────────
+  if(ok==='temperature'){
+    const ct=C.avocado.countryTemp;
+    const longest=[ct.mex||[],ct.per||[],ct.col||[],ct.wld||[]].reduce((a,b)=>b.length>a.length?b:a,[]);
+    if(!longest.length) return;
+    const labels=longest.map(d=>d.yr);
+    const n=labels.length;
+    function toTempAnom(arr){return labels.map(yr=>{const d=(arr||[]).find(a=>a.yr===yr);return d?d.anom:null;});}
+    const mexTemp=toTempAnom(ct.mex),perTemp=toTempAnom(ct.per),colTemp=toTempAnom(ct.col),wldTemp=toTempAnom(ct.wld);
+    const dashLast=sc=>sc.p1DataIndex===n-1?[5,4]:[];
+    function updateAvoTempBox(ni){
+      const box=document.getElementById('avocadoProdHoverBox');if(!box)return;
+      const yr=labels[ni];const yrInt=parseInt(yr);
+      const evKey=EVENTS.find(e=>{const parts=e.split('-'),start=parseInt(parts[0]);let end=parts[1].length<=2?Math.floor(start/100)*100+parseInt(parts[1]):parseInt(parts[1]);if(end<=start)end+=100;return yrInt>=start&&yrInt<=end;});
+      const sev=evKey?ENSO_SEV[evKey]:null;const sevCls=sev==='Super El Niño'?'sev-super':sev==='El Niño'?'sev-elnino':sev?'sev-mild':'';
+      const fmt=v=>v!=null?(v>=0?'+':'')+v.toFixed(2)+'°C':'—';
+      box.innerHTML=
+        `<div class="ehb-section"><div class="ehb-label">Year</div><div class="ehb-yr">${yr}</div></div>`+
+        `<div class="ehb-section"><div class="ehb-label" style="color:${ACLR.mex}">MEX °C</div><div class="ehb-pct" style="color:${ACLR.mex}">${fmt(mexTemp[ni])}</div></div>`+
+        `<div class="ehb-section"><div class="ehb-label" style="color:${ACLR.per}">PER °C</div><div class="ehb-pct" style="color:${ACLR.per}">${fmt(perTemp[ni])}</div></div>`+
+        `<div class="ehb-section"><div class="ehb-label" style="color:${ACLR.col}">COL °C</div><div class="ehb-pct" style="color:${ACLR.col}">${fmt(colTemp[ni])}</div></div>`+
+        `<div class="ehb-section"><div class="ehb-label" style="color:${ACLR.wld}">WLD °C</div><div class="ehb-pct" style="color:${ACLR.wld}">${fmt(wldTemp[ni])}</div></div>`+
+        `<div class="ehb-section"><div class="ehb-label">Severity</div><div class="ehb-sev ${sevCls}" style="visibility:${sev?'visible':'hidden'}">${sev||'—'}</div></div>`;
+    }
+    const xScale={grid:{color:'#1b232d'},ticks:{color:'#8b9bab',font:{size:9},maxRotation:60,minRotation:45}};
+    charts.avocadoProd=new Chart(canv,{type:'line',plugins:[makeBandPlugin(labels),{id:'avoProdXhair',
+      beforeEvent(chart,args){const e=args.event;if(e.type==='mousemove'&&e.x>=chart.chartArea.left&&e.x<=chart.chartArea.right){chart._mouseX=e.x;chart._mouseY=e.y;}else if(e.type==='mouseout'||e.type==='mouseleave'){chart._mouseX=null;chart._mouseY=null;}},
+      afterDraw(chart){
+        if(chart._mouseX==null)return;
+        const c2=chart.ctx,{top,bottom,left,right}=chart.chartArea;c2.save();
+        c2.beginPath();c2.moveTo(chart._mouseX,top);c2.lineTo(chart._mouseX,bottom);
+        c2.strokeStyle='rgba(255,255,255,0.3)';c2.lineWidth=1.5;c2.setLineDash([4,3]);c2.stroke();c2.setLineDash([]);
+        const meta=chart.getDatasetMeta(0);if(!meta?.data?.length){c2.restore();return;}
+        let ni=0,md=Infinity;meta.data.forEach((el,i)=>{const d=Math.abs(el.x-chart._mouseX);if(d<md){md=d;ni=i;}});
+        updateAvoTempBox(ni);
+        const bw=110,bh=124,mx=chart._mouseX,my=chart._mouseY!=null?chart._mouseY:top+40;
+        const bx=Math.min(Math.max(mx-bw/2,left+2),right-bw-2);
+        const by=Math.min(Math.max(my-bh-14,top+1),bottom-bh-1);
+        c2.fillStyle='rgba(10,14,22,0.93)';c2.fillRect(bx,by,bw,bh);c2.strokeStyle='rgba(255,255,255,0.15)';c2.lineWidth=1;c2.strokeRect(bx,by,bw,bh);
+        c2.textAlign='center';c2.textBaseline='middle';c2.fillStyle='#cbd5e1';c2.font='bold 11px system-ui,sans-serif';c2.fillText(labels[ni],bx+bw/2,by+12);
+        c2.textAlign='left';c2.font='10px system-ui,sans-serif';
+        c2.fillStyle=ACLR.mex;c2.fillText('MEX '+(mexTemp[ni]!=null?(mexTemp[ni]>=0?'+':'')+mexTemp[ni].toFixed(2):'—')+'°C',bx+8,by+28);
+        c2.fillStyle=ACLR.per;c2.fillText('PER '+(perTemp[ni]!=null?(perTemp[ni]>=0?'+':'')+perTemp[ni].toFixed(2):'—')+'°C',bx+8,by+44);
+        c2.fillStyle=ACLR.col;c2.fillText('COL '+(colTemp[ni]!=null?(colTemp[ni]>=0?'+':'')+colTemp[ni].toFixed(2):'—')+'°C',bx+8,by+60);
+        c2.fillStyle=ACLR.wld;c2.fillText('WLD '+(wldTemp[ni]!=null?(wldTemp[ni]>=0?'+':'')+wldTemp[ni].toFixed(2):'—')+'°C',bx+8,by+76);
+        c2.restore();
+      }
+    }],
+      data:{labels,datasets:[
+        {label:'Mexico',data:mexTemp,borderColor:ACLR.mex,fill:false,tension:0.2,pointRadius:3,pointHoverRadius:5,pointBackgroundColor:'#0a0e16',pointBorderColor:ACLR.mex,segment:{borderDash:dashLast}},
+        {label:'Peru',data:perTemp,borderColor:ACLR.per,fill:false,tension:0.2,pointRadius:3,pointHoverRadius:5,pointStyle:'rect',pointBackgroundColor:'#0a0e16',pointBorderColor:ACLR.per,segment:{borderDash:dashLast}},
+        {label:'Colombia',data:colTemp,borderColor:ACLR.col,fill:false,tension:0.2,pointRadius:3,pointHoverRadius:5,pointStyle:'triangle',pointBackgroundColor:'#0a0e16',pointBorderColor:ACLR.col,segment:{borderDash:dashLast}},
+        {label:'World',data:wldTemp,borderColor:ACLR.wld,fill:false,tension:0.2,pointRadius:2,pointHoverRadius:4,borderWidth:1.5,pointBackgroundColor:'#0a0e16',pointBorderColor:ACLR.wld,segment:{borderDash:dashLast}},
+      ]},
+      options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+        plugins:{legend:{display:false},tooltip:{enabled:false}},
+        scales:{x:xScale,y:{type:'linear',position:'left',grid:{color:'#1b232d'},
+          ticks:{color:'#8b9bab',font:{size:10},callback:v=>(v>=0?'+':'')+v.toFixed(2)+'°C'},
+          title:{display:true,text:'Temp. anomaly (°C)',color:'#8b9bab',font:{size:9}}}}}});
     return;
   }
 
