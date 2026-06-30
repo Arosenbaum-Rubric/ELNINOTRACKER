@@ -142,7 +142,7 @@
   .b-info{ background:rgba(56,189,248,.12); color:#7dd3fc; border-color:rgba(56,189,248,.4); }
   .b-conv{ background:rgba(168,85,247,.12); color:#d8b4fe; border-color:rgba(168,85,247,.4); }
 
-  .section-t{ font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:1.1px; font-weight:800; margin-bottom:12px; display:flex; align-items:center; gap:7px; }
+  .section-t{ font-size:13px; color:#b0bec5; letter-spacing:.9px; font-weight:700; text-transform:uppercase; margin-bottom:12px; display:flex; align-items:center; gap:7px; font-family:'Segoe UI',system-ui,-apple-system,sans-serif; }
   .mech{ font-size:13.5px; line-height:1.7; color:#cdd8e3; }
   .wx-tags{ display:flex; gap:8px; flex-wrap:wrap; margin-top:14px; }
   .wx{ display:flex; align-items:center; gap:7px; padding:6px 12px; border-radius:8px; font-size:12px; font-weight:600; border:1px solid; }
@@ -3072,7 +3072,7 @@ function detail(k){
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkPalmMY" checked onchange="if(charts.palmProd){charts.palmProd.data.datasets[1].hidden=!this.checked;charts.palmProd.update()}"><span style="color:#4ade80;font-weight:600">● Malaysia</span><span style="color:var(--muted);font-size:10px">24.5%</span>${ok==='yield'?'<span style="color:var(--muted);font-size:10px;margin-left:2px">(solid = sourced)</span>':''}</label>
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkPalmWLD" checked onchange="if(charts.palmProd){charts.palmProd.data.datasets[2].hidden=!this.checked;charts.palmProd.update()}"><span style="color:#94a3b8;font-weight:600">● World</span>${ok==='volume'?'<span style="color:var(--muted);font-size:10px;margin-left:3px">(right axis)</span>':''}</label>
         </div>`}
-        <div style="display:flex;gap:28px;align-items:stretch;margin-top:6px">
+        <div style="display:flex;gap:28px;align-items:flex-start;margin-top:6px">
           <div class="chart-wrap" style="height:300px;flex:1"><canvas id="chPalmProd"></canvas></div>
           <div id="yldHoverBox" class="ev-hover-box"><div class="ehb-section"><span style="color:var(--muted);font-size:11px">Hover a point</span></div></div>
         </div>
@@ -3092,7 +3092,7 @@ function detail(k){
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkCocoaIDN" checked onchange="if(charts.cocoaProd){charts.cocoaProd.data.datasets[3].hidden=!this.checked;charts.cocoaProd.update()}"><span style="color:#38bdf8;font-weight:600">● Indonesia</span><span style="color:var(--muted);font-size:10px">14.3%</span></label>
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkCocoaWLD" checked onchange="if(charts.cocoaProd){charts.cocoaProd.data.datasets[4].hidden=!this.checked;charts.cocoaProd.update()}"><span style="color:#94a3b8;font-weight:600">● World</span></label>
         </div>
-        <div style="display:flex;gap:28px;align-items:stretch;margin-top:6px">
+        <div style="display:flex;gap:28px;align-items:flex-start;margin-top:6px">
           <div class="chart-wrap" style="height:300px;flex:1"><canvas id="chCocoaProd"></canvas></div>
           <div id="cocoaProdHoverBox" class="ev-hover-box"><div class="ehb-section"><span style="color:var(--muted);font-size:11px">Hover a point</span></div></div>
         </div>
@@ -3141,7 +3141,7 @@ function detail(k){
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="checkbox" id="chkAvoWld" checked onchange="if(charts.avocadoProd){charts.avocadoProd.data.datasets[3].hidden=!this.checked;charts.avocadoProd.update()}"><span style="color:#94a3b8;font-weight:600">● World</span></label>
           `}
         </div>
-        <div style="display:flex;gap:28px;align-items:stretch;margin-top:6px">
+        <div style="display:flex;gap:28px;align-items:flex-start;margin-top:6px">
           <div class="chart-wrap" style="height:300px;flex:1"><canvas id="chAvocadoProd"></canvas></div>
           <div id="avocadoProdHoverBox" class="ev-hover-box"><div class="ehb-section"><span style="color:var(--muted);font-size:11px">Hover a point</span></div></div>
         </div>
@@ -3162,7 +3162,7 @@ function detail(k){
         <div style="display:flex;gap:8px;align-items:center;margin:8px 0 4px;flex-wrap:wrap">
           ${(()=>{const BEAN_CTRY={ara:['bra','col'],rob:['bra','vnm','idn']};const valid=BEAN_CTRY[_coffeeBeanType]||[];return [['bra','#4ade80','Brazil','ara,rob'],['vnm','#f97316','Vietnam','rob'],['col','#38bdf8','Colombia','ara'],['idn','#a78bfa','Indonesia','rob']].map(([c,clr,nm,beans])=>{const vis=valid.includes(c);const chk=!_coffeeOverlayHidden.has(c);return `<label class="coffeeOverlayDot" data-c="${c}" data-beans="${beans}" style="display:${vis?'flex':'none'};align-items:center;gap:4px;cursor:pointer;user-select:none"><input type="checkbox" ${chk?'checked':''} onchange="toggleCoffeeOverlay('${c}')" style="accent-color:${clr};width:13px;height:13px;cursor:pointer"><span style="color:${clr};font-weight:600;font-size:12px">● ${nm}</span></label>`;}).join('');})()}
         </div>
-        <div style="display:flex;gap:28px;align-items:stretch;margin-top:6px">
+        <div style="display:flex;gap:28px;align-items:flex-start;margin-top:6px">
           <div class="chart-wrap" style="height:300px;flex:1"><canvas id="chCoffeeProd"></canvas></div>
           <div id="coffeeProdHoverBox" class="ev-hover-box"><div class="ehb-section"><span style="color:var(--muted);font-size:11px">Hover a line</span></div></div>
         </div>
@@ -3193,7 +3193,8 @@ function detail(k){
         <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="col" onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','volume')"><span style="color:#38bdf8;font-weight:600">● Colombia</span><span style="color:var(--muted);font-size:10px">11.3%</span></label>
         <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="wld" onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','volume')"><span style="color:#94a3b8;font-weight:600">● World</span></label>
       </div>
-      <div style="font-size:11px;color:var(--muted);margin:-2px 0 4px">All countries = OWID/FAO 2000–2024. Hover any bar for El Niño context and contributing factors.</div>`:''}
+      <div style="font-size:11px;color:var(--muted);margin:-2px 0 4px">Hover any bar to see contributing factors.</div>
+`:''}
       ${k==='avocado'&&ok==='yield'?`<div style="display:flex;gap:16px;align-items:center;margin:8px 0 4px;flex-wrap:wrap">
         <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="col" checked onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','yield')"><span style="color:#38bdf8;font-weight:600">● Colombia</span></label>
         <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="avocadoBarSeries" value="wld" onchange="chartAvocadoBar(this.value);updateElNinoStats('avocado','yield')"><span style="color:#94a3b8;font-weight:600">● World avg</span></label>
@@ -3224,18 +3225,18 @@ function detail(k){
         ${(()=>{const BEAN_CTRY={ara:['bra','col'],rob:['bra','vnm','idn']};const valid=BEAN_CTRY[_coffeeBeanType]||[];return [['bra','#4ade80','Brazil','ara,rob'],['vnm','#f97316','Vietnam','rob'],['col','#38bdf8','Colombia','ara'],['idn','#a78bfa','Indonesia','rob']].map(([c,clr,nm,beans])=>{const act=c===(_coffeeBarCtry||'bra');const vis=valid.includes(c);return `<label class="coffeeBarCtryBtn" data-c="${c}" data-beans="${beans}" style="display:${vis?'flex':'none'};align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="coffeeBarCtry" value="${c}" ${act?'checked':''} onchange="setCoffeeBarCtry('${c}')"><span style="color:${clr};font-weight:600">● ${nm}</span></label>`;}).join('');})()}
       </div>
       <div style="font-size:11px;color:var(--muted);margin:-2px 0 4px">YoY% by country. Bean toggle filters available countries. SOURCE: USDA PSD / OWID.</div>`:''}
-      <div style="display:flex;gap:28px;align-items:stretch;margin-top:6px">
+      <div style="display:flex;gap:28px;align-items:flex-start;margin-top:6px">
         <div class="chart-wrap" style="height:320px;flex:1"><canvas id="chEvents"></canvas></div>
         <div id="evHoverBox" class="ev-hover-box"><div class="ehb-section"><span style="color:var(--muted);font-size:11px">Hover a bar</span></div></div>
       </div>
-      <div class="chart-cap">${outObj.label} — 2000 to 2025. <span style="color:#f59e0b;font-weight:700">Amber border = El Niño year</span> (all years in event span). <b>Solid bar = reported/sourced</b>; faded bar = Claude estimate. Cocoa: ICCO / Wells Fargo Securities Exhibit 9 (world total). Other commodities: trajectory data from named sources.</div>
+
       <div id="elninoStatsBox" style="margin:10px 0 0"></div>
     </div>
 
     <div class="panel">
       <div class="traj-details">
         <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:10px">
-          <span style="font-size:13px;font-weight:600;color:#e8eef4">📈 Outcome comparison</span>
+          <span class="section-t" style="margin-bottom:0">📈 Correlation Index</span>
           ${(k==='avocado'||k==='cocoa'||k==='palmoil'||k==='coffee')?dualModeToggle(k):''}
         </div>
         <div style="display:flex;gap:8px;align-items:center;margin-bottom:10px;flex-wrap:wrap">
@@ -3470,32 +3471,36 @@ function updateElNinoStats(k,ok){
     :(ensoDec>ensoRis?`fell ${ensoDec}/${ensoYrs.length}`:ensoRis>ensoDec?`rose ${ensoRis}/${ensoYrs.length}`:'mixed');
   const ctag=countryLabel?` · <span style="color:#94a3b8">${countryLabel}</span>`:'';
   const useLag=palmLag||avoLag;
-  const ensoLabel=isTemp?'El Ni\xF1o &amp; Super · °C anom':isWater?'El Ni\xF1o · onset-adj.':useLag?'Post El Ni\xF1o · lag +1 yr':'El Ni\xF1o &amp; Super';
-  const ensoSub=isTemp?`${ensoDir} · excl. Mild`:isWater?`${ensoDir} · late-onset shifted +1yr`:useLag?`${ensoDir} · incl. Mild`:`${ensoDir} · excl. Mild`;
-  const nonLabel=isTemp?'Non-El Ni\xF1o · °C anom':isWater?'Non-El Ni\xF1o precip':useLag?'Non-lag yrs':'Non-El Ni\xF1o';
+  const ensoSub=isTemp?`${ensoDir} · excl. Mild`:isWater?`${ensoDir} · late-onset adj.`:useLag?`${ensoDir} · incl. Mild`:`${ensoDir} · excl. Mild`;
   const nonSub=isWater||useLag||isTemp?`${nonYrs.length} yrs · all other`:`${nonYrs.length} yrs · excl. Mild`;
+  const ensoBoxTitle=useLag?'El Ni\xF1o Impact Mean <span style="font-weight:400;font-size:8px;color:#6b7280">(+1yr lag)</span>':isTemp||isWater?'El Ni\xF1o Years Mean':'El Ni\xF1o Years Mean';
+  const nonBoxTitle=useLag?'Other Years Mean':isTemp||isWater?'Neutral Years Mean':'Neutral Years Mean';
   box.innerHTML=`<div style="display:flex;gap:1px;flex-wrap:wrap">
-    <div style="flex:1;min-width:180px;padding:10px 16px;background:#0d1520;border-radius:6px 0 0 6px;border:1px solid #1e2d3f">
-      <div style="font-size:9px;text-transform:uppercase;letter-spacing:.05em;color:#6b7280;margin-bottom:3px">${ensoLabel}${ctag}</div>
-      <div style="font-size:22px;font-weight:700;color:${col(ensoMean)};line-height:1">${fmt(ensoMean)}</div>
-      <div style="font-size:10px;color:#6b7280;margin-top:4px">${ensoSub}</div>
-      <div style="display:flex;gap:14px;margin-top:8px;flex-wrap:wrap">
-        <div><div style="font-size:9px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em">Yrs</div><div style="font-weight:600;font-size:12px;color:#e8eef4">${ensoYrs.length}</div></div>
-        <div><div style="font-size:9px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em">Worst</div><div style="font-weight:600;font-size:12px;color:#f87171">${ensoMin!=null?fmt(ensoMin):'—'}</div></div>
-        <div><div style="font-size:9px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em">Best</div><div style="font-weight:600;font-size:12px;color:#4ade80">${ensoMax!=null?fmt(ensoMax):'—'}</div></div>
-        <div><div style="font-size:9px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em">Std Dev</div><div style="font-weight:600;font-size:12px;color:#e8eef4">${ensoStd!=null?'±'+ensoStd.toFixed(isTemp?2:1)+(isTemp?'°C':isWater?'mm':'%'):'—'}</div></div>
+    <div style="flex:1;min-width:150px;padding:8px 14px;background:#0d1520;border-radius:6px 0 0 6px;border:1px solid #1e2d3f">
+      <div style="font-size:9px;text-transform:uppercase;letter-spacing:.05em;color:#6b7280;margin-bottom:2px">${ensoBoxTitle}${ctag}</div>
+      <div style="font-size:20px;font-weight:700;color:${col(ensoMean)};line-height:1.1">${fmt(ensoMean)}</div>
+      <div style="font-size:9px;color:#6b7280;margin-top:3px">${ensoSub}</div>
+      <div style="display:flex;gap:10px;margin-top:6px;flex-wrap:wrap">
+        <div><div style="font-size:8px;color:#6b7280;text-transform:uppercase">n</div><div style="font-weight:600;font-size:11px;color:#e8eef4">${ensoYrs.length}</div></div>
+        <div><div style="font-size:8px;color:#6b7280;text-transform:uppercase">Worst</div><div style="font-weight:600;font-size:11px;color:#f87171">${ensoMin!=null?fmt(ensoMin):'—'}</div></div>
+        <div><div style="font-size:8px;color:#6b7280;text-transform:uppercase">Best</div><div style="font-weight:600;font-size:11px;color:#4ade80">${ensoMax!=null?fmt(ensoMax):'—'}</div></div>
+        <div><div style="font-size:8px;color:#6b7280;text-transform:uppercase">Std Dev</div><div style="font-weight:600;font-size:11px;color:#e8eef4">${ensoStd!=null?'±'+ensoStd.toFixed(isTemp?2:1)+(isTemp?'°C':isWater?'mm':'%'):'—'}</div></div>
       </div>
     </div>
-    <div style="flex:0.6;min-width:130px;padding:10px 16px;background:#0d1520;border-radius:0 6px 6px 0;border:1px solid #1e2d3f;border-left:none">
-      <div style="font-size:9px;text-transform:uppercase;letter-spacing:.05em;color:#6b7280;margin-bottom:3px">${nonLabel}${ctag}</div>
-      <div style="font-size:22px;font-weight:700;color:${col(nonMean)};line-height:1">${fmt(nonMean)}</div>
-      <div style="font-size:10px;color:#6b7280;margin-top:4px">${nonSub}</div>
-      <div style="display:flex;gap:14px;margin-top:8px;flex-wrap:wrap">
-        <div><div style="font-size:9px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em">Yrs</div><div style="font-weight:600;font-size:12px;color:#e8eef4">${nonYrs.length}</div></div>
-        <div><div style="font-size:9px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em">Worst</div><div style="font-weight:600;font-size:12px;color:#f87171">${nonMin!=null?fmt(nonMin):'—'}</div></div>
-        <div><div style="font-size:9px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em">Best</div><div style="font-weight:600;font-size:12px;color:#4ade80">${nonMax!=null?fmt(nonMax):'—'}</div></div>
-        <div><div style="font-size:9px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em">Std Dev</div><div style="font-weight:600;font-size:12px;color:#e8eef4">${nonStd!=null?'±'+nonStd.toFixed(isTemp?2:1)+(isTemp?'°C':isWater?'mm':'%'):'—'}</div></div>
+    <div style="flex:1;min-width:150px;padding:8px 14px;background:#0d1520;border:1px solid #1e2d3f;border-left:none">
+      <div style="font-size:9px;text-transform:uppercase;letter-spacing:.05em;color:#6b7280;margin-bottom:2px">${nonBoxTitle}${ctag}</div>
+      <div style="font-size:20px;font-weight:700;color:${col(nonMean)};line-height:1.1">${fmt(nonMean)}</div>
+      <div style="font-size:9px;color:#6b7280;margin-top:3px">${nonSub}</div>
+      <div style="display:flex;gap:10px;margin-top:6px;flex-wrap:wrap">
+        <div><div style="font-size:8px;color:#6b7280;text-transform:uppercase">n</div><div style="font-weight:600;font-size:11px;color:#e8eef4">${nonYrs.length}</div></div>
+        <div><div style="font-size:8px;color:#6b7280;text-transform:uppercase">Worst</div><div style="font-weight:600;font-size:11px;color:#f87171">${nonMin!=null?fmt(nonMin):'—'}</div></div>
+        <div><div style="font-size:8px;color:#6b7280;text-transform:uppercase">Best</div><div style="font-weight:600;font-size:11px;color:#4ade80">${nonMax!=null?fmt(nonMax):'—'}</div></div>
+        <div><div style="font-size:8px;color:#6b7280;text-transform:uppercase">Std Dev</div><div style="font-weight:600;font-size:11px;color:#e8eef4">${nonStd!=null?'±'+nonStd.toFixed(isTemp?2:1)+(isTemp?'°C':isWater?'mm':'%'):'—'}</div></div>
       </div>
+    </div>
+    <div style="flex:2;min-width:220px;padding:8px 14px;background:#0d1520;border-radius:0 6px 6px 0;border:1px solid #1e2d3f;border-left:none">
+      <div style="font-size:9px;text-transform:uppercase;letter-spacing:.05em;color:#6b7280;margin-bottom:5px">Factors</div>
+      <div id="barFactorText" style="font-size:10px;color:#94a3b8;line-height:1.55"><span style="color:#4b5563;font-style:italic">Hover a bar to see factors</span></div>
     </div>
   </div>`;
 }
@@ -3619,8 +3624,9 @@ function chartEvents(c,k){
       `<div class="ehb-section"><div class="ehb-label">Year</div><div class="ehb-yr">${r.label}</div></div>`+
       `<div class="ehb-section"><div class="ehb-label">YoY %</div><div class="ehb-pct" style="color:${yoyColor}">${yoyStr}</div></div>`+
       `<div class="ehb-section"><div class="ehb-label">Severity</div><div class="ehb-sev ${sevCls}" style="visibility:${sev?'visible':'hidden'}">${sev||'—'}</div></div>`+
-      `${r.note?`<div class="ehb-section"><div class="ehb-label">${r.src==='rep'?'Source':'Estimate'}</div><div class="ehb-note">${r.note}</div></div>`:''}`+
-      `${factor?`<div class="ehb-section"><div class="ehb-label">Factors</div><div class="ehb-note">${factor}</div></div>`:''}`;
+      `${r.note?`<div class="ehb-section"><div class="ehb-label">${r.src==='rep'?'Source':'Estimate'}</div><div class="ehb-note">${r.note}</div></div>`:''}`;
+    const fb=document.getElementById('barFactorText');
+    if(fb) fb.innerHTML=factor||'<span style="color:#4b5563;font-style:italic">No factors noted for this year</span>';
   }
   if(charts.ev){charts.ev.destroy();charts.ev=null;}
   charts.ev=new Chart(ctx,{type:'bar',data:{labels,datasets:[{data:vals,
@@ -4022,8 +4028,9 @@ function chartPalmBar(country){
       `<div class="ehb-section"><div class="ehb-label">Year</div><div class="ehb-yr">${s.yr}</div></div>`+
       `<div class="ehb-section"><div class="ehb-label">YoY %</div><div class="ehb-pct" style="color:${yoyColor}">${yoyStr}</div></div>`+
       `<div class="ehb-section"><div class="ehb-label">Severity</div><div class="ehb-sev ${sevCls}" style="visibility:${sev?'visible':'hidden'}">${sev||'—'}</div></div>`+
-      `${s.note?`<div class="ehb-section"><div class="ehb-label">${s.src==='rep'?'Source':'Estimate'}</div><div class="ehb-note">${s.note}</div></div>`:''}`+
-      `${factor?`<div class="ehb-section"><div class="ehb-label">Factors</div><div class="ehb-note">${factor}</div></div>`:''}`;
+      `${s.note?`<div class="ehb-section"><div class="ehb-label">${s.src==='rep'?'Source':'Estimate'}</div><div class="ehb-note">${s.note}</div></div>`:''}`;
+    const fb=document.getElementById('barFactorText');
+    if(fb) fb.innerHTML=factor||'<span style="color:#4b5563;font-style:italic">No factors noted for this year</span>';
   }
   charts.ev=new Chart(canv,{type:'bar',data:{labels,datasets:[{
     data:vals,backgroundColor:bg,borderColor,borderWidth:1,borderRadius:3
@@ -4110,8 +4117,9 @@ function chartPalmYieldBar(country){
       `<div class="ehb-section"><div class="ehb-label">Year</div><div class="ehb-yr">${r.label}</div></div>`+
       `<div class="ehb-section"><div class="ehb-label">YoY %</div><div class="ehb-pct" style="color:${yoyColor}">${yoyStr}</div></div>`+
       `<div class="ehb-section"><div class="ehb-label">Severity</div><div class="ehb-sev ${sevCls}" style="visibility:${sev?'visible':'hidden'}">${sev||'—'}</div></div>`+
-      `${r.note?`<div class="ehb-section"><div class="ehb-label">${r.src==='rep'?'Source':'Estimate'}</div><div class="ehb-note">${r.note}</div></div>`:''}`+
-      `${factor?`<div class="ehb-section"><div class="ehb-label">Factors</div><div class="ehb-note">${factor}</div></div>`:''}`;
+      `${r.note?`<div class="ehb-section"><div class="ehb-label">${r.src==='rep'?'Source':'Estimate'}</div><div class="ehb-note">${r.note}</div></div>`:''}`;
+    const fb=document.getElementById('barFactorText');
+    if(fb) fb.innerHTML=factor||'<span style="color:#4b5563;font-style:italic">No factors noted for this year</span>';
   }
   charts.ev=new Chart(canv,{type:'bar',data:{labels,datasets:[{
     data:vals,backgroundColor:bg,borderColor,borderWidth:1,borderRadius:3
@@ -4203,8 +4211,9 @@ function chartCocoaBar(country){
       `<div class="ehb-section"><div class="ehb-label">Year</div><div class="ehb-yr">${s.yr}</div></div>`+
       `<div class="ehb-section"><div class="ehb-label" style="color:${CCLR[country]}">${cname[country]}</div><div class="ehb-pct" style="color:${CCLR[country]}">${yoyStr}</div></div>`+
       `<div class="ehb-section"><div class="ehb-label">Severity</div><div class="ehb-sev ${sevCls}" style="visibility:${sev?'visible':'hidden'}">${sev||'—'}</div></div>`+
-      `${s.note?`<div class="ehb-section"><div class="ehb-label">${s.src==='rep'?'Source':'Estimate'}</div><div class="ehb-note">${s.note}</div></div>`:''}`+
-      `${factor?`<div class="ehb-section"><div class="ehb-label">Factors</div><div class="ehb-note">${factor}</div></div>`:''}`;
+      `${s.note?`<div class="ehb-section"><div class="ehb-label">${s.src==='rep'?'Source':'Estimate'}</div><div class="ehb-note">${s.note}</div></div>`:''}`;
+    const fb=document.getElementById('barFactorText');
+    if(fb) fb.innerHTML=factor||'<span style="color:#4b5563;font-style:italic">No factors noted for this year</span>';
   }
   charts.ev=new Chart(canv,{type:'bar',data:{labels,datasets:[{
     data:vals,backgroundColor:bg,borderColor,borderWidth:1,borderRadius:3
@@ -4526,8 +4535,9 @@ function chartAvocadoBar(country){
       `<div class="ehb-section"><div class="ehb-label" style="color:${CCLR[country]}">${cname[country]}</div><div class="ehb-pct" style="color:${CCLR[country]}">${yoyStr}</div></div>`+
       `<div class="ehb-section"><div class="ehb-label">${valLabel}</div><div style="font-size:11px;color:var(--text-2);font-weight:600">${s.val!=null?s.val.toFixed(ok==='yield'?2:1):'-'}</div></div>`+
       `<div class="ehb-section"><div class="ehb-label">Severity</div><div class="ehb-sev ${sevCls}" style="visibility:${sev?'visible':'hidden'}">${sev||'—'}</div></div>`+
-      `${srcNote?`<div class="ehb-section"><div class="ehb-label">${s.src==='rep'?'Source':'Estimate'}</div><div class="ehb-note">${srcNote}</div></div>`:''}`+
-      `${factor?`<div class="ehb-section"><div class="ehb-label">Factors</div><div class="ehb-note">${factor}</div></div>`:''}`;
+      `${srcNote?`<div class="ehb-section"><div class="ehb-label">${s.src==='rep'?'Source':'Estimate'}</div><div class="ehb-note">${srcNote}</div></div>`:''}`;
+    const fb=document.getElementById('barFactorText');
+    if(fb) fb.innerHTML=factor||'<span style="color:#4b5563;font-style:italic">No factors noted for this year</span>';
   }
   charts.ev=new Chart(canv,{type:'bar',data:{labels,datasets:[{
     data:vals,backgroundColor:bg,borderColor,borderWidth:1,borderRadius:3
@@ -5006,8 +5016,9 @@ function chartCoffeeBar(country){
       `<div class="ehb-section"><div class="ehb-label">Year</div><div class="ehb-yr">${d.yr}</div></div>`+
       `<div class="ehb-section"><div class="ehb-label" style="color:${clr}">${cname[country]||country}</div><div class="ehb-pct" style="color:${vColor}">${vStr}</div></div>`+
       `<div class="ehb-section"><div class="ehb-label">Severity</div><div class="ehb-sev ${sevCls}" style="visibility:${sev?'visible':'hidden'}">${sev||'—'}</div></div>`+
-      `<div class="ehb-section"><div class="ehb-label">${d.src==='rep'?'Source':'Estimate'}</div><div class="ehb-note">${unitLabel}</div></div>`+
-      `${factor?`<div class="ehb-section"><div class="ehb-label">Factors</div><div class="ehb-note">${factor}</div></div>`:''}`;
+      `<div class="ehb-section"><div class="ehb-label">${d.src==='rep'?'Source':'Estimate'}</div><div class="ehb-note">${unitLabel}</div></div>`;
+    const fb=document.getElementById('barFactorText');
+    if(fb) fb.innerHTML=factor||'<span style="color:#4b5563;font-style:italic">No factors noted for this year</span>';
   }
   charts.ev=new Chart(canv,{type:'bar',data:{labels,datasets:[{
     data:vals,backgroundColor:bgFinal,borderColor:bgFinal.map(b=>b),borderWidth:1,borderRadius:3
@@ -5390,25 +5401,25 @@ function chartDual(k){
     const str=absR==null?'insufficient data':absR>=0.6?'strong':absR>=0.35?'moderate':'weak';
     const notes={
       // ── AVOCADO country-specific ──────────────────────────────────────────
-      'avocado|volumeYoy+yieldYoy|mex':'Mexico is the largest single supplier (~30% of world). Both series are detrended so shared time trends are removed. Co-movement here reflects real weather shocks — the 2010 La Niña (−10% volume, −11% yield) and 2023 El Niño (+17% volume, +19% yield) are the clearest joint signals. Alternate bearing cycles also cause both to move together independently of weather.',
+      'avocado|volumeYoy+yieldYoy|mex':'Mexico is the largest single supplier (~30% of world). Both series are detrended so shared time trends are removed. Co-movement here reflects real weather shocks — the 2010 La Niña (−10% volume, −11% yield) and 2023 El Niño (+17% volume, +9% yield) are the clearest joint signals. Alternate bearing cycles also cause both to move together independently of weather.',
       'avocado|volumeYoy+yieldYoy|per':'Peru\'s volume YoY has been structurally driven by Hass orchard expansion in La Libertad — new area coming online each year can push volume up even in a bad yield year. The 2015 El Niño shows this decoupling: yield fell −5.1% while volume still grew from new area. A convergence of both falling together is the strongest signal of a true weather shock.',
       'avocado|volumeYoy+yieldYoy|col':'Colombia\'s data is dominated by structural expansion — Hass belt plantings drove volume YoY of +44% (2018) and +55% (2020) unrelated to weather. Yield YoY tracks orchard maturity cycles more than ENSO. A meaningful ENSO signal only appears when weather is severe enough to override expansion momentum (2023 El Niño drought: volume flat, yield held at 10.2 t/ha).',
       'avocado|volumeYoy+yieldYoy|wld':'World-level averages blend Mexico\'s weather exposure with Peru\'s opposite ENSO response and Colombia\'s expansion-driven growth. This dilutes all weather signals — a strong El Niño that hurts Mexico is partially offset by Peru and hidden by Colombia\'s structural growth. Country-level analysis is more informative than world totals for ENSO.',
-      'avocado|oni+yieldYoy|mex':'Mexico is ~80% irrigated in Michoacán. El Niño drought is partially buffered, so the ONI→yield link is weak. The main mechanism is caliber compression (smaller fruit from heat during Dec–Apr blooming), which reduces export value but not necessarily kg/ha yield. The 2023 El Niño paradoxically produced record yield — drought stress concentrated carbohydrates.',
-      'avocado|oni+yieldYoy|per':'Counter-intuitive for Peru: El Niño years bring coastal flooding, not drought. Flooding can disrupt flowering in La Libertad but irrigated Hass is resilient. Peru\'s primary weather risk is La Niña (cold coastal currents reduce moisture). Expect weak or even positive ONI–yield correlation for Peru.',
-      'avocado|oni+yieldYoy|col':'Colombia\'s Andean belt experiences El Niño as drought — the same direction as Mexico. However Colombia\'s orchards are younger and less irrigated than Mexico\'s, making them more vulnerable. The 2015–16 super El Niño produced Colombia\'s yield cycle low (7.35 t/ha in 2016). Expect a weak negative correlation masked by expansion noise.',
-      'avocado|oni+yieldYoy|wld':'World yield YoY is dominated by Mexico (largest producer) and diluted by Peru\'s opposite ENSO response. The net ENSO signal at world level is near zero for yield — expansion in Colombia and Peru structurally dominates.',
-      'avocado|oni+volumeYoy|mex':'Mexico production YoY mixes weather with area expansion and alternate bearing. The 2010 La Niña (−10%) and 2023 El Niño (+17%) are weather-driven outliers in an otherwise expansion-driven series. Correlation is weak because most years ENSO is mild and orchard growth dominates.',
-      'avocado|oni+volumeYoy|per':'Peru production YoY is primarily driven by orchard expansion, not weather. El Niño (flooding) is a mild headwind for Peru; La Niña is more disruptive. Most positive ONI years show flat-to-positive Peru volume. The correlation is expected to be near zero or slightly negative at lag 0.',
-      'avocado|oni+volumeYoy|col':'Colombia volume YoY has been driven almost entirely by new orchard area (2018: +44%, 2020: +55%). El Niño drought in the Andean belt was severe in 2015–16 but Colombia was a small producer then. By 2023, drought held volume flat — the first meaningful ENSO signal in Colombia production data.',
-      'avocado|oni+volumeYoy|wld':'World avocado volume has grown ~4× since 2000 driven by Colombia and Peru expansion. This structural growth dominates all weather signals. The ONI–world volume YoY correlation captures only the Mexico weather shock, diluted by expansion in other countries.',
-      'avocado|water+yieldYoy|mex':'Mexico\'s most direct weather-to-yield test. Michoacán is irrigated, so mild drought years show weak signal. The strongest events: La Niña 2010 (+130mm but yield −11% — excess moisture damaged blooms) and El Niño 2023 (−193mm yet yield +19% — drought stress concentrated carbohydrates). The relationship is non-linear: moderate drought has little impact, but extremes in both directions can hurt.',
-      'avocado|water+yieldYoy|per':'Note: Peru\'s coastal avocado belt (La Libertad) relies on Andean river irrigation, not rainfall — national precipitation anomaly does not drive yields here. This combination is shown for reference only. El Niño brings coastal flooding rather than drought, but irrigated orchards are largely insulated from rainfall variability. Any apparent correlation is coincidental rather than causal.',
-      'avocado|water+yieldYoy|col':'Colombia\'s Andean avocado belt is rain-dependent (less irrigation than Mexico). Precipitation anomaly should show a clearer positive correlation with yield YoY than Mexico: drier years (negative anomaly) → lower yield. The 2015–16 El Niño drought sequence (−154mm, then +8mm) led to Colombia\'s yield cycle low in 2016.',
-      'avocado|water+yieldYoy|wld':'World yield YoY blends three countries with different precipitation exposures. Mexico\'s irrigation dampens the signal; Peru\'s ENSO direction is opposite to Mexico\'s; Colombia adds noise. Country-level is more informative.',
-      'avocado|temperature+yieldYoy|mex':'Heat during the Dec–Apr blooming window reduces fruit caliber (size grade), which compresses export value but may not reduce kg/ha yield. The 2023 El Niño showed record heat AND record yield simultaneously — the dominant mechanism may be drought-accelerated maturation rather than heat-stress yield loss. Interpretation is complex.',
-      'avocado|temperature+yieldYoy|per':'Peru\'s coastal climate means El Niño brings warm, wet conditions — not the dry heat Mexico experiences. Temperature anomaly for Peru under El Niño is positive but the effect on Hass yield is mixed. The irrigated Hass systems in La Libertad are relatively temperature-resilient.',
-      'avocado|temperature+yieldYoy|col':'Colombia\'s Andean belt avocado grows at elevation (1,500–2,200m) where temperature anomalies from El Niño are felt differently than coastal regions. Heat stress at high elevation can disrupt flowering timing. Colombia yield shows a clearer temperature sensitivity than Mexico given less irrigation buffer.',
+      'avocado|oni+yieldYoy|mex':'At 1-year lag, El Niño ONI shows a negative correlation with Mexico yield YoY — drought stress during the flowering window (Dec–Apr) impairs fruit set, with the full yield impact showing in the harvest measured the following year. The signal is moderate rather than strong: Michoacán\'s commercial orchards are partially drip-irrigated, which buffers mild drought years. The clearest signals come from extremes — 2015–16 super El Niño (severe Michoacán drought) and 2010 La Niña (excess moisture damaged blooms). The 2023 El Niño was anomalous: severe drought yet record yield, likely because carbohydrate concentration in smaller fruit inflated kg/ha.',
+      'avocado|oni+yieldYoy|per':'At 1-year lag, the ONI–Peru yield relationship is weak and near-zero. El Niño brings coastal flooding to La Libertad rather than drought — the opposite of Mexico — and irrigated Hass orchards are largely insulated from rainfall variability. Peru\'s primary ENSO risk is La Niña (cold coastal currents reduce river flows and irrigation water). Any apparent lag-1 correlation for Peru is likely noise rather than signal.',
+      'avocado|oni+yieldYoy|col':'At 1-year lag, El Niño shows a negative correlation with Colombia yield YoY. El Niño dries the Andean belt (Antioquia, Tolima) — the same direction as Mexico but with a more direct impact since Colombian orchards are less irrigated. The 2015–16 super El Niño produced Colombia\'s yield cycle low (7.35 t/ha in 2016), one year after peak ONI. Expansion noise in recent years dilutes the statistical correlation.',
+      'avocado|oni+yieldYoy|wld':'At 1-year lag, world yield YoY shows a diluted ONI signal. Mexico (the dominant producer) drives a negative direction, but Peru contributes the opposite relationship and Colombia\'s rapid orchard expansion overrides weather in most years. The net lag-1 r at world level is weaker than any individual country — use country-level views for causal interpretation.',
+      'avocado|oni+volumeYoy|mex':'At 1-year lag, El Niño ONI has a negative relationship with Mexico volume YoY — drought during flowering reduces the harvestable crop one year later. The effect is moderate: alternate bearing cycles and orchard expansion can move volume independently. The 2010 La Niña (−10% volume) and 2023 El Niño (+17% — anomalous, drought concentrated fruit) bracket the range of outcomes.',
+      'avocado|oni+volumeYoy|per':'At 1-year lag, the ONI–Peru volume relationship is near-zero. Peru\'s volume growth is driven almost entirely by new Hass orchard area coming online — structural expansion dominates weather in most years. El Niño flooding is a mild headwind; La Niña is Peru\'s larger risk. Only a catastrophic flood event would show clearly in the lag-1 correlation.',
+      'avocado|oni+volumeYoy|col':'At 1-year lag, Colombia shows a weak negative ONI–volume relationship. El Niño dries the Andean belt, but Colombia\'s volume YoY has been driven by massive orchard expansion (2018: +44%, 2020: +55%) that overwhelms weather signals in most years. The 2023 El Niño was the first event strong enough to hold volume flat despite expansion momentum.',
+      'avocado|oni+volumeYoy|wld':'At 1-year lag, world avocado volume shows a weak negative ONI correlation — driven primarily by Mexico\'s El Niño drought exposure. The signal is diluted by Peru\'s opposite ENSO response and Colombia\'s structural expansion. A strong world-level lag-1 signal only emerges when El Niño is severe enough to simultaneously hurt Mexico output and arrest Colombia growth.',
+      'avocado|water+yieldYoy|mex':'At 1-year lag, Mexico precipitation shows a moderate positive correlation (~30% r) with the following year\'s yield YoY — drier years lead to lower yield one year later. The mechanism: drought stress during the Dec–Apr bloom window impairs fruit set, with the harvest effect realized in the following crop year. The correlation is moderate rather than strong because commercial Michoacán operations are partially drip-irrigated. Extreme anomalies in either direction can hurt through different mechanisms (excess moisture damages blooms; severe drought concentrates carbohydrates but stresses fruit set).',
+      'avocado|water+yieldYoy|per':'At 1-year lag, Peru\'s precipitation anomaly shows near-zero correlation with yield YoY. Peru\'s coastal avocado belt (La Libertad) relies on Andean river irrigation — national precipitation anomaly does not drive yields here. El Niño brings coastal flooding rather than drought, but irrigated orchards are largely insulated. Any apparent lag-1 correlation is coincidental rather than causal.',
+      'avocado|water+yieldYoy|col':'At 1-year lag, Colombia shows a negative correlation between precipitation and yield YoY — more rain leads to lower yield the following year. Colombia\'s avocado belt (Antioquia, Tolima) sits in already high-humidity Andean terrain with abundant baseline rainfall. Excess moisture drives Phytophthora root rot and fungal disease pressure, so wet years hurt yield and drier years help. El Niño\'s drying effect in the Andes is therefore mildly positive for Colombian yield — the opposite direction from Mexico.',
+      'avocado|water+yieldYoy|wld':'At 1-year lag, world yield YoY blends three countries with opposing precipitation exposures. Mexico has a positive lag-1 signal (~30% r) — more rain leads to higher yield. Colombia has a negative lag-1 signal — excess moisture drives fungal disease. Peru is near-zero. These opposing directions partially cancel at the world level, producing a diluted correlation. Country-level views are more informative.',
+      'avocado|temperature+yieldYoy|mex':'At 1-year lag, heat anomaly shows a complex relationship with Mexico yield YoY. Heat during the Dec–Apr blooming window impairs fruit set by compressing caliber (size grade) — the full yield impact registers in the following harvest year. However the 2023 El Niño showed record heat AND record yield simultaneously, suggesting drought-accelerated maturation can override heat stress in some years. The lag-1 correlation is likely weak and noisy.',
+      'avocado|temperature+yieldYoy|per':'At 1-year lag, Peru\'s temperature anomaly shows a weak relationship with yield YoY. El Niño warms Peru\'s coast, but irrigated Hass orchards in La Libertad are relatively temperature-resilient. The primary temperature risk is during flowering — sustained heat above ~35°C can impair pollination — but this threshold is rarely reached in the La Libertad growing zone.',
+      'avocado|temperature+yieldYoy|col':'At 1-year lag, Colombia shows a moderate temperature sensitivity in yield YoY. Andean avocado grows at 1,500–2,200m elevation where El Niño warming can disrupt flowering timing — the full impact registers in the following harvest year. Colombia\'s orchards have less irrigation buffer than Mexico, making them more exposed to heat-induced bloom failure.',
       // ── COCOA country-specific ────────────────────────────────────────────
       'cocoa|volumeYoy+yieldYoy|civ':'Côte d\'Ivoire produces ~40% of world cocoa. Both volume and yield YoY should respond to the same Harmattan drought signal. The 2023–24 El Niño was the clearest joint signal in recent years: CIV output fell ~−15% on volume while yield per hectare collapsed from disease and dryness. Alternate bearing and black pod disease can drive both series even without ENSO.',
       'cocoa|volumeYoy+yieldYoy|gha':'Ghana (~20% of world) amplifies or dampens CIV\'s signal. Ghanaian smallholder farms are more exposed to weather shocks due to lower input use (fertilizer, fungicide). The 2023–24 El Niño was particularly severe in Ghana — main crop shortfall of ~25% vs target. Co-movement with CIV in bad ENSO years is strong.',
@@ -5600,9 +5611,9 @@ function chartDual(k){
       c2.textAlign='center';c2.textBaseline='middle';
       c2.fillStyle='#cbd5e1';c2.font='bold 11px system-ui,sans-serif';c2.fillText(labels[ni],bx+bw/2,by+11);
       c2.textAlign='left';
-      c2.fillStyle='#a78bfa';c2.font='10px system-ui,sans-serif';
+      c2.fillStyle='#38bdf8';c2.font='10px system-ui,sans-serif';
       c2.fillText(label1+': '+fmtVal(vals1[ni],unit1),bx+8,by+28);
-      c2.fillStyle='#fb923c';
+      c2.fillStyle='#a3e635';
       c2.fillText(label2+': '+fmtVal(vals2[ni],unit2),bx+8,by+44);
       c2.restore();
     }
