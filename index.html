@@ -652,7 +652,8 @@ C.cocoa.outcomes={
 C.palmoil.outcomes={
   volume:     {label:'CPO Production',         unit:'total output YoY %', events:C.palmoil.events},
   yield:      {label:'FFB Yield / Hectare',    unit:'t/ha YoY %',         events:{'2002-03':{dev:-4,src:'est'},'2004-05':{dev:-2,src:'est'},'2006-07':{dev:-9,src:'rep'},'2009-10':{dev:2,src:'rep'},'2014-16':{prod:15.91,base:18.48,src:'rep'},'2018-19':{dev:0,src:'rep'},'2023-24':{dev:-5,src:'est'}}},  // 2014-16: MPOB Overview_of_Industry_2016.pdf vs 2015.pdf (15.91 vs 18.48 t/ha = −13.9%)
-  extraction: {label:'Oil Extraction Rate',   unit:'OER YoY %',           events:{'2002-03':{dev:-5,src:'est'},'2004-05':{dev:-2,src:'est'},'2006-07':{dev:-7,src:'est'},'2009-10':{dev:-4,src:'est'},'2014-16':{prod:20.18,base:20.46,src:'rep'},'2018-19':{dev:-2,src:'est'},'2023-24':{dev:-7,src:'est'}}}
+  extraction: {label:'Oil Extraction Rate',   unit:'OER YoY %',           events:{'2002-03':{dev:-5,src:'est'},'2004-05':{dev:-2,src:'est'},'2006-07':{dev:-7,src:'est'},'2009-10':{dev:-4,src:'est'},'2014-16':{prod:20.18,base:20.46,src:'rep'},'2018-19':{dev:-2,src:'est'},'2023-24':{dev:-7,src:'est'}}},
+  water:      {label:'Precipitation Anomaly', unit:'mm vs 1991–2020 baseline (Copernicus ERA5 via OWID)', events:{'2002-03':{dev:-490,src:'rep'},'2004-05':{dev:-404,src:'rep'},'2006-07':{dev:-263,src:'rep'},'2009-10':{dev:-242,src:'rep'},'2014-16':{dev:-399,src:'rep'},'2018-19':{dev:-332,src:'rep'},'2023-24':{dev:-249,src:'rep'}}},
 };
 
 C.sugar.outcomes={
@@ -828,6 +829,11 @@ C.palmoil.outcomes.extraction.why=[
   "Drought causes premature ripening of fruit: dehydrated bunches yield less oil per tonne processed even if harvested on schedule.",
   "Heat stress increases free fatty acid (FFA) content in ripe fruit — lower-quality oil with a smaller refinable fraction reduces effective OER.",
   "Haze and smoke exposure during harvest accelerates oxidation of fruit bunches before milling, further reducing extractable oil."
+];
+C.palmoil.outcomes.water.why=[
+  "El Niño drives drought across the Maritime Continent — Indonesia 2015: −399mm, 2019: −332mm, 2002: −490mm vs 1991–2020 baseline (Copernicus ERA5 via OWID). These are the three largest drought anomalies in the dataset and correspond to the clearest FFB yield suppression events.",
+  "La Niña produces the opposite signal: Indonesia 2010: +573mm, 2016: +554mm — excess moisture can also hurt yield through waterlogging, root disease (Ganoderma), and harvest access disruption.",
+  "Malaysia tracks Indonesia directionally but with smaller anomaly magnitudes — 2015: −205mm, 2019: −370mm. The 1-year lag between precipitation deficit and FFB yield suppression is the primary analytical signal."
 ];
 C.sugar.outcomes.volume.why=[
   "The South Asian monsoon (Jun–Sep) provides 75% of India's annual rainfall — a below-normal monsoon cuts cane biomass by 20–40% in the worst events.",
@@ -3173,12 +3179,12 @@ function detail(k){
 
     <div class="panel">
       <div class="section-t"><span>📊</span> ${ok==='volume'?'Annual production outcomes':ok==='yield'?'Annual yield outcomes (tonnes per hectare)':ok==='water'?'Annual precipitation anomaly':ok==='temperature'?'Annual temperature anomaly':ok==='export'?'Annual export outcomes':'Annual production outcomes'} — all years</div>
-      ${k==='palmoil'&&(ok==='volume'||ok==='yield')?`<div style="display:flex;gap:16px;align-items:center;margin:8px 0 4px;flex-wrap:wrap">
-        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="palmBarSeries" value="id" ${ok==='volume'?'checked':''} onchange="getOutcome('palmoil')==='volume'?chartPalmBar(this.value):chartPalmYieldBar(this.value);updateElNinoStats('palmoil',getOutcome('palmoil'))"><span style="color:#38bdf8;font-weight:600">● Indonesia</span></label>
-        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="palmBarSeries" value="my" ${ok==='yield'?'checked':''} onchange="getOutcome('palmoil')==='volume'?chartPalmBar(this.value):chartPalmYieldBar(this.value);updateElNinoStats('palmoil',getOutcome('palmoil'))"><span style="color:#4ade80;font-weight:600">● Malaysia</span></label>
-        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="palmBarSeries" value="wld" onchange="getOutcome('palmoil')==='volume'?chartPalmBar(this.value):chartPalmYieldBar(this.value);updateElNinoStats('palmoil',getOutcome('palmoil'))"><span style="color:#94a3b8;font-weight:600">● World</span></label>
+      ${k==='palmoil'&&(ok==='volume'||ok==='yield'||ok==='water')?`<div style="display:flex;gap:16px;align-items:center;margin:8px 0 4px;flex-wrap:wrap">
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="palmBarSeries" value="id" ${ok==='volume'||ok==='water'?'checked':''} onchange="const _ok=getOutcome('palmoil');_ok==='volume'?chartPalmBar(this.value):_ok==='yield'?chartPalmYieldBar(this.value):null;updateElNinoStats('palmoil',_ok)"><span style="color:#38bdf8;font-weight:600">● Indonesia</span></label>
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="palmBarSeries" value="my" ${ok==='yield'?'checked':''} onchange="const _ok=getOutcome('palmoil');_ok==='volume'?chartPalmBar(this.value):_ok==='yield'?chartPalmYieldBar(this.value):null;updateElNinoStats('palmoil',_ok)"><span style="color:#4ade80;font-weight:600">● Malaysia</span></label>
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="palmBarSeries" value="wld" onchange="const _ok=getOutcome('palmoil');_ok==='volume'?chartPalmBar(this.value):_ok==='yield'?chartPalmYieldBar(this.value):null;updateElNinoStats('palmoil',_ok)"><span style="color:#94a3b8;font-weight:600">● World</span></label>
       </div>
-      <div style="font-size:11px;color:var(--muted);margin:-2px 0 4px">${ok==='volume'?'World = USDA PSD global total (all countries summed)':'World = USDA PSD area-weighted avg — total CPO ÷ total harvested ha (dominated by ID + MY ~85%)'}</div>`:''}
+      <div style="font-size:11px;color:var(--muted);margin:-2px 0 4px">${ok==='volume'?'World = USDA PSD global total (all countries summed)':ok==='water'?'Source: Copernicus ERA5 via Our World in Data. mm vs 1991–2020 baseline.':'World = USDA PSD area-weighted avg — total CPO ÷ total harvested ha (dominated by ID + MY ~85%)'}</div>`:''}
       ${k==='cocoa'&&(ok==='volume'||ok==='yield')?`<div style="display:flex;gap:16px;align-items:center;margin:8px 0 4px;flex-wrap:wrap">
         <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="civ" checked onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa',getOutcome('cocoa'))"><span style="color:#fb923c;font-weight:600">● Côte d'Ivoire</span></label>
         <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;user-select:none"><input type="radio" name="cocoaBarSeries" value="gha" onchange="chartCocoaBar(this.value);updateElNinoStats('cocoa',getOutcome('cocoa'))"><span style="color:#facc15;font-weight:600">● Ghana</span></label>
@@ -3380,6 +3386,11 @@ function updateElNinoStats(k,ok){
     countryLabel={id:'Indonesia',my:'Malaysia',wld:'World'}[c]||c;
     if(c==='my') yrData=buildAnnualSeries('palmoil','yield').filter(d=>d.yoy!=null).map(d=>({yr:parseInt(d.label),yoy:d.yoy}));
     else{const raw=C.palmoil.cpoYield[c]||[];for(let i=1;i<raw.length;i++) if(raw[i].v&&raw[i-1].v) yrData.push({yr:parseInt(raw[i].yr),yoy:(raw[i].v/raw[i-1].v-1)*100});}
+  } else if(k==='palmoil'&&ok==='water'){
+    const c=document.querySelector('input[name="palmBarSeries"]:checked')?.value||'id';
+    countryLabel={id:'Indonesia',my:'Malaysia',wld:'World'}[c]||c;
+    const raw=C.palmoil.countryWater[c]||[];
+    yrData=raw.filter(d=>d.anom!=null).map(d=>({yr:parseInt(d.yr),yoy:d.anom,src:d.src}));
   } else if(k==='coffee'){
     const c=_coffeeBarCtry||'bra';
     countryLabel={bra:'Brazil',vnm:'Vietnam',col:'Colombia',idn:'Indonesia'}[c]||c;
@@ -3403,10 +3414,10 @@ function updateElNinoStats(k,ok){
   // Avocado uses simple +1 yr lag (6-month biological lag → annual data → yr+1)
   // All other commodities: El Niño+Super vs non-ENSO (Mild excluded from both)
   let ensoYrs,nonYrs;
-  const palmLag=k==='palmoil';
+  const palmLag=k==='palmoil'&&ok!=='water';
   const avoLag=k==='avocado'&&(ok==='volume'||ok==='yield'||ok==='export');
   const avoWater=k==='avocado'&&ok==='water';
-  const isWater=avoWater;
+  const isWater=avoWater||(k==='palmoil'&&ok==='water');
   const isTemp=(k==='avocado'&&ok==='temperature');
   // Onset month (1–12) for each El Niño event — used by palm oil lag window and water onset-adj
   const ONSET={'2002-03':[2002,6],'2004-05':[2004,7],'2006-07':[2006,9],
@@ -3462,8 +3473,9 @@ function updateElNinoStats(k,ok){
   const nonStd=sdv(nonYrs,nonMean);
   const fmt=v=>v==null?'—':isTemp?((v>0?'+':'')+v.toFixed(2)+'°C'):isWater?((v>0?'+':'')+v.toFixed(1)+'mm'):((v>0?'+':'')+v.toFixed(1)+'%');
   // Temperature: warming = heat stress = red; cooling = green. All others: negative = red, positive = green.
-  const col=v=>v==null?'#94a3b8':isTemp?(v>0.3?'#f87171':v<-0.1?'#4ade80':'#94a3b8'):isWater?(v<-20?'#f87171':v>20?'#4ade80':'#94a3b8'):(v<-0.5?'#f87171':v>0.5?'#4ade80':'#94a3b8');
-  const threshold=isTemp?0.1:isWater?20:0.5;
+  const waterThresh=k==='palmoil'?50:20;
+  const col=v=>v==null?'#94a3b8':isTemp?(v>0.3?'#f87171':v<-0.1?'#4ade80':'#94a3b8'):isWater?(v<-waterThresh?'#f87171':v>waterThresh?'#4ade80':'#94a3b8'):(v<-0.5?'#f87171':v>0.5?'#4ade80':'#94a3b8');
+  const threshold=isTemp?0.1:isWater?waterThresh:0.5;
   const ensoDec=ensoYrs.filter(d=>d.yoy<-threshold).length,ensoRis=ensoYrs.filter(d=>d.yoy>threshold).length;
   const ensoDir=!ensoYrs.length?'—':isTemp
     ?(ensoRis>ensoDec?`warmer ${ensoRis}/${ensoYrs.length}`:ensoDec>ensoRis?`cooler ${ensoDec}/${ensoYrs.length}`:'mixed')
@@ -4949,7 +4961,7 @@ function chartAvocadoProd(){
 const DUAL_DRIVERS={
   avocado:[{v:'oni',l:'El Niño Index (ONI)'},{v:'temperature',l:'Temp Anomaly (°C)'},{v:'water',l:'Precipitation Anomaly (mm)'}],
   cocoa:  [{v:'oni',l:'El Niño Index (ONI)'}],
-  palmoil:[{v:'oni',l:'El Niño Index (ONI)'}],
+  palmoil:[{v:'oni',l:'El Niño Index (ONI)'},{v:'water',l:'Precipitation Anomaly (mm)'}],
   coffee: [{v:'oni',l:'RONI — ENSO Index'}],
 };
 const DUAL_OUTCOMES={
@@ -5291,6 +5303,7 @@ function chartDual(k){
         volumeYoy:   {l:'Production YoY', unit:'%',   get:c=>{const a=c==='idn'?C.palmoil.outcomes.volume.idTraj:c==='mys'?C.palmoil.outcomes.volume.myTraj:C.palmoil.worldProd.map(d=>({yr:d.yr,kt:d.mmt*1000}));return a.slice(1).map((d,i)=>{const p=a[i];const v=d.kt||d.mmt*1000,pv=p.kt||p.mmt*1000;return v&&pv?{yr:+d.yr,val:+((v/pv-1)*100).toFixed(2)}:null;}).filter(Boolean);}},
         cpoyield:    {l:'FFB Yield',      unit:'t/ha',get:c=>(C.palmoil.cpoYield[{idn:'id',mys:'my',wld:'wld'}[c]]||C.palmoil.cpoYield.wld||[]).map(d=>({yr:+d.yr,val:d.v}))},
         cpoyieldYoy: {l:'FFB Yield YoY',  unit:'%',   get:c=>{const a=C.palmoil.cpoYield[{idn:'id',mys:'my',wld:'wld'}[c]]||C.palmoil.cpoYield.wld||[];return a.slice(1).map((d,i)=>{const p=a[i];return p.v&&d.v?{yr:+d.yr,val:+((d.v/p.v-1)*100).toFixed(2)}:null;}).filter(Boolean);}},
+        water:       {l:'Precip. Anom.',  unit:'mm',  get:c=>(C.palmoil.countryWater[{idn:'id',mys:'my',wld:'wld'}[c]]||[]).map(d=>({yr:+d.yr,val:d.anom,src:d.src}))},
       }
     }
   };
@@ -5493,7 +5506,7 @@ function chartDual(k){
       'palmoil|water+volumeYoy|mys':'At 1-year lag, Malaysia precipitation → production YoY shows a moderate positive correlation. Because Malaysia\'s planted area is stable, volume and yield track closely. The 2015 drought (−205mm) produced a clear volume decline in 2016. Malaysia is the cleaner country for this combination relative to Indonesia.',
       'palmoil|water+volumeYoy|wld':'At 1-year lag, world precipitation → production YoY captures the joint drought signal across both producers. Only the most severe events (2015, 2019) are large enough to produce a world-level volume decline despite Indonesia\'s ongoing expansion. CPO Yield YoY gives a sharper read; use this combination as a secondary confirmation.',
       // AVOCADO
-      'avocado|oni+yieldYoy':'Weak correlation is expected and analytically honest. Mexican avocado (~80% of production) is heavily irrigated in Michoacán, buffering rainfall shocks that El Niño drives. Year-to-year yield swings are dominated by alternate bearing cycles and orchard management decisions. The ONI→Mexico drought teleconnection is also noisy — the 2015–16 super El Niño barely registered in Michoacán precipitation.',
+      'avocado|oni+yieldYoy':'Weak world-level correlation is expected. Mexico (~25% of global supply) is partially irrigated, buffering direct rainfall shocks; Peru has an opposite ENSO response (flooding not drought); Colombia\'s yield is masked by expansion noise. Year-to-year yield swings are dominated by alternate bearing cycles and orchard management. Select a specific country for a more meaningful read.',
       'avocado|oni+yield':'Absolute yield (t/ha) trends upward due to orchard improvement and genetics — correlating with ONI conflates this structural trend with the weather signal. Switch to Yield YoY for a cleaner causal read.',
       'avocado|oni+volumeYoy':'Some co-movement expected since El Niño dries Mexico (the largest single supplier), but Peru and Colombia now contribute 30%+ of global supply and have different weather exposure — this dilutes the ONI signal in world-level production YoY.',
       'avocado|oni+volume':'Global avocado volume has grown ~4× since 2000 driven by Peru and Colombia expansion. Correlating ONI against this trend is not analytically meaningful — the structural expansion dominates the weather signal entirely.',
