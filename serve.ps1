@@ -92,6 +92,31 @@ while ($listener.IsListening) {
           Write-Json $res $json
         }
 
+        # NOAA CPC ONI history — all rows, annual calendar-year averages
+        elseif ($urlPath -eq "/proxy/oni-history") {
+          $url = "https://www.cpc.ncep.noaa.gov/data/indices/oni.ascii.txt"
+          Write-Host "  PROXY ONI-HISTORY $url"
+          $raw   = $wc.DownloadString($url)
+          $lines = ($raw.Trim() -split '\r?\n') | Where-Object { $_ -match '\S' -and $_ -notmatch '^SEAS' }
+          # Accumulate per year; col index 3 = ANOM
+          $byYear = @{}
+          foreach ($line in $lines) {
+            $p = $line.Trim() -split '\s+'
+            if ($p.Length -lt 4) { continue }
+            $yr = [int]$p[1]
+            $v  = [double]$p[3]
+            if (!$byYear.ContainsKey($yr)) { $byYear[$yr] = @() }
+            $byYear[$yr] += $v
+          }
+          $entries = $byYear.Keys | Sort-Object | ForEach-Object {
+            $yr  = $_
+            $avg = ($byYear[$yr] | Measure-Object -Average).Average
+            $avg = [Math]::Round($avg, 2)
+            "{`"yr`":$yr,`"oni`":$avg}"
+          }
+          Write-Json $res "[$(($entries) -join ',')]"
+        }
+
         else { Write-Err $res 404 "unknown proxy route" }
 
       } catch {
